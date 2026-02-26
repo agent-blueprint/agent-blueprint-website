@@ -1,0 +1,36 @@
+# Agent Blueprint
+
+> AI Agents. From Strategy to Execution.
+
+Agent Blueprint transforms your business processes into intelligent AI agent workflows. We take you from strategy to execution with a structured, proven methodology.
+
+## What We Do
+
+Agent Blueprint helps businesses identify, design, and deploy AI-powered agent workflows. Our platform provides end-to-end support from initial discovery through production deployment.
+
+## Our Four-Phase Approach
+
+### 1. Discover
+We audit your existing processes to identify high-impact AI automation opportunities. Our discovery framework maps your workflows and pinpoints where intelligent agents will deliver the greatest return.
+
+### 2. Architect
+We design agent workflows tailored to your specific business context. Every integration point, decision tree, and handoff is mapped before a single line of code is written.
+
+### 3. Validate
+We prototype and stress-test solutions in controlled environments. You see real results with real data before committing to full-scale deployment.
+
+### 4. Execute
+We deploy production-ready AI agents that integrate seamlessly with your existing systems. Monitoring, iteration, and optimization are built in from day one.
+
+## Who It's For
+
+Agent Blueprint is designed for businesses of all sizes looking to leverage AI agents to automate and optimize their operations. Whether you're a startup exploring AI for the first time or an enterprise scaling existing automation, our platform provides the structure and expertise to succeed.
+
+## Get Started
+
+Visit [app.agentblueprint.ai](https://app.agentblueprint.ai) to begin your blueprint.
+
+## Connect
+
+- Website: [agentblueprint.ai](https://agentblueprint.ai)
+- LinkedIn: [Agent Blueprint](https://www.linkedin.com/company/agent-blueprint)
