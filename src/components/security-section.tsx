@@ -24,7 +24,7 @@ const securityPractices = [
     number: "02",
     icon: Lock,
     title: "Data Protection",
-    body: "All data is stored in Supabase (PostgreSQL) with encryption at rest and in transit. PII redaction is applied to LLM inputs, and tenant data is strictly isolated at the database level.",
+    body: "All data is stored in Supabase (PostgreSQL) with encryption at rest and in transit. PII patterns are redacted from stored reasoning traces. Tenant data is isolated at the application and database level.",
   },
   {
     number: "03",
@@ -36,7 +36,7 @@ const securityPractices = [
     number: "04",
     icon: Server,
     title: "Infrastructure",
-    body: "Hosted on Vercel with HTTPS everywhere. CSRF protection on all mutating endpoints. Rate limiting on API routes. No self-hosted infrastructure to patch or maintain.",
+    body: "Hosted on Vercel with HTTPS everywhere and edge-level DDoS protection. CSRF protection on all mutating endpoints. Application-level rate limiting on API routes. No self-hosted infrastructure to patch or maintain.",
   },
   {
     number: "05",
