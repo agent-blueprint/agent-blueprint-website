@@ -76,3 +76,15 @@ Environment variables are configured in Vercel (Project Settings > Environment V
 - Components use shadcn/ui patterns (see `src/components/ui/`)
 - Use Tailwind utility classes for styling, not CSS files
 - Follow existing file and naming patterns in the codebase
+
+## GEO/AEO Checklist
+
+Every new page must follow these rules (see `docs/GEO-AEO-GUIDELINES.md` for templates and details):
+
+1. **One H1 per page**, proper heading hierarchy (H1 > H2 > H3, no skipping)
+2. **Add BreadcrumbList + WebPage JSON-LD schemas** using `breadcrumbSchema()` and `webPageSchema()` from `src/lib/metadata.ts`
+3. **Direct-answer-first content structure** — lead with a clear answer, then expand with detail
+4. **Update `src/app/sitemap.ts`** — add the new page with a real `modified` date (never `new Date()`)
+5. **Update `public/llms.txt` and `/llms-full.txt`** with new page content
+6. **Never block AI crawlers** in `robots.txt` — all listed bots must have `Allow: /`
+7. **Keep `dateModified` in sync** — update WebPage schema and sitemap dates when page content changes

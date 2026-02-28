@@ -5,6 +5,7 @@ import {
   organizationSchema,
   softwareApplicationSchema,
   faqPageSchema,
+  howToSchema,
 } from "@/lib/metadata";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
@@ -35,6 +36,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(faqPageSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(howToSchema),
           }}
         />
       </head>
