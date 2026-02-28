@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,6 +17,7 @@ import { siteConfig } from "@/lib/metadata";
 const navLinks = [
   { label: "How It Works", href: "#how-it-works" },
   { label: "Capabilities", href: "#capabilities" },
+  { label: "Security", href: "/security" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -70,15 +72,25 @@ export function Navigation() {
 
         {/* Desktop nav */}
         <div className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => (
-            <button
-              key={link.href}
-              onClick={() => scrollToSection(link.href.slice(1))}
-              className="font-body text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {link.label}
-            </button>
-          ))}
+          {navLinks.map((link) =>
+            link.href.startsWith("#") ? (
+              <button
+                key={link.href}
+                onClick={() => scrollToSection(link.href.slice(1))}
+                className="font-body text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {link.label}
+              </button>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="font-body text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {link.label}
+              </Link>
+            )
+          )}
           <Button
             asChild
             className="bg-accent text-accent-foreground hover:bg-accent/90 font-body font-semibold"
@@ -105,18 +117,29 @@ export function Navigation() {
               Navigation menu
             </SheetDescription>
             <nav className="mt-8 flex flex-col gap-6">
-              {navLinks.map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => {
-                    scrollToSection(link.href.slice(1));
-                    setSheetOpen(false);
-                  }}
-                  className="font-body text-base font-medium text-muted-foreground transition-colors hover:text-foreground text-left"
-                >
-                  {link.label}
-                </button>
-              ))}
+              {navLinks.map((link) =>
+                link.href.startsWith("#") ? (
+                  <button
+                    key={link.href}
+                    onClick={() => {
+                      scrollToSection(link.href.slice(1));
+                      setSheetOpen(false);
+                    }}
+                    className="font-body text-base font-medium text-muted-foreground transition-colors hover:text-foreground text-left"
+                  >
+                    {link.label}
+                  </button>
+                ) : (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setSheetOpen(false)}
+                    className="font-body text-base font-medium text-muted-foreground transition-colors hover:text-foreground text-left"
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
               <Button
                 asChild
                 className="bg-accent text-accent-foreground hover:bg-accent/90 font-body font-semibold w-full"

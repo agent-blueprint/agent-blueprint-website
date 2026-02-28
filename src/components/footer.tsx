@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Linkedin } from "lucide-react";
 import { DimensionLine } from "@/components/dimension-line";
 import { siteConfig } from "@/lib/metadata";
@@ -43,6 +44,13 @@ export function Footer() {
                 </a>
               ))}
             </div>
+
+            <Link
+              href="/security"
+              className="font-body text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Security
+            </Link>
 
             <a
               href={siteConfig.appUrl}
