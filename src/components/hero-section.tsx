@@ -47,19 +47,41 @@ export function HeroSection() {
             </motion.p>
 
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.45, ease }}
-              className="mt-4 font-display text-6xl leading-tight text-foreground md:text-8xl md:leading-tight"
+              initial={{ clipPath: "inset(0 100% 0 0)", opacity: 0 }}
+              animate={{ clipPath: "inset(0 0% 0 0)", opacity: 1 }}
+              transition={{ duration: 1, delay: 0.45, ease }}
+              className="mt-4 font-display italic text-primary"
+              style={{
+                fontSize: "clamp(3rem, 6vw + 1rem, 7rem)",
+                lineHeight: 1.05,
+              }}
             >
-              <span className="italic text-primary">Agent Blueprint</span>
+              Agent Blueprint
             </motion.h1>
+
+            {/* Title block annotation — desktop only */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 1.2, ease }}
+              className="mt-3 hidden md:flex items-center justify-center gap-2 font-mono text-[10px] uppercase tracking-widest text-blueprint-annotation/50"
+              aria-hidden="true"
+            >
+              <span>Agent Blueprint</span>
+              <span className="text-blueprint-annotation/30">|</span>
+              <span>DWG. No. AB-001</span>
+              <span className="text-blueprint-annotation/30">|</span>
+              <span>Rev 2.0</span>
+              <span className="text-blueprint-annotation/30">|</span>
+              <span>NTS</span>
+            </motion.div>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6, ease }}
-              className="mx-auto mt-6 max-w-2xl font-body text-lg text-muted-foreground md:text-xl"
+              className="mx-auto mt-6 max-w-2xl font-body text-base text-muted-foreground md:text-lg"
+              style={{ letterSpacing: "0.2em" }}
             >
               Move from strategy to production ready AI solutions in just days.
             </motion.p>
