@@ -2,7 +2,6 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Shield,
   Lock,
@@ -12,6 +11,8 @@ import {
   Users,
 } from "lucide-react";
 import Link from "next/link";
+import { CornerBrackets } from "@/components/decorative/corner-brackets";
+import { BlueprintGrid } from "@/components/blueprint-grid";
 
 const securityPractices = [
   {
@@ -74,8 +75,8 @@ function SecurityCard({
         ease: [0.25, 0.4, 0.25, 1],
       }}
     >
-      <Card className="h-full border-t-2 border-t-primary border-border bg-background/80 backdrop-blur-sm">
-        <CardContent className="p-6">
+      <CornerBrackets className="h-full">
+        <div className="h-full border-t-2 border-t-primary border border-border bg-background/80 backdrop-blur-sm p-6">
           <div className="flex items-center gap-3">
             <span className="font-mono text-xs font-medium tracking-wider text-blueprint-annotation">
               {practice.number}
@@ -88,8 +89,8 @@ function SecurityCard({
           <p className="mt-2 font-body text-sm leading-relaxed text-muted-foreground">
             {practice.body}
           </p>
-        </CardContent>
-      </Card>
+        </div>
+      </CornerBrackets>
     </motion.div>
   );
 }
@@ -97,33 +98,35 @@ function SecurityCard({
 export function SecuritySection() {
   return (
     <>
-      <section className="pt-32 pb-24 md:pt-40 md:pb-32">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-16 text-center">
-            <span className="font-mono text-xs font-medium uppercase tracking-widest text-blueprint-annotation">
-              Security Practices
-            </span>
-            <h1 className="mt-4 font-display text-4xl text-foreground md:text-5xl">
-              Built for Enterprise Trust
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl font-body text-base leading-relaxed text-muted-foreground">
-              Agent Blueprint is designed with security at every layer. From
-              authentication to AI output validation, we apply the safeguards
-              that enterprise teams expect.
-            </p>
-          </div>
+      <BlueprintGrid>
+        <section className="pt-32 pb-24 md:pt-40 md:pb-32">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="mb-16 text-center">
+              <span className="font-mono text-xs font-medium uppercase tracking-widest text-blueprint-annotation">
+                Security Practices
+              </span>
+              <h1 className="mt-4 font-display text-4xl text-foreground md:text-5xl">
+                Built for Enterprise Trust
+              </h1>
+              <p className="mx-auto mt-6 max-w-2xl font-body text-base leading-relaxed text-muted-foreground">
+                Agent Blueprint is designed with security at every layer. From
+                authentication to AI output validation, we apply the safeguards
+                that enterprise teams expect.
+              </p>
+            </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {securityPractices.map((practice, index) => (
-              <SecurityCard
-                key={practice.number}
-                practice={practice}
-                index={index}
-              />
-            ))}
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {securityPractices.map((practice, index) => (
+                <SecurityCard
+                  key={practice.number}
+                  practice={practice}
+                  index={index}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </BlueprintGrid>
 
       <section className="pb-24 md:pb-32">
         <div className="mx-auto max-w-7xl px-6 text-center">

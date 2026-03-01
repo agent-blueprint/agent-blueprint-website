@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Linkedin } from "lucide-react";
 import { DimensionLine } from "@/components/dimension-line";
+import { TitleBlock } from "@/components/decorative/title-block";
 import { siteConfig } from "@/lib/metadata";
 
 const linkedinLinks = [
@@ -20,11 +21,11 @@ const linkedinLinks = [
 
 export function Footer() {
   return (
-    <footer className="py-12">
+    <footer className="py-12 corner-brackets mx-6 mb-6">
       <div className="mx-auto max-w-7xl px-6">
-        <DimensionLine className="mb-12" />
+        <DimensionLine label="AGENT BLUEPRINT" className="mb-12" />
 
-        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
           <p className="font-body text-sm text-muted-foreground">
             &copy; 2026 Agent Blueprint. All rights reserved.
           </p>
@@ -68,6 +69,11 @@ export function Footer() {
               Get Started
             </a>
           </div>
+        </div>
+
+        {/* Engineering title block */}
+        <div className="mt-12 flex justify-end">
+          <TitleBlock />
         </div>
       </div>
     </footer>

@@ -16,6 +16,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { contactFormSchema, type ContactFormData } from "@/lib/schemas";
+import { GeometricConstruction } from "@/components/decorative/geometric-construction";
 
 const linkedinLinks = [
   {
@@ -80,7 +81,7 @@ export function ContactSection() {
         </div>
 
         <div className="grid gap-12 md:grid-cols-2 md:gap-16">
-          {/* Contact form */}
+          {/* Contact form with underline-style inputs */}
           <div>
             <Form {...form}>
               <form
@@ -98,7 +99,7 @@ export function ContactSection() {
                       <FormControl>
                         <Input
                           placeholder="Your name"
-                          className="font-body"
+                          className="font-body rounded-none border-0 border-b border-border bg-transparent px-0 shadow-none focus-visible:border-primary focus-visible:ring-0"
                           {...field}
                         />
                       </FormControl>
@@ -118,7 +119,7 @@ export function ContactSection() {
                         <Input
                           type="email"
                           placeholder="you@company.com"
-                          className="font-body"
+                          className="font-body rounded-none border-0 border-b border-border bg-transparent px-0 shadow-none focus-visible:border-primary focus-visible:ring-0"
                           {...field}
                         />
                       </FormControl>
@@ -137,7 +138,7 @@ export function ContactSection() {
                       <FormControl>
                         <Input
                           placeholder="Your company"
-                          className="font-body"
+                          className="font-body rounded-none border-0 border-b border-border bg-transparent px-0 shadow-none focus-visible:border-primary focus-visible:ring-0"
                           {...field}
                         />
                       </FormControl>
@@ -157,7 +158,7 @@ export function ContactSection() {
                       <FormControl>
                         <Textarea
                           placeholder="Tell us about your project..."
-                          className="font-body min-h-[120px]"
+                          className="font-body min-h-[120px] rounded-none border-0 border-b border-border bg-transparent px-0 shadow-none focus-visible:border-primary focus-visible:ring-0"
                           {...field}
                         />
                       </FormControl>
@@ -168,7 +169,7 @@ export function ContactSection() {
                 <Button
                   type="submit"
                   disabled={form.formState.isSubmitting}
-                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-body font-semibold"
+                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90 hover:shadow-[0_0_20px_var(--accent-glow)] font-body font-semibold transition-all duration-300"
                 >
                   {form.formState.isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
@@ -176,29 +177,36 @@ export function ContactSection() {
             </Form>
           </div>
 
-          {/* LinkedIn links */}
-          <div className="flex flex-col justify-center">
-            <h3 className="font-display text-2xl text-foreground">
-              Connect With Us
-            </h3>
-            <p className="mt-3 font-body text-sm text-muted-foreground">
-              Follow our journey and connect with the team on LinkedIn.
-            </p>
-            <div className="mt-8 flex flex-col gap-4">
-              {linkedinLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-3 rounded-lg border border-border p-4 transition-colors hover:border-primary/30 hover:bg-primary/5"
-                >
-                  <Linkedin className="h-5 w-5 text-primary" />
-                  <span className="font-body text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                    {link.name}
-                  </span>
-                </a>
-              ))}
+          {/* LinkedIn links with decorative background */}
+          <div className="relative flex flex-col justify-center">
+            {/* Decorative geometric construction */}
+            <div className="absolute inset-0 hidden md:flex items-center justify-center opacity-30 pointer-events-none" aria-hidden="true">
+              <GeometricConstruction className="w-64 h-64" />
+            </div>
+
+            <div className="relative">
+              <h3 className="font-display text-2xl text-foreground">
+                Connect With Us
+              </h3>
+              <p className="mt-3 font-body text-sm text-muted-foreground">
+                Follow our journey and connect with the team on LinkedIn.
+              </p>
+              <div className="mt-8 flex flex-col gap-4">
+                {linkedinLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="corner-brackets group flex items-center gap-3 p-4 transition-all duration-300 hover:border-primary/30 hover:bg-primary/5"
+                  >
+                    <Linkedin className="h-5 w-5 text-primary" />
+                    <span className="font-body text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                      {link.name}
+                    </span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>

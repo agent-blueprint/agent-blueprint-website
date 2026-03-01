@@ -1,10 +1,10 @@
-import { Instrument_Serif, Outfit, JetBrains_Mono } from "next/font/google";
+import { Cormorant_Garamond, Outfit, JetBrains_Mono } from "next/font/google";
 
-export const instrumentSerif = Instrument_Serif({
-  weight: "400",
+export const cormorantGaramond = Cormorant_Garamond({
+  weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
   subsets: ["latin"],
-  variable: "--font-instrument-serif",
+  variable: "--font-cormorant-garamond",
   display: "swap",
 });
 

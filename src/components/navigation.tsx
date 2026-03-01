@@ -43,27 +43,37 @@ export function Navigation() {
 
   return (
     <header
-      className={`fixed top-0 z-50 w-full transition-colors duration-300 ${
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-background/95 backdrop-blur-sm border-b border-border"
+          ? "bg-background/95 backdrop-blur-sm"
           : "bg-transparent"
       }`}
     >
+      {/* Dimension-line bottom border when scrolled */}
+      {scrolled && (
+        <div className="absolute bottom-0 left-0 right-0 flex items-center px-6" aria-hidden="true">
+          <div className="h-2 w-px bg-primary/20" />
+          <div className="h-px flex-1 bg-primary/20" />
+          <div className="h-2 w-px bg-primary/20" />
+        </div>
+      )}
+
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+        {/* Logo with title block cartouche border */}
         <a
           href="#"
           onClick={(e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
-          className="flex items-center gap-3"
+          className="flex items-center gap-3 border border-primary/15 px-3 py-1.5 transition-colors hover:border-primary/30"
         >
           <Image
             src="/images/logo.png"
             alt="Agent Blueprint"
             width={40}
             height={40}
-            className="h-10 w-10"
+            className="h-8 w-8"
             priority
           />
           <span className="font-display text-xl text-primary">
@@ -78,23 +88,25 @@ export function Navigation() {
               <button
                 key={link.href}
                 onClick={() => scrollToSection(link.href.slice(1))}
-                className="font-body text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                className="group relative font-body text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
                 {link.label}
+                <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-foreground transition-transform duration-300 group-hover:scale-x-100" />
               </button>
             ) : (
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-body text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                className="group relative font-body text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
                 {link.label}
+                <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-foreground transition-transform duration-300 group-hover:scale-x-100" />
               </Link>
             )
           )}
           <Button
             asChild
-            className="bg-accent text-accent-foreground hover:bg-accent/90 font-body font-semibold"
+            className="bg-accent text-accent-foreground hover:bg-accent/90 hover:shadow-[0_0_15px_var(--accent-glow)] font-body font-semibold transition-all duration-300"
           >
             <a href={siteConfig.appUrl} target="_blank" rel="noopener noreferrer">
               Get Started

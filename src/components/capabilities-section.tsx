@@ -2,7 +2,8 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import { BlueprintGrid } from "@/components/blueprint-grid";
+import { CornerBrackets } from "@/components/decorative/corner-brackets";
 
 const capabilities = [
   {
@@ -47,6 +48,9 @@ function CapabilityCard({
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
+  // First 2 cards span wider for bento layout
+  const isWide = index < 2;
+
   return (
     <motion.div
       ref={ref}
@@ -57,50 +61,54 @@ function CapabilityCard({
         delay: index * 0.1,
         ease: [0.25, 0.4, 0.25, 1],
       }}
+      className={isWide ? "sm:col-span-2 lg:col-span-1" : ""}
     >
-      <Card className="h-full border-t-2 border-t-primary border-border bg-background/80 backdrop-blur-sm">
-        <CardContent className="p-6">
-          <span className="font-mono text-xs font-medium tracking-wider text-blueprint-annotation">
+      <CornerBrackets className="h-full">
+        <div className="h-full bg-white/5 border border-white/10 p-6 transition-colors duration-300 hover:border-accent/40 hover:shadow-[0_0_20px_var(--accent-glow)]">
+          <span className="font-mono text-xs font-medium tracking-wider text-dark-surface-foreground/50">
             {capability.number}
           </span>
-          <h3 className="mt-3 font-display text-xl text-foreground">
+          <h3 className="mt-3 font-display text-xl text-dark-surface-foreground">
             {capability.title}
           </h3>
-          <p className="mt-2 font-body text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-2 font-body text-sm leading-relaxed text-dark-surface-foreground/70">
             {capability.body}
           </p>
-        </CardContent>
-      </Card>
+        </div>
+      </CornerBrackets>
     </motion.div>
   );
 }
 
 export function CapabilitiesSection() {
   return (
-    <section id="capabilities" className="py-24 md:py-32 bg-secondary/30">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16 text-center">
-          <span className="font-mono text-xs font-medium uppercase tracking-widest text-blueprint-annotation">
-            What We Deliver
-          </span>
-          <h2 className="mt-4 font-display text-4xl text-foreground md:text-5xl">
-            Platform Capabilities
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl font-body text-base text-muted-foreground">
-            Discover how Agent Blueprint transforms your business strategy into intelligent AI solutions
-          </p>
-        </div>
+    <BlueprintGrid variant="dark">
+      <section id="capabilities" className="py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-16 text-center">
+            <span className="font-mono text-xs font-medium uppercase tracking-widest text-dark-surface-foreground/50">
+              What We Deliver
+            </span>
+            <h2 className="mt-4 font-display text-4xl text-dark-surface-foreground md:text-5xl">
+              Platform Capabilities
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl font-body text-base text-dark-surface-foreground/70">
+              Discover how Agent Blueprint transforms your business strategy
+              into intelligent AI solutions
+            </p>
+          </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {capabilities.map((capability, index) => (
-            <CapabilityCard
-              key={capability.number}
-              capability={capability}
-              index={index}
-            />
-          ))}
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {capabilities.map((capability, index) => (
+              <CapabilityCard
+                key={capability.number}
+                capability={capability}
+                index={index}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </BlueprintGrid>
   );
 }

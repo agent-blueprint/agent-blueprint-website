@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { motion, useInView } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -27,6 +26,9 @@ import {
   Zap,
   TrendingUp,
 } from "lucide-react";
+import { BlueprintGrid } from "@/components/blueprint-grid";
+import { CornerBrackets } from "@/components/decorative/corner-brackets";
+import { DimensionLine } from "@/components/dimension-line";
 
 const ease = [0.25, 0.4, 0.25, 1] as const;
 
@@ -153,95 +155,99 @@ export function PartnersSection() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-24 md:pt-40 md:pb-32">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mx-auto max-w-3xl text-center">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.15, ease }}
-              className="font-mono text-sm font-medium uppercase tracking-widest text-blueprint-annotation"
-            >
-              For ServiceNow Partners
-            </motion.p>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.25, ease }}
-              className="mt-4 font-display text-4xl leading-tight text-foreground md:text-6xl md:leading-tight"
-            >
-              Scale Your AI Practice.{" "}
-              <span className="italic text-primary">
-                Standardize Client Delivery.
-              </span>{" "}
-              Boost Your Margins.
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.35, ease }}
-              className="mx-auto mt-6 max-w-2xl font-body text-lg text-muted-foreground"
-            >
-              An AI Strategy &amp; Delivery platform that helps ServiceNow
-              Partners streamline AI advisory services, automate agent design,
-              accelerate build, and secure recurring managed services revenue.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.45, ease }}
-              className="mt-10"
-            >
-              <Button
-                size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent/90 font-body font-semibold text-base px-8"
-                onClick={() => {
-                  document
-                    .getElementById("partner-contact")
-                    ?.scrollIntoView({ behavior: "smooth" });
-                }}
+      <BlueprintGrid>
+        <section className="pt-32 pb-24 md:pt-40 md:pb-32">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="mx-auto max-w-3xl text-center">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.15, ease }}
+                className="font-mono text-sm font-medium uppercase tracking-widest text-blueprint-annotation"
               >
-                Request a Demo
-              </Button>
-            </motion.div>
+                For ServiceNow Partners
+              </motion.p>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.25, ease }}
+                className="mt-4 font-display text-4xl leading-tight text-foreground md:text-6xl md:leading-tight"
+              >
+                Scale Your AI Practice.{" "}
+                <span className="italic text-primary">
+                  Standardize Client Delivery.
+                </span>{" "}
+                Boost Your Margins.
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.35, ease }}
+                className="mx-auto mt-6 max-w-2xl font-body text-lg text-muted-foreground"
+              >
+                An AI Strategy &amp; Delivery platform that helps ServiceNow
+                Partners streamline AI advisory services, automate agent design,
+                accelerate build, and secure recurring managed services revenue.
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.45, ease }}
+                className="mt-10"
+              >
+                <Button
+                  size="lg"
+                  className="bg-accent text-accent-foreground hover:bg-accent/90 hover:shadow-[0_0_20px_var(--accent-glow)] font-body font-semibold text-base px-8 transition-all duration-300"
+                  onClick={() => {
+                    document
+                      .getElementById("partner-contact")
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
+                  Request a Demo
+                </Button>
+              </motion.div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </BlueprintGrid>
 
-      {/* Pain Points */}
-      <section className="py-24 md:py-32 bg-secondary/30">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-16 text-center">
-            <span className="font-mono text-xs font-medium uppercase tracking-widest text-blueprint-annotation">
-              The Challenge
-            </span>
-            <h2 className="mt-4 font-display text-3xl text-foreground md:text-4xl">
-              ServiceNow Partners Across the Ecosystem Are Struggling With:
-            </h2>
-          </div>
+      {/* Pain Points — dark section */}
+      <BlueprintGrid variant="dark">
+        <section className="py-24 md:py-32">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="mb-16 text-center">
+              <span className="font-mono text-xs font-medium uppercase tracking-widest text-dark-surface-foreground/50">
+                The Challenge
+              </span>
+              <h2 className="mt-4 font-display text-3xl text-dark-surface-foreground md:text-4xl">
+                ServiceNow Partners Across the Ecosystem Are Struggling With:
+              </h2>
+            </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {painPoints.map((point, index) => {
-              const Icon = point.icon;
-              return (
-                <AnimatedCard key={point.title} index={index}>
-                  <Card className="h-full border-t-2 border-t-primary border-border bg-background/80 backdrop-blur-sm">
-                    <CardContent className="p-6">
-                      <Icon className="h-6 w-6 text-primary" />
-                      <h3 className="mt-4 font-display text-xl text-foreground">
-                        {point.title}
-                      </h3>
-                      <p className="mt-2 font-body text-sm leading-relaxed text-muted-foreground">
-                        {point.body}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </AnimatedCard>
-              );
-            })}
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {painPoints.map((point, index) => {
+                const Icon = point.icon;
+                return (
+                  <AnimatedCard key={point.title} index={index}>
+                    <CornerBrackets className="h-full">
+                      <div className="h-full bg-white/5 border border-white/10 p-6 transition-colors duration-300 hover:border-accent/40 hover:shadow-[0_0_20px_var(--accent-glow)]">
+                        <Icon className="h-6 w-6 text-accent" />
+                        <h3 className="mt-4 font-display text-xl text-dark-surface-foreground">
+                          {point.title}
+                        </h3>
+                        <p className="mt-2 font-body text-sm leading-relaxed text-dark-surface-foreground/70">
+                          {point.body}
+                        </p>
+                      </div>
+                    </CornerBrackets>
+                  </AnimatedCard>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </BlueprintGrid>
 
       {/* Solution */}
       <section className="py-24 md:py-32">
@@ -260,8 +266,8 @@ export function PartnersSection() {
               const Icon = solution.icon;
               return (
                 <AnimatedCard key={solution.title} index={index}>
-                  <Card className="h-full border-border bg-background/80 backdrop-blur-sm">
-                    <CardContent className="p-6">
+                  <CornerBrackets className="h-full">
+                    <div className="h-full border border-border bg-background/80 backdrop-blur-sm p-6 transition-colors duration-300 hover:border-accent/30 hover:shadow-[0_0_15px_var(--accent-glow)]">
                       <Icon className="h-6 w-6 text-primary" />
                       <h3 className="mt-4 font-display text-xl text-foreground">
                         {solution.title}
@@ -269,8 +275,8 @@ export function PartnersSection() {
                       <p className="mt-2 font-body text-sm leading-relaxed text-muted-foreground">
                         {solution.body}
                       </p>
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </CornerBrackets>
                 </AnimatedCard>
               );
             })}
@@ -278,38 +284,43 @@ export function PartnersSection() {
         </div>
       </section>
 
-      {/* How It Works for Partners */}
-      <section className="py-24 md:py-32 bg-secondary/30">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-16 text-center">
-            <span className="font-mono text-xs font-medium uppercase tracking-widest text-blueprint-annotation">
-              Our Process
-            </span>
-            <h2 className="mt-4 font-display text-3xl text-foreground md:text-4xl">
-              How It Works
-            </h2>
-          </div>
+      {/* How It Works for Partners — dark section */}
+      <BlueprintGrid variant="dark">
+        <section className="py-24 md:py-32">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="mb-16 text-center">
+              <span className="font-mono text-xs font-medium uppercase tracking-widest text-dark-surface-foreground/50">
+                Our Process
+              </span>
+              <h2 className="mt-4 font-display text-3xl text-dark-surface-foreground md:text-4xl">
+                How It Works
+              </h2>
+            </div>
 
-          <div className="grid gap-8 sm:grid-cols-2">
-            {partnerSteps.map((step, index) => (
-              <AnimatedCard key={step.number} index={index}>
-                <div className="rounded-lg border border-border bg-background/80 p-6 backdrop-blur-sm">
-                  <span className="font-mono text-xs font-medium tracking-wider text-blueprint-annotation">
-                    [{step.number}] {step.label}
-                  </span>
-                  <p className="mt-3 font-body text-sm leading-relaxed text-muted-foreground">
-                    {step.body}
-                  </p>
-                </div>
-              </AnimatedCard>
-            ))}
+            <div className="grid gap-8 sm:grid-cols-2">
+              {partnerSteps.map((step, index) => (
+                <AnimatedCard key={step.number} index={index}>
+                  <CornerBrackets className="h-full">
+                    <div className="bg-white/5 border border-white/10 p-6">
+                      <span className="font-mono text-xs font-medium tracking-wider text-dark-surface-foreground/50">
+                        [{step.number}] {step.label}
+                      </span>
+                      <p className="mt-3 font-body text-sm leading-relaxed text-dark-surface-foreground/70">
+                        {step.body}
+                      </p>
+                    </div>
+                  </CornerBrackets>
+                </AnimatedCard>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </BlueprintGrid>
 
       {/* Contact / Demo Request */}
       <section id="partner-contact" className="py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-6">
+          <DimensionLine label="CONTACT" animate className="mb-16" />
           <div className="mb-16 text-center">
             <span className="font-mono text-xs font-medium uppercase tracking-widest text-blueprint-annotation">
               Get Started
@@ -330,7 +341,7 @@ export function PartnersSection() {
                 Get in Touch
               </h3>
               <div className="mt-8 space-y-4">
-                <div className="flex items-center gap-3 rounded-lg border border-border p-4">
+                <div className="corner-brackets flex items-center gap-3 p-4">
                   <span className="font-body text-sm font-medium text-foreground">
                     Email
                   </span>
@@ -341,7 +352,7 @@ export function PartnersSection() {
                     info@agentblueprint.ai
                   </a>
                 </div>
-                <div className="flex items-center gap-3 rounded-lg border border-border p-4">
+                <div className="corner-brackets flex items-center gap-3 p-4">
                   <span className="font-body text-sm font-medium text-foreground">
                     Website
                   </span>
@@ -373,7 +384,7 @@ export function PartnersSection() {
                         <FormControl>
                           <Input
                             placeholder="John Doe"
-                            className="font-body"
+                            className="font-body rounded-none border-0 border-b border-border bg-transparent px-0 shadow-none focus-visible:border-primary focus-visible:ring-0"
                             {...field}
                           />
                         </FormControl>
@@ -393,7 +404,7 @@ export function PartnersSection() {
                           <Input
                             type="email"
                             placeholder="name@company.com"
-                            className="font-body"
+                            className="font-body rounded-none border-0 border-b border-border bg-transparent px-0 shadow-none focus-visible:border-primary focus-visible:ring-0"
                             {...field}
                           />
                         </FormControl>
@@ -412,7 +423,7 @@ export function PartnersSection() {
                         <FormControl>
                           <Input
                             placeholder="Your Company"
-                            className="font-body"
+                            className="font-body rounded-none border-0 border-b border-border bg-transparent px-0 shadow-none focus-visible:border-primary focus-visible:ring-0"
                             {...field}
                           />
                         </FormControl>
@@ -434,7 +445,7 @@ export function PartnersSection() {
                         <FormControl>
                           <Textarea
                             placeholder="Tell us about your partnership goals..."
-                            className="font-body min-h-[120px]"
+                            className="font-body min-h-[120px] rounded-none border-0 border-b border-border bg-transparent px-0 shadow-none focus-visible:border-primary focus-visible:ring-0"
                             {...field}
                           />
                         </FormControl>
@@ -445,7 +456,7 @@ export function PartnersSection() {
                   <Button
                     type="submit"
                     disabled={form.formState.isSubmitting}
-                    className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-body font-semibold"
+                    className="w-full bg-accent text-accent-foreground hover:bg-accent/90 hover:shadow-[0_0_20px_var(--accent-glow)] font-body font-semibold transition-all duration-300"
                   >
                     {form.formState.isSubmitting
                       ? "Sending..."
