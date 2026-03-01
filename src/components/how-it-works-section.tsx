@@ -5,12 +5,12 @@ import Image from "next/image";
 import {
   motion,
   useScroll,
-  useTransform,
   useInView,
 } from "framer-motion";
 import { CornerBrackets } from "@/components/decorative/corner-brackets";
 import { AnnotationLabel } from "@/components/decorative/annotation-label";
 import { DimensionLine } from "@/components/dimension-line";
+import { SchematicPath } from "@/components/schematic-path";
 
 const steps = [
   {
@@ -141,8 +141,6 @@ export function HowItWorksSection() {
     offset: ["start 80%", "end 20%"],
   });
 
-  const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
-
   return (
     <section
       id="how-it-works"
@@ -162,20 +160,12 @@ export function HowItWorksSection() {
           </p>
         </div>
 
-        {/* Vertical line behind steps - desktop only */}
+        {/* Schematic connecting path behind steps - desktop only */}
         <div className="relative">
-          <div className="absolute left-1/2 top-0 hidden h-full -translate-x-1/2 md:block">
-            <div className="h-full w-px bg-border" />
-            <motion.div
-              className="absolute inset-0 w-px origin-top"
-              style={{
-                scaleY,
-                background:
-                  "repeating-linear-gradient(to bottom, var(--primary) 0px, var(--primary) 4px, transparent 4px, transparent 8px)",
-                opacity: 0.3,
-              }}
-            />
-          </div>
+          <SchematicPath
+            scrollProgress={scrollYProgress}
+            stepCount={steps.length}
+          />
 
           <div className="relative z-10 flex flex-col gap-16 md:gap-12">
             {steps.map((step, index) => (
