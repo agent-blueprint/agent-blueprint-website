@@ -14,7 +14,7 @@ export function GeometricConstruction({
 }: GeometricConstructionProps) {
   const { ref, isInView } = useLineDraw();
   const stroke = variant === "dark" ? "#e8dfd0" : "#1e3a5f";
-  const opacity = variant === "dark" ? 0.2 : 0.15;
+  const opacity = variant === "dark" ? 0.35 : 0.30;
 
   const drawTransition = (delay: number) => ({
     duration: 1.2,

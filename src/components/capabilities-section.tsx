@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { BlueprintGrid } from "@/components/blueprint-grid";
 import { CornerBrackets } from "@/components/decorative/corner-brackets";
+import { CompassArc } from "@/components/decorative/compass-arc";
 
 const capabilities = [
   {
@@ -83,7 +84,11 @@ function CapabilityCard({
 export function CapabilitiesSection() {
   return (
     <BlueprintGrid variant="dark">
-      <section id="capabilities" className="py-24 md:py-32">
+      <section id="capabilities" className="relative py-24 md:py-32">
+        {/* Watermark SVG */}
+        <div className="absolute right-8 top-16 w-64 lg:w-80 opacity-60 pointer-events-none hidden md:block" aria-hidden="true">
+          <CompassArc variant="dark" className="w-full h-auto" />
+        </div>
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-16 text-center">
             <span className="font-mono text-xs font-medium uppercase tracking-widest text-dark-surface-foreground/50">

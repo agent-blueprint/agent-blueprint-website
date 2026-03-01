@@ -21,7 +21,7 @@ export function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.5, delay: 0.1, ease }}
-              className="absolute top-1/2 -translate-y-1/2 right-0 w-48 lg:w-56"
+              className="absolute top-1/2 -translate-y-1/2 -right-12 w-80 lg:w-96"
             >
               <CompassArc className="w-full h-auto" />
             </motion.div>
@@ -29,7 +29,7 @@ export function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.5, delay: 0.4, ease }}
-              className="absolute bottom-8 left-0 w-36 lg:w-44"
+              className="absolute bottom-0 -left-8 w-64 lg:w-72"
             >
               <GeometricConstruction className="w-full h-auto" />
             </motion.div>
@@ -104,7 +104,7 @@ export function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.5, delay: 0.6, ease }}
-              className="absolute top-1/2 -translate-y-1/2 left-0 w-48 lg:w-56"
+              className="absolute top-1/2 -translate-y-1/2 -left-12 w-80 lg:w-96"
             >
               <CircuitDiagram className="w-full h-auto" />
             </motion.div>

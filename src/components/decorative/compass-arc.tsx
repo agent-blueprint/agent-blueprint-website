@@ -11,7 +11,7 @@ interface CompassArcProps {
 export function CompassArc({ className = "", variant = "light" }: CompassArcProps) {
   const { ref, isInView, pathLength } = useLineDraw();
   const stroke = variant === "dark" ? "#e8dfd0" : "#1e3a5f";
-  const opacity = variant === "dark" ? 0.3 : 0.2;
+  const opacity = variant === "dark" ? 0.45 : 0.30;
 
   return (
     <svg

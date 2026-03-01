@@ -14,7 +14,7 @@ export function CircuitDiagram({
 }: CircuitDiagramProps) {
   const { ref, isInView } = useLineDraw();
   const stroke = variant === "dark" ? "#e8dfd0" : "#1e3a5f";
-  const opacity = variant === "dark" ? 0.25 : 0.2;
+  const opacity = variant === "dark" ? 0.40 : 0.30;
 
   const drawTransition = (delay: number) => ({
     duration: 0.8,

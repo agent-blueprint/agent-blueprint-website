@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { BlueprintGrid } from "@/components/blueprint-grid";
+import { CircuitDiagram } from "@/components/decorative/circuit-diagram";
 import { siteConfig } from "@/lib/metadata";
 
 const trialFeatures = [
@@ -18,7 +19,11 @@ export function FreeTrialSection() {
 
   return (
     <BlueprintGrid variant="dark">
-      <section id="free-trial" className="py-24 md:py-32">
+      <section id="free-trial" className="relative py-24 md:py-32">
+        {/* Watermark SVG */}
+        <div className="absolute left-8 bottom-16 w-56 lg:w-72 opacity-60 pointer-events-none hidden md:block" aria-hidden="true">
+          <CircuitDiagram variant="dark" className="w-full h-auto" />
+        </div>
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             ref={ref}
