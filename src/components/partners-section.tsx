@@ -197,7 +197,7 @@ export function PartnersSection() {
               >
                 <Button
                   size="lg"
-                  className="btn-metallic text-accent-foreground font-body font-semibold text-base px-8 hover:scale-[1.02] active:scale-[0.98]"
+                  className="btn-metallic rounded-none text-accent-foreground font-body font-semibold text-base px-8 hover:scale-[1.01] active:scale-[0.99]"
                   onClick={() => {
                     document
                       .getElementById("partner-contact")
@@ -456,7 +456,7 @@ export function PartnersSection() {
                   <Button
                     type="submit"
                     disabled={form.formState.isSubmitting}
-                    className="w-full btn-metallic text-accent-foreground font-body font-semibold hover:scale-[1.02] active:scale-[0.98]"
+                    className="w-full btn-metallic rounded-none text-accent-foreground font-body font-semibold hover:scale-[1.01] active:scale-[0.99]"
                   >
                     {form.formState.isSubmitting
                       ? "Sending..."

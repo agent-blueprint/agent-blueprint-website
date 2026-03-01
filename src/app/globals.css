@@ -285,7 +285,7 @@
 }
 
 /* ============================================================
-   Metallic bronze button — cursor-tracking reflection
+   Metallic bronze button — brushed metal with cursor-tracking sheen
    --mx, --my: set by JS (0-100 percentage of cursor within button)
    ============================================================ */
 
@@ -294,39 +294,50 @@
   --my: 50;
   position: relative;
   overflow: hidden;
-  /* Base metallic gradient — vertical band simulating curved metal surface */
+  border-radius: 0 !important;
+  /*
+    Layered background:
+    1. Subtle noise texture for brushed-metal grain
+    2. Thin top-edge highlight (1px bright line)
+    3. Flat bronze base with very slight vertical shading
+  */
   background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E"),
     linear-gradient(
       180deg,
-      oklch(72% 0.09 72.6) 0%,
-      oklch(66% 0.12 72.6) 15%,
-      oklch(58% 0.13 72.6) 40%,
-      oklch(54% 0.12 72.6) 70%,
-      oklch(48% 0.11 72.6) 100%
+      oklch(62% 0.11 72.6) 0%,
+      oklch(59% 0.12 72.6) 8%,
+      oklch(57% 0.12 72.6) 50%,
+      oklch(55% 0.12 72.6) 92%,
+      oklch(52% 0.11 72.6) 100%
     );
-  border: 1px solid oklch(72% 0.10 72.6 / 40%);
+  border-top: 1px solid oklch(68% 0.08 72.6 / 50%);
+  border-left: 1px solid oklch(60% 0.10 72.6 / 30%);
+  border-right: 1px solid oklch(48% 0.10 72.6 / 40%);
+  border-bottom: 1px solid oklch(44% 0.10 72.6 / 60%);
   box-shadow:
-    inset 0 1px 0 0 oklch(82% 0.06 72.6 / 60%),
-    inset 0 -1px 0 0 oklch(38% 0.10 72.6 / 50%),
-    0 1px 3px 0 oklch(30% 0.05 72.6 / 25%);
-  text-shadow: 0 1px 1px oklch(30% 0.10 72.6 / 30%);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+    inset 0 1px 0 0 oklch(70% 0.06 72.6 / 35%),
+    inset 0 -1px 0 0 oklch(42% 0.08 72.6 / 30%),
+    0 1px 2px 0 oklch(25% 0.04 72.6 / 30%);
+  text-shadow: 0 1px 0 oklch(40% 0.08 72.6 / 40%);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-/* Cursor-following radial highlight — positioned via --mx, --my */
+/* Cursor-following sheen — tight ellipse, subtle */
 .btn-metallic::before {
   content: "";
   position: absolute;
   inset: 0;
   opacity: 0;
   pointer-events: none;
+  border-radius: 0;
   background: radial-gradient(
-    ellipse 120% 200% at calc(var(--mx) * 1%) calc(var(--my) * 1%),
-    oklch(88% 0.04 72.6 / 60%) 0%,
-    oklch(78% 0.07 72.6 / 25%) 30%,
+    ellipse 60% 80% at calc(var(--mx) * 1%) calc(var(--my) * 1%),
+    oklch(75% 0.06 72.6 / 40%) 0%,
+    oklch(65% 0.08 72.6 / 12%) 40%,
     transparent 70%
   );
-  transition: opacity 0.25s ease;
+  transition: opacity 0.2s ease;
 }
 
 .btn-metallic:hover::before {
@@ -335,25 +346,24 @@
 
 .btn-metallic:hover {
   box-shadow:
-    inset 0 1px 0 0 oklch(85% 0.05 72.6 / 65%),
-    inset 0 -1px 0 0 oklch(40% 0.10 72.6 / 45%),
-    0 2px 12px 0 oklch(66.3% 0.1331 72.6 / 25%),
-    0 0 20px 0 oklch(66.3% 0.1331 72.6 / 12%);
+    inset 0 1px 0 0 oklch(72% 0.06 72.6 / 40%),
+    inset 0 -1px 0 0 oklch(42% 0.08 72.6 / 30%),
+    0 1px 4px 0 oklch(25% 0.04 72.6 / 35%),
+    0 0 8px 0 oklch(58% 0.10 72.6 / 10%);
 }
 
 .btn-metallic:active {
   background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E"),
     linear-gradient(
       180deg,
-      oklch(64% 0.09 72.6) 0%,
-      oklch(58% 0.12 72.6) 15%,
-      oklch(52% 0.13 72.6) 40%,
-      oklch(48% 0.12 72.6) 70%,
-      oklch(44% 0.11 72.6) 100%
+      oklch(56% 0.11 72.6) 0%,
+      oklch(54% 0.12 72.6) 50%,
+      oklch(50% 0.11 72.6) 100%
     );
   box-shadow:
-    inset 0 2px 3px 0 oklch(30% 0.08 72.6 / 40%),
-    0 0 6px 0 oklch(66.3% 0.1331 72.6 / 8%);
+    inset 0 2px 3px 0 oklch(35% 0.06 72.6 / 35%),
+    0 0 2px 0 oklch(25% 0.04 72.6 / 20%);
 }
 
 /* ============================================================

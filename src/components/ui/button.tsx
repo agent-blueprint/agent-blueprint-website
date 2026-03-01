@@ -20,7 +20,7 @@ const buttonVariants = cva(
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
         blueprint:
-          "btn-metallic text-accent-foreground font-semibold hover:scale-[1.02] active:scale-[0.98] transition-all duration-300",
+          "btn-metallic rounded-none text-accent-foreground font-semibold hover:scale-[1.01] active:scale-[0.99] transition-all duration-200",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
