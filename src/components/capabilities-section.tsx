@@ -3,7 +3,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { BlueprintGrid } from "@/components/blueprint-grid";
-import { CornerBrackets } from "@/components/decorative/corner-brackets";
 import { CompassArc } from "@/components/decorative/compass-arc";
 import { WavyUnderline } from "@/components/decorative/redline-annotation";
 
