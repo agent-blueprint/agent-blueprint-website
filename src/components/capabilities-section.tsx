@@ -7,33 +7,33 @@ import { Card, CardContent } from "@/components/ui/card";
 const capabilities = [
   {
     number: "01",
-    title: "Process Discovery",
-    body: "AI-powered analysis of your existing workflows to identify automation opportunities with the highest ROI potential.",
+    title: "Tailored to Your Business",
+    body: "Agent Blueprint starts with your company profile, strategy, and technology stack, so every recommendation is aligned to your unique priorities and challenges.",
   },
   {
     number: "02",
-    title: "Agent Architecture",
-    body: "Blueprint-grade design of multi-agent systems with clear responsibilities, communication patterns, and failsafe mechanisms.",
+    title: "Complete Blueprints for Every Use Case",
+    body: "Each blueprint includes a business case to facilitate funding approval, an implementation plan, agent designs, and technology recommendations, everything you need to move agents into production.",
   },
   {
     number: "03",
-    title: "Workflow Orchestration",
-    body: "Intelligent coordination of multiple AI agents working in concert to execute complex business processes end-to-end.",
+    title: "Interactive Agent Visualizer",
+    body: "See your AI agents as a digital team. Our visualizer maps out triggers, tools, workflows, and guardrails so you understand how agents will actually work before you build them.",
   },
   {
     number: "04",
-    title: "Integration Framework",
-    body: "Seamless connection with your existing tools and platforms. Our agents work with your stack, not against it.",
+    title: "Build Automation",
+    body: "Agent Blueprint doesn't stop at recommendations — it automatically builds agents in your preferred agentic platform, reducing build time and cost.",
   },
   {
     number: "05",
-    title: "Validation & Testing",
-    body: "Rigorous prototype testing with real data in sandboxed environments before any production deployment.",
+    title: "Technology Agnostic by Design",
+    body: "We don't lock you into a vendor. Blueprints adapt to the platforms you already use, ensuring fast adoption and maximum ROI.",
   },
   {
     number: "06",
-    title: "Performance Monitoring",
-    body: "Continuous tracking and optimization of agent performance with actionable insights and automated alerting.",
+    title: "Always On",
+    body: "Unlike static consulting reports, our adaptive platform continuously integrates the latest AI advancements. It monitors your agents in real time to track their performance and provide real time validation of your ROI.",
   },
 ];
 
@@ -86,6 +86,9 @@ export function CapabilitiesSection() {
           <h2 className="mt-4 font-display text-4xl text-foreground md:text-5xl">
             Platform Capabilities
           </h2>
+          <p className="mx-auto mt-4 max-w-2xl font-body text-base text-muted-foreground">
+            Discover how Agent Blueprint transforms your business strategy into intelligent AI solutions
+          </p>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

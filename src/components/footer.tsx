@@ -46,6 +46,13 @@ export function Footer() {
             </div>
 
             <Link
+              href="/partners"
+              className="font-body text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Partners
+            </Link>
+
+            <Link
               href="/security"
               className="font-body text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >

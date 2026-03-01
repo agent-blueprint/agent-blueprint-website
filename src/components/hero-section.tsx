@@ -12,16 +12,22 @@ export function HeroSection() {
     <BlueprintGrid className="min-h-screen flex items-center">
       <div className="mx-auto max-w-7xl px-6 pt-24 pb-16 md:pt-32 md:pb-24 w-full">
         <div className="mx-auto max-w-3xl text-center">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15, ease }}
+            className="font-mono text-sm font-medium uppercase tracking-widest text-blueprint-annotation"
+          >
+            Stop analyzing. Start deploying.
+          </motion.p>
+
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease }}
-            className="font-display text-5xl leading-tight text-foreground md:text-7xl md:leading-tight"
+            transition={{ duration: 0.6, delay: 0.25, ease }}
+            className="mt-4 font-display text-5xl leading-tight text-foreground md:text-7xl md:leading-tight"
           >
-            AI Agents.{" "}
-            <span className="italic text-primary">
-              From Strategy to Execution.
-            </span>
+            <span className="italic text-primary">Agent Blueprint</span>
           </motion.h1>
 
           <motion.p
@@ -30,9 +36,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.35, ease }}
             className="mx-auto mt-6 max-w-2xl font-body text-lg text-muted-foreground md:text-xl"
           >
-            Agent Blueprint transforms your business processes into intelligent
-            AI agent workflows. Discover opportunities, architect solutions, and
-            deploy production-ready agents that deliver measurable results.
+            Move from strategy to production ready AI solutions in just days.
           </motion.p>
 
           <motion.div
@@ -64,7 +68,7 @@ export function HeroSection() {
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
             >
-              See How It Works
+              Learn More
             </Button>
           </motion.div>
         </div>

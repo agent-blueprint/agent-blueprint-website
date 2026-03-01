@@ -11,27 +11,33 @@ import {
 const steps = [
   {
     number: "01",
-    label: "DISCOVER",
-    tagline: "Find the right starting point.",
-    body: "We audit your existing processes to identify high-impact AI automation opportunities. Our discovery framework maps your workflows and pinpoints where intelligent agents will deliver the greatest return.",
+    label: "ANALYZE",
+    tagline: "Populate your business profile.",
+    body: "Provide context and organizational capabilities to tailor your agentic AI recommendations. Pinpoint the exact AI use cases that will drive the highest ROI for your specific profile.",
   },
   {
     number: "02",
-    label: "ARCHITECT",
-    tagline: "Design with precision.",
-    body: "We design agent workflows tailored to your specific business context. Every integration point, decision tree, and handoff is mapped before a single line of code is written.",
+    label: "DESIGN",
+    tagline: "Generate prioritized AI opportunities.",
+    body: "Agent Blueprint analyzes your business and generates AI use cases that solve your specific challenges. Each use case comes with a detailed blueprint with agent designs, an implementation plan, and a business case.",
   },
   {
     number: "03",
-    label: "VALIDATE",
-    tagline: "Test before you invest.",
-    body: "We prototype and stress-test solutions in controlled environments. You see real results with real data before committing to full-scale deployment.",
+    label: "DEPLOY",
+    tagline: "Get deployment ready AI agent blueprints.",
+    body: "Generate blueprints so detailed that implementation becomes a checklist, not a challenge. Turn your blueprints into production ready agents, built in days, not months.",
   },
   {
     number: "04",
-    label: "EXECUTE",
-    tagline: "Deploy with confidence.",
-    body: "We deploy production-ready AI agents that integrate seamlessly with your existing systems. Monitoring, iteration, and optimization are built in from day one.",
+    label: "VISUALIZE",
+    tagline: "Visualize your agents and automatically deploy them.",
+    body: "See your agent architecture and automatically deploy directly to your agentic platforms.",
+  },
+  {
+    number: "05",
+    label: "MONITOR",
+    tagline: "Monitor your agents and track their performance.",
+    body: "Track operational metrics and measure performance against ROI projections in real time. Track live performance to ensure every agent pays for itself.",
   },
 ];
 
@@ -101,8 +107,11 @@ export function HowItWorksSection() {
             Our Process
           </span>
           <h2 className="mt-4 font-display text-4xl text-foreground md:text-5xl">
-            From Strategy to Execution
+            How It Works
           </h2>
+          <p className="mx-auto mt-4 max-w-2xl font-body text-base text-muted-foreground">
+            From business insights to actionable AI agent blueprints in minutes
+          </p>
         </div>
 
         <div className="relative">

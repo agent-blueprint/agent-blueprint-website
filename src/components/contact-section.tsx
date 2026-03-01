@@ -71,8 +71,12 @@ export function ContactSection() {
             Get In Touch
           </span>
           <h2 className="mt-4 font-display text-4xl text-foreground md:text-5xl">
-            Start Your Blueprint
+            Get In Touch
           </h2>
+          <p className="mx-auto mt-4 max-w-2xl font-body text-base text-muted-foreground">
+            Ready to transform your business strategy with AI? Let&apos;s
+            discuss how Agent Blueprint can help.
+          </p>
         </div>
 
         <div className="grid gap-12 md:grid-cols-2 md:gap-16">
