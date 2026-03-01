@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import {
   motion,
   useScroll,
@@ -14,34 +15,46 @@ const steps = [
     label: "ANALYZE",
     tagline: "Populate your business profile.",
     body: "Provide context and organizational capabilities to tailor your agentic AI recommendations. Pinpoint the exact AI use cases that will drive the highest ROI for your specific profile.",
+    image: "/images/screenshots/business-profile.png",
+    imageAlt: "Populate your business profile",
   },
   {
     number: "02",
     label: "DESIGN",
     tagline: "Generate prioritized AI opportunities.",
     body: "Agent Blueprint analyzes your business and generates AI use cases that solve your specific challenges. Each use case comes with a detailed blueprint with agent designs, an implementation plan, and a business case.",
+    image: "/images/screenshots/ai-use-cases.png",
+    imageAlt: "Generate prioritized AI opportunities",
   },
   {
     number: "03",
     label: "DEPLOY",
     tagline: "Get deployment ready AI agent blueprints.",
     body: "Generate blueprints so detailed that implementation becomes a checklist, not a challenge. Turn your blueprints into production ready agents, built in days, not months.",
+    image: "/images/screenshots/blueprint.png",
+    imageAlt: "Get deployment ready AI agent blueprints",
   },
   {
     number: "04",
     label: "VISUALIZE",
     tagline: "Visualize your agents and automatically deploy them.",
     body: "See your agent architecture and automatically deploy directly to your agentic platforms.",
+    image: "/images/screenshots/deployment.png",
+    imageAlt: "Visualize your agents and automatically deploy them",
   },
   {
     number: "05",
     label: "MONITOR",
     tagline: "Monitor your agents and track their performance.",
     body: "Track operational metrics and measure performance against ROI projections in real time. Track live performance to ensure every agent pays for itself.",
+    image: "/images/screenshots/roi-monitor.png",
+    imageAlt: "Monitor your agents and track their performance",
   },
 ];
 
-function StepCard({
+const ease = [0.25, 0.4, 0.25, 1] as const;
+
+function StepRow({
   step,
   index,
 }: {
@@ -50,37 +63,47 @@ function StepCard({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const isLeft = index % 2 === 0;
+  const isReversed = index % 2 !== 0;
 
   return (
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.4, 0.25, 1] }}
-      className={`relative md:col-span-1 ${
-        isLeft
-          ? "md:col-start-1 md:pr-12"
-          : "md:col-start-2 md:pl-12"
-      }`}
-      style={{ gridRow: index + 1 }}
+      transition={{ duration: 0.6, delay: 0.1, ease }}
+      className={`flex flex-col gap-8 md:gap-12 ${
+        isReversed ? "md:flex-row-reverse" : "md:flex-row"
+      } items-center`}
     >
-      {/* Connector dot on the center line (desktop only) */}
-      <div
-        className={`absolute top-8 hidden h-3 w-3 rounded-full border-2 border-primary bg-background md:block ${
-          isLeft ? "right-0 translate-x-1/2" : "left-0 -translate-x-1/2"
-        }`}
-      />
-      <div className="rounded-lg border border-border bg-background/80 p-6 backdrop-blur-sm">
-        <span className="font-mono text-xs font-medium tracking-wider text-blueprint-annotation">
-          [{step.number}] {step.label}
-        </span>
-        <h3 className="mt-2 font-display text-2xl italic text-foreground">
+      {/* Text */}
+      <div className="flex-1">
+        <div className="flex items-center gap-4">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary font-mono text-sm font-bold text-primary-foreground">
+            {index + 1}
+          </span>
+          <span className="font-mono text-xs font-medium tracking-wider text-blueprint-annotation">
+            {step.label}
+          </span>
+        </div>
+        <h3 className="mt-4 font-display text-2xl italic text-foreground md:text-3xl">
           {step.tagline}
         </h3>
-        <p className="mt-3 font-body text-sm leading-relaxed text-muted-foreground">
+        <p className="mt-3 font-body text-sm leading-relaxed text-muted-foreground md:text-base">
           {step.body}
         </p>
+      </div>
+
+      {/* Screenshot */}
+      <div className="flex-1">
+        <div className="overflow-hidden rounded-lg border border-border shadow-lg">
+          <Image
+            src={step.image}
+            alt={step.imageAlt}
+            width={600}
+            height={400}
+            className="h-auto w-full"
+          />
+        </div>
       </div>
     </motion.div>
   );
@@ -114,8 +137,8 @@ export function HowItWorksSection() {
           </p>
         </div>
 
+        {/* Vertical line behind steps - desktop only */}
         <div className="relative">
-          {/* Vertical connecting line - desktop only */}
           <div className="absolute left-1/2 top-0 hidden h-full -translate-x-1/2 md:block">
             <div className="h-full w-px bg-border" />
             <motion.div
@@ -129,9 +152,9 @@ export function HowItWorksSection() {
             />
           </div>
 
-          <div className="relative z-10 grid gap-12 md:grid-cols-2 md:gap-y-20">
+          <div className="relative z-10 flex flex-col gap-16 md:gap-24">
             {steps.map((step, index) => (
-              <StepCard key={step.number} step={step} index={index} />
+              <StepRow key={step.number} step={step} index={index} />
             ))}
           </div>
         </div>
