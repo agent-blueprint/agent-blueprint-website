@@ -310,6 +310,17 @@
     stroke-dashoffset: 0;
   }
 
+  /* Disable corner bracket hover expansion */
+  .corner-brackets-interactive::before,
+  .corner-brackets-interactive::after {
+    transition: none;
+  }
+
+  /* Disable copper underline draw */
+  .copper-underline-hover::after {
+    transition: none;
+  }
+
   *,
   *::before,
   *::after {

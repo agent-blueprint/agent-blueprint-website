@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { BlueprintGrid } from "@/components/blueprint-grid";
 import { CompassArc } from "@/components/decorative/compass-arc";
@@ -12,6 +12,8 @@ import { siteConfig } from "@/lib/metadata";
 const ease = [0.25, 0.4, 0.25, 1] as const;
 
 export function HeroSection() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <BlueprintGrid className="min-h-screen flex items-center overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 pt-24 pb-16 md:pt-32 md:pb-24 w-full">
@@ -48,9 +50,17 @@ export function HeroSection() {
             </motion.p>
 
             <motion.h1
-              initial={{ clipPath: "inset(0 100% 0 0)", opacity: 0 }}
-              animate={{ clipPath: "inset(0 0% 0 0)", opacity: 1 }}
-              transition={{ duration: 1, delay: 0.45, ease }}
+              initial={
+                prefersReducedMotion
+                  ? { opacity: 0 }
+                  : { clipPath: "inset(0 100% 0 0)", opacity: 0 }
+              }
+              animate={
+                prefersReducedMotion
+                  ? { opacity: 1 }
+                  : { clipPath: "inset(0 0% 0 0)", opacity: 1 }
+              }
+              transition={{ duration: prefersReducedMotion ? 0.01 : 1, delay: 0.45, ease }}
               className="mt-4 font-display italic text-primary"
               style={{
                 fontSize: "clamp(3rem, 6vw + 1rem, 7rem)",
