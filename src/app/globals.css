@@ -156,6 +156,33 @@
   color: var(--dark-surface-foreground);
 }
 
+/* Cyanotype vignette — radial darkening at edges for dark sections */
+.cyanotype-vignette {
+  position: relative;
+}
+
+.cyanotype-vignette::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 50%,
+    transparent 40%,
+    rgba(10, 20, 40, 0.35) 100%
+  );
+}
+
+/* Copper border + inset shadow for dark section edges */
+.section-dark-borders {
+  border-top: 1px solid var(--accent);
+  border-bottom: 1px solid var(--accent);
+  box-shadow:
+    inset 0 1px 0 0 rgba(200, 160, 100, 0.15),
+    inset 0 -1px 0 0 rgba(200, 160, 100, 0.15);
+}
+
 /* ============================================================
    Corner brackets — decorative tick marks on cards/elements
    ============================================================ */

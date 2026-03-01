@@ -12,10 +12,12 @@ export function BlueprintGrid({
   const gridClass =
     variant === "dark" ? "blueprint-grid-dark" : "blueprint-grid-light";
   const bgClass = variant === "dark" ? "section-dark" : "";
+  const darkExtras =
+    variant === "dark" ? "cyanotype-vignette section-dark-borders" : "";
 
   return (
     <div
-      className={`${gridClass} paper-texture relative ${bgClass} ${className}`}
+      className={`${gridClass} paper-texture relative ${bgClass} ${darkExtras} ${className}`}
     >
       <div className="relative z-10 w-full">{children}</div>
     </div>
