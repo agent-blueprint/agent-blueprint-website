@@ -285,85 +285,75 @@
 }
 
 /* ============================================================
-   Metallic bronze button — gradient sheen + reflection sweep
+   Metallic bronze button — cursor-tracking reflection
+   --mx, --my: set by JS (0-100 percentage of cursor within button)
    ============================================================ */
 
 .btn-metallic {
+  --mx: 50;
+  --my: 50;
   position: relative;
   overflow: hidden;
-  /* Metallic gradient — darker edges, bright center band */
-  background: linear-gradient(
-    170deg,
-    oklch(52% 0.12 72.6) 0%,
-    oklch(66.3% 0.1331 72.6) 25%,
-    oklch(76% 0.10 72.6) 48%,
-    oklch(66.3% 0.1331 72.6) 52%,
-    oklch(58% 0.12 72.6) 75%,
-    oklch(50% 0.11 72.6) 100%
-  );
+  /* Base metallic gradient — vertical band simulating curved metal surface */
+  background:
+    linear-gradient(
+      180deg,
+      oklch(72% 0.09 72.6) 0%,
+      oklch(66% 0.12 72.6) 15%,
+      oklch(58% 0.13 72.6) 40%,
+      oklch(54% 0.12 72.6) 70%,
+      oklch(48% 0.11 72.6) 100%
+    );
   border: 1px solid oklch(72% 0.10 72.6 / 40%);
   box-shadow:
-    inset 0 1px 0 0 oklch(85% 0.06 72.6 / 50%),
-    inset 0 -1px 0 0 oklch(40% 0.10 72.6 / 40%),
+    inset 0 1px 0 0 oklch(82% 0.06 72.6 / 60%),
+    inset 0 -1px 0 0 oklch(38% 0.10 72.6 / 50%),
     0 1px 3px 0 oklch(30% 0.05 72.6 / 25%);
   text-shadow: 0 1px 1px oklch(30% 0.10 72.6 / 30%);
-  transition: all 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* Reflection sweep — slides across on hover */
+/* Cursor-following radial highlight — positioned via --mx, --my */
 .btn-metallic::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(
-    105deg,
-    transparent 20%,
-    oklch(95% 0.02 72.6 / 0%) 35%,
-    oklch(95% 0.02 72.6 / 30%) 50%,
-    oklch(95% 0.02 72.6 / 0%) 65%,
-    transparent 80%
-  );
-  transition: left 0.6s ease;
+  inset: 0;
+  opacity: 0;
   pointer-events: none;
+  background: radial-gradient(
+    ellipse 120% 200% at calc(var(--mx) * 1%) calc(var(--my) * 1%),
+    oklch(88% 0.04 72.6 / 60%) 0%,
+    oklch(78% 0.07 72.6 / 25%) 30%,
+    transparent 70%
+  );
+  transition: opacity 0.25s ease;
 }
 
 .btn-metallic:hover::before {
-  left: 120%;
+  opacity: 1;
 }
 
 .btn-metallic:hover {
-  background: linear-gradient(
-    170deg,
-    oklch(56% 0.12 72.6) 0%,
-    oklch(70% 0.13 72.6) 25%,
-    oklch(80% 0.09 72.6) 48%,
-    oklch(70% 0.13 72.6) 52%,
-    oklch(62% 0.12 72.6) 75%,
-    oklch(54% 0.11 72.6) 100%
-  );
   box-shadow:
-    inset 0 1px 0 0 oklch(88% 0.05 72.6 / 55%),
-    inset 0 -1px 0 0 oklch(42% 0.10 72.6 / 40%),
-    0 2px 12px 0 oklch(66.3% 0.1331 72.6 / 30%),
-    0 0 20px 0 oklch(66.3% 0.1331 72.6 / 15%);
+    inset 0 1px 0 0 oklch(85% 0.05 72.6 / 65%),
+    inset 0 -1px 0 0 oklch(40% 0.10 72.6 / 45%),
+    0 2px 12px 0 oklch(66.3% 0.1331 72.6 / 25%),
+    0 0 20px 0 oklch(66.3% 0.1331 72.6 / 12%);
 }
 
 .btn-metallic:active {
-  background: linear-gradient(
-    170deg,
-    oklch(48% 0.12 72.6) 0%,
-    oklch(60% 0.13 72.6) 25%,
-    oklch(68% 0.10 72.6) 48%,
-    oklch(60% 0.13 72.6) 52%,
-    oklch(54% 0.12 72.6) 75%,
-    oklch(46% 0.11 72.6) 100%
-  );
+  background:
+    linear-gradient(
+      180deg,
+      oklch(64% 0.09 72.6) 0%,
+      oklch(58% 0.12 72.6) 15%,
+      oklch(52% 0.13 72.6) 40%,
+      oklch(48% 0.12 72.6) 70%,
+      oklch(44% 0.11 72.6) 100%
+    );
   box-shadow:
-    inset 0 1px 2px 0 oklch(30% 0.08 72.6 / 40%),
-    0 0 8px 0 oklch(66.3% 0.1331 72.6 / 10%);
+    inset 0 2px 3px 0 oklch(30% 0.08 72.6 / 40%),
+    0 0 6px 0 oklch(66.3% 0.1331 72.6 / 8%);
 }
 
 /* ============================================================
