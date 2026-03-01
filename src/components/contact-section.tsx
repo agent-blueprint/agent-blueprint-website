@@ -169,7 +169,7 @@ export function ContactSection() {
                 <Button
                   type="submit"
                   disabled={form.formState.isSubmitting}
-                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90 hover:shadow-[0_0_20px_var(--accent-glow)] font-body font-semibold transition-all duration-300"
+                  className="w-full btn-metallic text-accent-foreground font-body font-semibold hover:scale-[1.02] active:scale-[0.98]"
                 >
                   {form.formState.isSubmitting ? "Sending..." : "Send Message"}
                 </Button>

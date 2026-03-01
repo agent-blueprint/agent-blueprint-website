@@ -106,7 +106,7 @@ export function Navigation() {
           )}
           <Button
             asChild
-            className="bg-accent text-accent-foreground hover:bg-accent/90 hover:shadow-[0_0_15px_var(--accent-glow)] font-body font-semibold transition-all duration-300"
+            className="btn-metallic text-accent-foreground font-body font-semibold hover:scale-[1.02] active:scale-[0.98]"
           >
             <a href={siteConfig.appUrl} target="_blank" rel="noopener noreferrer">
               Get Started
@@ -155,7 +155,7 @@ export function Navigation() {
               )}
               <Button
                 asChild
-                className="bg-accent text-accent-foreground hover:bg-accent/90 font-body font-semibold w-full"
+                className="btn-metallic text-accent-foreground font-body font-semibold w-full hover:scale-[1.02] active:scale-[0.98]"
               >
                 <a
                   href={siteConfig.appUrl}
