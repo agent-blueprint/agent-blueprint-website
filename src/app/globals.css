@@ -226,6 +226,65 @@
 }
 
 /* ============================================================
+   Interactive corner brackets — expand on hover
+   ============================================================ */
+
+.corner-brackets-interactive::before,
+.corner-brackets-interactive::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.corner-brackets-interactive::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1.5px solid var(--dark-surface-foreground);
+  border-left: 1.5px solid var(--dark-surface-foreground);
+}
+
+.corner-brackets-interactive::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 1.5px solid var(--dark-surface-foreground);
+  border-right: 1.5px solid var(--dark-surface-foreground);
+}
+
+.group:hover .corner-brackets-interactive::before,
+.group:hover .corner-brackets-interactive::after {
+  width: 24px;
+  height: 24px;
+}
+
+/* ============================================================
+   Copper underline hover — draws left to right
+   ============================================================ */
+
+.copper-underline-hover {
+  position: relative;
+}
+
+.copper-underline-hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.group:hover .copper-underline-hover::after {
+  transform: scaleX(1);
+}
+
+/* ============================================================
    Line draw animation for SVG strokes
    ============================================================ */
 

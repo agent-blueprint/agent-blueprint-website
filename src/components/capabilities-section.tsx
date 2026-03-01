@@ -63,21 +63,21 @@ function CapabilityCard({
         delay: index * 0.1,
         ease: [0.25, 0.4, 0.25, 1],
       }}
-      className={isWide ? "sm:col-span-2 lg:col-span-1" : ""}
+      className={`group ${isWide ? "sm:col-span-2 lg:col-span-1" : ""}`}
     >
-      <CornerBrackets className="h-full">
+      <div className="corner-brackets-interactive relative h-full">
         <div className="h-full bg-white/5 border border-white/10 p-6 transition-colors duration-300 hover:border-accent/40 hover:shadow-[0_0_20px_var(--accent-glow)]">
-          <span className="font-mono text-xs font-medium tracking-wider text-dark-surface-foreground/50">
+          <span className="font-mono text-xs font-medium tracking-wider text-dark-surface-foreground/50 transition-opacity duration-300 group-hover:opacity-100 opacity-50">
             {capability.number}
           </span>
-          <h3 className="mt-3 font-display text-xl text-dark-surface-foreground">
+          <h3 className="copper-underline-hover mt-3 font-display text-xl text-dark-surface-foreground inline-block">
             {capability.title}
           </h3>
           <p className="mt-2 font-body text-sm leading-relaxed text-dark-surface-foreground/70">
             {capability.body}
           </p>
         </div>
-      </CornerBrackets>
+      </div>
     </motion.div>
   );
 }
