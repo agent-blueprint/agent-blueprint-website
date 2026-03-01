@@ -11,6 +11,7 @@ import { CornerBrackets } from "@/components/decorative/corner-brackets";
 import { AnnotationLabel } from "@/components/decorative/annotation-label";
 import { DimensionLine } from "@/components/dimension-line";
 import { SchematicPath } from "@/components/schematic-path";
+import { PointerAnnotation } from "@/components/decorative/redline-annotation";
 
 const steps = [
   {
@@ -116,6 +117,14 @@ function StepRow({
               label={step.fig}
               position={isReversed ? "top-right" : "top-left"}
             />
+            {index === 0 && (
+              <PointerAnnotation
+                label="SEE FIG. 01"
+                className="absolute -top-6 right-4 z-20"
+                direction="left"
+                rotate={3}
+              />
+            )}
             <CornerBrackets>
               <div className="overflow-hidden rounded-lg border border-border shadow-lg">
                 <Image

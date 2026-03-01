@@ -6,6 +6,7 @@ import { BlueprintGrid } from "@/components/blueprint-grid";
 import { CompassArc } from "@/components/decorative/compass-arc";
 import { GeometricConstruction } from "@/components/decorative/geometric-construction";
 import { CircuitDiagram } from "@/components/decorative/circuit-diagram";
+import { CircledNumber } from "@/components/decorative/redline-annotation";
 import { siteConfig } from "@/lib/metadata";
 
 const ease = [0.25, 0.4, 0.25, 1] as const;
@@ -90,8 +91,9 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8, ease }}
-              className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+              className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row relative"
             >
+              <CircledNumber number={1} className="absolute -left-10 -top-2" rotate={-3} />
               <Button
                 asChild
                 size="lg"

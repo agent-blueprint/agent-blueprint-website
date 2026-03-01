@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { BlueprintGrid } from "@/components/blueprint-grid";
 import { CornerBrackets } from "@/components/decorative/corner-brackets";
 import { CompassArc } from "@/components/decorative/compass-arc";
+import { WavyUnderline } from "@/components/decorative/redline-annotation";
 
 const capabilities = [
   {
@@ -97,6 +98,9 @@ export function CapabilitiesSection() {
             <h2 className="mt-4 font-display text-4xl text-dark-surface-foreground md:text-5xl">
               Platform Capabilities
             </h2>
+            <div className="flex justify-center mt-1">
+              <WavyUnderline width={240} />
+            </div>
             <p className="mx-auto mt-4 max-w-2xl font-body text-base text-dark-surface-foreground/70">
               Discover how Agent Blueprint transforms your business strategy
               into intelligent AI solutions

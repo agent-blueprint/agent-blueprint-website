@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { BlueprintGrid } from "@/components/blueprint-grid";
 import { CircuitDiagram } from "@/components/decorative/circuit-diagram";
+import { NoteAnnotation } from "@/components/decorative/redline-annotation";
 import { siteConfig } from "@/lib/metadata";
 
 const trialFeatures = [
@@ -48,7 +49,8 @@ export function FreeTrialSection() {
               business.
             </p>
 
-            <div className="mt-10">
+            <div className="mt-10 relative">
+              <NoteAnnotation className="absolute -left-16 top-1" rotate={-2} />
               <h3 className="font-display text-xl text-dark-surface-foreground">
                 What&apos;s Included
               </h3>
