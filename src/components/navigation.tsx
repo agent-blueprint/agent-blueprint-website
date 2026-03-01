@@ -106,7 +106,7 @@ export function Navigation() {
           )}
           <Button
             asChild
-            className="btn-metallic rounded-none text-accent-foreground font-body font-semibold hover:scale-[1.01] active:scale-[0.99]"
+            className="btn-metallic rounded-none text-accent-foreground font-body font-semibold "
           >
             <a href={siteConfig.appUrl} target="_blank" rel="noopener noreferrer">
               Get Started
@@ -155,7 +155,7 @@ export function Navigation() {
               )}
               <Button
                 asChild
-                className="btn-metallic rounded-none text-accent-foreground font-body font-semibold w-full hover:scale-[1.01] active:scale-[0.99]"
+                className="btn-metallic rounded-none text-accent-foreground font-body font-semibold w-full "
               >
                 <a
                   href={siteConfig.appUrl}

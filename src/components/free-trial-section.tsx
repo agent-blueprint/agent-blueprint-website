@@ -86,7 +86,7 @@ export function FreeTrialSection() {
               <Button
                 asChild
                 size="lg"
-                className="btn-metallic rounded-none text-accent-foreground font-body font-semibold text-base px-8 hover:scale-[1.01] active:scale-[0.99]"
+                className="btn-metallic rounded-none text-accent-foreground font-body font-semibold text-base px-8 "
               >
                 <a
                   href={siteConfig.appUrl}
