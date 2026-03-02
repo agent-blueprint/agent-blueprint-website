@@ -64,7 +64,7 @@ export function HeroSection() {
               className="mt-4 font-display italic text-primary"
               style={{
                 fontSize: "clamp(3rem, 6vw + 1rem, 7rem)",
-                lineHeight: 1.05,
+                lineHeight: 1.2,
               }}
             >
               Agent Blueprint
@@ -107,7 +107,7 @@ export function HeroSection() {
               <Button
                 asChild
                 size="lg"
-                className="btn-metallic rounded-none text-accent-foreground font-body font-semibold text-base px-8 "
+                className="btn-metallic rounded-none text-accent-foreground font-body font-semibold text-base px-8"
               >
                 <a
                   href={siteConfig.appUrl}
@@ -118,9 +118,9 @@ export function HeroSection() {
                 </a>
               </Button>
               <Button
-                variant="outline"
+                variant="blueprint-outline"
                 size="lg"
-                className="font-body font-medium text-base px-8 border-primary text-primary hover:bg-primary/5"
+                className="font-body font-medium text-base px-8"
                 onClick={() => {
                   document
                     .getElementById("how-it-works")

@@ -66,7 +66,7 @@ export function Navigation() {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
-          className="flex items-center gap-3 border border-primary/15 px-3 py-1.5 transition-colors hover:border-primary/30"
+          className="cursor-pointer flex items-center gap-3 border border-primary/15 px-3 py-1.5 transition-colors hover:border-primary/30"
         >
           <Image
             src="/images/logo.png"
@@ -88,7 +88,7 @@ export function Navigation() {
               <button
                 key={link.href}
                 onClick={() => scrollToSection(link.href.slice(1))}
-                className="group relative font-body text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                className="cursor-pointer group relative font-body text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-foreground transition-transform duration-300 group-hover:scale-x-100" />
@@ -106,7 +106,7 @@ export function Navigation() {
           )}
           <Button
             asChild
-            className="btn-metallic rounded-none text-accent-foreground font-body font-semibold "
+            className="btn-metallic rounded-none text-accent-foreground font-body font-semibold"
           >
             <a href={siteConfig.appUrl} target="_blank" rel="noopener noreferrer">
               Get Started
@@ -138,7 +138,7 @@ export function Navigation() {
                       scrollToSection(link.href.slice(1));
                       setSheetOpen(false);
                     }}
-                    className="font-body text-base font-medium text-muted-foreground transition-colors hover:text-foreground text-left"
+                    className="cursor-pointer font-body text-base font-medium text-muted-foreground transition-colors hover:text-foreground text-left"
                   >
                     {link.label}
                   </button>
@@ -155,7 +155,7 @@ export function Navigation() {
               )}
               <Button
                 asChild
-                className="btn-metallic rounded-none text-accent-foreground font-body font-semibold w-full "
+                className="btn-metallic rounded-none text-accent-foreground font-body font-semibold w-full"
               >
                 <a
                   href={siteConfig.appUrl}

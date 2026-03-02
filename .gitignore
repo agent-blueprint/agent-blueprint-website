@@ -38,6 +38,12 @@ yarn-error.log*
 # playwright mcp
 .playwright-mcp/
 
+# claude code
+.claude/
+
+# design reference screenshots (not site assets)
+/blueprint-*.png
+
 # vercel
 .vercel
 
