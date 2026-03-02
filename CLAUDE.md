@@ -78,6 +78,16 @@ Environment variables are configured in Vercel (Project Settings > Environment V
   - If Amy is the one chatting: use plain language, explain technical terms, confirm before running anything destructive, and offer to handle git/CLI commands for her
   - See `SETUP-AMY.md` for her onboarding guide
 
+## Workstream Tracking
+
+**Read `WORKSTREAM.md` at the start of every session.** It has the current branch, what's been done, what's next, and open decisions.
+
+**Update `WORKSTREAM.md` when work is done:**
+- After committing/pushing, update the "What Was Done" section and check off completed items in "What Needs Doing Next"
+- Add new items to "What Needs Doing Next" as they come up
+- Keep "Active Branch" and "Working tree" status current
+- If a session ends without pushing, note uncommitted work
+
 ## Key Conventions
 
 - Components use shadcn/ui patterns (see `src/components/ui/`)
