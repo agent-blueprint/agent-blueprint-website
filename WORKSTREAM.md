@@ -9,16 +9,32 @@
 - Not yet merged to `main`
 - Working tree: clean (last pushed 2026-03-01)
 
-## What Was Done (2026-03-01)
+## What Was Done (2026-03-01, session 6)
 
-### Theme tokenization (session 5)
-Routed hardcoded hex/oklch/rgba color values through CSS custom properties. Future theme color changes are now a one-file edit in `globals.css`. No visual changes.
+### Project infrastructure for cross-session continuity
+- Created `WORKSTREAM.md` in repo root (replaces local-only `.claude/` memory file) so all collaborators share workstream state
+- Added "Workstream Tracking" section to `CLAUDE.md` instructing all Claude Code sessions to read/update `WORKSTREAM.md`
+- Added "Team" section to `CLAUDE.md` with Amy's context (non-technical, use plain language)
+- Rewrote `/handover` skill — now updates `WORKSTREAM.md`, merges main, verifies build, commits
+- Created `/ship` skill — for when a feature is complete (updates docs, clears workstream, merges to main, deploys)
+- Un-ignored `.claude/skills/` in `.gitignore` so skills travel with the repo (rest of `.claude/` stays local)
 
-### Button redesign (session 4)
-Polished metal gradient + nameplate approach for primary CTA. Blueprint-outline secondary button with line-draw hover animation. Cursor-tracking mouse reflection on metallic buttons. Hero line-height tuning.
+### Theme tokenization cleanup
+- Added copper/bronze CSS tokens to `:root` (`--copper-base`, `--copper-dark`, `--copper-light`, `--copper-border`, `--vignette-dark`, `--copper-inset-glow`)
+- Registered copper tokens in `@theme inline` for Tailwind classes
+- `.btn-metallic` gradient anchors → `var(--copper-base/light/border)`
+- `.btn-blueprint-outline` background → `var(--background)`
+- `.cyanotype-vignette` → `var(--vignette-dark)`
+- `.section-dark-borders` box-shadow → `oklch(from var(--copper-base) ... / 15%)`
+- blueprint-margins.tsx, compass-arc.tsx, circuit-diagram.tsx, geometric-construction.tsx → `currentColor` + Tailwind token classes
+- schematic-path.tsx → `var(--primary)`
+- Grid SVG data URIs left as-is (browser limitation — can't use CSS vars inside `url()`)
 
-### Blueprint theme character upgrade (sessions 2-3)
-Full visual overhaul: 3-tier engineering grid, paper texture, compass arcs, circuit diagrams, geometric constructions, schematic paths, corner brackets, copper underline hovers, redline annotations, scroll ruler, cyanotype vignette on dark sections. 13 commits total.
+### Prior uncommitted work (session 4, committed this session)
+- Blueprint-outline button variant + cursor-pointer fix + hero line-height tuning
+
+## Previous sessions (2026-03-01, sessions 2-5)
+Full blueprint theme visual overhaul (13 commits), metallic button iterations, theme tokenization. All committed and pushed.
 
 ## What Needs Doing Next
 - [ ] **More button tweaking** — Chris says "still more tweaking to do" (lightness, saturation, highlight position)
@@ -34,13 +50,13 @@ Full visual overhaul: 3-tier engineering grid, paper texture, compass arcs, circ
 
 ## Key Files
 ```
+CLAUDE.md                                          — project instructions, team info, workflow rules
+WORKSTREAM.md                                      — this file
+SETUP-AMY.md                                       — Amy's onboarding guide
+.claude/skills/handover/skill.md                   — /handover skill
+.claude/skills/ship/skill.md                       — /ship skill
 src/app/globals.css                                — all CSS tokens, button classes, section styles
 src/components/ui/button.tsx                       — button variants (metallic, blueprint-outline)
 src/components/hero-section.tsx                    — hero with blueprint grid + CTAs
-src/components/blueprint-margins.tsx               — margin decorations (zone letters, reg crosses)
-src/components/decorative/compass-arc.tsx          — decorative SVG
-src/components/decorative/circuit-diagram.tsx      — decorative SVG
-src/components/decorative/geometric-construction.tsx — decorative SVG
-src/components/schematic-path.tsx                  — how-it-works connector path
 src/components/metallic-filter.tsx                 — DEAD FILE, safe to delete
 ```
