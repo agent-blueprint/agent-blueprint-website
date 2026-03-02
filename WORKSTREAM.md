@@ -38,7 +38,6 @@ Full blueprint theme visual overhaul (13 commits), metallic button iterations, t
 
 ## What Needs Doing Next
 - [ ] **More button tweaking** — Chris says "still more tweaking to do" (lightness, saturation, highlight position)
-- [ ] **Clean up dead file** — delete `src/components/metallic-filter.tsx`
 - [ ] **Tokenize scroll-ruler.tsx** — 3 remaining hardcoded `#1e3a5f` refs (low priority)
 - [ ] Visual review of the full theme upgrade before merging
 - [ ] Merge `blueprint-theme` → `main` once approved
@@ -58,5 +57,4 @@ SETUP-AMY.md                                       — Amy's onboarding guide
 src/app/globals.css                                — all CSS tokens, button classes, section styles
 src/components/ui/button.tsx                       — button variants (metallic, blueprint-outline)
 src/components/hero-section.tsx                    — hero with blueprint grid + CTAs
-src/components/metallic-filter.tsx                 — DEAD FILE, safe to delete
 ```
