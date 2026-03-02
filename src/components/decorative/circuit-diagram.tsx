@@ -13,8 +13,8 @@ export function CircuitDiagram({
   variant = "light",
 }: CircuitDiagramProps) {
   const { ref, isInView } = useLineDraw();
-  const stroke = variant === "dark" ? "#e8dfd0" : "#1e3a5f";
   const opacity = variant === "dark" ? 0.40 : 0.30;
+  const colorClass = variant === "dark" ? "text-dark-surface-foreground" : "text-primary";
 
   const drawTransition = (delay: number) => ({
     duration: 0.8,
@@ -51,7 +51,7 @@ export function CircuitDiagram({
   return (
     <svg
       ref={ref}
-      className={className}
+      className={`${colorClass} ${className}`}
       viewBox="0 0 200 200"
       fill="none"
       aria-hidden="true"
@@ -62,7 +62,7 @@ export function CircuitDiagram({
         <motion.path
           key={i}
           d={d}
-          stroke={stroke}
+          stroke="currentColor"
           strokeWidth="0.6"
           opacity={opacity}
           strokeDasharray={200}
@@ -80,7 +80,7 @@ export function CircuitDiagram({
             y={node.y - 6}
             width={12}
             height={12}
-            stroke={stroke}
+            stroke="currentColor"
             strokeWidth="0.6"
             fill="none"
             opacity={opacity}
@@ -93,7 +93,7 @@ export function CircuitDiagram({
             cx={node.x}
             cy={node.y}
             r="1.5"
-            fill={stroke}
+            fill="currentColor"
             opacity={opacity + 0.1}
             initial={{ scale: 0 }}
             animate={isInView ? { scale: 1 } : {}}

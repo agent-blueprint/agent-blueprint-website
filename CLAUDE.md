@@ -71,6 +71,13 @@ Environment variables are configured in Vercel (Project Settings > Environment V
 
 - `SENDGRID_API_KEY` - Used by the contact form API route
 
+## Team
+
+- **Chris Faulkner** — technical cofounder, built all current code
+- **Amy Glencross** — non-technical cofounder, has repo write access
+  - If Amy is the one chatting: use plain language, explain technical terms, confirm before running anything destructive, and offer to handle git/CLI commands for her
+  - See `SETUP-AMY.md` for her onboarding guide
+
 ## Key Conventions
 
 - Components use shadcn/ui patterns (see `src/components/ui/`)

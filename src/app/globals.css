@@ -28,6 +28,10 @@
   --color-dark-surface: var(--dark-surface);
   --color-dark-surface-foreground: var(--dark-surface-foreground);
   --color-accent-glow: var(--accent-glow);
+  --color-copper-base: var(--copper-base);
+  --color-copper-dark: var(--copper-dark);
+  --color-copper-light: var(--copper-light);
+  --color-copper-border: var(--copper-border);
   --font-display: var(--font-cormorant-garamond);
   --font-body: var(--font-outfit);
   --font-mono: var(--font-jetbrains-mono);
@@ -91,6 +95,12 @@
   --dark-surface: oklch(25.0% 0.0500 256.0);
   --dark-surface-foreground: oklch(92.0% 0.0091 78.3);
   --accent-glow: oklch(66.3% 0.1331 72.6 / 15%);
+  --copper-base: oklch(58% 0.09 48);
+  --copper-dark: oklch(46% 0.08 48);
+  --copper-light: oklch(72% 0.06 54);
+  --copper-border: oklch(50% 0.07 46);
+  --vignette-dark: oklch(18% 0.03 256 / 35%);
+  --copper-inset-glow: oklch(72% 0.03 70 / 15%);
 }
 
 @layer base {
@@ -110,24 +120,26 @@
    Three-tier hierarchy: super-major (160px), major (80px), minor (20px)
    ============================================================ */
 
-/* Light variant: navy strokes on cream */
+/* Light variant: navy strokes on cream
+   Note: Grid stroke colors (#1e3a5f / #e8dfd0) are derived from --primary / --dark-surface-foreground
+   but can't use CSS custom properties inside url() data URIs (browser limitation). */
 .blueprint-grid-light {
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Crect width='160' height='160' fill='none'/%3E%3Cline x1='0' y1='0' x2='160' y2='0' stroke='%231e3a5f' stroke-opacity='0.25' stroke-width='1.2'/%3E%3Cline x1='0' y1='0' x2='0' y2='160' stroke='%231e3a5f' stroke-opacity='0.25' stroke-width='1.2'/%3E%3Cline x1='80' y1='0' x2='80' y2='160' stroke='%231e3a5f' stroke-opacity='0.18' stroke-width='0.8'/%3E%3Cline x1='0' y1='80' x2='160' y2='80' stroke='%231e3a5f' stroke-opacity='0.18' stroke-width='0.8'/%3E%3Cline x1='20' y1='0' x2='20' y2='160' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3Cline x1='40' y1='0' x2='40' y2='160' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3Cline x1='60' y1='0' x2='60' y2='160' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3Cline x1='100' y1='0' x2='100' y2='160' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3Cline x1='120' y1='0' x2='120' y2='160' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3Cline x1='140' y1='0' x2='140' y2='160' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3Cline x1='0' y1='20' x2='160' y2='20' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3Cline x1='0' y1='40' x2='160' y2='40' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3Cline x1='0' y1='60' x2='160' y2='60' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3Cline x1='0' y1='100' x2='160' y2='100' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3Cline x1='0' y1='120' x2='160' y2='120' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3Cline x1='0' y1='140' x2='160' y2='140' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Crect width='160' height='160' fill='none'/%3E%3Cline x1='0' y1='0' x2='160' y2='0' stroke='%231e3a5f' stroke-opacity='0.15' stroke-width='1.2'/%3E%3Cline x1='0' y1='0' x2='0' y2='160' stroke='%231e3a5f' stroke-opacity='0.15' stroke-width='1.2'/%3E%3Cline x1='80' y1='0' x2='80' y2='160' stroke='%231e3a5f' stroke-opacity='0.10' stroke-width='0.8'/%3E%3Cline x1='0' y1='80' x2='160' y2='80' stroke='%231e3a5f' stroke-opacity='0.10' stroke-width='0.8'/%3E%3Cline x1='20' y1='0' x2='20' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='40' y1='0' x2='40' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='60' y1='0' x2='60' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='100' y1='0' x2='100' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='120' y1='0' x2='120' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='140' y1='0' x2='140' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='20' x2='160' y2='20' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='40' x2='160' y2='40' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='60' x2='160' y2='60' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='100' x2='160' y2='100' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='120' x2='160' y2='120' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='140' x2='160' y2='140' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3C/svg%3E");
   background-repeat: repeat;
 }
 
 /* Dark variant: cream strokes on navy */
 .blueprint-grid-dark {
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Crect width='160' height='160' fill='none'/%3E%3Cline x1='0' y1='0' x2='160' y2='0' stroke='%23e8dfd0' stroke-opacity='0.20' stroke-width='1.2'/%3E%3Cline x1='0' y1='0' x2='0' y2='160' stroke='%23e8dfd0' stroke-opacity='0.20' stroke-width='1.2'/%3E%3Cline x1='80' y1='0' x2='80' y2='160' stroke='%23e8dfd0' stroke-opacity='0.15' stroke-width='0.8'/%3E%3Cline x1='0' y1='80' x2='160' y2='80' stroke='%23e8dfd0' stroke-opacity='0.15' stroke-width='0.8'/%3E%3Cline x1='20' y1='0' x2='20' y2='160' stroke='%23e8dfd0' stroke-opacity='0.10' stroke-width='0.4'/%3E%3Cline x1='40' y1='0' x2='40' y2='160' stroke='%23e8dfd0' stroke-opacity='0.10' stroke-width='0.4'/%3E%3Cline x1='60' y1='0' x2='60' y2='160' stroke='%23e8dfd0' stroke-opacity='0.10' stroke-width='0.4'/%3E%3Cline x1='100' y1='0' x2='100' y2='160' stroke='%23e8dfd0' stroke-opacity='0.10' stroke-width='0.4'/%3E%3Cline x1='120' y1='0' x2='120' y2='160' stroke='%23e8dfd0' stroke-opacity='0.10' stroke-width='0.4'/%3E%3Cline x1='140' y1='0' x2='140' y2='160' stroke='%23e8dfd0' stroke-opacity='0.10' stroke-width='0.4'/%3E%3Cline x1='0' y1='20' x2='160' y2='20' stroke='%23e8dfd0' stroke-opacity='0.10' stroke-width='0.4'/%3E%3Cline x1='0' y1='40' x2='160' y2='40' stroke='%23e8dfd0' stroke-opacity='0.10' stroke-width='0.4'/%3E%3Cline x1='0' y1='60' x2='160' y2='60' stroke='%23e8dfd0' stroke-opacity='0.10' stroke-width='0.4'/%3E%3Cline x1='0' y1='100' x2='160' y2='100' stroke='%23e8dfd0' stroke-opacity='0.10' stroke-width='0.4'/%3E%3Cline x1='0' y1='120' x2='160' y2='120' stroke='%23e8dfd0' stroke-opacity='0.10' stroke-width='0.4'/%3E%3Cline x1='0' y1='140' x2='160' y2='140' stroke='%23e8dfd0' stroke-opacity='0.10' stroke-width='0.4'/%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Crect width='160' height='160' fill='none'/%3E%3Cline x1='0' y1='0' x2='160' y2='0' stroke='%23e8dfd0' stroke-opacity='0.12' stroke-width='1.2'/%3E%3Cline x1='0' y1='0' x2='0' y2='160' stroke='%23e8dfd0' stroke-opacity='0.12' stroke-width='1.2'/%3E%3Cline x1='80' y1='0' x2='80' y2='160' stroke='%23e8dfd0' stroke-opacity='0.09' stroke-width='0.8'/%3E%3Cline x1='0' y1='80' x2='160' y2='80' stroke='%23e8dfd0' stroke-opacity='0.09' stroke-width='0.8'/%3E%3Cline x1='20' y1='0' x2='20' y2='160' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3Cline x1='40' y1='0' x2='40' y2='160' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3Cline x1='60' y1='0' x2='60' y2='160' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3Cline x1='100' y1='0' x2='100' y2='160' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3Cline x1='120' y1='0' x2='120' y2='160' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3Cline x1='140' y1='0' x2='140' y2='160' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3Cline x1='0' y1='20' x2='160' y2='20' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3Cline x1='0' y1='40' x2='160' y2='40' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3Cline x1='0' y1='60' x2='160' y2='60' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3Cline x1='0' y1='100' x2='160' y2='100' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3Cline x1='0' y1='120' x2='160' y2='120' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3Cline x1='0' y1='140' x2='160' y2='140' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3C/svg%3E");
   background-repeat: repeat;
 }
 
 /* Legacy class alias — matches light values */
 .blueprint-grid {
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Crect width='160' height='160' fill='none'/%3E%3Cline x1='0' y1='0' x2='160' y2='0' stroke='%231e3a5f' stroke-opacity='0.25' stroke-width='1.2'/%3E%3Cline x1='0' y1='0' x2='0' y2='160' stroke='%231e3a5f' stroke-opacity='0.25' stroke-width='1.2'/%3E%3Cline x1='80' y1='0' x2='80' y2='160' stroke='%231e3a5f' stroke-opacity='0.18' stroke-width='0.8'/%3E%3Cline x1='0' y1='80' x2='160' y2='80' stroke='%231e3a5f' stroke-opacity='0.18' stroke-width='0.8'/%3E%3Cline x1='20' y1='0' x2='20' y2='160' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3Cline x1='40' y1='0' x2='40' y2='160' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3Cline x1='60' y1='0' x2='60' y2='160' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3Cline x1='100' y1='0' x2='100' y2='160' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3Cline x1='120' y1='0' x2='120' y2='160' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3Cline x1='140' y1='0' x2='140' y2='160' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3Cline x1='0' y1='20' x2='160' y2='20' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3Cline x1='0' y1='40' x2='160' y2='40' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3Cline x1='0' y1='60' x2='160' y2='60' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3Cline x1='0' y1='100' x2='160' y2='100' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3Cline x1='0' y1='120' x2='160' y2='120' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3Cline x1='0' y1='140' x2='160' y2='140' stroke='%231e3a5f' stroke-opacity='0.12' stroke-width='0.4'/%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Crect width='160' height='160' fill='none'/%3E%3Cline x1='0' y1='0' x2='160' y2='0' stroke='%231e3a5f' stroke-opacity='0.15' stroke-width='1.2'/%3E%3Cline x1='0' y1='0' x2='0' y2='160' stroke='%231e3a5f' stroke-opacity='0.15' stroke-width='1.2'/%3E%3Cline x1='80' y1='0' x2='80' y2='160' stroke='%231e3a5f' stroke-opacity='0.10' stroke-width='0.8'/%3E%3Cline x1='0' y1='80' x2='160' y2='80' stroke='%231e3a5f' stroke-opacity='0.10' stroke-width='0.8'/%3E%3Cline x1='20' y1='0' x2='20' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='40' y1='0' x2='40' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='60' y1='0' x2='60' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='100' y1='0' x2='100' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='120' y1='0' x2='120' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='140' y1='0' x2='140' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='20' x2='160' y2='20' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='40' x2='160' y2='40' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='60' x2='160' y2='60' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='100' x2='160' y2='100' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='120' x2='160' y2='120' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='140' x2='160' y2='140' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3C/svg%3E");
   background-repeat: repeat;
 }
 
@@ -170,7 +182,7 @@
   background: radial-gradient(
     ellipse 80% 60% at 50% 50%,
     transparent 40%,
-    rgba(10, 20, 40, 0.35) 100%
+    var(--vignette-dark) 100%
   );
 }
 
@@ -179,8 +191,8 @@
   border-top: 1px solid var(--accent);
   border-bottom: 1px solid var(--accent);
   box-shadow:
-    inset 0 1px 0 0 rgba(200, 160, 100, 0.15),
-    inset 0 -1px 0 0 rgba(200, 160, 100, 0.15);
+    inset 0 1px 0 0 oklch(from var(--copper-base) l c h / 15%),
+    inset 0 -1px 0 0 oklch(from var(--copper-base) l c h / 15%);
 }
 
 /* ============================================================
@@ -285,35 +297,133 @@
 }
 
 /* ============================================================
-   Engraved copper nameplate button
-   Flat bronze, double-border plaque frame, debossed text
+   Bronze nameplate button — polished metal gradient + debossed text
+   Hue rotates from reddish-bronze (dark) to gold (highlight)
+   for a genuine metallic reflection sweep.
    ============================================================ */
 
 .btn-metallic {
   position: relative;
+  overflow: hidden;
   border-radius: 0 !important;
-  background: oklch(56% 0.12 72.6);
-  border: 1px solid oklch(43% 0.12 72.6);
-  box-shadow:
-    inset 0 0 0 3px oklch(56% 0.12 72.6),
-    inset 0 0 0 4px oklch(43% 0.12 72.6 / 45%);
-  text-shadow: 0 -1px 0 oklch(38% 0.10 72.6 / 50%);
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  background: linear-gradient(
+    160deg,
+    var(--copper-base) 0%,
+    oklch(64% 0.09 50) 20%,
+    oklch(70% 0.07 52) 45%,
+    var(--copper-light) 55%,
+    oklch(68% 0.08 50) 75%,
+    oklch(60% 0.09 48) 100%
+  );
+  border: 1px solid var(--copper-border);
+  /* Debossed / letterpress text — derived from copper hue family */
+  text-shadow:
+    0 -1px 0 oklch(20% 0.05 50 / 60%),
+    0 1px 0 oklch(72% 0.03 70 / 25%);
+  transition: filter 0.2s ease, border-color 0.2s ease;
+}
+
+/* Cursor-tracking reflection */
+.btn-metallic::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Reflection highlight — derived from copper-light hue */
+  background: radial-gradient(
+    circle 120px at var(--mouse-x, -200px) var(--mouse-y, -200px),
+    oklch(90% 0.02 72 / 45%) 0%,
+    oklch(80% 0.03 70 / 15%) 35%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.btn-metallic:hover::before {
+  opacity: 1;
+}
+
+/* Nameplate inset frame */
+.btn-metallic::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  /* Nameplate inset — derived from copper-dark hue */
+  border: 1px solid oklch(30% 0.05 50 / 22%);
+  pointer-events: none;
+  transition: border-color 0.2s ease;
 }
 
 .btn-metallic:hover {
-  background: oklch(54% 0.13 72.6);
-  box-shadow:
-    inset 0 0 0 3px oklch(54% 0.13 72.6),
-    inset 0 0 0 4px oklch(41% 0.12 72.6 / 55%);
+  filter: brightness(1.06);
+}
+
+.btn-metallic:hover::after {
+  border-color: oklch(30% 0.05 50 / 35%);
 }
 
 .btn-metallic:active {
-  background: oklch(51% 0.12 72.6);
-  box-shadow:
-    inset 0 0 0 3px oklch(51% 0.12 72.6),
-    inset 0 0 0 4px oklch(40% 0.12 72.6 / 55%),
-    inset 0 1px 3px oklch(30% 0.08 72.6 / 25%);
+  filter: brightness(0.94);
+  transform: translateY(1px);
+}
+
+/* ============================================================
+   Blueprint outline button — line-draw border on hover
+   Two L-shaped borders draw from opposite corners, meeting
+   in the middle like a pen tracing a technical drawing.
+   ============================================================ */
+
+.btn-blueprint-outline {
+  position: relative;
+  border-radius: 0 !important;
+  background: var(--background) !important;
+  /* Border/text use copper-dark hue family */
+  border: 1px solid oklch(45% 0.04 55 / 20%);
+  color: oklch(35% 0.04 55);
+  transition: color 0.3s ease, border-color 0.15s ease;
+}
+
+.btn-blueprint-outline::before,
+.btn-blueprint-outline::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  transition: width 0.3s ease, height 0.25s ease 0.3s;
+}
+
+/* Top-left corner → draws right then down */
+.btn-blueprint-outline::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1.5px solid oklch(35% 0.06 55);
+  border-left: 1.5px solid oklch(35% 0.06 55);
+}
+
+/* Bottom-right corner → draws left then up */
+.btn-blueprint-outline::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 1.5px solid oklch(35% 0.06 55);
+  border-right: 1.5px solid oklch(35% 0.06 55);
+}
+
+.btn-blueprint-outline:hover {
+  border-color: transparent;
+  color: oklch(28% 0.05 55);
+}
+
+.btn-blueprint-outline:hover::before,
+.btn-blueprint-outline:hover::after {
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+}
+
+.btn-blueprint-outline:active {
+  transform: translateY(1px);
 }
 
 /* ============================================================

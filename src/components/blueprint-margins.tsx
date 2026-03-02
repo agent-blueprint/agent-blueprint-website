@@ -8,19 +8,20 @@ const ZONE_LETTERS = ["A", "B", "C", "D", "E", "F"];
 function RegCross({ y }: { y: number }) {
   return (
     <svg
-      className="absolute left-0 w-3 h-3"
+      className="absolute left-0 w-3 h-3 text-primary"
       style={{ top: y }}
       viewBox="0 0 12 12"
       fill="none"
     >
-      <line x1="6" y1="0" x2="6" y2="12" stroke="#1e3a5f" strokeWidth="0.5" opacity="0.3" />
-      <line x1="0" y1="6" x2="12" y2="6" stroke="#1e3a5f" strokeWidth="0.5" opacity="0.3" />
+      <line x1="6" y1="0" x2="6" y2="12" stroke="currentColor" strokeWidth="0.5" opacity="0.3" />
+      <line x1="0" y1="6" x2="12" y2="6" stroke="currentColor" strokeWidth="0.5" opacity="0.3" />
     </svg>
   );
 }
 
 export function BlueprintMargins() {
   const [sectionTops, setSectionTops] = useState<number[]>([]);
+  const [docHeight, setDocHeight] = useState(4000);
 
   useEffect(() => {
     function measure() {
@@ -30,6 +31,7 @@ export function BlueprintMargins() {
         tops.push((el as HTMLElement).offsetTop);
       });
       setSectionTops(tops);
+      setDocHeight(document.body.scrollHeight);
     }
 
     measure();
@@ -39,8 +41,6 @@ export function BlueprintMargins() {
     return () => observer.disconnect();
   }, []);
 
-  // Generate registration crosses at regular intervals
-  const docHeight = typeof document !== "undefined" ? document.body.scrollHeight : 4000;
   const crossInterval = 320;
   const crossCount = Math.floor(docHeight / crossInterval);
 
@@ -56,7 +56,7 @@ export function BlueprintMargins() {
           return (
             <span
               key={i}
-              className="absolute left-0 font-mono text-[10px] text-[#1e3a5f]/25 tracking-wider"
+              className="absolute left-0 font-mono text-[10px] text-primary/25 tracking-wider"
               style={{ top: top + 20 }}
             >
               {ZONE_LETTERS[i]}
@@ -79,24 +79,24 @@ export function BlueprintMargins() {
 
       {/* Fold marks at 1/3 and 2/3 viewport height */}
       <div
-        className="absolute left-0 w-4 border-t border-dashed border-[#1e3a5f]/15"
+        className="absolute left-0 w-4 border-t border-dashed border-primary/15"
         style={{ top: "33.333vh" }}
       />
       <div
-        className="absolute right-0 w-4 border-t border-dashed border-[#1e3a5f]/15"
+        className="absolute right-0 w-4 border-t border-dashed border-primary/15"
         style={{ top: "33.333vh" }}
       />
       <div
-        className="absolute left-0 w-4 border-t border-dashed border-[#1e3a5f]/15"
+        className="absolute left-0 w-4 border-t border-dashed border-primary/15"
         style={{ top: "66.666vh" }}
       />
       <div
-        className="absolute right-0 w-4 border-t border-dashed border-[#1e3a5f]/15"
+        className="absolute right-0 w-4 border-t border-dashed border-primary/15"
         style={{ top: "66.666vh" }}
       />
 
       {/* Scale indicator bottom-left */}
-      <div className="fixed bottom-4 left-3 font-mono text-[9px] tracking-widest text-[#1e3a5f]/20 uppercase">
+      <div className="fixed bottom-4 left-3 font-mono text-[9px] tracking-widest text-primary/20 uppercase">
         Scale 1:1
       </div>
     </div>

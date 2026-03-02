@@ -10,13 +10,13 @@ interface CompassArcProps {
 
 export function CompassArc({ className = "", variant = "light" }: CompassArcProps) {
   const { ref, isInView, pathLength } = useLineDraw();
-  const stroke = variant === "dark" ? "#e8dfd0" : "#1e3a5f";
   const opacity = variant === "dark" ? 0.45 : 0.30;
+  const colorClass = variant === "dark" ? "text-dark-surface-foreground" : "text-primary";
 
   return (
     <svg
       ref={ref}
-      className={className}
+      className={`${colorClass} ${className}`}
       viewBox="0 0 200 200"
       fill="none"
       aria-hidden="true"
@@ -27,7 +27,7 @@ export function CompassArc({ className = "", variant = "light" }: CompassArcProp
         cx="100"
         cy="140"
         r="2"
-        fill={stroke}
+        fill="currentColor"
         opacity={opacity + 0.1}
         initial={{ scale: 0 }}
         animate={isInView ? { scale: 1 } : {}}
@@ -40,7 +40,7 @@ export function CompassArc({ className = "", variant = "light" }: CompassArcProp
         y1="140"
         x2="100"
         y2="60"
-        stroke={stroke}
+        stroke="currentColor"
         strokeWidth="1"
         opacity={opacity}
         strokeDasharray={pathLength}
@@ -55,7 +55,7 @@ export function CompassArc({ className = "", variant = "light" }: CompassArcProp
         y1="140"
         x2="155"
         y2="95"
-        stroke={stroke}
+        stroke="currentColor"
         strokeWidth="1"
         opacity={opacity}
         strokeDasharray={pathLength}
@@ -67,7 +67,7 @@ export function CompassArc({ className = "", variant = "light" }: CompassArcProp
       {/* Main arc */}
       <motion.path
         d="M 60 60 A 80 80 0 0 1 155 95"
-        stroke={stroke}
+        stroke="currentColor"
         strokeWidth="0.8"
         opacity={opacity}
         strokeDasharray={200}
@@ -91,7 +91,7 @@ export function CompassArc({ className = "", variant = "light" }: CompassArcProp
             y1={cy}
             x2={cx + dx}
             y2={cy + dy}
-            stroke={stroke}
+            stroke="currentColor"
             strokeWidth="0.5"
             opacity={opacity * 0.8}
             initial={{ opacity: 0 }}

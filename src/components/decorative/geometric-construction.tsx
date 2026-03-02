@@ -13,8 +13,8 @@ export function GeometricConstruction({
   variant = "light",
 }: GeometricConstructionProps) {
   const { ref, isInView } = useLineDraw();
-  const stroke = variant === "dark" ? "#e8dfd0" : "#1e3a5f";
   const opacity = variant === "dark" ? 0.35 : 0.30;
+  const colorClass = variant === "dark" ? "text-dark-surface-foreground" : "text-primary";
 
   const drawTransition = (delay: number) => ({
     duration: 1.2,
@@ -25,7 +25,7 @@ export function GeometricConstruction({
   return (
     <svg
       ref={ref}
-      className={className}
+      className={`${colorClass} ${className}`}
       viewBox="0 0 200 200"
       fill="none"
       aria-hidden="true"
@@ -36,7 +36,7 @@ export function GeometricConstruction({
         cx="90"
         cy="100"
         r="60"
-        stroke={stroke}
+        stroke="currentColor"
         strokeWidth="0.6"
         opacity={opacity}
         strokeDasharray={377}
@@ -50,7 +50,7 @@ export function GeometricConstruction({
         cx="120"
         cy="90"
         r="45"
-        stroke={stroke}
+        stroke="currentColor"
         strokeWidth="0.6"
         opacity={opacity}
         strokeDasharray={283}
@@ -64,7 +64,7 @@ export function GeometricConstruction({
         cx="75"
         cy="80"
         r="25"
-        stroke={stroke}
+        stroke="currentColor"
         strokeWidth="0.6"
         opacity={opacity}
         strokeDasharray={157}
@@ -79,7 +79,7 @@ export function GeometricConstruction({
         y1="100"
         x2="180"
         y2="100"
-        stroke={stroke}
+        stroke="currentColor"
         strokeWidth="0.4"
         opacity={opacity * 0.8}
         strokeDasharray={160}
@@ -94,7 +94,7 @@ export function GeometricConstruction({
         y1="160"
         x2="160"
         y2="40"
-        stroke={stroke}
+        stroke="currentColor"
         strokeWidth="0.4"
         opacity={opacity * 0.8}
         strokeDasharray={180}
@@ -117,7 +117,7 @@ export function GeometricConstruction({
           cx={cx}
           cy={cy}
           r="1.5"
-          fill={stroke}
+          fill="currentColor"
           opacity={opacity + 0.1}
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : {}}

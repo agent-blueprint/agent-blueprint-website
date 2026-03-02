@@ -39,7 +39,7 @@ export function SchematicPath({ scrollProgress, stepCount }: SchematicPathProps)
           y1="0"
           x2="16"
           y2="100"
-          stroke="#1e3a5f"
+          stroke="var(--primary)"
           strokeWidth="0.3"
           opacity="0.15"
         />
@@ -77,8 +77,8 @@ export function SchematicPath({ scrollProgress, stepCount }: SchematicPathProps)
         })}
 
         {/* Arrowhead markers at start and end */}
-        <polygon points="13,1 16,0 19,1" fill="#1e3a5f" opacity="0.2" />
-        <polygon points="13,99 16,100 19,99" fill="#1e3a5f" opacity="0.2" />
+        <polygon points="13,1 16,0 19,1" fill="var(--primary)" opacity="0.2" />
+        <polygon points="13,99 16,100 19,99" fill="var(--primary)" opacity="0.2" />
 
         {/* Node circles */}
         {nodes.map((node, i) => (
