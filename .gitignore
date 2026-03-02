@@ -38,8 +38,9 @@ yarn-error.log*
 # playwright mcp
 .playwright-mcp/
 
-# claude code
-.claude/
+# claude code (keep skills in repo, ignore everything else)
+.claude/*
+!.claude/skills/
 
 # design reference screenshots (not site assets)
 /blueprint-*.png
