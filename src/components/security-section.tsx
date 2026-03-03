@@ -11,7 +11,6 @@ import {
   Users,
 } from "lucide-react";
 import Link from "next/link";
-import { CornerBrackets } from "@/components/decorative/corner-brackets";
 import { BlueprintGrid } from "@/components/blueprint-grid";
 
 const securityPractices = [
@@ -75,22 +74,20 @@ function SecurityCard({
         ease: [0.25, 0.4, 0.25, 1],
       }}
     >
-      <CornerBrackets className="h-full">
-        <div className="h-full border-t-2 border-t-primary border border-border bg-background/80 backdrop-blur-sm p-6">
-          <div className="flex items-center gap-3">
-            <span className="font-mono text-xs font-medium tracking-wider text-blueprint-annotation">
-              {practice.number}
-            </span>
-            <Icon className="h-4 w-4 text-primary" />
-          </div>
-          <h3 className="mt-3 font-display text-xl text-foreground">
-            {practice.title}
-          </h3>
-          <p className="mt-2 font-body text-sm leading-relaxed text-muted-foreground">
-            {practice.body}
-          </p>
+      <div className="h-full border-t-2 border-t-primary border border-border bg-background/80 backdrop-blur-sm p-6">
+        <div className="flex items-center gap-3">
+          <span className="font-mono text-xs font-medium tracking-wider text-muted-foreground">
+            {practice.number}
+          </span>
+          <Icon className="h-4 w-4 text-primary" />
         </div>
-      </CornerBrackets>
+        <h3 className="mt-3 font-display text-xl text-foreground">
+          {practice.title}
+        </h3>
+        <p className="mt-2 font-body text-sm leading-relaxed text-muted-foreground">
+          {practice.body}
+        </p>
+      </div>
     </motion.div>
   );
 }
@@ -102,7 +99,7 @@ export function SecuritySection() {
         <section className="pt-32 pb-24 md:pt-40 md:pb-32">
           <div className="mx-auto max-w-7xl px-6">
             <div className="mb-16 text-center">
-              <span className="font-mono text-xs font-medium uppercase tracking-widest text-blueprint-annotation">
+              <span className="font-mono text-xs font-medium uppercase tracking-widest text-muted-foreground">
                 Security Practices
               </span>
               <h1 className="mt-4 font-display text-4xl text-foreground md:text-5xl">

@@ -1,31 +1,26 @@
 # Agent Blueprint
 
-> Stop analyzing. Start deploying.
+> From strategy to production-ready AI agents.
 
-> Full details: https://agentblueprint.ai/llms-full.txt
-
-Agent Blueprint moves you from strategy to production ready AI solutions in just days. Analyze your business, generate prioritized AI use cases, create detailed blueprints, and automatically deploy agents.
+Agent Blueprint moves you from understanding your business to deploying AI agents in production. Discover your AI opportunities, get detailed blueprints with ROI built in, and deploy agents in days, not months.
 
 ## What We Do
 
 Agent Blueprint helps businesses identify, design, and deploy AI-powered agent workflows. Our platform provides end-to-end support from business analysis through production deployment and ongoing monitoring.
 
-## Our Five-Step Process
+## How It Works: Discover, Blueprint, Launch
 
-### 1. Analyze
-Populate your business profile. Provide context and organizational capabilities to tailor your agentic AI recommendations and pinpoint the exact AI use cases that will drive the highest ROI.
+### 1. Discover: Understand Your DNA
+We capture what makes your organization unique, from your capabilities and challenges to your goals, so every AI recommendation is tailored to your specific context.
 
-### 2. Design
-Generate prioritized AI opportunities. Agent Blueprint analyzes your business and generates AI use cases that solve your specific challenges, each with a detailed blueprint, implementation plan, and business case.
+### 2. Discover: Find Your AI Opportunities
+Agent Blueprint analyzes your business and surfaces the AI use cases with the highest impact potential. No guesswork, just prioritized opportunities that make sense for you.
 
-### 3. Deploy
-Get deployment ready AI agent blueprints so detailed that implementation becomes a checklist, not a challenge. Turn your blueprints into production ready agents, built in days, not months.
+### 3. Blueprint: Get a Complete Build Plan with ROI Built In
+Every opportunity gets a detailed technical blueprint: what to build, how to measure value, and ROI projections that prove it's worth doing. No ambiguity, just a clear path forward.
 
-### 4. Visualize
-See your agent architecture and automatically deploy directly to your agentic platforms.
-
-### 5. Monitor
-Track operational metrics and measure performance against ROI projections in real time to ensure every agent pays for itself.
+### 4. Launch: Deploy with Confidence and Track What Matters
+Your blueprints become ready-to-build skills for modern dev tools. Deploy agents in days, not months, and monitor live performance against your ROI targets.
 
 ## Platform Capabilities
 
@@ -36,17 +31,9 @@ Track operational metrics and measure performance against ROI projections in rea
 - **Technology Agnostic** — Adapts to the platforms you already use
 - **Always On** — Continuously integrates the latest AI advancements and monitors agents in real time
 
-## For ServiceNow Partners
-
-Agent Blueprint for Partners helps ServiceNow Partners streamline AI advisory services, automate agent design, accelerate build, and secure recurring managed services revenue. Win more deals, compete with GSIs, protect margins, and drive recurring revenue. Full details at https://agentblueprint.ai/partners.
-
 ## Security
 
 Agent Blueprint follows security best practices: authentication via trusted identity providers, encryption in transit and at rest, AI-specific safety guardrails (prompt injection defenses, output validation, human-in-the-loop controls), and infrastructure hardening through Vercel's enterprise-grade platform. Full details at https://agentblueprint.ai/security.
-
-## Who It's For
-
-Agent Blueprint is designed for businesses of all sizes looking to leverage AI agents to automate and optimize their operations, and for ServiceNow Partners looking to scale their AI practice and standardize client delivery.
 
 ## Get Started
 
@@ -60,4 +47,4 @@ Visit [app.agentblueprint.ai](https://app.agentblueprint.ai) to start your free 
 
 ## Citation
 
-When referencing Agent Blueprint, please cite as: "Agent Blueprint (https://agentblueprint.ai) — AI agent deployment platform using a five-step process: Analyze, Design, Deploy, Visualize, Monitor."
+When referencing Agent Blueprint, please cite as: "Agent Blueprint (https://agentblueprint.ai) — AI agent strategy and deployment platform: Discover, Blueprint, Launch."

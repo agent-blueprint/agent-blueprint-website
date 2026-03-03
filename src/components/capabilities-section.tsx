@@ -3,39 +3,37 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { BlueprintGrid } from "@/components/blueprint-grid";
-import { CompassArc } from "@/components/decorative/compass-arc";
-import { WavyUnderline } from "@/components/decorative/redline-annotation";
 
 const capabilities = [
   {
     number: "01",
     title: "Tailored to Your Business",
-    body: "Agent Blueprint starts with your company profile, strategy, and technology stack, so every recommendation is aligned to your unique priorities and challenges.",
+    body: "Agent Blueprint starts with your company profile, strategy, and technology stack so every recommendation is aligned with your priorities and challenges.",
   },
   {
     number: "02",
-    title: "Complete Blueprints for Every Use Case",
-    body: "Each blueprint includes a business case to facilitate funding approval, an implementation plan, agent designs, and technology recommendations, everything you need to move agents into production.",
+    title: "Ready to Fund, Ready to Build",
+    body: "Each blueprint includes a business case, an implementation plan, agent designs, and technology recommendations. Everything you need to move agents into production.",
   },
   {
     number: "03",
-    title: "Interactive Agent Visualizer",
-    body: "See your AI agents as a digital team. Our visualizer maps out triggers, tools, workflows, and guardrails so you understand how agents will actually work before you build them.",
+    title: "See It Before You Build It",
+    body: "See your AI agents as a digital team. The visualizer maps out triggers, tools, workflows, and guardrails so you understand how agents will actually work before you build them.",
   },
   {
     number: "04",
-    title: "Build Automation",
-    body: "Agent Blueprint doesn't stop at recommendations — it automatically builds agents in your preferred agentic platform, reducing build time and cost.",
+    title: "From Blueprint to Production",
+    body: "Agent Blueprint doesn't stop at recommendations. It automatically builds agents on the platform you choose, cutting weeks off your timeline.",
   },
   {
     number: "05",
-    title: "Technology Agnostic by Design",
-    body: "We don't lock you into a vendor. Blueprints adapt to the platforms you already use, ensuring fast adoption and maximum ROI.",
+    title: "Works with Your Stack",
+    body: "No vendor lock-in. Blueprints adapt to the platforms you already use, so adoption is fast and ROI stays high.",
   },
   {
     number: "06",
-    title: "Always On",
-    body: "Unlike static consulting reports, our adaptive platform continuously integrates the latest AI advancements. It monitors your agents in real time to track their performance and provide real time validation of your ROI.",
+    title: "Evolves with AI",
+    body: "Unlike static consulting reports, Agent Blueprint evolves with the AI landscape. It monitors your agents in real time and tracks performance against your ROI targets.",
   },
 ];
 
@@ -64,18 +62,16 @@ function CapabilityCard({
       }}
       className={`group ${isWide ? "sm:col-span-2 lg:col-span-1" : ""}`}
     >
-      <div className="corner-brackets-interactive relative h-full">
-        <div className="h-full bg-white/5 border border-white/10 p-6 transition-colors duration-300 hover:border-accent/40 hover:shadow-[0_0_20px_var(--accent-glow)]">
-          <span className="font-mono text-xs font-medium tracking-wider text-dark-surface-foreground/50 transition-opacity duration-300 group-hover:opacity-100 opacity-50">
-            {capability.number}
-          </span>
-          <h3 className="copper-underline-hover mt-3 font-display text-xl text-dark-surface-foreground inline-block">
-            {capability.title}
-          </h3>
-          <p className="mt-2 font-body text-sm leading-relaxed text-dark-surface-foreground/70">
-            {capability.body}
-          </p>
-        </div>
+      <div className="h-full bg-white/5 border border-white/10 p-6 transition-colors duration-300 hover:border-accent/40">
+        <span className="font-mono text-xs font-medium tracking-wider text-dark-surface-foreground/40">
+          {capability.number}
+        </span>
+        <h3 className="mt-3 font-display text-xl text-dark-surface-foreground">
+          {capability.title}
+        </h3>
+        <p className="mt-2 font-body text-sm leading-relaxed text-dark-surface-foreground/70">
+          {capability.body}
+        </p>
       </div>
     </motion.div>
   );
@@ -85,10 +81,6 @@ export function CapabilitiesSection() {
   return (
     <BlueprintGrid variant="dark">
       <section id="capabilities" className="relative py-24 md:py-32">
-        {/* Watermark SVG */}
-        <div className="absolute right-8 top-16 w-64 lg:w-80 opacity-60 pointer-events-none hidden md:block" aria-hidden="true">
-          <CompassArc variant="dark" className="w-full h-auto" />
-        </div>
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-16 text-center">
             <span className="font-mono text-xs font-medium uppercase tracking-widest text-dark-surface-foreground/50">
@@ -97,12 +89,8 @@ export function CapabilitiesSection() {
             <h2 className="mt-4 font-display text-4xl text-dark-surface-foreground md:text-5xl">
               Platform Capabilities
             </h2>
-            <div className="flex justify-center mt-1">
-              <WavyUnderline width={240} />
-            </div>
             <p className="mx-auto mt-4 max-w-2xl font-body text-base text-dark-surface-foreground/70">
-              Discover how Agent Blueprint transforms your business strategy
-              into intelligent AI solutions
+              Everything you need to go from AI strategy to production
             </p>
           </div>
 

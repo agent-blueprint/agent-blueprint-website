@@ -1,7 +1,6 @@
 import { HeroSection } from "@/components/hero-section";
 import { HowItWorksSection } from "@/components/how-it-works-section";
 import { CapabilitiesSection } from "@/components/capabilities-section";
-import { FreeTrialSection } from "@/components/free-trial-section";
 import { ContactSection } from "@/components/contact-section";
 import { breadcrumbSchema, webPageSchema, siteConfig } from "@/lib/metadata";
 
@@ -27,7 +26,6 @@ export default function HomePage() {
       <HeroSection />
       <HowItWorksSection />
       <CapabilitiesSection />
-      <FreeTrialSection />
       <ContactSection />
     </>
   );
