@@ -32,6 +32,7 @@
   --color-copper-dark: var(--copper-dark);
   --color-copper-light: var(--copper-light);
   --color-copper-border: var(--copper-border);
+  --color-accent-mauve: var(--accent-mauve);
   --font-display: var(--font-cormorant-garamond);
   --font-body: var(--font-outfit);
   --font-mono: var(--font-jetbrains-mono);
@@ -71,8 +72,9 @@
   --secondary-foreground: oklch(21.8% 0.000 89.9);
   --muted: oklch(91.5% 0.0138 78.3);
   --muted-foreground: oklch(51.1% 0.0109 62.4);
-  --accent: oklch(66.3% 0.1331 72.6);
+  --accent: oklch(72% 0.22 32);
   --accent-foreground: oklch(100% 0 0);
+  --accent-mauve: oklch(62% 0.18 305);
   --destructive: oklch(50.5% 0.1905 27.5);
   --border: oklch(85.4% 0.0128 75.4);
   --input: oklch(85.4% 0.0128 75.4);
@@ -94,13 +96,21 @@
   --blueprint-annotation: oklch(34.6% 0.0736 256.0 / 40%);
   --dark-surface: oklch(25.0% 0.0500 256.0);
   --dark-surface-foreground: oklch(92.0% 0.0091 78.3);
-  --accent-glow: oklch(66.3% 0.1331 72.6 / 15%);
-  --copper-base: oklch(58% 0.09 48);
-  --copper-dark: oklch(46% 0.08 48);
-  --copper-light: oklch(72% 0.06 54);
-  --copper-border: oklch(50% 0.07 46);
+  --accent-glow: oklch(68% 0.19 32 / 20%);
+  --copper-base: oklch(65% 0.16 34);
+  --copper-dark: oklch(52% 0.14 34);
+  --copper-light: oklch(76% 0.12 36);
+  --copper-border: oklch(56% 0.13 34);
   --vignette-dark: oklch(18% 0.03 256 / 35%);
-  --copper-inset-glow: oklch(72% 0.03 70 / 15%);
+  --copper-inset-glow: oklch(76% 0.08 36 / 20%);
+
+  /* Dark Signal hero tokens */
+  --hero-bg: oklch(14% 0.02 256);
+  --hero-fg: oklch(96% 0.005 260);
+  --hero-muted: oklch(70% 0.01 260);
+  --hero-accent: oklch(68% 0.17 32);
+  --hero-accent-hover: oklch(72% 0.18 32);
+  --hero-border: oklch(30% 0.02 256);
 }
 
 @layer base {
@@ -120,26 +130,26 @@
    Three-tier hierarchy: super-major (160px), major (80px), minor (20px)
    ============================================================ */
 
-/* Light variant: navy strokes on cream
+/* Light variant: navy strokes on cream — subtle
    Note: Grid stroke colors (#1e3a5f / #e8dfd0) are derived from --primary / --dark-surface-foreground
    but can't use CSS custom properties inside url() data URIs (browser limitation). */
 .blueprint-grid-light {
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Crect width='160' height='160' fill='none'/%3E%3Cline x1='0' y1='0' x2='160' y2='0' stroke='%231e3a5f' stroke-opacity='0.15' stroke-width='1.2'/%3E%3Cline x1='0' y1='0' x2='0' y2='160' stroke='%231e3a5f' stroke-opacity='0.15' stroke-width='1.2'/%3E%3Cline x1='80' y1='0' x2='80' y2='160' stroke='%231e3a5f' stroke-opacity='0.10' stroke-width='0.8'/%3E%3Cline x1='0' y1='80' x2='160' y2='80' stroke='%231e3a5f' stroke-opacity='0.10' stroke-width='0.8'/%3E%3Cline x1='20' y1='0' x2='20' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='40' y1='0' x2='40' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='60' y1='0' x2='60' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='100' y1='0' x2='100' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='120' y1='0' x2='120' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='140' y1='0' x2='140' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='20' x2='160' y2='20' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='40' x2='160' y2='40' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='60' x2='160' y2='60' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='100' x2='160' y2='100' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='120' x2='160' y2='120' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='140' x2='160' y2='140' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Crect width='160' height='160' fill='none'/%3E%3Cline x1='0' y1='0' x2='160' y2='0' stroke='%231e3a5f' stroke-opacity='0.13' stroke-width='0.8'/%3E%3Cline x1='0' y1='0' x2='0' y2='160' stroke='%231e3a5f' stroke-opacity='0.13' stroke-width='0.8'/%3E%3Cline x1='80' y1='0' x2='80' y2='160' stroke='%231e3a5f' stroke-opacity='0.085' stroke-width='0.5'/%3E%3Cline x1='0' y1='80' x2='160' y2='80' stroke='%231e3a5f' stroke-opacity='0.085' stroke-width='0.5'/%3E%3Cline x1='20' y1='0' x2='20' y2='160' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3Cline x1='40' y1='0' x2='40' y2='160' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3Cline x1='60' y1='0' x2='60' y2='160' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3Cline x1='100' y1='0' x2='100' y2='160' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3Cline x1='120' y1='0' x2='120' y2='160' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3Cline x1='140' y1='0' x2='140' y2='160' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3Cline x1='0' y1='20' x2='160' y2='20' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3Cline x1='0' y1='40' x2='160' y2='40' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3Cline x1='0' y1='60' x2='160' y2='60' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3Cline x1='0' y1='100' x2='160' y2='100' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3Cline x1='0' y1='120' x2='160' y2='120' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3Cline x1='0' y1='140' x2='160' y2='140' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3C/svg%3E");
   background-repeat: repeat;
 }
 
-/* Dark variant: cream strokes on navy */
+/* Dark variant: cream strokes on navy — subtle */
 .blueprint-grid-dark {
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Crect width='160' height='160' fill='none'/%3E%3Cline x1='0' y1='0' x2='160' y2='0' stroke='%23e8dfd0' stroke-opacity='0.12' stroke-width='1.2'/%3E%3Cline x1='0' y1='0' x2='0' y2='160' stroke='%23e8dfd0' stroke-opacity='0.12' stroke-width='1.2'/%3E%3Cline x1='80' y1='0' x2='80' y2='160' stroke='%23e8dfd0' stroke-opacity='0.09' stroke-width='0.8'/%3E%3Cline x1='0' y1='80' x2='160' y2='80' stroke='%23e8dfd0' stroke-opacity='0.09' stroke-width='0.8'/%3E%3Cline x1='20' y1='0' x2='20' y2='160' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3Cline x1='40' y1='0' x2='40' y2='160' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3Cline x1='60' y1='0' x2='60' y2='160' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3Cline x1='100' y1='0' x2='100' y2='160' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3Cline x1='120' y1='0' x2='120' y2='160' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3Cline x1='140' y1='0' x2='140' y2='160' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3Cline x1='0' y1='20' x2='160' y2='20' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3Cline x1='0' y1='40' x2='160' y2='40' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3Cline x1='0' y1='60' x2='160' y2='60' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3Cline x1='0' y1='100' x2='160' y2='100' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3Cline x1='0' y1='120' x2='160' y2='120' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3Cline x1='0' y1='140' x2='160' y2='140' stroke='%23e8dfd0' stroke-opacity='0.06' stroke-width='0.4'/%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Crect width='160' height='160' fill='none'/%3E%3Cline x1='0' y1='0' x2='160' y2='0' stroke='%23e8dfd0' stroke-opacity='0.10' stroke-width='0.8'/%3E%3Cline x1='0' y1='0' x2='0' y2='160' stroke='%23e8dfd0' stroke-opacity='0.10' stroke-width='0.8'/%3E%3Cline x1='80' y1='0' x2='80' y2='160' stroke='%23e8dfd0' stroke-opacity='0.075' stroke-width='0.5'/%3E%3Cline x1='0' y1='80' x2='160' y2='80' stroke='%23e8dfd0' stroke-opacity='0.075' stroke-width='0.5'/%3E%3Cline x1='20' y1='0' x2='20' y2='160' stroke='%23e8dfd0' stroke-opacity='0.05' stroke-width='0.3'/%3E%3Cline x1='40' y1='0' x2='40' y2='160' stroke='%23e8dfd0' stroke-opacity='0.05' stroke-width='0.3'/%3E%3Cline x1='60' y1='0' x2='60' y2='160' stroke='%23e8dfd0' stroke-opacity='0.05' stroke-width='0.3'/%3E%3Cline x1='100' y1='0' x2='100' y2='160' stroke='%23e8dfd0' stroke-opacity='0.05' stroke-width='0.3'/%3E%3Cline x1='120' y1='0' x2='120' y2='160' stroke='%23e8dfd0' stroke-opacity='0.05' stroke-width='0.3'/%3E%3Cline x1='140' y1='0' x2='140' y2='160' stroke='%23e8dfd0' stroke-opacity='0.05' stroke-width='0.3'/%3E%3Cline x1='0' y1='20' x2='160' y2='20' stroke='%23e8dfd0' stroke-opacity='0.05' stroke-width='0.3'/%3E%3Cline x1='0' y1='40' x2='160' y2='40' stroke='%23e8dfd0' stroke-opacity='0.05' stroke-width='0.3'/%3E%3Cline x1='0' y1='60' x2='160' y2='60' stroke='%23e8dfd0' stroke-opacity='0.05' stroke-width='0.3'/%3E%3Cline x1='0' y1='100' x2='160' y2='100' stroke='%23e8dfd0' stroke-opacity='0.05' stroke-width='0.3'/%3E%3Cline x1='0' y1='120' x2='160' y2='120' stroke='%23e8dfd0' stroke-opacity='0.05' stroke-width='0.3'/%3E%3Cline x1='0' y1='140' x2='160' y2='140' stroke='%23e8dfd0' stroke-opacity='0.05' stroke-width='0.3'/%3E%3C/svg%3E");
   background-repeat: repeat;
 }
 
 /* Legacy class alias — matches light values */
 .blueprint-grid {
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Crect width='160' height='160' fill='none'/%3E%3Cline x1='0' y1='0' x2='160' y2='0' stroke='%231e3a5f' stroke-opacity='0.15' stroke-width='1.2'/%3E%3Cline x1='0' y1='0' x2='0' y2='160' stroke='%231e3a5f' stroke-opacity='0.15' stroke-width='1.2'/%3E%3Cline x1='80' y1='0' x2='80' y2='160' stroke='%231e3a5f' stroke-opacity='0.10' stroke-width='0.8'/%3E%3Cline x1='0' y1='80' x2='160' y2='80' stroke='%231e3a5f' stroke-opacity='0.10' stroke-width='0.8'/%3E%3Cline x1='20' y1='0' x2='20' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='40' y1='0' x2='40' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='60' y1='0' x2='60' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='100' y1='0' x2='100' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='120' y1='0' x2='120' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='140' y1='0' x2='140' y2='160' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='20' x2='160' y2='20' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='40' x2='160' y2='40' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='60' x2='160' y2='60' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='100' x2='160' y2='100' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='120' x2='160' y2='120' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3Cline x1='0' y1='140' x2='160' y2='140' stroke='%231e3a5f' stroke-opacity='0.07' stroke-width='0.4'/%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Crect width='160' height='160' fill='none'/%3E%3Cline x1='0' y1='0' x2='160' y2='0' stroke='%231e3a5f' stroke-opacity='0.13' stroke-width='0.8'/%3E%3Cline x1='0' y1='0' x2='0' y2='160' stroke='%231e3a5f' stroke-opacity='0.13' stroke-width='0.8'/%3E%3Cline x1='80' y1='0' x2='80' y2='160' stroke='%231e3a5f' stroke-opacity='0.085' stroke-width='0.5'/%3E%3Cline x1='0' y1='80' x2='160' y2='80' stroke='%231e3a5f' stroke-opacity='0.085' stroke-width='0.5'/%3E%3Cline x1='20' y1='0' x2='20' y2='160' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3Cline x1='40' y1='0' x2='40' y2='160' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3Cline x1='60' y1='0' x2='60' y2='160' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3Cline x1='100' y1='0' x2='100' y2='160' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3Cline x1='120' y1='0' x2='120' y2='160' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3Cline x1='140' y1='0' x2='140' y2='160' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3Cline x1='0' y1='20' x2='160' y2='20' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3Cline x1='0' y1='40' x2='160' y2='40' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3Cline x1='0' y1='60' x2='160' y2='60' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3Cline x1='0' y1='100' x2='160' y2='100' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3Cline x1='0' y1='120' x2='160' y2='120' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3Cline x1='0' y1='140' x2='160' y2='140' stroke='%231e3a5f' stroke-opacity='0.055' stroke-width='0.3'/%3E%3C/svg%3E");
   background-repeat: repeat;
 }
 
@@ -183,6 +193,34 @@
     ellipse 80% 60% at 50% 50%,
     transparent 40%,
     var(--vignette-dark) 100%
+  );
+}
+
+/* ============================================================
+   Dark Signal hero — near-black with subtle dot grid
+   ============================================================ */
+
+.hero-dark {
+  background-color: var(--hero-bg);
+  color: var(--hero-fg);
+}
+
+.hero-dark-dots {
+  background-image: radial-gradient(circle, oklch(50% 0.02 256 / 12%) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Coral glow — soft radial from center for hero depth */
+.hero-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 60% 50% at 50% 40%,
+    oklch(68% 0.17 32 / 6%) 0%,
+    transparent 70%
   );
 }
 
@@ -309,17 +347,17 @@
   background: linear-gradient(
     160deg,
     var(--copper-base) 0%,
-    oklch(64% 0.09 50) 20%,
-    oklch(70% 0.07 52) 45%,
+    oklch(66% 0.13 34) 20%,
+    oklch(68% 0.09 340) 45%,
     var(--copper-light) 55%,
-    oklch(68% 0.08 50) 75%,
-    oklch(60% 0.09 48) 100%
+    oklch(70% 0.11 34) 75%,
+    oklch(62% 0.12 32) 100%
   );
   border: 1px solid var(--copper-border);
-  /* Debossed / letterpress text — derived from copper hue family */
+  /* Debossed / letterpress text — derived from logo coral hue family */
   text-shadow:
-    0 -1px 0 oklch(20% 0.05 50 / 60%),
-    0 1px 0 oklch(72% 0.03 70 / 25%);
+    0 -1px 0 oklch(20% 0.06 34 / 60%),
+    0 1px 0 oklch(74% 0.04 36 / 25%);
   transition: filter 0.2s ease, border-color 0.2s ease;
 }
 
@@ -328,11 +366,11 @@
   content: "";
   position: absolute;
   inset: 0;
-  /* Reflection highlight — derived from copper-light hue */
+  /* Reflection highlight — derived from logo coral hue */
   background: radial-gradient(
     circle 120px at var(--mouse-x, -200px) var(--mouse-y, -200px),
-    oklch(90% 0.02 72 / 45%) 0%,
-    oklch(80% 0.03 70 / 15%) 35%,
+    oklch(90% 0.04 34 / 45%) 0%,
+    oklch(82% 0.05 36 / 15%) 35%,
     transparent 70%
   );
   pointer-events: none;
@@ -350,8 +388,8 @@
   content: "";
   position: absolute;
   inset: 4px;
-  /* Nameplate inset — derived from copper-dark hue */
-  border: 1px solid oklch(30% 0.05 50 / 22%);
+  /* Nameplate inset — derived from logo coral hue */
+  border: 1px solid oklch(30% 0.06 34 / 22%);
   pointer-events: none;
   transition: border-color 0.2s ease;
 }
@@ -361,7 +399,7 @@
 }
 
 .btn-metallic:hover::after {
-  border-color: oklch(30% 0.05 50 / 35%);
+  border-color: oklch(30% 0.06 34 / 35%);
 }
 
 .btn-metallic:active {
@@ -379,9 +417,9 @@
   position: relative;
   border-radius: 0 !important;
   background: var(--background) !important;
-  /* Border/text use copper-dark hue family */
-  border: 1px solid oklch(45% 0.04 55 / 20%);
-  color: oklch(35% 0.04 55);
+  /* Border/text use logo coral hue family */
+  border: 1px solid oklch(45% 0.06 34 / 25%);
+  color: oklch(35% 0.06 34);
   transition: color 0.3s ease, border-color 0.15s ease;
 }
 
@@ -399,21 +437,21 @@
 .btn-blueprint-outline::before {
   top: -1px;
   left: -1px;
-  border-top: 1.5px solid oklch(35% 0.06 55);
-  border-left: 1.5px solid oklch(35% 0.06 55);
+  border-top: 1.5px solid oklch(35% 0.08 34);
+  border-left: 1.5px solid oklch(35% 0.08 34);
 }
 
 /* Bottom-right corner → draws left then up */
 .btn-blueprint-outline::after {
   bottom: -1px;
   right: -1px;
-  border-bottom: 1.5px solid oklch(35% 0.06 55);
-  border-right: 1.5px solid oklch(35% 0.06 55);
+  border-bottom: 1.5px solid oklch(35% 0.08 34);
+  border-right: 1.5px solid oklch(35% 0.08 34);
 }
 
 .btn-blueprint-outline:hover {
   border-color: transparent;
-  color: oklch(28% 0.05 55);
+  color: oklch(28% 0.07 34);
 }
 
 .btn-blueprint-outline:hover::before,

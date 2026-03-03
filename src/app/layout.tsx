@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { cormorantGaramond, outfit, jetbrainsMono } from "@/lib/fonts";
+import { cormorantGaramond, outfit, jetbrainsMono, spaceGrotesk } from "@/lib/fonts";
 import {
   siteMetadata,
   organizationSchema,
@@ -46,7 +46,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${cormorantGaramond.variable} ${outfit.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${cormorantGaramond.variable} ${outfit.variable} ${jetbrainsMono.variable} ${spaceGrotesk.variable} antialiased`}
       >
         {children}
         <Toaster />

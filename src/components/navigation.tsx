@@ -45,28 +45,19 @@ export function Navigation() {
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-background/95 backdrop-blur-sm"
+          ? "bg-background/90 backdrop-blur-md border-b border-border/40"
           : "bg-transparent"
       }`}
     >
-      {/* Dimension-line bottom border when scrolled */}
-      {scrolled && (
-        <div className="absolute bottom-0 left-0 right-0 flex items-center px-6" aria-hidden="true">
-          <div className="h-2 w-px bg-primary/20" />
-          <div className="h-px flex-1 bg-primary/20" />
-          <div className="h-2 w-px bg-primary/20" />
-        </div>
-      )}
-
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        {/* Logo with title block cartouche border */}
+        {/* Logo */}
         <a
           href="#"
           onClick={(e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
-          className="cursor-pointer flex items-center gap-3 border border-primary/15 px-3 py-1.5 transition-colors hover:border-primary/30"
+          className="cursor-pointer flex items-center gap-3 transition-opacity hover:opacity-80"
         >
           <Image
             src="/images/logo.png"
@@ -76,7 +67,7 @@ export function Navigation() {
             className="h-8 w-8"
             priority
           />
-          <span className="font-display text-xl text-primary">
+          <span className="font-body font-semibold text-xl text-foreground">
             Agent Blueprint
           </span>
         </a>
@@ -104,14 +95,21 @@ export function Navigation() {
               </Link>
             )
           )}
-          <Button
-            asChild
-            className="btn-metallic rounded-none text-accent-foreground font-body font-semibold"
+          <a
+            href={siteConfig.appUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-5 py-2 rounded-lg font-body font-semibold text-sm text-white transition-all duration-200 hover:shadow-sm"
+            style={{ backgroundColor: "var(--accent)" }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.backgroundColor = "oklch(72% 0.18 32)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.backgroundColor = "var(--accent)")
+            }
           >
-            <a href={siteConfig.appUrl} target="_blank" rel="noopener noreferrer">
-              Get Started
-            </a>
-          </Button>
+            Get Started
+          </a>
         </div>
 
         {/* Mobile nav */}
@@ -123,7 +121,7 @@ export function Navigation() {
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-72">
-            <SheetTitle className="font-display text-lg text-primary">
+            <SheetTitle className="font-body font-semibold text-lg text-foreground">
               Agent Blueprint
             </SheetTitle>
             <SheetDescription className="sr-only">
@@ -153,18 +151,15 @@ export function Navigation() {
                   </Link>
                 )
               )}
-              <Button
-                asChild
-                className="btn-metallic rounded-none text-accent-foreground font-body font-semibold w-full"
+              <a
+                href={siteConfig.appUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-body font-semibold text-sm text-white transition-colors w-full"
+                style={{ backgroundColor: "var(--accent)" }}
               >
-                <a
-                  href={siteConfig.appUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Get Started
-                </a>
-              </Button>
+                Get Started
+              </a>
             </nav>
           </SheetContent>
         </Sheet>
