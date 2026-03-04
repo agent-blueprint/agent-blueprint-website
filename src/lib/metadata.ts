@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const siteConfig = {
   name: "Agent Blueprint",
   description:
-    "Agent Blueprint moves you from strategy to production ready AI solutions in just days. Analyze your business, generate prioritized AI use cases, create detailed blueprints, and automatically deploy agents.",
+    "Agent Blueprint moves you from strategy to production-ready AI agents in days. Discover your best AI opportunities, get detailed blueprints with ROI built in, and deploy agents in days, not months.",
   url: "https://agentblueprint.ai",
   appUrl: "https://app.agentblueprint.ai",
   ogImage: "https://agentblueprint.ai/images/logo.png",
@@ -62,7 +62,8 @@ export const organizationSchema = {
   logo: siteConfig.ogImage,
   description: siteConfig.description,
   sameAs: [
-    "https://www.linkedin.com/company/agent-blueprint",
+    "https://www.linkedin.com/company/agentblueprint",
+    "https://github.com/agent-blueprint",
   ],
 };
 
@@ -196,11 +197,13 @@ export function webPageSchema({
   name,
   description,
   path,
+  datePublished,
   dateModified,
 }: {
   name: string;
   description: string;
   path: string;
+  datePublished?: string;
   dateModified: string;
 }) {
   return {
@@ -209,6 +212,7 @@ export function webPageSchema({
     name,
     description,
     url: `${siteConfig.url}${path}`,
+    ...(datePublished && { datePublished }),
     dateModified,
     isPartOf: {
       "@type": "WebSite",
