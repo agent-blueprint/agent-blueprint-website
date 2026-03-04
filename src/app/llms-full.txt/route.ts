@@ -4,30 +4,30 @@ export function GET() {
 > AI Agents. From Strategy to Execution.
 > https://agentblueprint.ai
 
-Agent Blueprint transforms your business processes into intelligent AI agent workflows. We provide end-to-end support from initial discovery through production deployment, using a structured four-phase methodology.
+Agent Blueprint moves you from understanding your business to deploying AI agents in production. Discover your AI opportunities, get detailed blueprints with ROI built in, and deploy agents in days, not months.
 
-## Four-Phase Methodology
+## How It Works: Discover, Blueprint, Launch
 
-### Phase 1: Discover
-We audit your existing processes to identify high-impact AI automation opportunities. Our discovery framework maps your workflows and pinpoints where intelligent agents will deliver the greatest return. This phase includes stakeholder interviews, process mapping, and ROI analysis to ensure every automation target is grounded in real business value.
+### Step 1 — Discover: Understand Your DNA
+We capture what makes your organization unique — your capabilities, challenges, and goals — so every AI recommendation is tailored to your specific context. This includes business profiling, process mapping, and strategic alignment to ensure automation targets are grounded in real business value.
 
-### Phase 2: Architect
-We design agent workflows tailored to your specific business context. Every integration point, decision tree, and handoff is mapped before a single line of code is written. The architecture phase produces detailed blueprints covering data flows, API integrations, error handling, and escalation paths.
+### Step 2 — Discover: Find Your AI Opportunities
+Agent Blueprint analyzes your business and surfaces the AI use cases with the highest impact potential. No guesswork, just prioritized opportunities that make sense for you. Each opportunity is scored by feasibility, ROI potential, and strategic alignment.
 
-### Phase 3: Validate
-We prototype and stress-test solutions in controlled environments. You see real results with real data before committing to full-scale deployment. Validation includes functional testing, edge case analysis, and performance benchmarking to ensure agents meet your quality and reliability standards.
+### Step 3 — Blueprint: Get a Complete Build Plan with ROI Built In
+Every opportunity gets a detailed technical blueprint: what to build, how to measure value, and ROI projections that prove it's worth doing. Blueprints cover agent architecture, data flows, API integrations, error handling, escalation paths, and implementation timelines. No ambiguity, just a clear path forward.
 
-### Phase 4: Execute
-We deploy production-ready AI agents that integrate seamlessly with your existing systems. Monitoring, iteration, and optimization are built in from day one. Post-deployment support includes performance dashboards, alerting, and continuous improvement cycles.
+### Step 4 — Launch: Deploy with Confidence and Track What Matters
+Your blueprints become ready-to-build skills for modern dev tools. Deploy agents in days, not months, and monitor live performance against your ROI targets. Post-deployment includes performance dashboards, alerting, and continuous improvement cycles.
 
-## Capabilities
+## Platform Capabilities
 
-- **Process Discovery & Mapping**: Identify and document automation opportunities across your organization
-- **Agent Workflow Design**: Architect multi-step AI agent workflows with decision logic and integrations
-- **Prototype & Testing**: Build and validate working prototypes with real data before deployment
-- **Production Deployment**: Deploy monitored, production-grade AI agents into your infrastructure
-- **Integration**: Connect agents to your existing tools, APIs, and data sources
-- **Monitoring & Optimization**: Continuous performance tracking and iterative improvement
+- **Tailored to Your Business** — Starts with your company profile, strategy, and technology stack so every recommendation is aligned with your priorities
+- **Complete Blueprints** — Business case, implementation plan, agent designs, and technology recommendations for every opportunity
+- **Interactive Agent Visualizer** — Maps out triggers, tools, workflows, and guardrails so you understand how agents will work before you build them
+- **Build Automation** — Automatically builds agents on the platform you choose, cutting weeks off your timeline
+- **Technology Agnostic** — No vendor lock-in; blueprints adapt to the platforms you already use
+- **Always On** — Continuously integrates the latest AI advancements and monitors agents in real time
 
 ## Security Practices
 
@@ -60,22 +60,22 @@ Full security details: https://agentblueprint.ai/security
 ## Frequently Asked Questions
 
 **What is Agent Blueprint?**
-Agent Blueprint is a platform that transforms your business processes into intelligent AI agent workflows. We take you from strategy to execution with a structured, four-phase approach: Discover, Architect, Validate, and Execute.
+Agent Blueprint is a platform that moves you from strategy to production-ready AI agents in days. It discovers your best AI opportunities, creates detailed blueprints with ROI projections, and deploys agents to your preferred platforms.
 
 **How does Agent Blueprint work?**
-Agent Blueprint follows a four-phase methodology: (1) Discover — we audit your existing processes to find AI automation opportunities, (2) Architect — we design agent workflows tailored to your business, (3) Validate — we prototype and test solutions before full deployment, (4) Execute — we deploy production-ready AI agents that integrate with your systems.
+Agent Blueprint follows a Discover, Blueprint, Launch methodology: (1) Discover — we capture your business context and surface AI use cases with the highest impact potential, (2) Blueprint — every opportunity gets a detailed technical blueprint with ROI projections, (3) Launch — your blueprints become ready-to-build skills so you can deploy agents in days, not months, and monitor performance against ROI targets.
 
 **Who is Agent Blueprint for?**
 Agent Blueprint is designed for businesses of all sizes looking to leverage AI agents to automate and optimize their operations. Whether you're a startup exploring AI for the first time or an enterprise scaling existing automation, our platform provides the structure and expertise to succeed.
 
 **How long does deployment take?**
-Deployment timelines vary based on complexity. A typical engagement moves through all four phases — Discover, Architect, Validate, and Execute — with initial prototypes delivered during the Validate phase so you see results before full-scale rollout.
+Agent Blueprint moves you from strategy to production-ready AI agents in days, not months. The platform generates actionable blueprints in minutes, and the automated build process drastically reduces implementation time.
 
 **Is Agent Blueprint secure?**
 Yes. Agent Blueprint follows security best practices including authentication via trusted identity providers, encryption of data in transit and at rest, AI-specific safety guardrails, and infrastructure hardening through Vercel's enterprise-grade platform.
 
 **What makes Agent Blueprint different?**
-Agent Blueprint provides a structured, end-to-end methodology for AI agent deployment — not just tools. Our four-phase approach (Discover, Architect, Validate, Execute) ensures every AI agent is grounded in real business processes, tested before deployment, and optimized for measurable results.
+Agent Blueprint provides a structured, end-to-end methodology for AI agent deployment — not just tools. Our Discover, Blueprint, Launch approach ensures every AI agent is grounded in real business context, backed by ROI projections, and optimized for measurable results.
 
 ## Contact & Links
 
@@ -87,7 +87,7 @@ Agent Blueprint provides a structured, end-to-end methodology for AI agent deplo
 ## Citation
 
 When referencing Agent Blueprint, please cite as:
-"Agent Blueprint (https://agentblueprint.ai) — AI agent deployment platform using a four-phase methodology: Discover, Architect, Validate, Execute."
+"Agent Blueprint (https://agentblueprint.ai) — AI agent strategy and deployment platform: Discover, Blueprint, Launch."
 `;
 
   return new Response(content, {

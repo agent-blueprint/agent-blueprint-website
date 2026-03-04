@@ -85,37 +85,31 @@ export const howToSchema = {
   "@type": "HowTo",
   name: "How to deploy AI agents with Agent Blueprint",
   description:
-    "Agent Blueprint's five-step process takes businesses from business profile to production-ready AI agent deployment in minutes.",
+    "Agent Blueprint's Discover, Blueprint, Launch methodology takes businesses from strategy to production-ready AI agent deployment in days, not months.",
   step: [
     {
       "@type": "HowToStep",
       position: 1,
-      name: "Analyze",
-      text: "Populate your business profile. Provide context and organizational capabilities to tailor your agentic AI recommendations and pinpoint the exact AI use cases that will drive the highest ROI.",
+      name: "Discover — Understand Your DNA",
+      text: "We capture what makes your organization unique, from your capabilities and challenges to your goals, so every AI recommendation is tailored to your specific context.",
     },
     {
       "@type": "HowToStep",
       position: 2,
-      name: "Design",
-      text: "Generate prioritized AI opportunities. Agent Blueprint analyzes your business and generates AI use cases that solve your specific challenges, each with a detailed blueprint, implementation plan, and business case.",
+      name: "Discover — Find Your AI Opportunities",
+      text: "Agent Blueprint analyzes your business and surfaces the AI use cases with the highest impact potential. No guesswork, just prioritized opportunities that make sense for you.",
     },
     {
       "@type": "HowToStep",
       position: 3,
-      name: "Deploy",
-      text: "Get deployment ready AI agent blueprints so detailed that implementation becomes a checklist, not a challenge. Turn your blueprints into production ready agents, built in days, not months.",
+      name: "Blueprint — Get a Complete Build Plan",
+      text: "Every opportunity gets a detailed technical blueprint: what to build, how to measure value, and ROI projections that prove it's worth doing. No ambiguity, just a clear path forward.",
     },
     {
       "@type": "HowToStep",
       position: 4,
-      name: "Visualize",
-      text: "See your agent architecture and automatically deploy directly to your agentic platforms.",
-    },
-    {
-      "@type": "HowToStep",
-      position: 5,
-      name: "Monitor",
-      text: "Track operational metrics and measure performance against ROI projections in real time to ensure every agent pays for itself.",
+      name: "Launch — Deploy with Confidence",
+      text: "Your blueprints become ready-to-build skills for modern dev tools. Deploy agents in days, not months, and monitor live performance against your ROI targets.",
     },
   ],
 };
@@ -129,7 +123,7 @@ export const faqPageSchema = {
       name: "What is Agent Blueprint?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Agent Blueprint is a platform that moves you from strategy to production ready AI solutions in just days. It analyzes your business, generates prioritized AI use cases, creates detailed blueprints, and automatically deploys agents to your preferred platforms.",
+        text: "Agent Blueprint is a platform that moves you from strategy to production-ready AI agents in days. It discovers your best AI opportunities, creates detailed blueprints with ROI projections, and deploys agents to your preferred platforms.",
       },
     },
     {
@@ -137,7 +131,7 @@ export const faqPageSchema = {
       name: "How does Agent Blueprint work?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Agent Blueprint follows a five-step process: (1) Analyze - populate your business profile to tailor recommendations, (2) Design - generate prioritized AI use cases with detailed blueprints, (3) Deploy - turn blueprints into production ready agents built in days, (4) Visualize - see your agent architecture and deploy to your platforms, (5) Monitor - track performance and ROI in real time.",
+        text: "Agent Blueprint follows a Discover, Blueprint, Launch methodology: (1) Discover — we capture your business context and surface AI use cases with the highest impact potential, (2) Blueprint — every opportunity gets a detailed technical blueprint with ROI projections, (3) Launch — your blueprints become ready-to-build skills so you can deploy agents in days, not months, and monitor performance against ROI targets.",
       },
     },
     {
@@ -145,7 +139,7 @@ export const faqPageSchema = {
       name: "Who is Agent Blueprint for?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Agent Blueprint is designed for businesses looking to leverage AI agents to automate and optimize their operations. Whether you're a startup or enterprise, our platform helps you identify, design, and deploy AI-powered workflows.",
+        text: "Agent Blueprint is designed for businesses looking to leverage AI agents to automate and optimize their operations. Whether you're a startup or enterprise, our platform helps you discover, blueprint, and launch AI-powered workflows.",
       },
     },
     {
@@ -153,7 +147,7 @@ export const faqPageSchema = {
       name: "How long does deployment take?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Agent Blueprint moves you from strategy to production ready AI solutions in just days, not months. The platform generates actionable blueprints in minutes, and the automated build process drastically reduces implementation time.",
+        text: "Agent Blueprint moves you from strategy to production-ready AI agents in days, not months. The platform generates actionable blueprints in minutes, and the automated build process drastically reduces implementation time.",
       },
     },
     {
@@ -169,7 +163,7 @@ export const faqPageSchema = {
       name: "What makes Agent Blueprint different?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Agent Blueprint provides a structured, end-to-end methodology for AI agent deployment — not just tools. Our four-phase approach (Discover, Architect, Validate, Execute) ensures every AI agent is grounded in real business processes, tested before deployment, and optimized for measurable results.",
+        text: "Agent Blueprint provides a structured, end-to-end methodology for AI agent deployment — not just tools. Our Discover, Blueprint, Launch approach ensures every AI agent is grounded in real business context, backed by ROI projections, and optimized for measurable results.",
       },
     },
   ],
