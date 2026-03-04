@@ -74,8 +74,8 @@ export function ContactSection() {
             Get In Touch
           </h2>
           <p className="mx-auto mt-4 max-w-2xl font-body text-base text-muted-foreground">
-            Ready to transform your business strategy with AI? Let&apos;s
-            discuss how Agent Blueprint can help.
+            Want to see how AI agents could work in your business? Get in
+            touch and we&apos;ll walk you through it.
           </p>
         </div>
 
