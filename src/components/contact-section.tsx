@@ -20,15 +20,15 @@ import { contactFormSchema, type ContactFormData } from "@/lib/schemas";
 const linkedinLinks = [
   {
     name: "Chris Faulkner",
-    url: "https://www.linkedin.com/in/chrisfaulkner-ai/",
+    url: "https://www.linkedin.com/in/cifaulkner",
   },
   {
     name: "Amy Glencross",
-    url: "https://www.linkedin.com/in/amy-glencross/",
+    url: "https://www.linkedin.com/in/amyglencross",
   },
   {
     name: "Agent Blueprint",
-    url: "https://www.linkedin.com/company/agent-blueprint",
+    url: "https://www.linkedin.com/company/agentblueprint",
   },
 ];
 
@@ -64,13 +64,13 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-24 md:py-32">
+    <section id="contact" className="py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16 text-center">
+        <div className="mb-10 md:mb-16 text-center">
           <span className="font-mono text-xs font-medium uppercase tracking-widest text-blueprint-annotation">
-            Get In Touch
+            Contact Us
           </span>
-          <h2 className="mt-4 font-display text-4xl text-foreground md:text-5xl">
+          <h2 className="mt-4 font-display text-3xl text-foreground md:text-5xl">
             Get In Touch
           </h2>
           <p className="mx-auto mt-4 max-w-2xl font-body text-base text-muted-foreground">
@@ -79,7 +79,7 @@ export function ContactSection() {
           </p>
         </div>
 
-        <div className="grid gap-12 md:grid-cols-2 md:gap-16">
+        <div className="grid gap-8 md:grid-cols-2 md:gap-16">
           {/* Contact form with underline-style inputs */}
           <div>
             <Form {...form}>

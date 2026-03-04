@@ -80,13 +80,13 @@ function CapabilityCard({
 export function CapabilitiesSection() {
   return (
     <BlueprintGrid variant="dark">
-      <section id="capabilities" className="relative py-24 md:py-32">
+      <section id="capabilities" className="relative py-16 md:py-32">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-16 text-center">
+          <div className="mb-10 md:mb-16 text-center">
             <span className="font-mono text-xs font-medium uppercase tracking-widest text-dark-surface-foreground/50">
               What We Deliver
             </span>
-            <h2 className="mt-4 font-display text-4xl text-dark-surface-foreground md:text-5xl">
+            <h2 className="mt-4 font-display text-3xl text-dark-surface-foreground md:text-5xl">
               Platform Capabilities
             </h2>
             <p className="mx-auto mt-4 max-w-2xl font-body text-base text-dark-surface-foreground/70">

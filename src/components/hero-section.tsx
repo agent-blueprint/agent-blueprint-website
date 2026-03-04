@@ -14,7 +14,7 @@ export function HeroSection() {
       {/* Soft gradient mesh background */}
       <GradientMesh />
 
-      <div className="mx-auto max-w-5xl px-6 pt-28 pb-16 md:pt-40 md:pb-24 w-full relative z-10">
+      <div className="mx-auto max-w-5xl px-6 pt-20 pb-10 md:pt-40 md:pb-24 w-full relative z-10">
         <div className="text-center">
           {/* Eyebrow */}
           <motion.p
@@ -39,7 +39,7 @@ export function HeroSection() {
               delay: 0.35,
               ease,
             }}
-            className="mt-6 font-display font-bold tracking-tight text-foreground"
+            className="mt-4 md:mt-6 font-display font-bold tracking-tight text-foreground"
             style={{
               fontSize: "clamp(2.5rem, 5vw + 0.5rem, 4.5rem)",
               lineHeight: 1.1,
@@ -56,7 +56,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.55, ease }}
-            className="mx-auto mt-6 max-w-lg font-body text-lg md:text-xl text-muted-foreground leading-relaxed"
+            className="mx-auto mt-4 md:mt-6 max-w-lg font-body text-base md:text-lg text-muted-foreground leading-relaxed"
           >
             Agent Blueprint finds your best AI opportunities, architects
             exactly what to build, and proves the ROI so you move fast and
@@ -64,8 +64,22 @@ export function HeroSection() {
           </motion.p>
         </div>
 
+        {/* Mobile-only step flow text — replaces the illustration SVG on small screens */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.7, ease }}
+          className="mt-6 flex items-center justify-center gap-2 text-muted-foreground sm:hidden"
+        >
+          <span className="font-mono text-xs tracking-wider text-primary/70">Discover</span>
+          <span className="text-border">&middot;</span>
+          <span className="font-mono text-xs tracking-wider text-accent-mauve/70">Blueprint</span>
+          <span className="text-border">&middot;</span>
+          <span className="font-mono text-xs tracking-wider text-accent/70">Launch</span>
+        </motion.div>
+
         {/* Architect construction illustration with graph paper */}
-        <div className="relative mt-10 md:mt-16">
+        <div className="relative mt-6 md:mt-16 hidden sm:block">
           {/* Graph paper background — fades out at edges */}
           <div
             className="absolute inset-0 -inset-x-8 -inset-y-4"

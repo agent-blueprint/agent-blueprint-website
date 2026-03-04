@@ -72,7 +72,7 @@ function StepRow({
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ duration: 0.6, delay: 0.1, ease }}
-        className={`flex flex-col gap-8 md:gap-12 ${
+        className={`flex flex-col gap-4 md:gap-12 ${
           isReversed ? "md:flex-row-reverse" : "md:flex-row"
         } items-center`}
       >
@@ -95,7 +95,7 @@ function StepRow({
         </div>
 
         {/* Illustration */}
-        <div className="flex-1">
+        <div className="flex-1 max-w-[280px] mx-auto md:max-w-none">
           {Illustration && <Illustration className="w-full h-auto" />}
         </div>
       </motion.div>
@@ -107,14 +107,14 @@ export function HowItWorksSection() {
   return (
     <section
       id="how-it-works"
-      className="relative py-24 md:py-32"
+      className="relative py-16 md:py-32"
     >
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16 text-center">
+        <div className="mb-10 md:mb-16 text-center">
           <span className="font-mono text-xs font-medium uppercase tracking-widest text-muted-foreground">
             Discover &middot; Blueprint &middot; Launch
           </span>
-          <h2 className="mt-4 font-display text-4xl text-foreground md:text-5xl">
+          <h2 className="mt-4 font-display text-3xl text-foreground md:text-5xl">
             How It Works
           </h2>
           <p className="mx-auto mt-4 max-w-2xl font-body text-base text-muted-foreground">
@@ -122,7 +122,7 @@ export function HowItWorksSection() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-16 md:gap-12">
+        <div className="flex flex-col gap-10 md:gap-12">
           {steps.map((step, index) => (
             <StepRow key={step.number} step={step} index={index} />
           ))}

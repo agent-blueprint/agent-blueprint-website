@@ -94,9 +94,7 @@ export function Navigation() {
             )
           )}
           <a
-            href={siteConfig.appUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
             className="inline-flex items-center px-5 py-2 rounded-lg font-body font-semibold text-sm text-white transition-all duration-200 hover:shadow-sm"
             style={{ backgroundColor: "var(--accent)" }}
             onMouseEnter={(e) =>
@@ -150,9 +148,8 @@ export function Navigation() {
                 )
               )}
               <a
-                href={siteConfig.appUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#contact"
+                onClick={() => setSheetOpen(false)}
                 className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-body font-semibold text-sm text-white transition-colors w-full"
                 style={{ backgroundColor: "var(--accent)" }}
               >
