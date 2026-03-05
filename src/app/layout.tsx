@@ -20,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-optimized site summary" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
