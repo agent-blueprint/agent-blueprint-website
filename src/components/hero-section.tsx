@@ -64,22 +64,8 @@ export function HeroSection() {
           </motion.p>
         </div>
 
-        {/* Mobile-only step flow text — replaces the illustration SVG on small screens */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.7, ease }}
-          className="mt-6 flex items-center justify-center gap-2 text-muted-foreground sm:hidden"
-        >
-          <span className="font-mono text-xs tracking-wider text-primary/70">Discover</span>
-          <span className="text-border">&middot;</span>
-          <span className="font-mono text-xs tracking-wider text-accent-mauve/70">Blueprint</span>
-          <span className="text-border">&middot;</span>
-          <span className="font-mono text-xs tracking-wider text-accent/70">Launch</span>
-        </motion.div>
-
         {/* Architect construction illustration with graph paper */}
-        <div className="relative mt-6 md:mt-16 hidden sm:block">
+        <div className="relative mt-8 md:mt-16">
           {/* Graph paper background — fades out at edges */}
           <div
             className="absolute inset-0 -inset-x-8 -inset-y-4"
