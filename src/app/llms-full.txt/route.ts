@@ -29,6 +29,23 @@ Your blueprints become ready-to-build skills for modern dev tools. Deploy agents
 - **Technology Agnostic** — No vendor lock-in; blueprints adapt to the platforms you already use
 - **Always On** — Continuously integrates the latest AI advancements and monitors agents in real time
 
+## Developers
+
+Agent Blueprint exports every blueprint as an Agent Skills directory — an open standard for giving coding agents structured context. Supported by Claude Code, Codex, Cursor, and 18+ tools.
+
+### CLI
+Install the CLI globally with \`npm install -g agentblueprint\`. Authenticate with \`agentblueprint login\`, list available blueprints with \`agentblueprint list\`, and download any blueprint with \`agentblueprint download <blueprint-id>\`. This downloads the full Implementation Spec as an Agent Skills directory. Any coding agent that supports Agent Skills auto-discovers the SKILL.md file.
+
+### MCP Server
+Add this to your Claude Code, Cursor, or Codex MCP config:
+\`{"mcpServers":{"agent-blueprint":{"command":"npx","args":["-y","agentblueprint","serve"]}}}\`
+Your coding agent gets direct access to your blueprints without leaving the editor. Available tools: list_blueprints, get_blueprint, download_blueprint, get_use_case, get_business_case, get_implementation_plan, get_implementation_spec, get_business_profile.
+
+### Export from the App
+Click "Export Implementation Spec" on any blueprint page to download a ZIP containing the full Agent Skills directory: SKILL.md + 8 reference files + validation script.
+
+Full developer docs: https://agentblueprint.ai/developers
+
 ## Security Practices
 
 Agent Blueprint follows security best practices across four pillars:
