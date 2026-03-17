@@ -73,6 +73,14 @@ export function DevelopersSection() {
                 directory — an open standard for giving coding agents structured
                 context. Supported by Claude Code, Codex, Cursor, and 18+ tools.
               </p>
+              <p className="mt-4 font-body text-sm leading-relaxed text-muted-foreground">
+                Install via npm:{" "}
+                <strong className="font-mono text-foreground">
+                  npm install -g agentblueprint
+                </strong>
+                . The agentblueprint package includes both the CLI and a built-in
+                MCP server for AI coding agents.
+              </p>
             </div>
 
             {/* Sections */}
