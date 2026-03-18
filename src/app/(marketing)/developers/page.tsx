@@ -48,7 +48,7 @@ const softwareAppSchema = {
   operatingSystem: "Any",
   offers: { "@type": "Offer", price: "0" },
   installUrl: "https://www.npmjs.com/package/agentblueprint",
-  softwareVersion: "0.6.2",
+  softwareVersion: "0.6.4",
   description:
     "CLI and MCP server for Agent Blueprint. Download AI agent blueprints as Agent Skills directories for Claude Code, Cursor, Codex, and 18+ coding agents.",
   url: "https://agentblueprint.ai/developers",
