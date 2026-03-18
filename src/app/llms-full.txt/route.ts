@@ -44,7 +44,7 @@ Your coding agent gets direct access to your blueprints without leaving the edit
 ### Export from the App
 Click "Export Implementation Spec" on any blueprint page to download a ZIP containing the full Agent Skills directory: SKILL.md + 8 reference files + validation script.
 
-Full developer docs: https://agentblueprint.ai/developers
+Full developer docs: https://agentblueprint.ai/developers (also available at /install, /cli, /docs/cli)
 
 ## Security Practices
 

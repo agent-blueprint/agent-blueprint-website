@@ -9,6 +9,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/security",
   },
+  openGraph: {
+    title: "Security Practices | Agent Blueprint",
+    description:
+      "Learn about Agent Blueprint's security practices including authentication, data protection, AI safety, and infrastructure safeguards.",
+  },
+  twitter: {
+    title: "Security Practices | Agent Blueprint",
+    description:
+      "Learn about Agent Blueprint's security practices including authentication, data protection, AI safety, and infrastructure safeguards.",
+  },
 };
 
 const securityBreadcrumb = breadcrumbSchema([

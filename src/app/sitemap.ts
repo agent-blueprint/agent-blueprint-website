@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 const pages = [
-  { path: "", modified: "2026-03-04", priority: 1 },
+  { path: "", modified: "2026-03-18", priority: 1 },
   { path: "/security", modified: "2025-02-20", priority: 0.8 },
   { path: "/developers", modified: "2026-03-15", priority: 0.8 },
 ] as const;
