@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { HeroSection } from "@/components/hero-section";
 import { HowItWorksSection } from "@/components/how-it-works-section";
+import { VideoSection } from "@/components/video-section";
 import { CapabilitiesSection } from "@/components/capabilities-section";
 import { FaqSection } from "@/components/faq-section";
 import { ContactSection } from "@/components/contact-section";
@@ -46,6 +47,7 @@ export default function HomePage() {
       />
       <HeroSection />
       <HowItWorksSection />
+      <VideoSection />
       <CapabilitiesSection />
       <FaqSection />
       <ContactSection />
