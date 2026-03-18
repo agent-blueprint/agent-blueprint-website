@@ -120,6 +120,18 @@ export function HowItWorksSection() {
           <p className="mx-auto mt-4 max-w-2xl font-body text-base text-muted-foreground">
             From understanding your business to deploying AI agents in production
           </p>
+
+          <div className="mt-10 md:mt-14">
+            <div className="relative mx-auto max-w-4xl overflow-hidden rounded-lg border border-border/50 shadow-lg aspect-video">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/yo84pmPzXt0"
+                title="Agent Blueprint Explainer Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 h-full w-full"
+              />
+            </div>
+          </div>
         </div>
 
         <div className="flex flex-col gap-10 md:gap-12">
