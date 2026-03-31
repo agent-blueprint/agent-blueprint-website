@@ -46,6 +46,26 @@ Click "Export Implementation Spec" on any blueprint page to download a ZIP conta
 
 Full developer docs: https://agentblueprint.ai/developers (also available at /install, /cli, /docs/cli)
 
+## Open-Source Skills
+
+Agent Blueprint publishes free, community-maintained skills for coding agents. Apache 2.0 licensed.
+
+Repository: https://github.com/agent-blueprint/agent-blueprint-skills
+
+### servicenow-ai-agents
+ServiceNow AI Agent Studio reference for coding agents. Data model, entity mapping, URL patterns for browser automation, tool types, agent prompting patterns, and MCP server setup. Use when deploying AI agents on ServiceNow.
+
+### agent-deployment
+Vendor-agnostic AI agent deployment methodology. Phased rollout with pilot-first approach, simulation-to-real progression, test gates, access tier adaptation, and progress tracking. Works with any enterprise platform.
+
+### research-agent
+Multi-tool research methodology with automatic depth routing. Routes queries from free tools through paid tools based on query complexity. Includes caching, source verification, and structured output format.
+
+### Install as Claude Code Plugin
+```
+/plugin add agent-blueprint/agent-blueprint-skills
+```
+
 ## Security
 
 Agent Blueprint follows security best practices: authentication via trusted identity providers, encryption in transit and at rest, AI-specific safety guardrails (prompt injection defenses, output validation, human-in-the-loop controls), and infrastructure hardening through Vercel's enterprise-grade platform. Full details at https://agentblueprint.ai/security.
