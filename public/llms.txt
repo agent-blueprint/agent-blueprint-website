@@ -48,22 +48,40 @@ Full developer docs: https://agentblueprint.ai/developers (also available at /in
 
 ## Open-Source Skills
 
-Agent Blueprint publishes free, community-maintained skills for coding agents. Apache 2.0 licensed.
+Agent Blueprint publishes free, community-maintained skills for coding agents. 7 skills, Apache 2.0 licensed. Works with Claude Code, Codex, Cursor, Copilot, Windsurf, and 40+ other agents.
 
 Repository: https://github.com/agent-blueprint/agent-blueprint-skills
 
-### servicenow-ai-agents
+### Foundation Skills
+
+#### agent-fundamentals
+Agentic AI fundamentals for enterprise. What agents are, when to use them vs. workflows or chatbots, agent anatomy, architecture patterns (prompt chaining, routing, orchestrator-workers, evaluator-optimizer, autonomous), decision frameworks, and common failure modes. Use when someone is new to agents, evaluating whether agents fit their use case, or needs conceptual grounding before deploying.
+
+#### servicenow-ai-agents
 ServiceNow AI Agent Studio reference for coding agents. Data model, entity mapping, URL patterns for browser automation, tool types, agent prompting patterns, and MCP server setup. Use when deploying AI agents on ServiceNow.
 
-### agent-deployment
+#### agent-deployment
 Vendor-agnostic AI agent deployment methodology. Phased rollout with pilot-first approach, simulation-to-real progression, test gates, access tier adaptation, and progress tracking. Works with any enterprise platform.
 
-### research-agent
+#### research-agent
 Multi-tool research methodology with automatic depth routing. Routes queries from free tools through paid tools based on query complexity. Includes caching, source verification, and structured output format.
 
-### Install as Claude Code Plugin
+### Blueprint Patterns
+
+Pre-designed agent team architectures for common enterprise use cases. Each pattern describes the full agent team, roles, orchestration, and integration points. Use as a starting point, or generate a full customized blueprint via the MCP server.
+
+#### it-service-desk-triage
+5-agent architecture for automating IT service desk operations. Agents: Triage, Classification, Knowledge Search, Resolution, Escalation. Routing orchestration pattern. Use when building IT help desk automation, ticket triage, incident classification, or L1 support automation.
+
+#### procurement-rfx-processing
+6-agent architecture for end-to-end RFx lifecycle (RFP, RFQ, RFI). Agents: Intake, Requirements, Vendor Matching, Compliance, Evaluation, Communication. Orchestrator-workers pattern. Use when building procurement automation, vendor evaluation, or strategic sourcing agents.
+
+#### customer-onboarding
+5-agent architecture for customer onboarding pipeline automation. Agents: Intake, Verification, Provisioning, Communication, Handoff. Pipeline with parallel branches. Use when building customer onboarding, client intake, account provisioning, or KYC automation.
+
+### Install Skills
 ```
-/plugin add agent-blueprint/agent-blueprint-skills
+npx skills add agent-blueprint/agent-blueprint-skills --all
 ```
 
 ## Security
