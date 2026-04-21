@@ -4,6 +4,7 @@ import {
   siteMetadata,
   organizationSchema,
   softwareApplicationSchema,
+  mcpServerSchema,
   faqPageSchema,
   howToSchema,
 } from "@/lib/metadata";
@@ -31,6 +32,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(softwareApplicationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(mcpServerSchema),
           }}
         />
         <script

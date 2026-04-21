@@ -30,7 +30,7 @@ const homeWebPage = webPageSchema({
   description: siteConfig.description,
   path: "/",
   datePublished: "2025-09-15",
-  dateModified: "2026-03-18",
+  dateModified: "2026-04-20",
 });
 
 export default function HomePage() {

@@ -57,60 +57,105 @@ export const siteMetadata: Metadata = {
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://agentblueprint.ai/#org",
   name: "Agent Blueprint",
   url: siteConfig.url,
   logo: siteConfig.ogImage,
-  description: siteConfig.description,
+  description:
+    "Enterprise AI advisory platform generating multi-agent architectures, business cases, and implementation plans. 8 MCP tools serving 45+ coding agents across ServiceNow, Salesforce, and any enterprise platform.",
+  foundingDate: "2025",
   sameAs: [
     "https://www.linkedin.com/company/agentblueprint",
     "https://github.com/agent-blueprint",
+    "https://www.npmjs.com/package/agentblueprint",
+    "https://registry.modelcontextprotocol.io/servers/io.github.agent-blueprint/mcp-server",
   ],
 };
 
 export const softwareApplicationSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
+  "@id": "https://agentblueprint.ai/#app",
   name: "Agent Blueprint",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   url: siteConfig.appUrl,
-  description: siteConfig.description,
+  description:
+    "Multi-stage LLM pipeline generating AI agent blueprints: Business Profile, AI Readiness Assessment, Use Cases, Technical Blueprint, Business Case with ROI projections, and Implementation Plan.",
+  author: { "@id": "https://agentblueprint.ai/#org" },
   offers: {
     "@type": "Offer",
     availability: "https://schema.org/InStock",
   },
 };
 
+export const mcpServerSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://agentblueprint.ai/#mcp-server",
+  name: "Agent Blueprint MCP Server",
+  applicationCategory: "DeveloperApplication",
+  operatingSystem: "Cross-platform",
+  url: "https://www.npmjs.com/package/agentblueprint",
+  description:
+    "8 MCP tools for exploring and downloading AI agent blueprints. Install via npx agentblueprint. Compatible with Claude Code, Codex, Cursor, Copilot, Windsurf, and 40+ other coding agents. Vendor-agnostic output works with any enterprise platform.",
+  softwareVersion: "0.7.15",
+  author: { "@id": "https://agentblueprint.ai/#org" },
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
+  sameAs: [
+    "https://www.npmjs.com/package/agentblueprint",
+    "https://github.com/agent-blueprint/mcp-server",
+    "https://registry.modelcontextprotocol.io/servers/io.github.agent-blueprint/mcp-server",
+  ],
+};
+
 export const howToSchema = {
   "@context": "https://schema.org",
   "@type": "HowTo",
-  name: "How to deploy AI agents with Agent Blueprint",
+  "@id": "https://agentblueprint.ai/#howto",
+  name: "How to design and deploy multi-agent AI teams with Agent Blueprint",
   description:
-    "Agent Blueprint's Discover, Blueprint, Launch methodology takes businesses from strategy to production-ready AI agent deployment in days, not months.",
+    "6-step pipeline from business profile to production-ready AI agent deployment. Generates architecture for 3-15 agent teams with orchestration patterns, integration points, and 5-year ROI projections.",
   step: [
     {
       "@type": "HowToStep",
       position: 1,
-      name: "Discover — Understand Your DNA",
-      text: "We capture what makes your organization unique, from your capabilities and challenges to your goals, so every AI recommendation is tailored to your specific context.",
+      name: "Create Business Profile",
+      text: "Capture organization context: industry, size, tech stack, current processes, and strategic goals. This grounds all AI recommendations in your specific operational reality.",
     },
     {
       "@type": "HowToStep",
       position: 2,
-      name: "Discover — Find Your AI Opportunities",
-      text: "Agent Blueprint analyzes your business and surfaces the AI use cases with the highest impact potential. No guesswork, just prioritized opportunities that make sense for you.",
+      name: "Assess AI Readiness",
+      text: "Automated assessment across 6 dimensions: data maturity, process standardization, technical infrastructure, organizational readiness, change management, and governance.",
     },
     {
       "@type": "HowToStep",
       position: 3,
-      name: "Blueprint — Get a Complete Build Plan",
-      text: "Every opportunity gets a detailed technical blueprint: what to build, how to measure value, and ROI projections that prove it's worth doing. No ambiguity, just a clear path forward.",
+      name: "Generate Use Cases",
+      text: "LLM pipeline surfaces and prioritizes AI agent opportunities scored by impact, feasibility, and strategic alignment. Typical output: 5-12 ranked use cases per organization.",
     },
     {
       "@type": "HowToStep",
       position: 4,
-      name: "Launch — Deploy with Confidence",
-      text: "Your blueprints become ready-to-build skills for modern dev tools. Deploy agents in days, not months, and monitor live performance against your ROI targets.",
+      name: "Build Technical Blueprint",
+      text: "Each use case gets a full architecture: agent team composition (3-15 agents), orchestration pattern (routing, pipeline, or orchestrator-workers), integration points, tool definitions, and prompt structures.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 5,
+      name: "Generate Business Case",
+      text: "5-year financial model with implementation costs, projected savings, revenue impact, and payback period. Deterministic calculations, no fudge factors.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 6,
+      name: "Export and Deploy",
+      text: "Download as Agent Skills (SKILL.md + references/) consumable by Claude Code, Codex, Cursor, and 40+ other coding agents. Vendor-agnostic: deploy to ServiceNow, Salesforce, or any platform. Monitor live performance against ROI targets.",
     },
   ],
 };
@@ -118,13 +163,14 @@ export const howToSchema = {
 export const faqPageSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "@id": "https://agentblueprint.ai/#faq",
   mainEntity: [
     {
       "@type": "Question",
       name: "What is Agent Blueprint?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Agent Blueprint is a platform that moves you from strategy to production-ready AI agents in days. It discovers your best AI opportunities, creates detailed blueprints with ROI projections, and deploys agents to your preferred platforms.",
+        text: "Agent Blueprint is an enterprise AI advisory platform with 8 MCP tools that generate multi-agent architectures for coding agents. It produces 6 pipeline artifacts (Business Profile, AI Readiness, Use Cases, Technical Blueprint, Business Case with 5-year ROI, Implementation Plan) and exports them as vendor-agnostic Agent Skills consumable by 45+ coding agents including Claude Code, Codex, Cursor, and Copilot.",
       },
     },
     {
@@ -132,7 +178,7 @@ export const faqPageSchema = {
       name: "How does Agent Blueprint work?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Agent Blueprint follows a Discover, Blueprint, Launch methodology: (1) Discover — we capture your business context and surface AI use cases with the highest impact potential, (2) Blueprint — every opportunity gets a detailed technical blueprint with ROI projections, (3) Launch — your blueprints become ready-to-build skills so you can deploy agents in days, not months, and monitor performance against ROI targets.",
+        text: "Agent Blueprint runs a multi-stage LLM pipeline: (1) Capture business context via structured profile, (2) Assess AI readiness across 6 dimensions, (3) Generate prioritized use cases scored by impact and feasibility, (4) Produce technical blueprints defining agent teams, orchestration patterns, and integration points, (5) Calculate 5-year ROI with payback period, (6) Generate phased implementation plan. Output is machine-readable Agent Skills format, not PDFs.",
       },
     },
     {
@@ -140,31 +186,31 @@ export const faqPageSchema = {
       name: "Who is Agent Blueprint for?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Agent Blueprint is designed for businesses looking to leverage AI agents to automate and optimize their operations. Whether you're a startup or enterprise, our platform helps you discover, blueprint, and launch AI-powered workflows.",
+        text: "Agent Blueprint serves two audiences: (1) Enterprise teams deploying 3+ AI agents across multiple workflows who need architecture planning before build, and (2) Coding agents (Claude Code, Codex, Cursor) that need structured blueprints to implement multi-agent systems. Use it when you have complex agent orchestration needs, not for single chatbot deployments.",
       },
     },
     {
       "@type": "Question",
-      name: "How long does deployment take?",
+      name: "How do I install the Agent Blueprint MCP server?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Agent Blueprint moves you from strategy to production-ready AI agents in days, not months. The platform generates actionable blueprints in minutes, and the automated build process drastically reduces implementation time.",
+        text: "Install via npm: npx agentblueprint. The MCP server provides 8 tools (list_blueprints, get_blueprint, get_business_case, get_implementation_plan, get_use_case, get_implementation_spec, get_business_profile, download_blueprint). Requires an API key from app.agentblueprint.ai/settings/api-tokens. Works with any MCP-compatible agent via stdio transport.",
       },
     },
     {
       "@type": "Question",
-      name: "Is Agent Blueprint secure?",
+      name: "What agent skills are available open-source?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Agent Blueprint follows security best practices including authentication via trusted identity providers, encryption of data in transit and at rest, AI-specific safety guardrails, and infrastructure hardening through Vercel's enterprise-grade platform.",
+        text: "7 open-source Agent Skills available via npx skills add agent-blueprint/agent-blueprint-skills. Includes 4 foundation skills (agent-fundamentals, servicenow-ai-agents, agent-deployment, research-agent) and 3 blueprint patterns (IT Service Desk Triage with 5 agents, Procurement RFx Processing with 6 agents, Customer Onboarding with 5 agents). Apache 2.0 licensed. Compatible with 45+ coding agents.",
       },
     },
     {
       "@type": "Question",
-      name: "What makes Agent Blueprint different?",
+      name: "What makes Agent Blueprint different from consulting firms?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Agent Blueprint provides a structured, end-to-end methodology for AI agent deployment — not just tools. Our Discover, Blueprint, Launch approach ensures every AI agent is grounded in real business context, backed by ROI projections, and optimized for measurable results.",
+        text: "Agent Blueprint automates what consultants do manually. Traditional AI consulting takes 6-12 weeks and costs $150K-500K for strategy alone. Agent Blueprint generates equivalent output (architecture, ROI, implementation plan) in minutes via LLM pipeline. Output is machine-readable and directly consumable by coding agents. Blueprints are living documents that update as your business context changes, not frozen deliverables.",
       },
     },
   ],
