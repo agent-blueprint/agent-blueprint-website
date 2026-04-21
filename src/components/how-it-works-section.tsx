@@ -14,26 +14,26 @@ const steps = [
   {
     number: "01",
     label: "DISCOVER",
-    tagline: "Understand your DNA.",
-    body: "We capture what makes your organization unique, from your capabilities and challenges to your goals, so every AI recommendation is tailored to your specific context.",
+    tagline: "Capture business context in a structured profile.",
+    body: "Industry, org size, tech stack, current processes, strategic goals. This grounds all pipeline output in your operational reality. Takes minutes, not the weeks a consulting engagement requires.",
   },
   {
     number: "02",
     label: "DISCOVER",
-    tagline: "Find your AI opportunities.",
-    body: "Agent Blueprint analyzes your business and surfaces the AI use cases with the highest impact potential. No guesswork, just prioritized opportunities that make sense for you.",
+    tagline: "Surface 5-12 prioritized AI agent opportunities.",
+    body: "LLM pipeline scores each opportunity by impact, feasibility, and strategic alignment. No guesswork. You see exactly which workflows benefit most from multi-agent automation and why.",
   },
   {
     number: "03",
     label: "BLUEPRINT",
-    tagline: "Get a complete build plan with ROI built in.",
-    body: "Every opportunity gets a detailed technical blueprint: what to build, how to measure value, and ROI projections that prove it's worth doing. No ambiguity, just a clear path forward.",
+    tagline: "Generate architecture with 5-year ROI projections.",
+    body: "Each use case gets a full blueprint: agent team (3-15 agents), orchestration pattern, integration points, tool definitions, and a deterministic business case with implementation costs and payback period.",
   },
   {
     number: "04",
     label: "LAUNCH",
-    tagline: "Deploy with confidence and track what matters.",
-    body: "Your blueprints become ready-to-build skills for modern dev tools. Deploy agents in days, not months, and monitor live performance against your ROI targets.",
+    tagline: "Export as Agent Skills. Deploy to any platform.",
+    body: "Download blueprints as Agent Skills directories (SKILL.md + 8 reference files). Your coding agent (Claude Code, Codex, Cursor) reads the skill and handles vendor-specific implementation. Monitor live performance against ROI targets.",
   },
 ];
 

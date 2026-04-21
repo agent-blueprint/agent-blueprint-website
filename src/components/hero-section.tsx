@@ -23,7 +23,7 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.2, ease }}
             className="font-body text-sm font-semibold uppercase tracking-[0.2em] text-accent"
           >
-            Stop Guessing. Start Shipping.
+            8 MCP Tools &middot; 45+ Coding Agents &middot; Any Platform
           </motion.p>
 
           {/* Main headline */}
@@ -46,9 +46,9 @@ export function HeroSection() {
               letterSpacing: "-0.03em",
             }}
           >
-            Deploy AI agents with
+            AI agent architecture
             <br />
-            <span className="text-primary">total confidence</span>
+            <span className="text-primary">from strategy to production</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -56,11 +56,12 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.55, ease }}
-            className="mx-auto mt-4 md:mt-6 max-w-lg font-body text-base md:text-lg text-muted-foreground leading-relaxed"
+            className="mx-auto mt-4 md:mt-6 max-w-xl font-body text-base md:text-lg text-muted-foreground leading-relaxed"
           >
-            Agent Blueprint finds your best AI opportunities, architects
-            exactly what to build, and proves the ROI so you move fast and
-            build the right thing.
+            Generate multi-agent blueprints with 5-year ROI projections in
+            minutes. Export as Agent Skills for Claude Code, Codex, Cursor,
+            and 40+ other coding agents. Deploy to ServiceNow, Salesforce,
+            or any enterprise platform.
           </motion.p>
         </div>
 

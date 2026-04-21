@@ -7,33 +7,33 @@ import { BlueprintGrid } from "@/components/blueprint-grid";
 const capabilities = [
   {
     number: "01",
-    title: "Tailored to Your Business",
-    body: "Agent Blueprint starts with your company profile, strategy, and technology stack so every recommendation is aligned with your priorities and challenges.",
+    title: "6-Stage LLM Pipeline",
+    body: "Automated generation across 6 stages: Business Profile, AI Readiness (6 dimensions), Use Cases (5-12 per org), Technical Blueprint, Business Case (5-year ROI), and Implementation Plan. Minutes, not months.",
   },
   {
     number: "02",
-    title: "Ready to Fund, Ready to Build",
-    body: "Each blueprint includes a business case, an implementation plan, agent designs, and technology recommendations. Everything you need to move agents into production.",
+    title: "8 MCP Tools for Coding Agents",
+    body: "MCP server with 8 tools: list_blueprints, get_blueprint, get_business_case, get_implementation_plan, get_use_case, get_implementation_spec, get_business_profile, download_blueprint. Install via npx agentblueprint.",
   },
   {
     number: "03",
-    title: "See It Before You Build It",
-    body: "See your AI agents as a digital team. The visualizer maps out triggers, tools, workflows, and guardrails so you understand how agents will actually work before you build them.",
+    title: "Agent Team Visualization",
+    body: "Interactive visualizer maps 3-15 agent teams with triggers, tools, workflows, guardrails, and orchestration patterns (routing, pipeline, orchestrator-workers). Understand the architecture before you build it.",
   },
   {
     number: "04",
-    title: "From Blueprint to Production",
-    body: "Agent Blueprint doesn't stop at recommendations. It automatically builds agents on the platform you choose, cutting weeks off your timeline.",
+    title: "Agent Skills Export",
+    body: "Export blueprints as Agent Skills directories (SKILL.md + references/). Open standard consumed by Claude Code, Codex, Cursor, Copilot, Windsurf, and 40+ other coding agents. The agent handles implementation.",
   },
   {
     number: "05",
-    title: "Works with Your Stack",
-    body: "No vendor lock-in. Blueprints adapt to the platforms you already use, so adoption is fast and ROI stays high.",
+    title: "Vendor-Agnostic Output",
+    body: "Deploy to ServiceNow, Salesforce, or any enterprise platform. No lock-in. Blueprints define agent teams, integration points, and data flows independent of vendor. Your coding agent translates to platform-specific config.",
   },
   {
     number: "06",
-    title: "Evolves with AI",
-    body: "Unlike static consulting reports, Agent Blueprint evolves with the AI landscape. It monitors your agents in real time and tracks performance against your ROI targets.",
+    title: "Living Blueprints, Not Reports",
+    body: "Blueprints update as your business context changes. Performance monitoring tracks agents against ROI targets post-deployment. Coding agents write back operational data, keeping the blueprint current.",
   },
 ];
 
@@ -90,7 +90,7 @@ export function CapabilitiesSection() {
               Platform Capabilities
             </h2>
             <p className="mx-auto mt-4 max-w-2xl font-body text-base text-dark-surface-foreground/70">
-              Everything you need to go from AI strategy to production
+              6-stage pipeline, 8 MCP tools, 45+ agent compatibility, vendor-agnostic export
             </p>
           </div>
 

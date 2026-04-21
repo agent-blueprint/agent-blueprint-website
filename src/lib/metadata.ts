@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const siteConfig = {
   name: "Agent Blueprint",
   description:
-    "Agent Blueprint moves you from strategy to production-ready AI agents in days. Discover your best AI opportunities, get detailed blueprints with ROI built in, and deploy agents in days, not months.",
+    "8 MCP tools generating multi-agent architectures for 45+ coding agents. 6-stage LLM pipeline produces business cases with 5-year ROI, technical blueprints, and implementation plans. Export as Agent Skills for Claude Code, Codex, Cursor. Vendor-agnostic.",
   url: "https://agentblueprint.ai",
   appUrl: "https://app.agentblueprint.ai",
   ogImage: "https://agentblueprint.ai/images/logo.png",
