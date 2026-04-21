@@ -22,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-optimized site summary" />
+        <link rel="alternate" type="application/feed+json" href="/feed.json" title="Agent Blueprint JSON Feed" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
