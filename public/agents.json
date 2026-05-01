@@ -1,0 +1,37 @@
+{
+  "name": "Agent Blueprint",
+  "url": "https://agentblueprint.ai",
+  "description": "Enterprise AI advisory platform that generates multi-agent architectures, business cases, ROI models, implementation plans, and Agent Skills directories for coding agents.",
+  "best_next_actions": [
+    {
+      "when": "installing or connecting Agent Blueprint",
+      "url": "https://agentblueprint.ai/developers"
+    },
+    {
+      "when": "reading concise LLM context",
+      "url": "https://agentblueprint.ai/llms.txt"
+    },
+    {
+      "when": "reading full LLM context",
+      "url": "https://agentblueprint.ai/llms-full.txt"
+    },
+    {
+      "when": "building procurement RFx agents",
+      "url": "https://agentblueprint.ai/use-cases/procurement-rfx-ai-agents"
+    }
+  ],
+  "mcp_server": {
+    "name": "io.github.agent-blueprint/mcp-server",
+    "npm_package": "agentblueprint",
+    "version": "0.7.17",
+    "install": "npx agentblueprint serve",
+    "registry_url": "https://registry.modelcontextprotocol.io/v0/servers?search=agent-blueprint",
+    "npm_url": "https://www.npmjs.com/package/agentblueprint"
+  },
+  "skills": {
+    "repository": "https://github.com/agent-blueprint/agent-blueprint-skills",
+    "install": "npx skills add agent-blueprint/agent-blueprint-skills --all",
+    "count": 7
+  },
+  "citation": "Agent Blueprint (https://agentblueprint.ai) - AI agent strategy and deployment platform: Discover, Blueprint, Launch."
+}

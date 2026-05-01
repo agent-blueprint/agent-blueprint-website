@@ -68,7 +68,7 @@ export const organizationSchema = {
     "https://www.linkedin.com/company/agentblueprint",
     "https://github.com/agent-blueprint",
     "https://www.npmjs.com/package/agentblueprint",
-    "https://registry.modelcontextprotocol.io/servers/io.github.agent-blueprint/mcp-server",
+    "https://registry.modelcontextprotocol.io/v0/servers?search=agent-blueprint",
   ],
 };
 
@@ -98,8 +98,8 @@ export const mcpServerSchema = {
   operatingSystem: "Cross-platform",
   url: "https://www.npmjs.com/package/agentblueprint",
   description:
-    "8 MCP tools for exploring and downloading AI agent blueprints. Install via npx agentblueprint. Compatible with Claude Code, Codex, Cursor, Copilot, Windsurf, and 40+ other coding agents. Vendor-agnostic output works with any enterprise platform.",
-  softwareVersion: "0.7.15",
+    "8 MCP tools for exploring and downloading AI agent blueprints. Install via npx agentblueprint. Compatible with Claude Code, Codex, Cursor, Copilot, Windsurf, and 45+ other coding agents. Vendor-agnostic output works with any enterprise platform.",
+  softwareVersion: "0.7.17",
   author: { "@id": "https://agentblueprint.ai/#org" },
   offers: {
     "@type": "Offer",
@@ -109,7 +109,7 @@ export const mcpServerSchema = {
   sameAs: [
     "https://www.npmjs.com/package/agentblueprint",
     "https://github.com/agent-blueprint/mcp-server",
-    "https://registry.modelcontextprotocol.io/servers/io.github.agent-blueprint/mcp-server",
+    "https://registry.modelcontextprotocol.io/v0/servers?search=agent-blueprint",
   ],
 };
 
@@ -155,7 +155,7 @@ export const howToSchema = {
       "@type": "HowToStep",
       position: 6,
       name: "Export and Deploy",
-      text: "Download as Agent Skills (SKILL.md + references/) consumable by Claude Code, Codex, Cursor, and 40+ other coding agents. Vendor-agnostic: deploy to ServiceNow, Salesforce, or any platform. Monitor live performance against ROI targets.",
+      text: "Download as Agent Skills (SKILL.md + references/) consumable by Claude Code, Codex, Cursor, and 45+ other coding agents. Vendor-agnostic: deploy to ServiceNow, Salesforce, or any platform. Monitor live performance against ROI targets.",
     },
   ],
 };

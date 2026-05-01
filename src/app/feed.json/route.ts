@@ -44,6 +44,22 @@ export function GET() {
         ],
       },
       {
+        id: `${siteConfig.url}/use-cases/procurement-rfx-ai-agents`,
+        url: `${siteConfig.url}/use-cases/procurement-rfx-ai-agents`,
+        title: "Procurement RFx AI Agents: 6-Agent Blueprint Pattern",
+        summary:
+          "A 6-agent architecture for RFP, RFQ, and RFI work: Intake, Requirements, Vendor Matching, Compliance, Evaluation, and Communication. Use Agent Blueprint to turn procurement RFx automation into a full business case, implementation plan, and Agent Skills package.",
+        date_published: "2026-05-01T00:00:00Z",
+        date_modified: "2026-05-01T00:00:00Z",
+        tags: [
+          "procurement",
+          "rfx",
+          "rfp",
+          "agent-blueprint",
+          "multi-agent-systems",
+        ],
+      },
+      {
         id: `${siteConfig.url}/security`,
         url: `${siteConfig.url}/security`,
         title: "Agent Blueprint Security: Authentication, Data Protection, AI Safety",
@@ -73,7 +89,7 @@ export function GET() {
       {
         id: "https://www.npmjs.com/package/agentblueprint",
         url: "https://www.npmjs.com/package/agentblueprint",
-        title: "agentblueprint npm Package: MCP Server v0.7.15",
+        title: "agentblueprint npm Package: MCP Server v0.7.17",
         summary:
           "MCP server providing 8 tools for AI agent blueprint discovery and download. stdio transport. Install: npx agentblueprint. Requires API key from app.agentblueprint.ai/settings/api-tokens. Listed on Official MCP Registry, Glama, PulseMCP, MCPMarket.",
         date_published: "2026-02-01T00:00:00Z",

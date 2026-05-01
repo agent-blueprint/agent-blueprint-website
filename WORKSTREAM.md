@@ -4,12 +4,21 @@
 > **Keep it updated** as work progresses — it's how the next session picks up where the last left off.
 
 ## Active Branch
-- **`blueprint-theme`** (based on `content-baseline`)
-- Pushed to origin, Vercel preview deployed
-- Not yet merged to `main`
-- Working tree: clean (last pushed 2026-03-01)
+- **`aeo-discovery-v1`** (based on `main`)
+- Focused AEO discoverability v1 implemented, verified, and ready to ship
+- Working tree: clean after commit; merge to `main` pending
 
-## What Was Done (2026-03-01, session 6)
+## What Was Done (2026-05-01)
+
+### Focused AEO discoverability v1
+- Added public agent discovery files: `/AGENTS.md`, `/agents.json`, `/ai-agent.json`, `/.well-known/agent.json`
+- Added problem-first Procurement RFx AI Agents page at `/use-cases/procurement-rfx-ai-agents`
+- Updated sitemap, JSON Feed, `llms.txt`, and `llms-full.txt` for the new page
+- Updated website metadata and JSON-LD version references to `agentblueprint` v0.7.17
+- Standardized public coding-agent compatibility references to 45+ agents
+- Verified with targeted ESLint, `npm run build`, JSON parsing, and local endpoint checks on `localhost:3000`
+
+## Previous Work (2026-03-01, session 6)
 
 ### Project infrastructure for cross-session continuity
 - Created `WORKSTREAM.md` in repo root (replaces local-only `.claude/` memory file) so all collaborators share workstream state

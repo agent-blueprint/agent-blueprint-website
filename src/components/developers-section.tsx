@@ -71,7 +71,7 @@ export function DevelopersSection() {
                 Every blueprint exports as an{" "}
                 <strong className="text-foreground">Agent Skills</strong>{" "}
                 directory — an open standard for giving coding agents structured
-                context. Supported by Claude Code, Codex, Cursor, and 18+ tools.
+                context. Supported by Claude Code, Codex, Cursor, and 45+ tools.
               </p>
               <p className="mt-4 font-body text-sm leading-relaxed text-muted-foreground">
                 Install via npm:{" "}

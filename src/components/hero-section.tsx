@@ -60,7 +60,7 @@ export function HeroSection() {
           >
             Generate multi-agent blueprints with 5-year ROI projections in
             minutes. Export as Agent Skills for Claude Code, Codex, Cursor,
-            and 40+ other coding agents. Deploy to ServiceNow, Salesforce,
+            and 45+ other coding agents. Deploy to ServiceNow, Salesforce,
             or any enterprise platform.
           </motion.p>
         </div>

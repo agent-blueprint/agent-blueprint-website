@@ -23,7 +23,7 @@ const capabilities = [
   {
     number: "04",
     title: "Agent Skills Export",
-    body: "Export blueprints as Agent Skills directories (SKILL.md + references/). Open standard consumed by Claude Code, Codex, Cursor, Copilot, Windsurf, and 40+ other coding agents. The agent handles implementation.",
+    body: "Export blueprints as Agent Skills directories (SKILL.md + references/). Open standard consumed by Claude Code, Codex, Cursor, Copilot, Windsurf, and 45+ other coding agents. The agent handles implementation.",
   },
   {
     number: "05",

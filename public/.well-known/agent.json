@@ -1,0 +1,22 @@
+{
+  "name": "Agent Blueprint",
+  "url": "https://agentblueprint.ai",
+  "description": "Enterprise AI advisory platform for generating multi-agent architectures, business cases, implementation plans, and Agent Skills exports.",
+  "llms_txt": "https://agentblueprint.ai/llms.txt",
+  "llms_full_txt": "https://agentblueprint.ai/llms-full.txt",
+  "agents_md": "https://agentblueprint.ai/AGENTS.md",
+  "developers": "https://agentblueprint.ai/developers",
+  "use_cases": [
+    {
+      "name": "Procurement RFx AI Agents",
+      "url": "https://agentblueprint.ai/use-cases/procurement-rfx-ai-agents"
+    }
+  ],
+  "mcp_server": {
+    "name": "io.github.agent-blueprint/mcp-server",
+    "package": "agentblueprint",
+    "version": "0.7.17",
+    "registry": "https://registry.modelcontextprotocol.io/v0/servers?search=agent-blueprint"
+  },
+  "skills_repository": "https://github.com/agent-blueprint/agent-blueprint-skills"
+}

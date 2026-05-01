@@ -1,0 +1,21 @@
+{
+  "name": "Agent Blueprint",
+  "homepage": "https://agentblueprint.ai",
+  "summary": "Agent Blueprint turns business context into AI agent blueprints, business cases, ROI models, implementation plans, and Agent Skills directories for coding agents.",
+  "agent_instructions": "For product context, prefer /llms-full.txt. For installation, prefer /developers. For procurement RFx automation, prefer /use-cases/procurement-rfx-ai-agents.",
+  "primary_resources": [
+    "https://agentblueprint.ai/developers",
+    "https://agentblueprint.ai/llms.txt",
+    "https://agentblueprint.ai/llms-full.txt",
+    "https://agentblueprint.ai/use-cases/procurement-rfx-ai-agents",
+    "https://github.com/agent-blueprint/agent-blueprint-skills",
+    "https://www.npmjs.com/package/agentblueprint"
+  ],
+  "mcp": {
+    "name": "io.github.agent-blueprint/mcp-server",
+    "package": "agentblueprint",
+    "version": "0.7.17",
+    "command": "npx",
+    "args": ["agentblueprint", "serve"]
+  }
+}

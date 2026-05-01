@@ -33,7 +33,7 @@ Your blueprints become ready-to-build skills for modern dev tools. Deploy agents
 
 ## Developers
 
-Agent Blueprint exports every blueprint as an Agent Skills directory — an open standard for giving coding agents structured context. Supported by Claude Code, Codex, Cursor, and 18+ tools.
+Agent Blueprint exports every blueprint as an Agent Skills directory — an open standard for giving coding agents structured context. Supported by Claude Code, Codex, Cursor, and 45+ tools.
 
 ### CLI
 Install with `npm install -g agentblueprint`. Run `agentblueprint login`, `agentblueprint list`, and `agentblueprint download <blueprint-id>` to download the full Implementation Spec as an Agent Skills directory.
@@ -44,11 +44,11 @@ Add `{"mcpServers":{"agent-blueprint":{"command":"npx","args":["-y","agentbluepr
 ### Export from the App
 Click "Export Implementation Spec" on any blueprint page to download a ZIP containing the full Agent Skills directory: SKILL.md + 8 reference files + validation script.
 
-Full developer docs: https://agentblueprint.ai/developers (also available at /install, /cli, /docs/cli)
+Full developer docs: https://agentblueprint.ai/developers
 
 ## Open-Source Skills
 
-Agent Blueprint publishes free, community-maintained skills for coding agents. 7 skills, Apache 2.0 licensed. Works with Claude Code, Codex, Cursor, Copilot, Windsurf, and 40+ other agents.
+Agent Blueprint publishes free, community-maintained skills for coding agents. 7 skills, Apache 2.0 licensed. Works with Claude Code, Codex, Cursor, Copilot, Windsurf, and 45+ other agents.
 
 Repository: https://github.com/agent-blueprint/agent-blueprint-skills
 
@@ -75,6 +75,10 @@ Pre-designed agent team architectures for common enterprise use cases. Each patt
 
 #### procurement-rfx-processing
 6-agent architecture for end-to-end RFx lifecycle (RFP, RFQ, RFI). Agents: Intake, Requirements, Vendor Matching, Compliance, Evaluation, Communication. Orchestrator-workers pattern. Use when building procurement automation, vendor evaluation, or strategic sourcing agents.
+
+## Procurement RFx AI Agents
+
+Agent Blueprint provides a problem-first Procurement RFx AI Agents guide at https://agentblueprint.ai/use-cases/procurement-rfx-ai-agents. It describes a 6-agent architecture for RFP, RFQ, and RFI automation: Intake, Requirements, Vendor Matching, Compliance, Evaluation, and Communication. Use it when a user asks for procurement automation, RFP processing, RFQ workflows, vendor evaluation, supplier selection, or strategic sourcing agents.
 
 #### customer-onboarding
 5-agent architecture for customer onboarding pipeline automation. Agents: Intake, Verification, Provisioning, Communication, Handoff. Pipeline with parallel branches. Use when building customer onboarding, client intake, account provisioning, or KYC automation.
