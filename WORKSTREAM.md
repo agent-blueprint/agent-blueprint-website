@@ -4,9 +4,9 @@
 > **Keep it updated** as work progresses — it's how the next session picks up where the last left off.
 
 ## Active Branch
-- **`pivot-copy-triage`** (based on `main`)
-- Phase-1 copy repositioning done and verified locally; pushed 2026-07-09 for Vercel preview (Chris-requested)
-- Awaiting Chris review on the preview URL, then merge to main + push on his go
+- **`main`** — phase-1 copy repositioning SHIPPED to production 2026-07-09
+- Chris reviewed the Vercel preview and approved ("looks great"); merged `pivot-copy-triage` (fast-forward) and pushed
+- `pivot-copy-triage` branch preserved (deletion needs Chris's OK)
 
 ## Context: The Pivot (2026-07)
 
@@ -32,8 +32,8 @@ Agent Blueprint is no longer positioned as self-serve SaaS. It is the IP layer b
 - Remaining app.agentblueprint.ai references are intentional (JSON-LD client-access schema + labeled "Platform (client access)" link in llms-full)
 
 ## What Needs Doing Next
-- [ ] Chris reviews the branch (dev server or push branch for a Vercel preview URL — push only on request)
-- [ ] Merge to main + push when approved (deploys production)
+- [x] Chris review on Vercel preview (approved 2026-07-09)
+- [x] Merge to main + push (production deployed 2026-07-09)
 - [ ] Verify SENDGRID_API_KEY is set in Vercel with a test contact-form submission (form is now the only conversion path; emails chris@ + amy@)
 - [ ] Phase-2 repositioning: decide site role split with Amy alongside the planned nowgentic.com redesign (does NowGentic get named here?); new proof/evidence content
 - [ ] Decide fate of the old explainer video (removed from page, still on YouTube) and stale root-level screenshot PNGs (blueprint-*.png, from the March design pass)
