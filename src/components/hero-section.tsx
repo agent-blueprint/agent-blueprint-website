@@ -23,7 +23,7 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.2, ease }}
             className="font-body text-sm font-semibold uppercase tracking-[0.2em] text-accent"
           >
-            8 MCP Tools &middot; 45+ Coding Agents &middot; Any Platform
+            Assess &middot; Prioritize &middot; Blueprint &middot; Deploy
           </motion.p>
 
           {/* Main headline */}
@@ -46,9 +46,9 @@ export function HeroSection() {
               letterSpacing: "-0.03em",
             }}
           >
-            AI agent architecture
+            AI agents need a blueprint,
             <br />
-            <span className="text-primary">from strategy to production</span>
+            <span className="text-primary">not another slide deck</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -58,10 +58,11 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.55, ease }}
             className="mx-auto mt-4 md:mt-6 max-w-xl font-body text-base md:text-lg text-muted-foreground leading-relaxed"
           >
-            Generate multi-agent blueprints with 5-year ROI projections in
-            minutes. Export as Agent Skills for Claude Code, Codex, Cursor,
-            and 45+ other coding agents. Deploy to ServiceNow, Salesforce,
-            or any enterprise platform.
+            Agent Blueprint is the methodology and platform behind our AI
+            agent engagements. We map your organization, rank the use cases
+            worth doing, design the agent teams, and stay through deployment.
+            The blueprint is machine-readable, so your coding agents build
+            from it, and it stays current as your business changes.
           </motion.p>
         </div>
 

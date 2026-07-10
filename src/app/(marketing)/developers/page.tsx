@@ -3,7 +3,7 @@ import { DevelopersSection } from "@/components/developers-section";
 import { breadcrumbSchema, webPageSchema } from "@/lib/metadata";
 
 const pageDescription =
-  "Install the agentblueprint CLI and MCP server to download AI agent blueprints as Agent Skills directories for Claude Code, Cursor, Codex, and 45+ coding agents.";
+  "Install the agentblueprint CLI and MCP server to download AI agent blueprints as Agent Skills directories for Claude Code, Cursor, Codex, and other coding agents. API tokens are issued to client teams.";
 
 export const metadata: Metadata = {
   title: "Agent Blueprint CLI & MCP Server | npm install agentblueprint",
@@ -38,7 +38,7 @@ const developersWebPage = webPageSchema({
   name: "Agent Blueprint CLI & MCP Server",
   description: pageDescription,
   path: "/developers",
-  dateModified: "2026-05-01",
+  dateModified: "2026-07-09",
 });
 const softwareAppSchema = {
   "@context": "https://schema.org",
@@ -48,9 +48,8 @@ const softwareAppSchema = {
   operatingSystem: "Any",
   offers: { "@type": "Offer", price: "0" },
   installUrl: "https://www.npmjs.com/package/agentblueprint",
-  softwareVersion: "0.7.17",
   description:
-    "CLI and MCP server for Agent Blueprint. Download AI agent blueprints as Agent Skills directories for Claude Code, Cursor, Codex, and 45+ coding agents.",
+    "CLI and MCP server for Agent Blueprint. Download AI agent blueprints as Agent Skills directories for Claude Code, Cursor, Codex, and other coding agents. API tokens are issued to client teams.",
   url: "https://agentblueprint.ai/developers",
 };
 

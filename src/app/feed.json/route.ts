@@ -7,18 +7,18 @@ export function GET() {
     home_page_url: siteConfig.url,
     feed_url: `${siteConfig.url}/feed.json`,
     description:
-      "Enterprise AI advisory platform. 8 MCP tools generating multi-agent architectures for 45+ coding agents. Vendor-agnostic output for ServiceNow, Salesforce, or any platform.",
+      "Methodology and platform for enterprise AI agent teams. Living blueprints with readiness evidence, ranked use cases, agent team designs, business cases, and machine-readable delivery. Delivered through hands-on engagements.",
     icon: `${siteConfig.url}/images/logo.png`,
     language: "en-US",
     items: [
       {
         id: `${siteConfig.url}/`,
         url: `${siteConfig.url}/`,
-        title: "Agent Blueprint: AI Agent Architecture from Strategy to Execution",
+        title: "Agent Blueprint: AI Agent Teams from Strategy to Production",
         summary:
-          "Multi-stage LLM pipeline generating 6 artifacts: Business Profile, AI Readiness, Use Cases, Technical Blueprint, Business Case (5-year ROI), and Implementation Plan. Output delivered as Agent Skills consumable by 45+ coding agents.",
+          "The Agent Blueprint method: assess the organization, rank the use cases worth doing, design agent teams with deterministic business cases, then deploy through coding agents and track results against the plan. Delivered through hands-on engagements; blueprints stay current after deployment.",
         date_published: "2025-09-15T00:00:00Z",
-        date_modified: "2026-04-20T00:00:00Z",
+        date_modified: "2026-07-09T00:00:00Z",
         tags: [
           "ai-agents",
           "mcp-server",
@@ -32,9 +32,9 @@ export function GET() {
         url: `${siteConfig.url}/developers`,
         title: "Agent Blueprint for Developers: MCP Server, CLI, and Agent Skills Export",
         summary:
-          "Install MCP server via npx agentblueprint. 8 tools: list_blueprints, get_blueprint, get_business_case, get_implementation_plan, get_use_case, get_implementation_spec, get_business_profile, download_blueprint. Works with Claude Code, Codex, Cursor, Copilot, Windsurf. Also available as CLI and ZIP export.",
+          "Install the MCP server via npx agentblueprint. Tools include list_blueprints, get_blueprint, get_business_case, get_implementation_plan, get_use_case, get_implementation_spec, get_business_profile, and download_blueprint. Works with Claude Code, Codex, Cursor, Copilot, Windsurf. Also available as CLI and ZIP export. API tokens are issued to client teams.",
         date_published: "2025-11-01T00:00:00Z",
-        date_modified: "2026-04-18T00:00:00Z",
+        date_modified: "2026-07-09T00:00:00Z",
         tags: [
           "mcp-server",
           "cli",
@@ -72,11 +72,11 @@ export function GET() {
       {
         id: "https://github.com/agent-blueprint/agent-blueprint-skills",
         url: "https://github.com/agent-blueprint/agent-blueprint-skills",
-        title: "Open-Source Agent Skills: 7 Skills for 45+ Coding Agents",
+        title: "Open-Source Agent Skills for Coding Agents",
         summary:
-          "7 open-source Agent Skills (Apache 2.0): agent-fundamentals, servicenow-ai-agents, agent-deployment, research-agent, plus 3 blueprint patterns (IT Service Desk Triage, Procurement RFx Processing, Customer Onboarding). Install via npx skills add agent-blueprint/agent-blueprint-skills.",
+          "Free Agent Skills (Apache 2.0): agent-fundamentals, servicenow-ai-agents, agent-deployment, research-agent, plus blueprint patterns for IT Service Desk Triage, Procurement RFx Processing, and Customer Onboarding. Install via npx skills add agent-blueprint/agent-blueprint-skills.",
         date_published: "2026-04-18T00:00:00Z",
-        date_modified: "2026-04-20T00:00:00Z",
+        date_modified: "2026-07-09T00:00:00Z",
         tags: [
           "open-source",
           "agent-skills",
@@ -89,11 +89,11 @@ export function GET() {
       {
         id: "https://www.npmjs.com/package/agentblueprint",
         url: "https://www.npmjs.com/package/agentblueprint",
-        title: "agentblueprint npm Package: MCP Server v0.7.17",
+        title: "agentblueprint npm Package: CLI and MCP Server",
         summary:
-          "MCP server providing 8 tools for AI agent blueprint discovery and download. stdio transport. Install: npx agentblueprint. Requires API key from app.agentblueprint.ai/settings/api-tokens. Listed on Official MCP Registry, Glama, PulseMCP, MCPMarket.",
+          "MCP server for AI agent blueprint discovery and download. stdio transport. Install: npx agentblueprint. Requires an API token issued with an Agent Blueprint engagement. Listed on the Official MCP Registry, Glama, PulseMCP, MCPMarket.",
         date_published: "2026-02-01T00:00:00Z",
-        date_modified: "2026-04-18T00:00:00Z",
+        date_modified: "2026-07-09T00:00:00Z",
         tags: [
           "npm",
           "mcp-server",

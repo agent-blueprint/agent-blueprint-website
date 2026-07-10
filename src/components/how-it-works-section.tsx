@@ -13,27 +13,27 @@ import {
 const steps = [
   {
     number: "01",
-    label: "DISCOVER",
-    tagline: "Capture business context in a structured profile.",
-    body: "Industry, org size, tech stack, current processes, strategic goals. This grounds all pipeline output in your operational reality. Takes minutes, not the weeks a consulting engagement requires.",
+    label: "ASSESS",
+    tagline: "Start from your operating reality.",
+    body: "We build a structured profile of the organization: industry, systems, processes, constraints, goals. Then we score AI readiness across the dimensions that decide whether agents will actually work. Every later recommendation cites this evidence.",
   },
   {
     number: "02",
-    label: "DISCOVER",
-    tagline: "Surface 5-12 prioritized AI agent opportunities.",
-    body: "LLM pipeline scores each opportunity by impact, feasibility, and strategic alignment. No guesswork. You see exactly which workflows benefit most from multi-agent automation and why.",
+    label: "PRIORITIZE",
+    tagline: "Rank the use cases worth doing.",
+    body: "Candidate agent use cases get scored by impact and feasibility, then force-ranked. You get a portfolio with clear priorities and honest reasoning, not a list where everything is marked high.",
   },
   {
     number: "03",
     label: "BLUEPRINT",
-    tagline: "Generate architecture with 5-year ROI projections.",
-    body: "Each use case gets a full blueprint: agent team (3-15 agents), orchestration pattern, integration points, tool definitions, and a deterministic business case with implementation costs and payback period.",
+    tagline: "Design the agent team, with the economics attached.",
+    body: "Each approved use case gets a full design: agent roles, orchestration pattern, tools, integration points, guardrails, and human approval gates. The business case is deterministic, computed from your numbers, with costs and payback stated plainly.",
   },
   {
     number: "04",
-    label: "LAUNCH",
-    tagline: "Export as Agent Skills. Deploy to any platform.",
-    body: "Download blueprints as Agent Skills directories (SKILL.md + 8 reference files). Your coding agent (Claude Code, Codex, Cursor) reads the skill and handles vendor-specific implementation. Monitor live performance against ROI targets.",
+    label: "DEPLOY",
+    tagline: "Build with coding agents. Measure against the plan.",
+    body: "Blueprints export as Agent Skills directories that coding agents like Claude Code, Codex, and Cursor build from. Rollout is phased with test gates. Deployed agents report performance back, and the blueprint stays current instead of aging in a drawer.",
   },
 ];
 
@@ -112,26 +112,14 @@ export function HowItWorksSection() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-10 md:mb-16 text-center">
           <span className="font-mono text-xs font-medium uppercase tracking-widest text-muted-foreground">
-            Discover &middot; Blueprint &middot; Launch
+            Assess &middot; Prioritize &middot; Blueprint &middot; Deploy
           </span>
           <h2 className="mt-4 font-display text-3xl text-foreground md:text-5xl">
             How It Works
           </h2>
           <p className="mx-auto mt-4 max-w-2xl font-body text-base text-muted-foreground">
-            From understanding your business to deploying AI agents in production
+            How an engagement runs, from first assessment to agents in production
           </p>
-
-          <div className="mt-10 md:mt-14">
-            <div className="relative mx-auto max-w-4xl overflow-hidden rounded-lg border border-border/50 shadow-lg aspect-video">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/yo84pmPzXt0"
-                title="Agent Blueprint Explainer Video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 h-full w-full"
-              />
-            </div>
-          </div>
         </div>
 
         <div className="flex flex-col gap-10 md:gap-12">

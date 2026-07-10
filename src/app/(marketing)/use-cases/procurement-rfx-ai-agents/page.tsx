@@ -43,7 +43,7 @@ const webPage = webPageSchema({
   description: pageDescription,
   path: pagePath,
   datePublished: "2026-05-01",
-  dateModified: "2026-05-01",
+  dateModified: "2026-07-09",
 });
 
 const agentTeam = [
@@ -114,10 +114,10 @@ export default function ProcurementRfxAiAgentsPage() {
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
-                  href="https://app.agentblueprint.ai"
+                  href="/#contact"
                   className="btn-metallic inline-flex h-10 items-center justify-center gap-2 px-6 font-body text-sm font-semibold text-accent-foreground transition-all duration-200"
                 >
-                  Generate a blueprint <ArrowRight className="h-4 w-4" />
+                  Talk to us about this pattern <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   href="/developers"
@@ -174,9 +174,9 @@ export default function ProcurementRfxAiAgentsPage() {
               </h2>
               <p className="mt-4 font-body text-sm leading-relaxed text-muted-foreground">
                 The RFx pattern gives each procurement task a clear owner while
-                keeping sourcing decisions under human control. Agent Blueprint
-                customizes these roles to your supplier data, approval policy,
-                scoring model, and target platform.
+                keeping sourcing decisions under human control. In an
+                engagement, we customize these roles to your supplier data,
+                approval policy, scoring model, and target platform.
               </p>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
@@ -230,17 +230,17 @@ export default function ProcurementRfxAiAgentsPage() {
                 From pattern to implementation
               </h2>
               <p className="mt-4 max-w-3xl font-body text-sm leading-relaxed text-muted-foreground md:text-base">
-                The public pattern is the starting point. Agent Blueprint turns
-                it into a tailored blueprint with ROI, pilot scope, success
+                The public pattern is the starting point. In an engagement we
+                turn it into a tailored blueprint: ROI, pilot scope, success
                 metrics, integration assumptions, deployment phases, and files a
                 coding agent can read directly.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
-                  href="https://app.agentblueprint.ai"
+                  href="/#contact"
                   className="btn-metallic inline-flex h-10 items-center justify-center gap-2 px-6 font-body text-sm font-semibold text-accent-foreground transition-all duration-200"
                 >
-                  Start in Agent Blueprint <ArrowRight className="h-4 w-4" />
+                  Talk to us <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   href="https://github.com/agent-blueprint/agent-blueprint-skills"

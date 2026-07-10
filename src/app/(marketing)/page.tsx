@@ -8,29 +8,29 @@ import { breadcrumbSchema, webPageSchema, siteConfig } from "@/lib/metadata";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Agent Blueprint | AI Agents from Strategy to Execution in Days",
+    absolute: "Agent Blueprint | AI Agents from Strategy to Production",
   },
   description: siteConfig.description,
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Agent Blueprint | AI Agents from Strategy to Execution in Days",
+    title: "Agent Blueprint | AI Agents from Strategy to Production",
     description: siteConfig.description,
   },
   twitter: {
-    title: "Agent Blueprint | AI Agents from Strategy to Execution in Days",
+    title: "Agent Blueprint | AI Agents from Strategy to Production",
     description: siteConfig.description,
   },
 };
 
 const homeBreadcrumb = breadcrumbSchema([]);
 const homeWebPage = webPageSchema({
-  name: "Agent Blueprint | AI Agents. From Strategy to Execution.",
+  name: "Agent Blueprint | AI Agents. From Strategy to Production.",
   description: siteConfig.description,
   path: "/",
   datePublished: "2025-09-15",
-  dateModified: "2026-04-20",
+  dateModified: "2026-07-09",
 });
 
 export default function HomePage() {

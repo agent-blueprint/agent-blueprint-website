@@ -4,66 +4,51 @@
 > **Keep it updated** as work progresses — it's how the next session picks up where the last left off.
 
 ## Active Branch
-- **`aeo-discovery-v1`** (based on `main`)
-- Focused AEO discoverability v1 implemented, verified, and ready to ship
-- Working tree: clean after commit; merge to `main` pending
+- **`pivot-copy-triage`** (based on `main`)
+- Phase-1 copy repositioning done and verified locally; NOT pushed (no preview deploy yet)
 
-## What Was Done (2026-05-01)
+## Context: The Pivot (2026-07)
 
-### Focused AEO discoverability v1
-- Added public agent discovery files: `/AGENTS.md`, `/agents.json`, `/ai-agent.json`, `/.well-known/agent.json`
-- Added problem-first Procurement RFx AI Agents page at `/use-cases/procurement-rfx-ai-agents`
-- Updated sitemap, JSON Feed, `llms.txt`, and `llms-full.txt` for the new page
-- Updated website metadata and JSON-LD version references to `agentblueprint` v0.7.17
-- Standardized public coding-agent compatibility references to 45+ agents
-- Verified with targeted ESLint, `npm run build`, JSON parsing, and local endpoint checks on `localhost:3000`
+Agent Blueprint is no longer positioned as self-serve SaaS. It is the IP layer behind hands-on engagements: a methodology plus platform, delivered with clients, producing living blueprints. Self-serve signup on the app was closed 2026-07-08. The site's job now: credibility surface for engagement prospects, honest AI-discovery surface, eventual partner front door.
 
-## Previous Work (2026-03-01, session 6)
+## What Was Done (2026-07-09)
 
-### Project infrastructure for cross-session continuity
-- Created `WORKSTREAM.md` in repo root (replaces local-only `.claude/` memory file) so all collaborators share workstream state
-- Added "Workstream Tracking" section to `CLAUDE.md` instructing all Claude Code sessions to read/update `WORKSTREAM.md`
-- Added "Team" section to `CLAUDE.md` with Amy's context (non-technical, use plain language)
-- Rewrote `/handover` skill — now updates `WORKSTREAM.md`, merges main, verifies build, commits
-- Created `/ship` skill — for when a feature is complete (updates docs, clears workstream, merges to main, deploys)
-- Un-ignored `.claude/skills/` in `.gitignore` so skills travel with the repo (rest of `.claude/` stays local)
+### Phase-1 copy triage: SaaS story out, engagement story in
+- Hero: new headline ("AI agents need a blueprint, not another slide deck"), new subhead (methodology + platform behind our engagements), eyebrow now the method beats (Assess, Prioritize, Blueprint, Deploy)
+- Nav CTA: "Get Started" -> "Talk to Us", now works from subpages (`/#contact`, Next Link)
+- How It Works: 4 steps rewritten to engagement framing; removed the SaaS-era YouTube explainer embed (old pitch, undermined new copy — restore with one revert if wanted)
+- Capabilities: "Platform Capabilities" -> "What's in a Blueprint"; all 6 cards rewritten; version-pinned stats (8 MCP tools, 45+ agents, 6 stages) removed
+- FAQ + all JSON-LD schemas (metadata.ts): rewritten; added explicit "Is Agent Blueprint self-serve?" (answer: no, engagements only); "vs consulting firms" answer replaced with "vs consulting deliverable" (living blueprint story)
+- AEO surfaces rewritten for the new story: `public/llms.txt` (removed "start your free trial"), `llms-full.txt` route, `feed.json`, `public/AGENTS.md`, `agents.json`, `ai-agent.json`, `.well-known/agent.json`
+- Use-case page (procurement RFx): both app.agentblueprint.ai CTAs repointed to `/#contact`
+- Developers page/section: framed as client-team surface; "API tokens are issued with an engagement"; version pin 0.7.17 removed everywhere
+- Sitemap + WebPage dateModified bumped to 2026-07-09 for changed pages
 
-### Theme tokenization cleanup
-- Added copper/bronze CSS tokens to `:root` (`--copper-base`, `--copper-dark`, `--copper-light`, `--copper-border`, `--vignette-dark`, `--copper-inset-glow`)
-- Registered copper tokens in `@theme inline` for Tailwind classes
-- `.btn-metallic` gradient anchors → `var(--copper-base/light/border)`
-- `.btn-blueprint-outline` background → `var(--background)`
-- `.cyanotype-vignette` → `var(--vignette-dark)`
-- `.section-dark-borders` box-shadow → `oklch(from var(--copper-base) ... / 15%)`
-- blueprint-margins.tsx, compass-arc.tsx, circuit-diagram.tsx, geometric-construction.tsx → `currentColor` + Tailwind token classes
-- schematic-path.tsx → `var(--primary)`
-- Grid SVG data URIs left as-is (browser limitation — can't use CSS vars inside `url()`)
-
-### Prior uncommitted work (session 4, committed this session)
-- Blueprint-outline button variant + cursor-pointer fix + hero line-height tuning
-
-## Previous sessions (2026-03-01, sessions 2-5)
-Full blueprint theme visual overhaul (13 commits), metallic button iterations, theme tokenization. All committed and pushed.
+### Verification
+- `npx eslint` on changed files: 0 errors (1 pre-existing unused-import warning in navigation.tsx)
+- `npm run build`: exit 0 (true exit code, unpiped)
+- Browser check on localhost:3100: hero/nav/steps render, zero console errors; llms.txt, llms-full.txt, feed.json all serve new content
+- Remaining app.agentblueprint.ai references are intentional (JSON-LD client-access schema + labeled "Platform (client access)" link in llms-full)
 
 ## What Needs Doing Next
-- [ ] **More button tweaking** — Chris says "still more tweaking to do" (lightness, saturation, highlight position)
-- [ ] **Tokenize scroll-ruler.tsx** — 3 remaining hardcoded `#1e3a5f` refs (low priority)
-- [ ] Visual review of the full theme upgrade before merging
-- [ ] Merge `blueprint-theme` → `main` once approved
-- [ ] DNS cutover from Replit → Vercel (separate from theme work)
+- [ ] Chris reviews the branch (dev server or push branch for a Vercel preview URL — push only on request)
+- [ ] Merge to main + push when approved (deploys production)
+- [ ] Verify SENDGRID_API_KEY is set in Vercel with a test contact-form submission (form is now the only conversion path; emails chris@ + amy@)
+- [ ] Phase-2 repositioning: decide site role split with Amy alongside the planned nowgentic.com redesign (does NowGentic get named here?); new proof/evidence content
+- [ ] Decide fate of the old explainer video (removed from page, still on YouTube) and stale root-level screenshot PNGs (blueprint-*.png, from the March design pass)
 
 ## Open Decisions
-- Button gradient fine-tuning — exact lightness, saturation, and highlight position
-- Blueprint-outline secondary button tint opacity (currently 7%)
+- Whether agentblueprint.ai names NowGentic or stays "our engagements" (deferred to phase-2 with Amy)
+- Whether /use-cases grows into the patterns/method library (recommended direction instead of a blog)
 
 ## Key Files
 ```
-CLAUDE.md                                          — project instructions, team info, workflow rules
-WORKSTREAM.md                                      — this file
-SETUP-AMY.md                                       — Amy's onboarding guide
-.claude/skills/handover/skill.md                   — /handover skill
-.claude/skills/ship/skill.md                       — /ship skill
-src/app/globals.css                                — all CSS tokens, button classes, section styles
-src/components/ui/button.tsx                       — button variants (metallic, blueprint-outline)
-src/components/hero-section.tsx                    — hero with blueprint grid + CTAs
+CLAUDE.md                                  — project instructions, team info, workflow rules
+WORKSTREAM.md                              — this file
+src/lib/metadata.ts                        — meta, JSON-LD schemas, FAQ content (single source)
+src/components/hero-section.tsx            — hero copy
+src/components/how-it-works-section.tsx    — method steps
+src/components/capabilities-section.tsx    — what's-in-a-blueprint cards
+public/llms.txt + src/app/llms-full.txt/   — AI-crawler content
+public/AGENTS.md, agents.json, ai-agent.json, .well-known/agent.json — agent discovery files
 ```

@@ -70,8 +70,9 @@ export function DevelopersSection() {
               <p className="mx-auto mt-6 max-w-2xl font-body text-base leading-relaxed text-muted-foreground">
                 Every blueprint exports as an{" "}
                 <strong className="text-foreground">Agent Skills</strong>{" "}
-                directory — an open standard for giving coding agents structured
-                context. Supported by Claude Code, Codex, Cursor, and 45+ tools.
+                directory, an open standard for giving coding agents structured
+                context. Supported by Claude Code, Codex, Cursor, and most
+                modern coding agents.
               </p>
               <p className="mt-4 font-body text-sm leading-relaxed text-muted-foreground">
                 Install via npm:{" "}
@@ -79,7 +80,9 @@ export function DevelopersSection() {
                   npm install -g agentblueprint
                 </strong>
                 . The agentblueprint package includes both the CLI and a built-in
-                MCP server for AI coding agents.
+                MCP server for AI coding agents. API tokens are issued with an
+                engagement; if your organization works with us, you&apos;re ready to
+                go.
               </p>
             </div>
 
@@ -157,16 +160,16 @@ agentblueprint download <blueprint-id> --platform servicenow`}
               <SectionBlock
                 number="03"
                 icon={Download}
-                title="Export from the App"
+                title="Export from the Platform"
                 index={2}
               >
                 <p className="mt-4 font-body text-sm leading-relaxed text-muted-foreground">
                   Click <strong className="text-foreground">&ldquo;Export Implementation Spec&rdquo;</strong> on
                   any blueprint page to download a ZIP containing the full Agent
                   Skills directory:{" "}
-                  <code className="font-mono text-foreground">SKILL.md</code> +{" "}
-                  <code className="font-mono text-foreground">GETTING-STARTED.md</code> +
-                  9 reference files + deployment guides + validation script.
+                  <code className="font-mono text-foreground">SKILL.md</code>,{" "}
+                  <code className="font-mono text-foreground">GETTING-STARTED.md</code>,
+                  reference files, deployment guides, and a validation script.
                 </p>
               </SectionBlock>
             </div>

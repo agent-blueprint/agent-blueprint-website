@@ -7,33 +7,33 @@ import { BlueprintGrid } from "@/components/blueprint-grid";
 const capabilities = [
   {
     number: "01",
-    title: "6-Stage LLM Pipeline",
-    body: "Automated generation across 6 stages: Business Profile, AI Readiness (6 dimensions), Use Cases (5-12 per org), Technical Blueprint, Business Case (5-year ROI), and Implementation Plan. Minutes, not months.",
+    title: "Business Context First",
+    body: "Everything starts from a structured profile of your organization: systems, processes, constraints, and goals. If a recommendation is in the blueprint, it traces back to your context, not a template.",
   },
   {
     number: "02",
-    title: "8 MCP Tools for Coding Agents",
-    body: "MCP server with 8 tools: list_blueprints, get_blueprint, get_business_case, get_implementation_plan, get_use_case, get_implementation_spec, get_business_profile, download_blueprint. Install via npx agentblueprint.",
+    title: "Readiness, Measured",
+    body: "AI readiness scored across data, process, technology, people, and governance. Recommendations link back to this evidence, so you can see why each use case made the cut.",
   },
   {
     number: "03",
-    title: "Agent Team Visualization",
-    body: "Interactive visualizer maps 3-15 agent teams with triggers, tools, workflows, guardrails, and orchestration patterns (routing, pipeline, orchestrator-workers). Understand the architecture before you build it.",
+    title: "A Ranked Use-Case Portfolio",
+    body: "Use cases scored by impact and feasibility, then force-ranked. Priorities are explicit, and so is the reasoning. Not everything gets to be high priority.",
   },
   {
     number: "04",
-    title: "Agent Skills Export",
-    body: "Export blueprints as Agent Skills directories (SKILL.md + references/). Open standard consumed by Claude Code, Codex, Cursor, Copilot, Windsurf, and 45+ other coding agents. The agent handles implementation.",
+    title: "Agent Team Designs",
+    body: "Team composition, orchestration pattern, tools, triggers, guardrails, and human approval gates for every use case. An interactive visualizer maps how the team works before anything gets built.",
   },
   {
     number: "05",
-    title: "Vendor-Agnostic Output",
-    body: "Deploy to ServiceNow, Salesforce, or any enterprise platform. No lock-in. Blueprints define agent teams, integration points, and data flows independent of vendor. Your coding agent translates to platform-specific config.",
+    title: "Deterministic Business Cases",
+    body: "Costs, savings, and payback computed from your own numbers. No fudge factors, no invented multipliers. If the math doesn't work, the blueprint says so.",
   },
   {
     number: "06",
-    title: "Living Blueprints, Not Reports",
-    body: "Blueprints update as your business context changes. Performance monitoring tracks agents against ROI targets post-deployment. Coding agents write back operational data, keeping the blueprint current.",
+    title: "Machine-Readable Delivery",
+    body: "Blueprints export as Agent Skills and serve over MCP, so coding agents build from them directly, on whatever platform you run. After deployment, performance flows back in and the blueprint stays current.",
   },
 ];
 
@@ -87,10 +87,10 @@ export function CapabilitiesSection() {
               What We Deliver
             </span>
             <h2 className="mt-4 font-display text-3xl text-dark-surface-foreground md:text-5xl">
-              Platform Capabilities
+              What&apos;s in a Blueprint
             </h2>
             <p className="mx-auto mt-4 max-w-2xl font-body text-base text-dark-surface-foreground/70">
-              6-stage pipeline, 8 MCP tools, 45+ agent compatibility, vendor-agnostic export
+              Every engagement produces a working blueprint: evidence, priorities, designs, economics, and files your coding agents build from
             </p>
           </div>
 

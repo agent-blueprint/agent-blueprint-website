@@ -182,7 +182,7 @@ export function ContactSection() {
               Connect With Us
             </h3>
             <p className="mt-3 font-body text-sm text-muted-foreground">
-              Follow our journey and connect with the team on LinkedIn.
+              Connect with the team on LinkedIn.
             </p>
             <div className="mt-8 flex flex-col gap-4">
               {linkedinLinks.map((link) => (

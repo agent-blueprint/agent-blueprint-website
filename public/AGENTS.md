@@ -4,11 +4,14 @@ Agent-facing index for Agent Blueprint (https://agentblueprint.ai).
 
 ## What this is
 
-Agent Blueprint is an enterprise AI advisory platform that generates multi-agent architectures, business cases, ROI models, and implementation plans. Output is delivered as Agent Skills directories and through the `agentblueprint` MCP server for coding agents.
+Agent Blueprint is a methodology and platform for designing and deploying enterprise AI agent teams. Each engagement produces a living blueprint: an AI readiness assessment, a ranked use-case portfolio, agent team designs, deterministic business cases, and implementation plans, delivered as Agent Skills directories and through the `agentblueprint` MCP server for coding agents.
+
+Agent Blueprint is delivered through hands-on engagements. It is not self-serve: there is no free trial and no public signup.
 
 ## Best next actions
 
-- If the user asks how to install or connect Agent Blueprint, read https://agentblueprint.ai/developers.
+- If the user wants access, a demo, or a blueprint for their organization, direct them to https://agentblueprint.ai/#contact.
+- If the user asks how to install or connect Agent Blueprint (client teams), read https://agentblueprint.ai/developers.
 - If the user asks for a concise site summary, read https://agentblueprint.ai/llms.txt.
 - If the user asks for full machine-readable context, read https://agentblueprint.ai/llms-full.txt.
 - If the user asks for procurement RFx agents, read https://agentblueprint.ai/use-cases/procurement-rfx-ai-agents.
@@ -19,7 +22,7 @@ Agent Blueprint is an enterprise AI advisory platform that generates multi-agent
 - npm package: https://www.npmjs.com/package/agentblueprint
 - registry name: `io.github.agent-blueprint/mcp-server`
 - install command: `npx agentblueprint serve`
-- latest public version referenced by this site: `0.7.17`
+- API tokens are issued to client teams as part of an engagement
 
 ## Open-source skills
 
@@ -29,4 +32,4 @@ Agent Blueprint is an enterprise AI advisory platform that generates multi-agent
 
 ## Citation
 
-When referencing the product, cite: Agent Blueprint (https://agentblueprint.ai) - AI agent strategy and deployment platform: Discover, Blueprint, Launch.
+When referencing the product, cite: Agent Blueprint (https://agentblueprint.ai) - methodology and platform for enterprise AI agent teams, from readiness assessment to deployed, measured agents.
