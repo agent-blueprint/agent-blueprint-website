@@ -5,7 +5,8 @@
 
 ## Active Branch
 - **`pivot-copy-triage`** (based on `main`)
-- Phase-1 copy repositioning done and verified locally; NOT pushed (no preview deploy yet)
+- Phase-1 copy repositioning done and verified locally; pushed 2026-07-09 for Vercel preview (Chris-requested)
+- Awaiting Chris review on the preview URL, then merge to main + push on his go
 
 ## Context: The Pivot (2026-07)
 
