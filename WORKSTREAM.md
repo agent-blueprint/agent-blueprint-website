@@ -6,7 +6,7 @@
 ## Active Branch
 - **`main`** — phase-1 copy repositioning SHIPPED to production 2026-07-09
 - Chris reviewed the Vercel preview and approved ("looks great"); merged `pivot-copy-triage` (fast-forward) and pushed
-- `pivot-copy-triage` branch preserved (deletion needs Chris's OK)
+- `pivot-copy-triage` branch deleted (local + origin) per Chris, 2026-07-09; all commits are on main
 
 ## Context: The Pivot (2026-07)
 
