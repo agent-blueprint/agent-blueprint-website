@@ -1,6 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: "/draw.md",
+        destination: "/draw/v0.2/draw.md",
+      },
+    ];
+  },
   async redirects() {
     return [
       {

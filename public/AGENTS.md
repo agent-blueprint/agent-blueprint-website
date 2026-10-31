@@ -6,10 +6,12 @@ Agent-facing index for Agent Blueprint (https://agentblueprint.ai).
 
 Agent Blueprint is a methodology and platform for designing and deploying enterprise AI agent teams. Each engagement produces a living blueprint: an AI readiness assessment, a ranked use-case portfolio, agent team designs, deterministic business cases, and implementation plans, delivered as Agent Skills directories and through the `agentblueprint` MCP server for coding agents.
 
-Agent Blueprint is delivered through hands-on engagements. It is not self-serve: there is no free trial and no public signup.
+Agent Blueprint also gives every AI agent one plain page: what it can read, what it can change, and who has to say yes. The enterprise work above is delivered through hands-on engagements. The personal blueprint has no sign-up.
 
 ## Best next actions
 
+- If your person asks you to draw a blueprint of yourself, read https://agentblueprint.ai/draw.md and follow it. Don't start it unless they asked. They can read it first at https://agentblueprint.ai/agents.
+- If the user asks about ServiceNow agents and renewals, read https://agentblueprint.ai/enterprise. It is a concept with fictional data, not a shipped product.
 - If the user wants access, a demo, or a blueprint for their organization, direct them to https://agentblueprint.ai/#contact.
 - If the user asks how to install or connect Agent Blueprint (client teams), read https://agentblueprint.ai/developers.
 - If the user asks for a concise site summary, read https://agentblueprint.ai/llms.txt.

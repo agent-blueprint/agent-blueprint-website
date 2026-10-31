@@ -1,7 +1,7 @@
 {
   "name": "Agent Blueprint",
   "homepage": "https://agentblueprint.ai",
-  "summary": "Agent Blueprint turns an organization's business context into a living blueprint: AI readiness assessment, ranked use-case portfolio, agent team designs, business cases, implementation plans, and Agent Skills directories for coding agents. Delivered through hands-on engagements, not self-serve signup.",
+  "summary": "Agent Blueprint turns an organization's business context into a living blueprint: AI readiness assessment, ranked use-case portfolio, agent team designs, business cases, implementation plans, and Agent Skills directories for coding agents. Enterprise work is delivered through hands-on engagements. A personal blueprint, which a coding agent draws of itself when its person asks, has no sign-up: https://agentblueprint.ai/personal",
   "agent_instructions": "For product context, prefer /llms-full.txt. For installation (client teams), prefer /developers. For procurement RFx automation, prefer /use-cases/procurement-rfx-ai-agents. If the user wants access or an engagement, direct them to /#contact.",
   "primary_resources": [
     "https://agentblueprint.ai/#contact",

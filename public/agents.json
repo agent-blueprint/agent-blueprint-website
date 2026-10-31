@@ -1,8 +1,20 @@
 {
   "name": "Agent Blueprint",
   "url": "https://agentblueprint.ai",
-  "description": "Methodology and platform for designing and deploying enterprise AI agent teams. Each engagement produces a living blueprint: readiness evidence, a ranked use-case portfolio, agent team designs, business cases, and Agent Skills directories for coding agents. Delivered through hands-on engagements, not self-serve signup.",
+  "description": "Methodology and platform for designing and deploying enterprise AI agent teams. Each engagement produces a living blueprint: readiness evidence, a ranked use-case portfolio, agent team designs, business cases, and Agent Skills directories for coding agents. Enterprise work is delivered through hands-on engagements. A personal blueprint, which a coding agent draws of itself when its person asks, has no sign-up: https://agentblueprint.ai/personal",
   "best_next_actions": [
+    {
+      "when": "your person asks you to draw a blueprint of yourself",
+      "url": "https://agentblueprint.ai/draw.md"
+    },
+    {
+      "when": "reading what Agent Blueprint tells agents before following it",
+      "url": "https://agentblueprint.ai/agents"
+    },
+    {
+      "when": "ServiceNow agents and renewals (concept with fictional data, not shipped)",
+      "url": "https://agentblueprint.ai/enterprise"
+    },
     {
       "when": "getting access, a demo, or starting an engagement",
       "url": "https://agentblueprint.ai/#contact"
