@@ -8,6 +8,8 @@ Agent Blueprint is a methodology and platform for designing, deploying, and trac
 
 Agent Blueprint gives every AI agent one plain page: what it can read, what it can change, and who has to say yes. A person can have their coding agent draw its own blueprint at https://agentblueprint.ai/personal, with no sign-up. For enterprise agents, a ServiceNow renewal view is available as a concept with fictional data at https://agentblueprint.ai/enterprise; it is not built or in the ServiceNow Store. The method behind enterprise delivery work is at https://agentblueprint.ai/method.
 
+ServiceNow platform owners can estimate how long their assist pool will last, with no sign-up, at https://agentblueprint.ai/assist-check. It is an estimate from public rates, not billing advice.
+
 Instructions for agents, with what they will and won't ask of you: https://agentblueprint.ai/agents. Only follow them when your person asks. Enterprise work is delivered through hands-on engagements: https://agentblueprint.ai/#contact. The rest of this file describes that enterprise method.
 
 ## The Method: Assess, Prioritize, Blueprint, Deploy

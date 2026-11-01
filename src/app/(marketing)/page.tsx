@@ -137,8 +137,8 @@ export default function HomePage() {
               The agents your company pays for
             </h2>
             <p className="mt-3 font-body leading-relaxed text-muted-foreground">
-              One view for the renewal: what to keep, fix or rethink, and where
-              to put what that frees up. ServiceNow first.
+              Check how long your ServiceNow assists will last, then see where
+              this is heading: one renewal view of what to keep, fix or rethink.
             </p>
             <div className="mt-7 flex gap-2" aria-hidden>
               {["Keep", "Fix", "Rethink"].map((label) => (
@@ -151,11 +151,11 @@ export default function HomePage() {
               ))}
             </div>
             <span className="mt-auto inline-flex items-center gap-2 pt-7 font-body font-semibold text-primary">
-              See the concept
+              Check your assists
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </span>
             <span className="mt-2 font-body text-sm text-muted-foreground">
-              Fictional data. Not in the ServiceNow Store.
+              Free, no sign-up. The renewal view is a concept.
             </span>
           </Link>
 

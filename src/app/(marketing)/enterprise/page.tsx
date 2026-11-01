@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { ContactSection } from "@/components/contact-section";
 import { SampleFrame } from "@/components/sample-frame";
 import { breadcrumbSchema, webPageSchema } from "@/lib/metadata";
@@ -57,10 +59,28 @@ export default function EnterprisePage() {
           what to keep, what to fix, what to rethink, and where to invest what
           that frees up.
         </p>
+        <Link
+          href="/assist-check"
+          className="group mt-7 flex flex-col gap-4 rounded-lg border border-primary/25 bg-card p-5 transition-shadow hover:shadow-lg sm:flex-row sm:items-center sm:justify-between"
+        >
+          <span>
+            <span className="block font-mono text-xs uppercase tracking-[0.14em] text-accent">
+              Works today / free / no sign-up
+            </span>
+            <span className="mt-1 block font-display text-2xl font-bold text-foreground">
+              Check how long your assists will last
+            </span>
+          </span>
+          <span className="inline-flex shrink-0 items-center gap-2 font-body font-semibold text-primary">
+            Run the assist check
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </span>
+        </Link>
         <p className="mt-6 rounded-md border border-accent/40 bg-card px-4 py-3 font-body text-sm leading-relaxed text-foreground">
-          This is a concept. Nothing here is built in ServiceNow yet, it
-          isn&apos;t in the ServiceNow Store, and the company and numbers below are
-          fictional. If this is the view you need, tell us.
+          Below is where this is heading, and it&apos;s a concept. It isn&apos;t
+          built in ServiceNow yet, it isn&apos;t in the ServiceNow Store, and the
+          company and numbers are fictional. If this is the view you need, tell
+          us.
         </p>
       </section>
 

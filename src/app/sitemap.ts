@@ -4,6 +4,7 @@ const pages = [
   { path: "", modified: "2026-10-31", priority: 1 },
   { path: "/personal", modified: "2026-10-31", priority: 0.9 },
   { path: "/enterprise", modified: "2026-10-31", priority: 0.9 },
+  { path: "/assist-check", modified: "2026-10-31", priority: 0.9 },
   { path: "/agents", modified: "2026-10-31", priority: 0.9 },
   { path: "/method", modified: "2026-10-31", priority: 0.8 },
   { path: "/security", modified: "2025-02-20", priority: 0.8 },
