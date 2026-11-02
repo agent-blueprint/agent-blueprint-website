@@ -51,6 +51,7 @@ const agentLinks = [
   ["/draw.md", "Instructions for drawing a blueprint of yourself"],
   ["/draw/v0.2/template.html", "The page you fill in"],
   ["/agent-one-page-template.md", "One-page summary template to fill in with your person"],
+  ["/agent-cost-benchmark.md", "Measured token usage and cost for ten everyday agent jobs"],
   ["/llms.txt", "Short summary of Agent Blueprint"],
   ["/llms-full.txt", "Full reference"],
   ["/AGENTS.md", "Where to send your person next"],

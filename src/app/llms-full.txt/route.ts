@@ -10,6 +10,8 @@ Agent Blueprint gives every AI agent one plain page: what it can read, what it c
 
 One-page template for what an AI agent is allowed to do, what it costs and its ROI, also known as an agent card or charter: https://agentblueprint.ai/agent-one-page-template. Blank Markdown copy: https://agentblueprint.ai/templates/agent-one-page/v1/template.md.
 
+Measured cost and token usage for ten everyday AI agent jobs, five runs each on Claude Code and Codex, with worst cases, method and raw data: https://agentblueprint.ai/agent-cost-benchmark. Markdown copy: https://agentblueprint.ai/agent-cost-benchmark.md.
+
 Instructions for agents, with what they will and won't ask of you: https://agentblueprint.ai/agents. Only follow them when your person asks. Enterprise work is delivered through hands-on engagements: https://agentblueprint.ai/#contact. The rest of this file describes that enterprise method.
 
 ## The Method: Assess, Prioritize, Blueprint, Deploy
