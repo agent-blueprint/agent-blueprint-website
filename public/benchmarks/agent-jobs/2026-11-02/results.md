@@ -6,7 +6,7 @@ Claude cost is what Claude Code reports, priced at Anthropic API rates. Codex co
 
 ## How to use this for an estimate
 
-1. Pick the job below closest to yours and scale by how much more or less the agent must read.
+1. Pick the job below closest to yours and scale by how much more or less the agent must read. Each job says how big its input was; real emails, threads and documents are usually longer.
 2. Multiply typical input and output tokens by your model's current prices. Most input is cached (about 81% for Claude Code and 88% for Codex here), and cached input is much cheaper.
 3. Budget for the worst case. Most jobs' most expensive run was within 1.3x of typical; one data-cleanup run was 2.3x.
 4. Expect a floor even for tiny jobs: about 29k input tokens for Claude Code and 60k for Codex here, because each agent re-reads its own instructions and tools at every step.
@@ -57,21 +57,21 @@ Add capped discount codes (like SAVE20CAP50) to a small shop package, with new t
 
 ### Email triage (triage200)
 
-Categorize 200 support emails into five categories and flag the 15 that are urgent.
+Categorize 200 short support emails (about 20 words each, 3,900 words in all) into five categories and flag the 15 that are urgent.
 
 - Claude Code: passed 5/5. Input 57k tokens (worst 58k), output 2,414, 3 tool calls, 28 s. Cost $0.18 (worst $0.20).
 - Codex: passed 5/5. Input 113k tokens (worst 124k), output 836, 4 tool calls, 31 s. Estimated cost $0.31 (worst $0.35).
 
 ### Refund decisions (replies)
 
-Decide 14 refund requests under a written policy with proration, a fee, an approval threshold and an unknown sender.
+Decide 14 short refund requests under a one-page written policy with proration, a fee, an approval threshold and an unknown sender.
 
 - Claude Code: passed 5/5. Input 70k tokens (worst 85k), output 4,591, 5 tool calls, 45 s. Cost $0.19 (worst $0.20).
 - Codex: passed 5/5. Input 80k tokens (worst 80k), output 1,039, 4 tool calls, 36 s. Estimated cost $0.22 (worst $0.25).
 
 ### Questions across 60 notes (corpus)
 
-Answer five questions across 60 meeting notes where decisions change over time.
+Answer five questions across 60 meeting notes (6,200 words) where decisions change over time.
 
 - Claude Code: passed 5/5. Input 102k tokens (worst 129k), output 2,250, 5 tool calls, 25 s. Cost $0.22 (worst $0.23).
 - Codex: passed 5/5. Input 98k tokens (worst 119k), output 559, 4 tool calls, 25 s. Estimated cost $0.27 (worst $0.35).

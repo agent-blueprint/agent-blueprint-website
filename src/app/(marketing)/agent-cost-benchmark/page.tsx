@@ -143,7 +143,10 @@ export default function AgentCostBenchmarkPage() {
       <section className="mx-auto max-w-4xl px-6 pb-14">
         <h2 className="font-display text-3xl font-bold text-foreground">How to estimate your own job</h2>
         <ol className="mt-4 list-decimal space-y-2 pl-5 font-body leading-relaxed text-muted-foreground">
-          <li>Pick the closest job below and scale by how much more or less your agent has to read.</li>
+          <li>
+            Pick the closest job below and scale by how much more or less your agent has to read. Each job says how
+            big its input was, and they&apos;re small: real emails, threads and documents are usually longer.
+          </li>
           <li>
             Multiply its typical input and output tokens by your model&apos;s current prices. Most input is cached,
             about 81% for Claude Code and 88% for Codex here, and cached input costs far less.
