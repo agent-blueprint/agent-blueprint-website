@@ -16,7 +16,7 @@ export function GET() {
         url: `${siteConfig.url}/`,
         title: "Agent Blueprint: Know What Your AI Agents Can Actually Do",
         summary:
-          "Choose a blueprint: a personal one your coding agent draws of itself with no sign-up, a ServiceNow renewal view concept for enterprise agents, or the exact instructions Agent Blueprint gives agents.",
+          "Choose a blueprint: a personal one your coding agent draws of itself with no sign-up, a blueprint agents can use with the exact instructions Agent Blueprint gives them, or the app in development for the ServiceNow Store.",
         date_published: "2025-09-15T00:00:00Z",
         date_modified: "2026-10-31T00:00:00Z",
         tags: [

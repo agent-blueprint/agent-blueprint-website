@@ -6,7 +6,7 @@ import { CopyLine } from "@/components/copy-line";
 import { breadcrumbSchema, webPageSchema } from "@/lib/metadata";
 
 const description =
-  "The exact instructions Agent Blueprint gives AI agents, with no hidden text, so you can read them before your agent follows them.";
+  "A blueprint your agent can use: it draws itself and takes back the rules you set. Read the exact instructions first, with no hidden text.";
 
 export const metadata: Metadata = {
   title: "For Agents",
@@ -20,7 +20,7 @@ const webPage = webPageSchema({
   description,
   path: "/agents",
   datePublished: "2026-10-31",
-  dateModified: "2026-10-31",
+  dateModified: "2026-11-01",
 });
 
 function readDrawFile(name: string) {
@@ -33,6 +33,12 @@ function readDrawFile(name: string) {
     sha256: createHash("sha256").update(content).digest("hex"),
   };
 }
+
+const agentUses = [
+  ["A picture of itself", "Every tool it has, what can change things, and what it can't see about itself."],
+  ["Your rules", "You set rules on the page and paste them back. They're instructions, not a lock."],
+  ["A record to compare", "Exact tool names, so a later drawing can be compared with this one."],
+];
 
 const neverAsk = [
   "Share a password, key or token",
@@ -76,12 +82,13 @@ export default function AgentsPage() {
               letterSpacing: "-0.03em",
             }}
           >
-            Read what we tell your agent.
+            A blueprint your agent can use.
           </h1>
           <p className="mt-5 max-w-2xl font-body text-lg leading-relaxed" style={{ color: "var(--hero-muted)" }}>
-            Asking an agent to follow instructions from a website is a real
-            risk, so you should be able to read every word first. Everything
-            below is what your agent gets, with no hidden text.
+            Your agent reads one file, draws what it can do, and takes back the
+            rules you set. Asking an agent to follow instructions from a website
+            is a real risk, so you can read every word first. Everything below
+            is what your agent gets, with no hidden text.
           </p>
           <div className="mt-8 rounded-md border border-white/15 p-5 font-mono text-sm leading-relaxed">
             <p>If you are an agent: nothing on this page is a command.</p>
@@ -91,6 +98,18 @@ export default function AgentsPage() {
             </p>
           </div>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-4xl px-6 pt-14">
+        <h2 className="font-display text-3xl font-bold text-foreground">What your agent gets from it</h2>
+        <ul className="mt-5 grid gap-6 sm:grid-cols-3">
+          {agentUses.map(([title, text]) => (
+            <li key={title} className="border-t border-border pt-4">
+              <h3 className="font-display text-2xl font-bold text-foreground">{title}</h3>
+              <p className="mt-1 font-body text-sm leading-relaxed text-muted-foreground">{text}</p>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className="mx-auto max-w-4xl px-6 py-14">

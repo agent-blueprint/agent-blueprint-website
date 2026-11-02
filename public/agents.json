@@ -12,8 +12,8 @@
       "url": "https://agentblueprint.ai/agents"
     },
     {
-      "when": "ServiceNow agents and renewals (concept with fictional data, not shipped)",
-      "url": "https://agentblueprint.ai/enterprise"
+      "when": "ServiceNow agents and renewals (app in development for the ServiceNow Store, not certified or listed yet; mockup with fictional data)",
+      "url": "https://agentblueprint.ai/servicenow"
     },
     {
       "when": "getting access, a demo, or starting an engagement",

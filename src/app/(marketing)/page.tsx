@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ContactSection } from "@/components/contact-section";
 import { breadcrumbSchema, webPageSchema, siteConfig } from "@/lib/metadata";
+import { storeListingUrl } from "@/lib/store-app";
 
 const pageTitle = "Agent Blueprint | Know What Your AI Agents Can Actually Do";
 
@@ -20,7 +21,7 @@ const homeWebPage = webPageSchema({
   description: siteConfig.description,
   path: "/",
   datePublished: "2025-09-15",
-  dateModified: "2026-10-31",
+  dateModified: "2026-11-01",
 });
 
 // Illustrative shape only, labeled as a sample on the page.
@@ -127,18 +128,18 @@ export default function HomePage() {
           </Link>
 
           <Link
-            href="/enterprise"
+            href={storeListingUrl ?? "/servicenow"}
             className="group flex flex-col rounded-lg border border-border bg-secondary/50 p-6 transition-shadow hover:shadow-lg md:col-span-2 md:p-8"
           >
             <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
-              02 / Enterprise
+              02 / ServiceNow
             </p>
             <h2 className="mt-3 font-display text-4xl font-bold leading-tight text-foreground">
               The agents your company pays for
             </h2>
             <p className="mt-3 font-body leading-relaxed text-muted-foreground">
-              Check how long your ServiceNow assists will last, then see where
-              this is heading: one renewal view of what to keep, fix or rethink.
+              An app for the ServiceNow Store: one renewal view of every agent,
+              showing what to keep, fix or rethink.
             </p>
             <div className="mt-7 flex gap-2" aria-hidden>
               {["Keep", "Fix", "Rethink"].map((label) => (
@@ -151,12 +152,14 @@ export default function HomePage() {
               ))}
             </div>
             <span className="mt-auto inline-flex items-center gap-2 pt-7 font-body font-semibold text-primary">
-              Check your assists
+              {storeListingUrl ? "Get it on the ServiceNow Store" : "See the app"}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </span>
-            <span className="mt-2 font-body text-sm text-muted-foreground">
-              Free, no sign-up. The renewal view is a concept.
-            </span>
+            {!storeListingUrl && (
+              <span className="mt-2 font-body text-sm text-muted-foreground">
+                In development. Not in the Store yet.
+              </span>
+            )}
           </Link>
 
           <Link
@@ -172,17 +175,17 @@ export default function HomePage() {
                 03 / For agents
               </p>
               <h2 className="mt-3 font-display text-4xl font-bold leading-tight">
-                How we talk to agents
+                A blueprint your agent can use
               </h2>
               <p
                 className="mt-3 font-body leading-relaxed"
                 style={{ color: "var(--hero-muted)" }}
               >
-                Same blueprint, different reader. Read the exact words we give
-                your agent before you let it follow them.
+                Your agent draws itself and takes back the rules you set. Read
+                the exact words we give it before you let it follow them.
               </p>
               <span className="mt-6 inline-flex items-center gap-2 font-body font-semibold">
-                Read what we tell them
+                See what your agent gets
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </span>
             </div>

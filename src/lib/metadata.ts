@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const siteConfig = {
   name: "Agent Blueprint",
   description:
-    "One plain page showing what an AI agent can read, change and do. Have your coding agent draw itself, with no sign-up, or see the renewal view concept for enterprise agents on ServiceNow.",
+    "One plain page showing what an AI agent can read, change and do. Have your coding agent draw itself, with no sign-up, or see the app we're building for the ServiceNow Store.",
   url: "https://agentblueprint.ai",
   appUrl: "https://app.agentblueprint.ai",
   ogImage: "https://agentblueprint.ai/images/logo.png",

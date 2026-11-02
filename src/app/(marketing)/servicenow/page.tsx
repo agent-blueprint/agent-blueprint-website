@@ -4,23 +4,24 @@ import { ArrowRight } from "lucide-react";
 import { ContactSection } from "@/components/contact-section";
 import { SampleFrame } from "@/components/sample-frame";
 import { breadcrumbSchema, webPageSchema } from "@/lib/metadata";
+import { storeListingUrl } from "@/lib/store-app";
 
 const description =
-  "A concept for ServiceNow platform owners: one renewal view of every AI agent, showing what to keep, fix or rethink and where to put what that frees up.";
+  "An app we're building for the ServiceNow Store: one renewal view of every AI agent, showing what to keep, fix or rethink and where to put what that frees up.";
 
 export const metadata: Metadata = {
-  title: "Enterprise Blueprint for ServiceNow",
+  title: "Agent Blueprint for ServiceNow",
   description,
-  alternates: { canonical: "/enterprise" },
+  alternates: { canonical: "/servicenow" },
 };
 
-const breadcrumb = breadcrumbSchema([{ name: "Enterprise", path: "/enterprise" }]);
+const breadcrumb = breadcrumbSchema([{ name: "ServiceNow", path: "/servicenow" }]);
 const webPage = webPageSchema({
-  name: "Enterprise Blueprint for ServiceNow",
+  name: "Agent Blueprint for ServiceNow",
   description,
-  path: "/enterprise",
+  path: "/servicenow",
   datePublished: "2026-10-31",
-  dateModified: "2026-10-31",
+  dateModified: "2026-11-01",
 });
 
 const parts = [
@@ -29,7 +30,7 @@ const parts = [
   ["A sheet per agent", "A plain drawing of what each agent reads and changes, where every fact says where it came from."],
 ];
 
-export default function EnterprisePage() {
+export default function ServiceNowPage() {
   return (
     <>
       <script
@@ -42,7 +43,7 @@ export default function EnterprisePage() {
       />
       <section className="mx-auto max-w-4xl px-6 pt-28 pb-10 md:pt-36">
         <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
-          Enterprise blueprint / ServiceNow first
+          Agent Blueprint for ServiceNow
         </p>
         <h1
           className="mt-4 font-display font-bold text-foreground"
@@ -55,40 +56,50 @@ export default function EnterprisePage() {
           Walk into the renewal knowing what you&apos;re paying for.
         </h1>
         <p className="mt-5 max-w-2xl font-body text-lg leading-relaxed text-muted-foreground">
-          For platform owners with AI agents running and a renewal coming. See
-          what to keep, what to fix, what to rethink, and where to invest what
-          that frees up.
+          An app for platform owners with AI agents running and a renewal
+          coming. See what to keep, what to fix, what to rethink, and where to
+          invest what that frees up.
         </p>
-        <Link
-          href="/assist-check"
-          className="group mt-7 flex flex-col gap-4 rounded-lg border border-primary/25 bg-card p-5 transition-shadow hover:shadow-lg sm:flex-row sm:items-center sm:justify-between"
-        >
-          <span>
-            <span className="block font-mono text-xs uppercase tracking-[0.14em] text-accent">
-              Works today / free / no sign-up
-            </span>
-            <span className="mt-1 block font-display text-2xl font-bold text-foreground">
-              Check how long your assists will last
-            </span>
-          </span>
-          <span className="inline-flex shrink-0 items-center gap-2 font-body font-semibold text-primary">
-            Run the assist check
+        {storeListingUrl ? (
+          <a
+            href={storeListingUrl}
+            className="group mt-7 inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 font-body font-semibold text-primary-foreground"
+          >
+            Get it on the ServiceNow Store
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </span>
-        </Link>
-        <p className="mt-6 rounded-md border border-accent/40 bg-card px-4 py-3 font-body text-sm leading-relaxed text-foreground">
-          Below is where this is heading, and it&apos;s a concept. It isn&apos;t
-          built in ServiceNow yet, it isn&apos;t in the ServiceNow Store, and the
-          company and numbers are fictional. If this is the view you need, tell
-          us.
+          </a>
+        ) : (
+          <Link
+            href="#contact"
+            className="group mt-7 flex flex-col gap-4 rounded-lg border border-primary/25 bg-card p-5 transition-shadow hover:shadow-lg sm:flex-row sm:items-center sm:justify-between"
+          >
+            <span>
+              <span className="block font-mono text-xs uppercase tracking-[0.14em] text-accent">
+                Not in the ServiceNow Store yet
+              </span>
+              <span className="mt-1 block font-body leading-relaxed text-foreground">
+                We&apos;re building it for the Store, and it still has to pass
+                ServiceNow&apos;s certification. If this is the view you need,
+                tell us.
+              </span>
+            </span>
+            <span className="inline-flex shrink-0 items-center gap-2 font-body font-semibold text-primary">
+              Tell us you want it
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </span>
+          </Link>
+        )}
+        <p className="mt-6 font-body text-sm leading-relaxed text-muted-foreground">
+          Below is a mockup of where the app is heading. The company and numbers
+          are fictional, and this view isn&apos;t built in ServiceNow yet.
         </p>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 pb-14">
         <SampleFrame
           src="/samples/servicenow.html"
-          title="Concept mockup of a renewal view for a fictional company"
-          label="CONCEPT MOCKUP / fictional company"
+          title="Mockup of the planned renewal view for a fictional company"
+          label="MOCKUP / fictional company"
           height={900}
         />
       </section>

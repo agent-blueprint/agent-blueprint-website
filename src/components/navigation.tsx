@@ -16,7 +16,7 @@ import { siteConfig } from "@/lib/metadata";
 
 const navLinks = [
   { label: "Personal", href: "/personal" },
-  { label: "Enterprise", href: "/enterprise" },
+  { label: "ServiceNow", href: "/servicenow" },
   { label: "For Agents", href: "/agents" },
   { label: "The Method", href: "/method" },
 ];

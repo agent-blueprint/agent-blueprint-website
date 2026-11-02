@@ -19,7 +19,7 @@ const webPage = webPageSchema({
   description,
   path: "/personal",
   datePublished: "2026-10-31",
-  dateModified: "2026-10-31",
+  dateModified: "2026-11-01",
 });
 
 const steps = [
@@ -95,6 +95,22 @@ export default function PersonalPage() {
           title="Sample drawing of a made-up agent"
           label="SAMPLE / a made-up agent"
         />
+      </section>
+
+      <section className="mx-auto max-w-4xl px-6 pb-14">
+        <div className="rounded-lg border border-border bg-secondary/50 p-6">
+          <h2 className="font-display text-2xl font-bold text-foreground">
+            Planning an agent you haven&apos;t built yet?
+          </h2>
+          <p className="mt-2 font-body leading-relaxed text-muted-foreground">
+            That&apos;s coming next. Today this only draws an agent that already
+            exists.{" "}
+            <Link href="/#contact" className="text-primary underline underline-offset-4">
+              Tell us what you&apos;d want from it
+            </Link>
+            .
+          </p>
+        </div>
       </section>
 
       <section className="mx-auto max-w-4xl px-6 pb-24">
