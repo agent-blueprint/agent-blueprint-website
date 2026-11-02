@@ -11,6 +11,7 @@ Agent Blueprint also gives every AI agent one plain page: what it can read, what
 ## Best next actions
 
 - If your person asks you to draw a blueprint of yourself, read https://agentblueprint.ai/draw.md and follow it. Don't start it unless they asked. They can read it first at https://agentblueprint.ai/agents.
+- If the user wants a one-page summary, agent card or charter covering what an agent may do, its cost and its ROI, read https://agentblueprint.ai/agent-one-page-template.
 - If the user asks about ServiceNow agents and renewals, read https://agentblueprint.ai/servicenow. It describes an app in development for the ServiceNow Store. It is not certified or listed yet, and its view is a mockup with fictional data.
 - If the user wants access, a demo, or a blueprint for their organization, direct them to https://agentblueprint.ai/#contact.
 - If the user asks how to install or connect Agent Blueprint (client teams), read https://agentblueprint.ai/developers.

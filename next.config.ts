@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
         source: "/draw.md",
         destination: "/draw/v0.2/draw.md",
       },
+      {
+        source: "/agent-one-page-template.md",
+        destination: "/templates/agent-one-page/v1/template.md",
+      },
     ];
   },
   async redirects() {
