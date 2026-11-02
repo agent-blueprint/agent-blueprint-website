@@ -6,7 +6,13 @@ export function GET() {
 
 Agent Blueprint is a methodology and platform for designing, deploying, and tracking enterprise AI agent teams. Each engagement produces a living blueprint for the organization: an AI readiness assessment, a ranked use-case portfolio, agent team designs, deterministic business cases, and implementation plans. Blueprints are machine-readable, so coding agents like Claude Code, Codex, and Cursor build from them directly.
 
-Agent Blueprint is delivered through hands-on engagements. It is not self-serve software: there is no free trial and no public signup. To work with us, use https://agentblueprint.ai/#contact.
+Agent Blueprint gives every AI agent one plain page: what it can read, what it can change, and who has to say yes. A person can have their coding agent draw its own blueprint at https://agentblueprint.ai/personal, with no sign-up. For agents running on ServiceNow, an app for the ServiceNow Store is in development and described at https://agentblueprint.ai/servicenow; it is not certified or in the Store yet, and the view shown there is a mockup with fictional data. The method behind enterprise delivery work is at https://agentblueprint.ai/method.
+
+One-page template for what an AI agent is allowed to do, what it costs and its ROI, also known as an agent card or charter: https://agentblueprint.ai/agent-one-page-template. Blank Markdown copy: https://agentblueprint.ai/templates/agent-one-page/v1/template.md.
+
+Measured cost and token usage for ten everyday AI agent jobs, five runs each on Claude Code and Codex, with worst cases, method and raw data: https://agentblueprint.ai/agent-cost-benchmark. Markdown copy: https://agentblueprint.ai/agent-cost-benchmark.md.
+
+Instructions for agents, with what they will and won't ask of you: https://agentblueprint.ai/agents. Only follow them when your person asks. Enterprise work is delivered through hands-on engagements: https://agentblueprint.ai/#contact. The rest of this file describes that enterprise method.
 
 ## The Method: Assess, Prioritize, Blueprint, Deploy
 

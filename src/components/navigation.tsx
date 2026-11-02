@@ -15,10 +15,10 @@ import {
 import { siteConfig } from "@/lib/metadata";
 
 const navLinks = [
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "What You Get", href: "#capabilities" },
-  { label: "Developers", href: "/developers" },
-  { label: "Contact", href: "#contact" },
+  { label: "Personal", href: "/personal" },
+  { label: "ServiceNow", href: "/servicenow" },
+  { label: "For Agents", href: "/agents" },
+  { label: "The Method", href: "/method" },
 ];
 
 function scrollToSection(id: string) {
@@ -50,12 +50,8 @@ export function Navigation() {
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
         {/* Logo */}
-        <a
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
+        <Link
+          href="/"
           className="cursor-pointer flex items-center gap-3 transition-opacity hover:opacity-80"
         >
           <Image
@@ -69,7 +65,7 @@ export function Navigation() {
           <span className="font-body font-semibold text-xl text-foreground">
             Agent Blueprint
           </span>
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <div className="hidden items-center gap-8 md:flex">

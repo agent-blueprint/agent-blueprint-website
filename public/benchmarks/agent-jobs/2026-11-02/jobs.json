@@ -1,0 +1,52 @@
+[
+ {
+  "id": "sql",
+  "title": "SQL questions",
+  "description": "Answer five questions from a small SQLite shop database (150 customers, 1,200 orders)."
+ },
+ {
+  "id": "refactor",
+  "title": "Merge duplicated code",
+  "description": "Replace three copies of a send-email function with one, without changing any message sent."
+ },
+ {
+  "id": "bughunt",
+  "title": "Find two bugs",
+  "description": "A failing report test whose real causes are a CSV parser that drops quoted lines and a month-key format."
+ },
+ {
+  "id": "analysis",
+  "title": "Sales analysis",
+  "description": "Five metrics from 5,000 orders in a CSV: revenue by region, top products, refund rate, best month, average order."
+ },
+ {
+  "id": "clean",
+  "title": "Data cleanup",
+  "description": "Clean 360 customer rows: trim, fix case, three date formats, phone numbers, drop blanks, resolve 50 duplicates."
+ },
+ {
+  "id": "feature",
+  "title": "Add a feature with tests",
+  "description": "Add capped discount codes (like SAVE20CAP50) to a small shop package, with new tests, checked by hidden tests."
+ },
+ {
+  "id": "triage200",
+  "title": "Email triage",
+  "description": "Categorize 200 short support emails (about 20 words each, 3,900 words in all) into five categories and flag the 15 that are urgent."
+ },
+ {
+  "id": "replies",
+  "title": "Refund decisions",
+  "description": "Decide 14 short refund requests under a one-page written policy with proration, a fee, an approval threshold and an unknown sender."
+ },
+ {
+  "id": "corpus",
+  "title": "Questions across 60 notes",
+  "description": "Answer five questions across 60 meeting notes (6,200 words) where decisions change over time."
+ },
+ {
+  "id": "longdoc",
+  "title": "Long contract",
+  "description": "Pull 12 current terms from a 16,000-word contract with a later amendment and an outdated exhibit."
+ }
+]

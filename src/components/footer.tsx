@@ -11,10 +11,22 @@ export function Footer() {
 
           <div className="flex items-center gap-6">
             <Link
+              href="/developers"
+              className="font-body text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Developers
+            </Link>
+            <Link
               href="/security"
               className="font-body text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               Security
+            </Link>
+            <Link
+              href="/privacy"
+              className="font-body text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Privacy
             </Link>
           </div>
         </div>

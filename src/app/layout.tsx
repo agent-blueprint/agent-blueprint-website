@@ -9,6 +9,7 @@ import {
   howToSchema,
 } from "@/lib/metadata";
 import { Toaster } from "@/components/ui/sonner";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = siteMetadata;
@@ -59,6 +60,7 @@ export default function RootLayout({
       >
         {children}
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const siteConfig = {
   name: "Agent Blueprint",
   description:
-    "From AI strategy to deployed agents: readiness assessment, ranked use cases, agent team blueprints with real business cases, delivered as files coding agents build from.",
+    "One plain page showing what an AI agent can read, change and do. Have your coding agent draw itself, with no sign-up, or see the app we're building for the ServiceNow Store.",
   url: "https://agentblueprint.ai",
   appUrl: "https://app.agentblueprint.ai",
   ogImage: "https://agentblueprint.ai/images/logo.png",
@@ -11,7 +11,7 @@ export const siteConfig = {
 
 export const siteMetadata: Metadata = {
   title: {
-    default: "Agent Blueprint | AI Agents. From Strategy to Production.",
+    default: "Agent Blueprint | Know What Your AI Agents Can Actually Do",
     template: "%s | Agent Blueprint",
   },
   description: siteConfig.description,
@@ -23,7 +23,7 @@ export const siteMetadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    title: "Agent Blueprint | AI Agents. From Strategy to Production.",
+    title: "Agent Blueprint | Know What Your AI Agents Can Actually Do",
     description: siteConfig.description,
     siteName: siteConfig.name,
     images: [
@@ -37,7 +37,7 @@ export const siteMetadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Agent Blueprint | AI Agents. From Strategy to Production.",
+    title: "Agent Blueprint | Know What Your AI Agents Can Actually Do",
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },
@@ -165,7 +165,7 @@ export const faqPageSchema = {
       name: "What is Agent Blueprint?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Agent Blueprint is a methodology and platform for designing and deploying enterprise AI agent teams. It produces a living blueprint for an organization: an AI readiness assessment, a ranked use-case portfolio, agent team designs, deterministic business cases, and implementation plans. Blueprints are machine-readable, so coding agents like Claude Code, Codex, and Cursor build from them directly.",
+        text: "Agent Blueprint gives AI agents one plain page: what an agent can read, what it can change, and who has to say yes. Anyone can have a coding agent draw its own blueprint. For companies, it is also a methodology and platform for designing and deploying AI agent teams, producing a living blueprint for the organization: an AI readiness assessment, a ranked use-case portfolio, agent team designs, deterministic business cases, and implementation plans. Blueprints are machine-readable, so coding agents like Claude Code, Codex, and Cursor build from them directly.",
       },
     },
     {
@@ -178,10 +178,10 @@ export const faqPageSchema = {
     },
     {
       "@type": "Question",
-      name: "Is Agent Blueprint self-serve? Can I sign up for a trial?",
+      name: "Is Agent Blueprint self-serve?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No. Agent Blueprint is delivered through hands-on engagements, not self-serve signup. There is no free trial. Client teams get platform access, API tokens, the CLI, and the MCP server as part of an engagement. To see how it would work on your organization, use the contact form at agentblueprint.ai/#contact.",
+        text: "The personal blueprint is: paste one line into your coding agent, with no sign-up, at agentblueprint.ai/personal. Enterprise work is delivered through hands-on engagements. Client teams get platform access, API tokens, the CLI, and the MCP server as part of an engagement. To see how it would work on your organization, use the contact form at agentblueprint.ai/#contact.",
       },
     },
     {
@@ -189,7 +189,7 @@ export const faqPageSchema = {
       name: "Who is Agent Blueprint for?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Organizations that want AI agents in production with evidence behind every decision, usually across several workflows rather than a single chatbot. We work directly with your team during an engagement, and your coding agents consume the blueprint through Agent Skills exports and the MCP server.",
+        text: "Anyone who runs a coding agent and wants a plain picture of what it can do, and organizations that want AI agents in production with evidence behind every decision. For organizations, we work directly with your team during an engagement, and your coding agents consume the blueprint through Agent Skills exports and the MCP server.",
       },
     },
     {

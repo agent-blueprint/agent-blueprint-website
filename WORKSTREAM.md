@@ -4,6 +4,9 @@
 > **Keep it updated** as work progresses — it's how the next session picks up where the last left off.
 
 ## Active Branch
+- **`feat/three-blueprints`** (Oct 31, 2026, Chris-directed, not pushed): home page now offers three blueprints. `/personal` (Draw my agent, hosted at `/draw.md` and `/draw/v0.2/`), `/enterprise` (ServiceNow renewal concept, fictional data, not built), `/agents` (exact agent instructions and fingerprints). The old home moved to `/method`. Versioned files under `public/draw/` must never change: publish a new version.
+
+## Earlier
 - **`main`** — phase-1 copy repositioning SHIPPED to production 2026-07-09
 - Chris reviewed the Vercel preview and approved ("looks great"); merged `pivot-copy-triage` (fast-forward) and pushed
 - `pivot-copy-triage` branch deleted (local + origin) per Chris, 2026-07-09; all commits are on main

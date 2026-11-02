@@ -7,18 +7,18 @@ export function GET() {
     home_page_url: siteConfig.url,
     feed_url: `${siteConfig.url}/feed.json`,
     description:
-      "Methodology and platform for enterprise AI agent teams. Living blueprints with readiness evidence, ranked use cases, agent team designs, business cases, and machine-readable delivery. Delivered through hands-on engagements.",
+      "One plain page for every AI agent: what it can read, change and do. A personal blueprint a coding agent draws of itself, plus the method and platform behind enterprise engagements.",
     icon: `${siteConfig.url}/images/logo.png`,
     language: "en-US",
     items: [
       {
         id: `${siteConfig.url}/`,
         url: `${siteConfig.url}/`,
-        title: "Agent Blueprint: AI Agent Teams from Strategy to Production",
+        title: "Agent Blueprint: Know What Your AI Agents Can Actually Do",
         summary:
-          "The Agent Blueprint method: assess the organization, rank the use cases worth doing, design agent teams with deterministic business cases, then deploy through coding agents and track results against the plan. Delivered through hands-on engagements; blueprints stay current after deployment.",
+          "Choose a blueprint: a personal one your coding agent draws of itself with no sign-up, a blueprint agents can use with the exact instructions Agent Blueprint gives them, or the app in development for the ServiceNow Store.",
         date_published: "2025-09-15T00:00:00Z",
-        date_modified: "2026-07-09T00:00:00Z",
+        date_modified: "2026-10-31T00:00:00Z",
         tags: [
           "ai-agents",
           "mcp-server",
