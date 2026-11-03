@@ -53,7 +53,8 @@ a { color: var(--ink); }
   function fromFragment(fragment) {
     var m = /^#?(gz|json)=([\s\S]*)$/.exec(fragment);
     if (!m) return null;
-    if (m[1] === "gz") return gunzip(bytesFromBase64url(m[2]));
+    // Ignore anything copied after the data, such as the next word of a chat reply.
+    if (m[1] === "gz") return gunzip(bytesFromBase64url((/^[A-Za-z0-9_-]*/.exec(m[2].trim()) || [""])[0]));
     return Promise.resolve(decodeURIComponent(m[2]));
   }
   function fromText(text) {
@@ -69,7 +70,9 @@ a { color: var(--ink); }
   }
   function check(json) {
     var data = JSON.parse(json);
-    if (!data || typeof data !== "object" || !Array.isArray(data.connections)) throw new Error("It doesn't have a list of connections, so it isn't a drawing.");
+    var shaped = data && typeof data === "object" && data.version === "0.2" && Array.isArray(data.connections) && data.connections.length &&
+      data.connections.every(function (c) { return c && typeof c.name === "string" && Array.isArray(c.reads) && Array.isArray(c.changes); });
+    if (!shaped) throw new Error("It isn't in the Draw My Agent format. Ask your agent to write the JSON exactly as Step 6 of agentblueprint.ai/draw.md shows, with version \"0.2\" and reads and changes lists for each connection.");
     return data;
   }
   function render(data) {
