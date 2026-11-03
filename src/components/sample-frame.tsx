@@ -3,11 +3,14 @@ export function SampleFrame({
   title,
   label,
   height = 820,
+  still = false,
 }: {
   src: string;
   title: string;
   label: string;
   height?: number;
+  // A still preview ignores the mouse, so scrolling the page doesn't get caught inside the frame.
+  still?: boolean;
 }) {
   return (
     <figure className="overflow-hidden rounded-lg border border-border bg-card">
@@ -27,7 +30,8 @@ export function SampleFrame({
         title={title}
         loading="lazy"
         className="block w-full"
-        style={{ height }}
+        style={still ? { height, pointerEvents: "none" } : { height }}
+        tabIndex={still ? -1 : undefined}
       />
     </figure>
   );

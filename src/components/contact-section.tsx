@@ -74,8 +74,8 @@ export function ContactSection() {
             Get In Touch
           </h2>
           <p className="mx-auto mt-4 max-w-2xl font-body text-base text-muted-foreground">
-            Want to see how AI agents could work in your business? Get in
-            touch and we&apos;ll walk you through it.
+            Tell us which AI agents you run, on which platforms, and when your
+            next renewal is. We&apos;ll get back to you about a review.
           </p>
         </div>
 
