@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // The /mcp route reads the drawing template from disk at startup.
+  outputFileTracingIncludes: {
+    "/mcp": ["./public/draw/v0.2/template.html"],
+  },
   async rewrites() {
     return [
       {

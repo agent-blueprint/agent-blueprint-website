@@ -28,6 +28,12 @@ export function Footer() {
             >
               Privacy
             </Link>
+            <Link
+              href="/terms"
+              className="font-body text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Terms
+            </Link>
           </div>
         </div>
       </div>

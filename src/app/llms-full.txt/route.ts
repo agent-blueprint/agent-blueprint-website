@@ -12,6 +12,8 @@ One-page template for what an AI agent is allowed to do, what it costs and its R
 
 Measured cost and token usage for ten everyday AI agent jobs, five runs each on Claude Code and Codex, with worst cases, method and raw data: https://agentblueprint.ai/agent-cost-benchmark. Markdown copy: https://agentblueprint.ai/agent-cost-benchmark.md.
 
+Remote MCP server, no sign-in, read-only, keeps nothing: https://agentblueprint.ai/mcp (Streamable HTTP). Tools: list_benchmark_jobs and estimate_agent_cost (cost from the measured benchmark), check_agent_one_page (structure check for a one-page agent summary), render_agent_map (turns an agent's own inventory into the offline access map).
+
 Instructions for agents, with what they will and won't ask of you: https://agentblueprint.ai/agents. Only follow them when your person asks. Enterprise work is delivered through hands-on engagements: https://agentblueprint.ai/#contact. The rest of this file describes that enterprise method.
 
 ## The Method: Assess, Prioritize, Blueprint, Deploy
