@@ -10,7 +10,7 @@ const pageTitle = "Agent Blueprint | Know What Your AI Agents Can Actually Do";
 export const metadata: Metadata = {
   title: { absolute: pageTitle },
   description: siteConfig.description,
-  alternates: { canonical: "/" },
+  alternates: { canonical: "/", types: { "text/markdown": "/index.md" } },
   openGraph: { title: pageTitle, description: siteConfig.description },
   twitter: { title: pageTitle, description: siteConfig.description },
 };

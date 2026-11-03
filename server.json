@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "ai.agentblueprint/agent-blueprint",
+  "title": "Agent Blueprint",
+  "description": "Measured agent costs, a one-page agent summary check, and an offline access map. No sign-in.",
+  "version": "0.2.0",
+  "websiteUrl": "https://agentblueprint.ai/agents",
+  "repository": {
+    "url": "https://github.com/agent-blueprint/agent-blueprint-website",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://agentblueprint.ai/mcp"
+    }
+  ]
+}

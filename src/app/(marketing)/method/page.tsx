@@ -12,7 +12,7 @@ const description =
 export const metadata: Metadata = {
   title: "The Method",
   description,
-  alternates: { canonical: "/method" },
+  alternates: { canonical: "/method", types: { "text/markdown": "/method.md" } },
 };
 
 const breadcrumb = breadcrumbSchema([{ name: "The Method", path: "/method" }]);
