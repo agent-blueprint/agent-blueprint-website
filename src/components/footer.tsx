@@ -9,7 +9,13 @@ export function Footer() {
             &copy; 2026 Agent Blueprint. All rights reserved.
           </p>
 
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-6">
+            <Link
+              href="/method"
+              className="font-body text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              The Method
+            </Link>
             <Link
               href="/developers"
               className="font-body text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"

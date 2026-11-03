@@ -23,7 +23,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   if (!res.ok) return new Response("Page unavailable", { status: 502 });
 
   const html = await res.text();
-  const title = html.match(/<title>([^<]*)<\/title>/)?.[1]?.replace(/&amp;/g, "&") ?? siteConfig.name;
+  const title = html.match(/<title>([^<]*)<\/title>/)?.[1]?.replace(/&#x27;|&#39;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, "&") ?? siteConfig.name;
   const mainMatch = html.match(/<main[^>]*>([\s\S]*)<\/main>/);
   // No <main> means we fetched something other than our page (such as a
   // preview deploy's login wall), so fail rather than convert it.

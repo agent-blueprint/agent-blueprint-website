@@ -15,10 +15,10 @@ import {
 import { siteConfig } from "@/lib/metadata";
 
 const navLinks = [
-  { label: "Personal", href: "/personal" },
+  { label: "Draw an Agent", href: "/personal" },
+  { label: "One-Page Template", href: "/agent-one-page-template" },
   { label: "ServiceNow", href: "/servicenow" },
   { label: "For Agents", href: "/agents" },
-  { label: "The Method", href: "/method" },
 ];
 
 function scrollToSection(id: string) {
