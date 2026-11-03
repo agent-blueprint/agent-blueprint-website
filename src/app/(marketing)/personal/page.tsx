@@ -31,8 +31,8 @@ const steps = [
 const limits = [
   "The picture comes from your agent reading its own tool names and descriptions. It isn't proof of what a tool does.",
   "Rules are instructions, not a lock. In our small test, one saved rule stopped both agents from deleting files. That was one run each on one simple task.",
-  "We've run it in Claude Code and Codex. It needs an agent that can fetch a file and write one, so most chat apps won't work.",
-  "We never receive your drawing. Your agent fetches two files from us, and its own provider handles the session as it handles anything else you do there.",
+  "Coding agents like Claude Code and Codex save the drawing as a file. A chat app can't, so it gives you a link or a block of text that opens the same drawing in your browser.",
+  "We never receive your drawing. Your agent fetches its instructions from us, and its own provider handles the session as it handles anything else you do there. If you choose to add your numbers to our benchmark, we get counts only, never names.",
 ];
 
 export default function PersonalPage() {

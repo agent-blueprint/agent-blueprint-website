@@ -30,6 +30,11 @@ const nextConfig: NextConfig = {
         destination: "/draw/v0.2/draw.md",
       },
       {
+        // Opens a drawing from a link (data after "#", never sent here) or pasted data.
+        source: "/draw/view",
+        destination: "/draw/v0.2/view.html",
+      },
+      {
         source: "/agent-cost-benchmark.md",
         destination: "/benchmarks/agent-jobs/2026-11-02/results.md",
       },

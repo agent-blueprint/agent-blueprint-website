@@ -4,7 +4,7 @@ import { breadcrumbSchema, webPageSchema } from "@/lib/metadata";
 const UPDATED = "2026-11-03";
 const title = "Privacy";
 const description =
-  "What agentblueprint.ai, the Agent Blueprint plugin and its tools server collect: the tools keep nothing you send, the site counts visits without cookies, and the contact form emails us what you type.";
+  "What agentblueprint.ai, the Agent Blueprint plugin and its tools server collect: the tools keep nothing you send, drawings stay with you unless you share their counts, the site counts visits without cookies, and the contact form emails us what you type.";
 
 export const metadata: Metadata = {
   title,
@@ -21,6 +21,8 @@ const sections: { heading: string; points: React.ReactNode[] }[] = [
     points: [
       "The plugin's skills run inside your own agent. Version 0.2.0 and later can also connect to the Agent Blueprint tools server described below; nothing else in the plugin makes network requests, and the skills work without the server.",
       "The same goes for the files we publish for agents, such as the drawing instructions and the one-page template. A drawing your agent makes is saved on your computer and never sent to us.",
+      "If your agent can't save files, it gives you a link to agentblueprint.ai/draw/view, or text to paste there. The page draws the picture in your browser. The drawing data sits after the \"#\" in the link, a part browsers don't send to websites, and the page removes it from the address bar once it's read. Nothing you paste there is sent to us either.",
+      "On that page you can choose to add your numbers to our benchmark. You see exactly what will be sent before you click Send: counts such as how many connections and tools the agent has, how many can change things, which kinds of connection they are (such as email or code), and the answers to the five questions. Never tool names, connection names, the agent's name or any account details. Each submission is emailed to us through SendGrid; we use the counts only to publish anonymous benchmark figures.",
     ],
   },
   {
@@ -84,8 +86,9 @@ export default function PrivacyPage() {
           Privacy
         </h1>
         <p className="mt-5 font-body text-lg leading-relaxed text-muted-foreground">
-          The short version: the Agent Blueprint plugin and tools keep nothing you send them, this website counts visits
-          without cookies, and the contact form emails us whatever you type into it.
+          The short version: the Agent Blueprint plugin and tools keep nothing you send them, drawings stay with you unless
+          you choose to share their counts, this website counts visits without cookies, and the contact form emails us
+          whatever you type into it.
         </p>
       </section>
       <section className="mx-auto max-w-3xl space-y-10 px-6 pb-24">

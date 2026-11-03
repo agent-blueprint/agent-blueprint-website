@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Draw My Agent: open a drawing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<style>
+/* Opens a drawing from a link or pasted data. The data after "#" in a link never leaves the browser, and nothing pasted here is sent anywhere. */
+:root { --bg: #E7EDF4; --paper: #F7FAFD; --ink: #1D4F91; --text: #12233A; --muted: #5A6B82; --alert: #B42318; --line: rgba(29,79,145,.18);
+  --body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; --mono: ui-monospace, Menlo, Consolas, monospace; }
+@media (prefers-color-scheme: dark) { :root { --bg: #081525; --paper: #0E2138; --ink: #A9CBFF; --text: #E6EEF8; --muted: #93A6BF; --alert: #FF8A80; --line: rgba(169,203,255,.2); color-scheme: dark; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 var(--body); }
+main { max-width: 760px; margin: 0 auto; padding: 48px 16px 64px; }
+h1 { margin: 0 0 8px; font-size: 30px; line-height: 1.15; color: var(--ink); }
+p { margin: 0 0 14px; color: var(--muted); }
+textarea { width: 100%; min-height: 260px; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); color: var(--text); font: 13px/1.5 var(--mono); resize: vertical; }
+button { margin-top: 12px; padding: 10px 18px; border: 0; border-radius: 8px; background: var(--ink); color: var(--paper); font: 600 15px var(--body); cursor: pointer; }
+#msg { min-height: 1.5em; margin-top: 12px; color: var(--alert); }
+.note { font-size: 14px; }
+a { color: var(--ink); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Open your agent's drawing</h1>
+  <p>If your agent gave you a link, open that link and the drawing appears on its own. If it gave you a block of data instead, paste it here. You can also paste a saved drawing file's contents.</p>
+  <textarea id="paste" spellcheck="false" placeholder='{ "version": "0.2", "agent": { ... }, "connections": [ ... ] }' aria-label="Drawing data"></textarea>
+  <button id="go" type="button">Draw it</button>
+  <p id="msg" role="status"></p>
+  <p class="note">The drawing is made in this browser. Nothing you paste here, and nothing after the "#" in a link, is sent to us. Your agent got its instructions from <a href="/draw.md">agentblueprint.ai/draw.md</a>.</p>
+</main>
+<script>
+(function () {
+  var TEMPLATE = "/draw/v0.2/template.html";
+  var OPEN = '<script id="blueprint" type="application/json">';
+  var msg = document.getElementById("msg");
+
+  function bytesFromBase64url(s) {
+    s = s.replace(/\s+/g, "").replace(/-/g, "+").replace(/_/g, "/");
+    while (s.length % 4) s += "=";
+    var bin = atob(s), out = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+    return out;
+  }
+  function gunzip(bytes) {
+    var stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"));
+    return new Response(stream).text();
+  }
+  // A link's data: "#gz=" is gzip then base64url; "#json=" is percent-encoded JSON.
+  function fromFragment(fragment) {
+    var m = /^#?(gz|json)=([\s\S]*)$/.exec(fragment);
+    if (!m) return null;
+    if (m[1] === "gz") return gunzip(bytesFromBase64url(m[2]));
+    return Promise.resolve(decodeURIComponent(m[2]));
+  }
+  function fromText(text) {
+    text = text.trim();
+    var hash = text.indexOf("#");
+    if (/^https?:\/\//i.test(text) && hash > 0) return fromFragment(text.slice(hash));
+    if (text.indexOf('id="blueprint"') !== -1) {
+      var node = new DOMParser().parseFromString(text, "text/html").getElementById("blueprint");
+      return Promise.resolve(node ? node.textContent : text);
+    }
+    var fence = /```(?:json)?\s*([\s\S]*?)```/.exec(text);
+    return Promise.resolve(fence ? fence[1] : text);
+  }
+  function check(json) {
+    var data = JSON.parse(json);
+    if (!data || typeof data !== "object" || !Array.isArray(data.connections)) throw new Error("It doesn't have a list of connections, so it isn't a drawing.");
+    return data;
+  }
+  function render(data) {
+    return fetch(TEMPLATE, { cache: "force-cache" }).then(function (r) {
+      if (!r.ok) throw new Error("The drawing page couldn't be loaded. Try again in a moment.");
+      return r.text();
+    }).then(function (html) {
+      var start = html.indexOf(OPEN), end = start === -1 ? -1 : html.indexOf("<\/script>", start);
+      if (end === -1) throw new Error("The drawing page has an unexpected shape.");
+      var block = JSON.stringify(data, null, 1).replace(/</g, "\\u003c");
+      var filled = html.slice(0, start + OPEN.length) + "\n" + block + "\n" + html.slice(end);
+      var bar = '<script src="/draw/v0.2/view-bar.js" defer><\/script>';
+      document.open();
+      document.write(filled.replace("<main ", bar + "\n<main "));
+      document.close();
+    });
+  }
+  function fail(e) { msg.textContent = "That couldn't be drawn. " + (e instanceof SyntaxError ? "It isn't complete drawing data. Paste the whole block your agent gave you." : e && e.message ? e.message : ""); }
+  function run(promise) {
+    msg.textContent = "";
+    return promise.then(function (json) {
+      if (json == null) throw new Error("There's no drawing data in it.");
+      return render(check(json));
+    }).catch(fail);
+  }
+
+  if (location.hash) {
+    var fragment = location.hash;
+    // Drop the data from the address bar and history; it stays only in this page.
+    history.replaceState(null, "", location.pathname);
+    var p = fromFragment(fragment);
+    if (p) run(p);
+  }
+  document.getElementById("go").addEventListener("click", function () {
+    var text = document.getElementById("paste").value;
+    if (!text.trim()) { msg.textContent = "Paste the drawing data first."; return; }
+    run(fromText(text));
+  });
+})();
+</script>
+</body>
+</html>

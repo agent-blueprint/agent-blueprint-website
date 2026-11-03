@@ -73,7 +73,7 @@ Give each one a `name`, its `kind`, `tools` (roughly how many tools would go awa
 
 Save a copy of https://agentblueprint.ai/draw/v0.2/template.html as a new file called `my-agent-blueprint.html` in the person's current folder or a temporary folder. If that file already exists, leave it alone and name yours `my-agent-blueprint-YYYY-MM-DD.html` with today's date, adding `-2` if that exists too. The person can use the older one to see what changed. You don't need to open it in a browser.
 
-If you can't save files but can show a page in this chat, such as an artifact or canvas, show the drawing there instead. Use the template if you can read all of it. If you can't, build a simple page that shows the same answers, and tell the person it doesn't have the template's rules or comparison, which need an agent that can save files. If you can't fetch files or show a page, tell the person you can't draw this here and stop.
+If you can't save files, for example because you're in a chat app, don't save the template. Write the same answers as JSON in the shape below, then follow "If you can't save files" at the end of this step.
 
 Replace everything inside the `<script id="blueprint" type="application/json">` block with your answers, using this shape. The template's sample data must not remain, including its `demo` field.
 
@@ -114,8 +114,22 @@ Replace everything inside the `<script id="blueprint" type="application/json">` 
 
 Don't edit anything else in the template. It needs no internet connection and sends nothing.
 
+### If you can't save files
+
+Give the person a link that opens the full drawing in their browser: `https://agentblueprint.ai/draw/view#gz=` followed by your JSON, compressed with gzip and then base64url-encoded without padding. If you can run code, this does it:
+
+```
+python3 -c "import sys,gzip,base64;print(base64.urlsafe_b64encode(gzip.compress(sys.stdin.buffer.read())).decode().rstrip('='))" < blueprint.json
+```
+
+The part of the link after `#` stays in the person's browser. It is not sent to agentblueprint.ai.
+
+If you can't run code, or the link would be longer than 30,000 characters, give the person the JSON in a code block instead and tell them to paste it at https://agentblueprint.ai/draw/view. Don't try to compress or encode it by hand.
+
+You may also show a simple version in this chat, such as an artifact or canvas, but still give the link or the JSON so they can open the full drawing. If you can't fetch files at all, tell the person you can't draw this here and stop.
+
 ## Step 7: Tell the person
 
-Tell them where the file is, and give the honest headline in one or two plain sentences: what surprised you most, and how sure you are. If most of your answers are `judged`, say that the drawing reflects your reading of tool names, not proof of what they do.
+Tell them where the file is, or give them the link or JSON from Step 6, and give the honest headline in one or two plain sentences: what surprised you most, and how sure you are. If most of your answers are `judged`, say that the drawing reflects your reading of tool names, not proof of what they do.
 
 Then tell them the page lets them do three more things: set rules and paste them back to you, see what could be trimmed, and compare with an earlier drawing. If you left an older drawing in the folder, name it.
