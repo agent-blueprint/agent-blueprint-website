@@ -5,6 +5,15 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/mcp": ["./public/draw/v0.2/template.html"],
   },
+  // Unlisted review material (such as directory-review videos) stays out of search.
+  async headers() {
+    return [
+      {
+        source: "/review/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+    ];
+  },
   async rewrites() {
     return [
       {
