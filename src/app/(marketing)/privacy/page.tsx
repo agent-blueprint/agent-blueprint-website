@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { breadcrumbSchema, webPageSchema } from "@/lib/metadata";
 
-const UPDATED = "2026-11-02";
+const UPDATED = "2026-11-03";
 const title = "Privacy";
 const description =
-  "What agentblueprint.ai and the Agent Blueprint plugin collect: the plugin collects nothing, the site counts visits without cookies, and the contact form emails us what you type.";
+  "What agentblueprint.ai, the Agent Blueprint plugin and its tools server collect: the tools keep nothing you send, the site counts visits without cookies, and the contact form emails us what you type.";
 
 export const metadata: Metadata = {
   title,
@@ -19,8 +19,16 @@ const sections: { heading: string; points: React.ReactNode[] }[] = [
   {
     heading: "The Agent Blueprint plugin and agent files",
     points: [
-      "The plugin runs entirely inside your own agent. It has no server, makes no network requests, and collects, stores or sends no data.",
+      "The plugin's skills run inside your own agent. Version 0.2.0 and later can also connect to the Agent Blueprint tools server described below; nothing else in the plugin makes network requests, and the skills work without the server.",
       "The same goes for the files we publish for agents, such as the drawing instructions and the one-page template. A drawing your agent makes is saved on your computer and never sent to us.",
+    ],
+  },
+  {
+    heading: "The Agent Blueprint tools server",
+    points: [
+      "If you connect the tools server at agentblueprint.ai/mcp, your agent sends it only what each tool needs: a job name, sizes and prices for a cost estimate; the text of a one-page summary for the check; or a list of the agent's own connections and tool names for a drawing.",
+      "The server works out the answer, sends it back, and keeps nothing. It has no database, doesn't log what you send, and doesn't pass it to anyone. It needs no sign-in.",
+      "Like every request to this site, requests to the server pass through Vercel, which keeps standard request logs (such as time, address and status) to run and secure the service.",
     ],
   },
   {
@@ -76,8 +84,8 @@ export default function PrivacyPage() {
           Privacy
         </h1>
         <p className="mt-5 font-body text-lg leading-relaxed text-muted-foreground">
-          The short version: the Agent Blueprint plugin collects nothing, this website counts visits without cookies,
-          and the contact form emails us whatever you type into it.
+          The short version: the Agent Blueprint plugin and tools keep nothing you send them, this website counts visits
+          without cookies, and the contact form emails us whatever you type into it.
         </p>
       </section>
       <section className="mx-auto max-w-3xl space-y-10 px-6 pb-24">
