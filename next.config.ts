@@ -5,13 +5,22 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/mcp": ["./public/draw/v0.2/template.html"],
   },
-  // Unlisted review material (such as directory-review videos) stays out of search.
   async headers() {
+    // Instruction and data files that people paste into chat apps go out as plain
+    // text: ChatGPT's web reader refuses text/markdown (tested 2026-11-03).
+    const plainText = [{ key: "Content-Type", value: "text/plain; charset=utf-8" }];
     return [
+      // Unlisted review material (such as directory-review videos) stays out of search.
       {
         source: "/review/:path*",
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
+      { source: "/draw.md", headers: plainText },
+      { source: "/draw/:version/draw.md", headers: plainText },
+      { source: "/agent-one-page-template.md", headers: plainText },
+      { source: "/templates/agent-one-page/:version/:file", headers: plainText },
+      { source: "/agent-cost-benchmark.md", headers: plainText },
+      { source: "/benchmarks/agent-jobs/:date/results.md", headers: plainText },
     ];
   },
   async rewrites() {

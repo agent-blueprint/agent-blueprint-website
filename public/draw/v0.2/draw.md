@@ -71,7 +71,9 @@ Give each one a `name`, its `kind`, `tools` (roughly how many tools would go awa
 
 ## Step 6: Fill in the drawing
 
-Save a copy of https://agentblueprint.ai/draw/v0.2/template.html as a new file called `my-agent-blueprint.html` in the person's current folder or a temporary folder. If that file already exists, leave it alone and name yours `my-agent-blueprint-YYYY-MM-DD.html` with today's date, adding `-2` if that exists too. The person can use the older one to see what changed. You don't need to open it in a browser. If you can't fetch or write files, tell the person you can't draw this here and stop.
+Save a copy of https://agentblueprint.ai/draw/v0.2/template.html as a new file called `my-agent-blueprint.html` in the person's current folder or a temporary folder. If that file already exists, leave it alone and name yours `my-agent-blueprint-YYYY-MM-DD.html` with today's date, adding `-2` if that exists too. The person can use the older one to see what changed. You don't need to open it in a browser.
+
+If you can't save files but can show a page in this chat, such as an artifact or canvas, show the drawing there instead. Use the template if you can read all of it. If you can't, build a simple page that shows the same answers, and tell the person it doesn't have the template's rules or comparison, which need an agent that can save files. If you can't fetch files or show a page, tell the person you can't draw this here and stop.
 
 Replace everything inside the `<script id="blueprint" type="application/json">` block with your answers, using this shape. The template's sample data must not remain, including its `demo` field.
 
