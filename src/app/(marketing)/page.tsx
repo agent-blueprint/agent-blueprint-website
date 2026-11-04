@@ -213,7 +213,7 @@ export default function HomePage() {
         <div className="relative mx-auto grid max-w-6xl gap-12 px-6 pt-28 pb-14 md:pt-36 lg:grid-cols-12 lg:items-center">
           <div className="min-w-0 lg:col-span-7">
             <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
-              For IT directors, platform owners and finance leads
+              For IT leaders, platform owners and finance leads
             </p>
             <h1
               className="mt-5 font-display font-bold text-foreground"
