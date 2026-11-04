@@ -1,7 +1,7 @@
 {
   "name": "Agent Blueprint",
   "homepage": "https://agentblueprint.ai",
-  "summary": "Agent Blueprint helps companies decide, one agent at a time, whether an AI agent is worth it: measure its real cost and results against a number set in advance, then keep, fix or stop it (three weeks for an agent already running, day 90 for a new one). $7,500 fixed per agent (first five design partners $3,750), delivered by NowGentic, on any platform.",
+  "summary": "Agent Blueprint helps companies decide, one agent at a time, whether an AI agent is worth it: measure its real cost and results against a number set in advance, then keep, fix or stop it (three weeks for an agent already running, day 90 for a new one). A renewal review of every live agent on one platform for $24,000, or one agent for $7,500 (first five design partners half price), delivered by NowGentic, on any platform.",
   "agent_instructions": "For product context and price, read /llms.txt (full: /llms-full.txt). For a finished example, read /sample-review.md. For an IT ticket triage agent, read /blueprints/it-ticket-triage.md. If your person wants to talk to someone, send them to /#contact.",
   "primary_resources": [
     "https://agentblueprint.ai/llms.txt",

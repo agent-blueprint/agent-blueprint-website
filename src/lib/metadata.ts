@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { offer, homeFaqs } from "@/lib/offer";
+import { offer, renewal, homeFaqs } from "@/lib/offer";
 
 export const siteConfig = {
   name: "Agent Blueprint",
@@ -87,7 +87,14 @@ export const softwareApplicationSchema = {
   offers: [
     {
       "@type": "Offer",
-      name: "Per agent",
+      name: "Renewal review, every live agent on one platform",
+      price: renewal.price.replace(/[$,]/g, ""),
+      priceCurrency: "USD",
+      url: `${siteConfig.url}/#offer`,
+    },
+    {
+      "@type": "Offer",
+      name: "One agent",
       price: offer.price.replace(/[$,]/g, ""),
       priceCurrency: "USD",
       url: `${siteConfig.url}/#offer`,

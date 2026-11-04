@@ -10,14 +10,29 @@ export const offer = {
   firstAnswer: "two weeks",
 };
 
+// The renewal review: every live agent on one platform, before the renewal.
+// DRAFT PRICE: placeholder until Chris and Amy confirm it.
+// Logic: two deep reviews ($7,500 each) plus a lighter pass over the rest,
+// priced near one year of a single pool-tier step for a mid-size add-on.
+export const renewal = {
+  name: "Renewal review",
+  price: "$24,000",
+  designPartnerPrice: "$12,000",
+  agentsCovered: 20,
+  deepReviews: "two",
+  extraDeepReview: "$5,000",
+  weeks: "four weeks",
+  teamHours: "About 12 hours",
+};
+
 // The only three answers a review gives. Use these words everywhere.
 export const verdicts = ["Keep", "Fix", "Stop"] as const;
 
 // Shown on the page and used for the FAQ structured data, so they always match.
 export const homeFaqs = [
   {
-    q: "Which agents are worth reviewing?",
-    a: "One that costs, or is supposed to save, more than about $50,000 a year. Below that, the free template does the job.",
+    q: "Which should we start with?",
+    a: "If your AI spend on a platform is about $150,000 a year or more and a renewal is coming, the renewal review. For a new agent or a pilot that costs, or should save, more than about $50,000 a year, one agent. Below that, the free template does the job.",
   },
   {
     q: "What if the AI cost is bundled into a license or a pool of credits?",

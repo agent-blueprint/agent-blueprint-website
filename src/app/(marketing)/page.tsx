@@ -11,7 +11,7 @@ import {
   mcpServerSchema,
   softwareApplicationSchema,
 } from "@/lib/metadata";
-import { offer, homeFaqs } from "@/lib/offer";
+import { offer, renewal, homeFaqs } from "@/lib/offer";
 
 const pageTitle = "Agent Blueprint | Know Whether Each AI Agent Is Worth It";
 
@@ -44,8 +44,8 @@ const heroCard = [
 ];
 
 const heroFacts = [
-  `${offer.price} fixed per agent`,
-  "Running agent: decision in 3 weeks",
+  `Fixed price, from ${offer.price}`,
+  `Every agent before renewal: ${renewal.weeks}`,
   "New agent: decision at day 90",
   "Any platform",
 ];
@@ -69,31 +69,34 @@ const paths = [
     eyebrow: "Already running agents",
     title: "Know what it's worth before you renew.",
     intro:
-      "AI is being folded into renewals. Start with the agent that costs you most, even if its cost is buried in a bundle.",
+      "AI is being folded into renewals. We go through every live agent, even where the cost is buried in a bundle, and look hardest at the ones that cost most.",
     steps: [
-      "Put a monthly number on it: its share of the AI bill, hosting, and the staff time spent checking its work.",
+      "Put a monthly number on each agent: its share of the AI bill, hosting, and the staff time spent checking its work.",
       "Measure what it did from your own systems, not from the agent's account of itself.",
-      "Get a keep, fix or stop decision and a page finance can sign off, in three weeks.",
+      "Get a keep, fix or stop call on every agent and a renewal summary finance can sign off.",
     ],
   },
 ];
 
-const offerIncludes = [
-  "A measured baseline of the metric the agent is meant to move",
-  "A one-page record of the agent: what it may do, who owns it, what it costs",
-  "A target and a date, written down before launch and not moved afterwards",
-  "A keep, fix or stop decision, with the reasons",
-  "A one-page summary for finance, with cash and staff time kept apart",
+const renewalIncludes = [
+  `Every live agent on one platform, up to ${renewal.agentsCovered}: its share of the AI bill, what it did, who owns it, and a first keep, fix or stop call`,
+  `A full review of your ${renewal.deepReviews} most expensive agents: measured baseline, one-page record and a firm decision`,
+  "A renewal summary for finance: what to keep, what to drop, and what that does to your pricing tier",
+  `Ready ${renewal.weeks} after the data arrives. Best started 60 days or more before the renewal`,
+];
+
+const singleIncludes = [
+  "A new agent or a pilot, or one running agent that matters most",
+  "A measured baseline and a target written down in advance",
+  "The agent's one-page record: what it may do, who owns it, what it costs",
+  `A keep, fix or stop decision: three weeks after the data arrives for a running agent, at day 90 for a new one`,
 ];
 
 const offerNeeds = [
-  "One owner on your side. Choosing which agent to review is part of the free call",
-  `${offer.teamHours} of your team's time: a kickoff, short check-ins, and two 1-hour sessions to confirm the timings we take from your logs`,
-  "The agent's usage records and the history of the system it works in. Read-only access, or we send the queries and your team runs them, so your security review doesn't hold things up",
+  "One owner on your side. Choosing the scope is part of the free call",
+  `${renewal.teamHours} of your team's time for a renewal review, about 8 for one agent: a kickoff, short check-ins, and two 1-hour sessions to confirm timings we take from your logs`,
+  "Usage records and the history of the systems the agents work in. Read-only access, or we send the queries and your team runs them, so a security review doesn't hold things up",
 ];
-
-const offerIncludesTimeline = `Agent already running: decision three weeks after the data arrives. New agent: baseline and target in ${offer.firstAnswer}, decision at day 90. After a Fix, one recheck is included. Building or fixing the agent is never part of the fee.`;
-
 
 const founders = [
   {
@@ -137,6 +140,40 @@ const freeResources = [
     cta: "Get the template",
   },
 ];
+
+function OfferCard({
+  label,
+  title,
+  price,
+  unit,
+  partner,
+  items,
+  note,
+  featured = false,
+}: {
+  label: string;
+  title: string;
+  price: string;
+  unit: string;
+  partner: string;
+  items: string[];
+  note: string;
+  featured?: boolean;
+}) {
+  return (
+    <div className={`min-w-0 rounded-xl border bg-card px-6 py-6 shadow-sm md:px-8 ${featured ? "border-primary" : "border-border"}`}>
+      <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent">{label}</p>
+      <h3 className="mt-2 font-display text-2xl font-bold text-foreground">{title}</h3>
+      <p className="mt-3 font-display text-5xl font-bold text-foreground">
+        {price}{" "}
+        <span className="block font-body text-base font-normal text-muted-foreground sm:ml-1 sm:inline">{unit}</span>
+      </p>
+      <p className="mt-1 font-body text-sm font-semibold text-accent">{partner}</p>
+      <Bullets items={items} />
+      <p className="mt-4 font-body text-sm text-muted-foreground">{note}</p>
+    </div>
+  );
+}
 
 function Bullets({ items }: { items: string[] }) {
   return (
@@ -296,49 +333,50 @@ export default function HomePage() {
       <section id="offer" className="scroll-mt-20 mx-auto max-w-6xl px-6 py-16" aria-labelledby="offer-heading">
         <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">The offer</p>
         <h2 id="offer-heading" className="mt-3 font-display text-4xl font-bold leading-tight text-foreground md:text-5xl">
-          A keep, fix or stop decision on one agent, for a fixed fee.
+          A keep, fix or stop decision, for a fixed fee.
         </h2>
 
-        <div className="mt-8 overflow-hidden rounded-xl border border-border bg-card shadow-sm">
-          <div className="grid gap-6 border-b border-border px-6 py-6 md:grid-cols-2 md:px-8">
-            <div className="min-w-0">
-              <p className="font-display text-5xl font-bold text-foreground">{offer.price}</p>
-              <p className="mt-1 font-body text-foreground">
-                Fixed, per agent, planned or already running. No hourly billing, no software to buy.
-              </p>
-              <p className="mt-3 font-body text-sm text-muted-foreground">
-                <span className="font-semibold text-foreground">We&apos;re new, so the first {offer.designPartnerSeats} companies pay {offer.designPartnerPrice}</span>{" "}
-                in return for letting us use their numbers, names removed, and a short case study.
-              </p>
-            </div>
-            <div className="min-w-0 rounded-lg border border-emerald-700/30 bg-emerald-50 px-5 py-4">
-              <p className="font-display text-xl font-bold text-foreground">Refund guarantee</p>
-              <p className="mt-1 font-body text-sm leading-relaxed text-foreground">
-                Half at kickoff, half with the decision. If your finance lead won&apos;t
-                sign off that the numbers were measured the way we agreed, we refund
-                all of it.
-              </p>
-            </div>
-          </div>
+        <div className="mt-8 grid gap-6 lg:grid-cols-2">
+          <OfferCard
+            label="Already running agents"
+            title={renewal.name}
+            price={renewal.price}
+            unit="fixed, per platform"
+            partner={`${renewal.designPartnerPrice} for design partners`}
+            items={renewalIncludes}
+            note={`More full reviews: ${renewal.extraDeepReview} each.`}
+            featured
+          />
+          <OfferCard
+            label="New agent or pilot"
+            title="One agent"
+            price={offer.price}
+            unit="fixed, per agent"
+            partner={`${offer.designPartnerPrice} for design partners`}
+            items={singleIncludes}
+            note="After a Fix, one recheck is included."
+          />
+        </div>
 
-          <div className="grid gap-8 px-6 py-8 md:grid-cols-2 md:px-8">
-            <div className="min-w-0">
-              <h3 className="font-display text-xl font-bold text-foreground">What you get</h3>
-              <Bullets items={offerIncludes} />
-              <p className="mt-4 font-body text-sm leading-relaxed text-foreground">
-                <span className="font-semibold">Timeline: </span>
-                {offerIncludesTimeline}
-              </p>
-            </div>
-            <div className="min-w-0">
-              <h3 className="font-display text-xl font-bold text-foreground">What we need from you</h3>
-              <Bullets items={offerNeeds} />
-              <p className="mt-4 font-body text-sm leading-relaxed text-muted-foreground">
-                Independence, data handling and what finance signs off are answered in the{" "}
-                <Link href="/#questions" className="text-primary underline underline-offset-4">questions below</Link>.
-              </p>
-            </div>
+        <div className="mt-6 grid gap-6 rounded-xl border border-border bg-card px-6 py-6 md:grid-cols-3 md:px-8">
+          <div className="min-w-0 md:col-span-2">
+            <h3 className="font-display text-xl font-bold text-foreground">What we need from you</h3>
+            <Bullets items={offerNeeds} />
           </div>
+          <div className="min-w-0 rounded-lg border border-emerald-700/30 bg-emerald-50 px-5 py-4">
+            <p className="font-display text-xl font-bold text-foreground">Refund guarantee</p>
+            <p className="mt-1 font-body text-sm leading-relaxed text-foreground">
+              Half at kickoff, half with the decision. If your finance lead won&apos;t
+              sign off that the numbers were measured the way we agreed, we refund
+              all of it.
+            </p>
+          </div>
+          <p className="font-body text-sm leading-relaxed text-muted-foreground md:col-span-3">
+            We&apos;re new, so the first {offer.designPartnerSeats} companies pay half in return for letting us use their numbers,
+            names removed, and a short case study. Building or fixing agents is never part of the fee. Independence and data
+            handling are in the{" "}
+            <Link href="/#questions" className="text-primary underline underline-offset-4">questions below</Link>.
+          </p>
         </div>
 
         <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">

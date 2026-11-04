@@ -13,8 +13,10 @@ Agent Blueprint helps companies decide, one agent at a time, whether an AI agent
 
 ## The offer
 
-- Price: $7,500 fixed per agent, planned or already running. No hourly billing, no software to buy.
-- Design partners: the firm is new and has no client results yet, so the first five companies pay $3,750 in return for permission to use their numbers with names removed and a short case study.
+- Renewal review: $24,000 fixed per platform. Every live agent on one platform (up to 20): its share of the AI bill, what it did, who owns it and a first keep, fix or stop call; a full review of the two most expensive agents; and a renewal summary for finance (what to keep, what to drop, what that does to the pricing tier). Ready four weeks after the data arrives; best started 60 days or more before the renewal. More full reviews $5,000 each. Customer time about 12 hours.
+- One agent: $7,500 fixed per agent, for a new agent, a pilot, or one running agent that matters most.
+- Design partners: the firm is new and has no client results yet, so the first five companies pay half ($12,000 or $3,750) in return for permission to use their numbers with names removed and a short case study.
+- No hourly billing, no software to buy.
 - What the customer gets: a measured baseline of the metric the agent is meant to move, the agent's one page, a target and date written down in advance, a keep, fix or stop decision with the reasons, and one summary for finance with cash and staff time kept apart.
 - What the customer provides: one owner, about 8 hours of their team's time (a kickoff, short check-ins, and two 1-hour sessions to confirm timings taken from their logs), and read access to the agent's usage records and the system it works in.
 - Timeline: agent already running, decision three weeks after the data arrives (or after a two-week holdout if history is missing). Data can come through read-only access or through queries the customer's own team runs, so a security review needn't hold things up. New or changed agent, baseline and target in two weeks, decision at day 90.
@@ -22,7 +24,7 @@ Agent Blueprint helps companies decide, one agent at a time, whether an AI agent
 - Who does the work: the founders. Customers contract with NowGentic (https://nowgentic.com), the founders' services company, which delivers every review. NowGentic also builds agents, so it never reviews one it built. No commissions from software vendors.
 - Payment and guarantee: half at kickoff, half with the decision. If the customer's finance lead won't sign off that the numbers were measured as agreed, everything is refunded.
 - Data: read-only access, NDA on request, only the numbers on the summary are kept, working data deleted 30 days after the decision.
-- Worth it for: an agent that costs, or is supposed to save, more than about $50,000 a year.
+- Worth it for: the renewal review when AI spend on a platform is about $150,000 a year or more; one agent when it costs, or should save, more than about $50,000 a year.
 - Bundled AI costs: when AI is billed as a license or a pool of credits, an agent's cost is its share of recorded usage (in the sample, 20,000 of 120,000 monthly credits, a sixth of a $144,000-a-year add-on, or $2,000 a month). That share is allocated cost, saved only if the add-on shrinks at renewal. Where usage isn't logged per agent, it is estimated from a sample of activity or a short holdout and marked lower confidence.
 - Founders: Chris Faulkner (twenty years in enterprise technology, ten at ServiceNow, former Certified Master Architect; measured the cost of 100 agent runs for the public benchmark below) and Amy Glencross (former Deloitte partner who built and led enterprise technology practices in Australia, the US and Canada).
 - Next step: a free 30-minute call, requested at https://agentblueprint.ai/#contact. Replies within one business day.
