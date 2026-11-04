@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ContactSection } from "@/components/contact-section";
-import { SampleFrame } from "@/components/sample-frame";
 import { breadcrumbSchema, webPageSchema, siteConfig } from "@/lib/metadata";
-import { storeListingUrl } from "@/lib/store-app";
 
 const pageTitle = "Agent Blueprint | Know What Each AI Agent Costs and Whether to Keep It";
 
@@ -96,10 +94,10 @@ export default function HomePage() {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
-              href={storeListingUrl ?? "/servicenow"}
+              href="/agent-one-page-template"
               className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-3 font-body font-semibold text-foreground transition-colors hover:border-primary"
             >
-              {storeListingUrl ? "Get the ServiceNow app" : "See the ServiceNow app"}
+              Get the free template
             </Link>
           </div>
           <p className="mt-10 max-w-2xl font-body text-sm leading-relaxed text-muted-foreground">
@@ -126,9 +124,9 @@ export default function HomePage() {
             Before your renewal, we go through every agent with you.
           </h2>
           <p className="mt-4 max-w-2xl font-body leading-relaxed text-muted-foreground">
-            It works on any platform you run agents on. ServiceNow is where we
-            know the platform deepest, and we&apos;ll tell you plainly if yours is
-            new ground for us.
+            Every agent you pay for, on every platform you run, in one review.
+            You come out with a clear answer for each one and a page finance can
+            sign off on.
           </p>
           <div className="mt-10 grid gap-8 md:grid-cols-3">
             {reviewSteps.map((step) => (
@@ -153,42 +151,27 @@ export default function HomePage() {
         <div className="grid gap-6 md:grid-cols-5 md:items-end">
           <div className="md:col-span-3">
             <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
-              The app, on ServiceNow first
+              The app
             </p>
             <h2 id="app-heading" className="mt-3 font-display text-4xl font-bold leading-tight text-foreground">
-              The same view, kept current inside your instance.
+              Keep the answer current between renewals.
             </h2>
             <p className="mt-4 font-body leading-relaxed text-muted-foreground">
-              Assists used against your yearly pool, every agent sorted into
-              keep, fix or rethink, and a page finance can read. It reads what
-              ServiceNow already records about each agent, so the numbers
-              aren&apos;t the agent describing itself.
+              The app keeps each agent&apos;s cost, results and keep, fix or
+              rethink call up to date. It reads the platform&apos;s own records
+              of what every agent did, so the numbers never come from the agent
+              describing itself.
             </p>
           </div>
           <div className="md:col-span-2">
             <Link
-              href={storeListingUrl ?? "/servicenow"}
+              href="/servicenow"
               className="group inline-flex items-center gap-2 font-body font-semibold text-primary"
             >
-              {storeListingUrl ? "Get it on the ServiceNow Store" : "See where the app is heading"}
+              Available first for ServiceNow
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
-            {!storeListingUrl && (
-              <p className="mt-2 font-body text-sm text-muted-foreground">
-                Not in the ServiceNow Store yet. It still has to pass
-                ServiceNow&apos;s certification.
-              </p>
-            )}
           </div>
-        </div>
-        <div className="mt-8">
-          <SampleFrame
-            src="/samples/servicenow.html"
-            title="Mockup of the planned renewal view for a fictional company"
-            label="MOCKUP / fictional company and numbers"
-            height={560}
-            still
-          />
         </div>
       </section>
 
@@ -230,8 +213,7 @@ export default function HomePage() {
         <a href="https://nowgentic.com" className="underline underline-offset-4">
           NowGentic
         </a>
-        , a ServiceNow partner. ServiceNow is a trademark of ServiceNow, Inc.
-        Agent Blueprint isn&apos;t affiliated with or endorsed by ServiceNow.
+        . ServiceNow is a trademark of ServiceNow, Inc.
       </p>
     </>
   );
