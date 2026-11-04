@@ -48,6 +48,10 @@ export const homeFaqs = [
     a: "Only if you ask. The decision is signed off by your finance lead before anyone talks about fixing it. NowGentic quotes a fix only when you ask in writing, at a fixed price, and you're free to use anyone. If NowGentic does the fix and the recheck shows the agent still misses its target, NowGentic redoes it for free.",
   },
   {
+    q: "What happens after the decision?",
+    a: "You keep the one-page record, and the free template shows how to update it yourself. We're planning a version that refreshes each record monthly from your usage data and tells you when a new model or platform update affects one of your agents. Ask about it on the call if you'd like early access.",
+  },
+  {
     q: "What happens to our data?",
     a: "Read-only access, or we send queries and you run them. We sign your NDA, keep only the numbers on the summary, and delete working data 30 days after the decision.",
   },
