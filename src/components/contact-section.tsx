@@ -3,7 +3,6 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
-import { Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -71,7 +70,7 @@ export function ContactSection() {
             Free, 30 minutes
           </span>
           <h2 className="mt-4 font-display text-3xl font-bold text-foreground md:text-5xl">
-            Book a call
+            Request a call
           </h2>
           <p className="mx-auto mt-4 max-w-2xl font-body text-base text-muted-foreground">
             Tell us where you are: still exploring, piloting, or already running
@@ -180,30 +179,25 @@ export function ContactSection() {
             </Form>
           </div>
 
-          {/* LinkedIn links */}
+          {/* Direct contact */}
           <div className="flex flex-col justify-start md:pt-1">
-            <h3 className="font-display text-2xl font-bold text-foreground">
-              Prefer LinkedIn?
-            </h3>
-            <p className="mt-3 font-body text-sm text-muted-foreground">
-              Message either founder directly.
-            </p>
-            <div className="mt-8 flex flex-col gap-4">
-              {linkedinLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-3 rounded-md p-4 border border-border transition-all duration-300 hover:border-primary/30 hover:bg-primary/5"
-                >
-                  <Linkedin className="h-5 w-5 text-primary" />
-                  <span className="font-body text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+            <h3 className="font-display text-2xl font-bold text-foreground">Prefer email?</h3>
+            <p className="mt-3 font-body text-muted-foreground">
+              Write to{" "}
+              <a href="mailto:info@agentblueprint.ai" className="font-semibold text-primary underline underline-offset-4">
+                info@agentblueprint.ai
+              </a>
+              . Or message{" "}
+              {linkedinLinks.slice(0, 2).map((link, i) => (
+                <span key={link.name}>
+                  {i > 0 && " or "}
+                  <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4">
                     {link.name}
-                  </span>
-                </a>
-              ))}
-            </div>
+                  </a>
+                </span>
+              ))}{" "}
+              on LinkedIn.
+            </p>
           </div>
         </div>
       </div>

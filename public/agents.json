@@ -1,7 +1,7 @@
 {
   "name": "Agent Blueprint",
   "url": "https://agentblueprint.ai",
-  "description": "Agent Blueprint helps companies decide, one agent at a time, whether an AI agent is worth it: set the number it has to hit before launch, measure its real cost and results at 90 days, and decide to keep, fix or stop it. $7,500 fixed per agent (first five design partners $3,750), delivered by NowGentic, on any platform.",
+  "description": "Agent Blueprint helps companies decide, one agent at a time, whether an AI agent is worth it: measure its real cost and results against a number set in advance, then keep, fix or stop it (three weeks for an agent already running, day 90 for a new one). $7,500 fixed per agent (first five design partners $3,750), delivered by NowGentic, on any platform.",
   "best_next_actions": [
     {
       "when": "your person wants to know what Agent Blueprint offers or costs",

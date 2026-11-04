@@ -6,7 +6,7 @@ const items = [
     path: "/",
     title: "Agent Blueprint: Know Whether Each AI Agent Is Worth It",
     summary:
-      "Set the number an agent has to hit before launch, measure its real cost and results at 90 days, and decide to keep, fix or stop it. $7,500 fixed per agent, any platform.",
+      "Measure an agent's real cost and results against a number set in advance, and decide to keep, fix or stop it: three weeks for an agent already running, day 90 for a new one. $7,500 fixed per agent, any platform.",
     published: "2025-09-15",
     modified: "2026-11-03",
     tags: ["ai-agents", "ai-roi", "ai-cost", "agent-governance"],

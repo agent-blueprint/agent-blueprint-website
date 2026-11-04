@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentblueprint.ai/blueprints/it-ticket-triage/output.schema.json",
+  "title": "IT ticket triage agent output",
+  "description": "One answer per ticket. Write only category, priority and team, and only when flag_for_person and leave_in_queue are both false.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ticket_id",
+    "category",
+    "priority",
+    "team",
+    "reason",
+    "confidence",
+    "flag_for_person",
+    "leave_in_queue"
+  ],
+  "properties": {
+    "ticket_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "One of your category list (restrict with an enum). null when leave_in_queue is true."
+    },
+    "priority": {
+      "enum": [
+        "P3",
+        "P4",
+        null
+      ],
+      "description": "null when flagged for a person. If your system calculates priority from impact and urgency, replace this with those fields."
+    },
+    "team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "One of your team list (restrict with an enum). null when leave_in_queue is true."
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "flag_for_person": {
+      "type": "boolean"
+    },
+    "leave_in_queue": {
+      "type": "boolean"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "flag_for_person": {
+            "const": true
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "priority": {
+            "const": null
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "flag_for_person": {
+            "const": false
+          },
+          "leave_in_queue": {
+            "const": false
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "priority": {
+            "enum": [
+              "P3",
+              "P4"
+            ]
+          },
+          "category": {
+            "type": "string"
+          },
+          "team": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "leave_in_queue": {
+            "const": true
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "category": {
+            "const": null
+          },
+          "team": {
+            "const": null
+          }
+        }
+      }
+    }
+  ]
+}

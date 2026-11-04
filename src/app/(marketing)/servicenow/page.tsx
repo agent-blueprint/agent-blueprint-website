@@ -76,10 +76,7 @@ export default function ServiceNowPage() {
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </a>
         ) : (
-          <Link
-            href="#contact"
-            className="group mt-7 flex flex-col gap-4 rounded-lg border border-primary/25 bg-card p-5 transition-shadow hover:shadow-lg sm:flex-row sm:items-center sm:justify-between"
-          >
+          <div className="mt-7 flex flex-col gap-4 rounded-lg border border-primary/25 bg-card p-5 sm:flex-row sm:items-center sm:justify-between">
             <span>
               <span className="block font-mono text-xs uppercase tracking-[0.14em] text-accent">
                 Not in the ServiceNow Store yet
@@ -90,11 +87,11 @@ export default function ServiceNowPage() {
                 tell us.
               </span>
             </span>
-            <span className="inline-flex shrink-0 items-center gap-2 font-body font-semibold text-primary">
+            <Link href="#contact" className="group inline-flex shrink-0 items-center gap-2 font-body font-semibold text-primary">
               Tell us you want it
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </span>
-          </Link>
+            </Link>
+          </div>
         )}
         <p className="mt-6 font-body text-sm leading-relaxed text-muted-foreground">
           Below is a mockup of where the app is heading. The company and numbers

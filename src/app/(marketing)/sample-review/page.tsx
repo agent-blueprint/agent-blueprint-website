@@ -44,15 +44,32 @@ const guardrails = [
   "Time to first touch on P1 and P2 tickets: unchanged. Held.",
 ];
 
-// The finance statement: monthly lines, then the two numbers that matter.
-const costLines = [
-  { label: "AI usage", note: "Allocated: a sixth of the $144,000-a-year AI add-on (20,000 of 120,000 credits a month). Saved only if the add-on shrinks at renewal.", value: "$2,000" },
-  { label: "Hosting", note: "New cash.", value: "$80" },
-  { label: "Staff time running it", note: "Checking its work 10 h x $40, upkeep 6 h x $70.", value: "$820" },
+// The finance statement keeps three kinds of money apart and never adds them
+// into one total without saying so.
+// Staff time: 139 h saved x $40 = $5,560, minus $820 running it = $4,740 net.
+// New cash: $80 a month. Allocated AI usage: $2,000 a month.
+// Payback on $19,500 (build + review):
+//   staff time and new cash: 19,500 / (4,740 - 80) = 4.2 months
+//   also charging the allocated AI share: 19,500 / (4,740 - 80 - 2,000) = 7.3 months
+const moneyLines = [
+  {
+    kind: "Staff time",
+    value: "+$4,740 a month",
+    detail: "Saves 139 hours sorting and fixing tickets ($5,560 at $40 an hour, fully loaded). Running it takes 16 hours back: checking its work 10 h x $40, upkeep 6 h x $70 = $820.",
+  },
+  {
+    kind: "New cash",
+    value: "-$80 a month",
+    detail: "Hosting and connections. Plus the one-off $12,000 build and $7,500 review.",
+  },
+  {
+    kind: "Allocated AI usage",
+    value: "-$2,000 a month",
+    detail: "Calder's agents use all 120,000 credits a month in its $144,000-a-year AI add-on; this one uses 20,000, a sixth. Already paid. Dropping it would let Calder renew on the 100,000-credit tier ($124,000 a year), saving about $1,700 a month from renewal.",
+  },
 ];
-const savingLine = { label: "Staff time saved", note: "139 hours a month sorting and fixing tickets, at $40 an hour fully loaded.", value: "$5,560" };
 const financeNotes = [
-  "Cash only: today the agent costs $80 a month in new cash and saves none. The savings become cash only if the freed hours replace contractor time or a planned hire, or the AI add-on is cut at renewal. That call belongs to Morgan Lee.",
+  "Whether freed hours become cash is Morgan Lee's call.",
   "Confidence: medium. Reassignments come from the full ticket history. Hours come from ticket log timestamps, checked by timing 300 tickets by hand before launch and in week 12: 2 minutes to sort one, 5 to fix a misroute.",
 ];
 
@@ -108,7 +125,7 @@ const sections: { heading: string; note?: string; items: DocItem[] }[] = [
       { label: "The one number", text: "Tickets reassigned to another team at least once. Today: 22%. Target: 12% by day 90." },
       { label: "Second number", text: "Service desk hours a month spent sorting and fixing tickets, not counting checking the agent's work. Today: 206 (133 sorting at 2 minutes a ticket, 73 fixing 880 misroutes at 5 minutes). Target: 90." },
       { label: "Must not get worse", text: "Major incidents sent to the wrong team (zero today), and time to first touch on P1 and P2 tickets." },
-      { label: "The rule at day 90", text: "Keep if both targets are met. Fix if it's clearly better than today but short of a target. Stop if reassignments aren't below 18%, or it misroutes a major incident twice. Planned escalations from first-line to second-line support don't count as reassignments." },
+      { label: "The rule at day 90", text: "Keep if both targets are met. Fix if it's clearly better than today but short of a target. Stop if reassignments aren't at least a fifth below today's 22% (under 17.6%), or it misroutes a major incident twice. Planned escalations from first-line to second-line support don't count as reassignments." },
     ],
   },
 ];
@@ -116,6 +133,7 @@ const sections: { heading: string; note?: string; items: DocItem[] }[] = [
 const result: DocItem[] = [
   { label: "Where it goes wrong", text: "6 in 10 of its misroutes are access requests sent to the network team. The request form has no option for access, so the ticket text is all it has to go on." },
   { label: "Hours", text: "67 a month: 20 sorting the 600 tickets it left for people (too little text) and 47 fixing 560 misroutes (14% of all tickets). Checking its work is extra and counted under cost." },
+  { label: "Who misrouted", text: "520 of the 560 were the agent's: 15% of the 3,400 it sorted, against 12% in the backtest. Live tickets had more access requests than the test set. The other 40 were people's." },
   { label: "Must not get worse", text: "No major incidents misrouted. Time to first touch on P1 and P2 unchanged." },
   { label: "Setup still matches this page", text: "Yes. Checked against its ticket system role on day 90." },
   {
@@ -163,45 +181,41 @@ export default function SampleReviewPage() {
           <p className="mt-2 font-body text-sm" style={{ color: "var(--hero-muted)" }}>
             Calder Freight, IT service desk, 4,000 tickets a month. Reviewed at day 90.
           </p>
-          <dl className="mt-6 font-body text-sm">
-            {costLines.map((line) => (
-              <div key={line.label} className="grid grid-cols-[1fr_auto] gap-x-6 border-b border-white/10 py-3">
+          <dl className="mt-6 font-body">
+            {moneyLines.map((line) => (
+              <div key={line.kind} className="grid grid-cols-[1fr_auto] gap-x-6 border-b border-white/10 py-3">
                 <dt>
-                  <span className="font-semibold">{line.label}</span>
-                  <span data-note className="mt-0.5 block text-xs" style={{ color: "var(--hero-muted)" }}>{line.note}</span>
+                  <span className="font-semibold">{line.kind}</span>
+                  <span data-note className="mt-1 block text-sm" style={{ color: "var(--hero-fg)", opacity: 0.75 }}>{line.detail}</span>
                 </dt>
-                <dd className="text-right text-lg font-semibold tabular-nums">{line.value}</dd>
+                <dd className="text-right text-xl font-semibold tabular-nums">{line.value}</dd>
               </div>
             ))}
-            <div className="grid grid-cols-[1fr_auto] gap-x-6 border-b border-white/30 py-3">
-              <dt className="font-semibold">Monthly cost</dt>
-              <dd className="text-right text-lg font-semibold tabular-nums">$2,900</dd>
-            </div>
-            <div className="grid grid-cols-[1fr_auto] gap-x-6 border-b border-white/10 py-3">
-              <dt>
-                <span className="font-semibold">{savingLine.label}</span>
-                <span data-note className="mt-0.5 block text-xs" style={{ color: "var(--hero-muted)" }}>{savingLine.note}</span>
-              </dt>
-              <dd className="text-right text-lg font-semibold tabular-nums">{savingLine.value}</dd>
-            </div>
           </dl>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          <div className="mt-6 rounded-md border border-white/20 p-4">
+            <p className="font-mono text-[11px] uppercase tracking-[0.14em]" style={{ color: "var(--hero-muted)" }}>Payback in cash</p>
+            <p className="mt-1 font-display text-3xl font-bold">None yet</p>
+            <p className="mt-1 text-sm" style={{ opacity: 0.8 }}>
+              It adds $80 a month in new cash and saves none until the freed hours replace contractor time or a planned hire, or the add-on shrinks at renewal.
+            </p>
+          </div>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
             <div className="rounded-md bg-white/5 p-4">
-              <p className="font-mono text-[11px] uppercase tracking-[0.14em]" style={{ color: "var(--hero-muted)" }}>Net value</p>
-              <p className="mt-1 font-display text-4xl font-bold tabular-nums">$2,660<span className="font-body text-base font-normal"> a month</span></p>
-              <p className="mt-1 text-xs" style={{ color: "var(--hero-muted)" }}>$5,560 saved - $2,900 cost, in staff time</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em]" style={{ color: "var(--hero-muted)" }}>If staff time counts</p>
+              <p className="mt-1 font-display text-4xl font-bold tabular-nums">4.2<span className="font-body text-base font-normal"> months</span></p>
+              <p className="mt-1 text-sm" style={{ opacity: 0.75 }}>$19,500 / ($4,740 - $80) a month</p>
             </div>
             <div className="rounded-md bg-white/5 p-4">
-              <p className="font-mono text-[11px] uppercase tracking-[0.14em]" style={{ color: "var(--hero-muted)" }}>Payback</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em]" style={{ color: "var(--hero-muted)" }}>If staff time counts and its AI share is charged</p>
               <p className="mt-1 font-display text-4xl font-bold tabular-nums">7.3<span className="font-body text-base font-normal"> months</span></p>
-              <p className="mt-1 text-xs" style={{ color: "var(--hero-muted)" }}>$12,000 build + $7,500 review, in staff time. In cash alone: none yet.</p>
+              <p className="mt-1 text-sm" style={{ opacity: 0.75 }}>$19,500 / ($4,740 - $80 - $2,000) a month</p>
             </div>
           </div>
           <p className="mt-5 font-body text-sm">
             <span className="font-semibold">Decision: </span>
             <span style={{ color: "var(--hero-muted)" }}>Fix. Keep it running, close one gap, and check again in 60 days (the recheck is included).</span>
           </p>
-          <ul className="mt-3 space-y-2 font-body text-xs leading-relaxed" style={{ color: "var(--hero-muted)" }}>
+          <ul className="mt-3 space-y-2 font-body text-sm leading-relaxed" style={{ opacity: 0.8 }}>
             {financeNotes.map((n) => (
               <li key={n}>{n}</li>
             ))}
@@ -318,7 +332,7 @@ export default function SampleReviewPage() {
               href="/#contact"
               className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 font-body font-semibold text-primary-foreground transition-shadow hover:shadow-lg"
             >
-              Book a free 30-minute call
+              Request a free 30-minute call
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link href="/#offer" className="group inline-flex items-center gap-2 font-body font-semibold text-primary">

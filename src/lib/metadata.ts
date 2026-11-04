@@ -4,7 +4,7 @@ import { offer, homeFaqs } from "@/lib/offer";
 export const siteConfig = {
   name: "Agent Blueprint",
   description:
-    "Know whether each AI agent is worth it. We set the number an agent has to hit before launch, measure its real cost and results at 90 days, and give a keep, fix or stop decision. Fixed price, any platform.",
+    "Know whether each AI agent is worth it. We measure its real cost and results against a number set in advance and give a keep, fix or stop decision: three weeks for an agent already running, day 90 for a new one. Fixed price, any platform.",
   url: "https://agentblueprint.ai",
   ogImage: "https://agentblueprint.ai/images/logo.png",
 };
@@ -65,7 +65,7 @@ export const organizationSchema = {
   url: siteConfig.url,
   logo: siteConfig.ogImage,
   description:
-    "Agent Blueprint helps companies decide, one agent at a time, whether an AI agent is worth it: set the number it has to hit before launch, measure its real cost and results at 90 days, and decide to keep, fix or stop it. Reviews are delivered by NowGentic.",
+    "Agent Blueprint helps companies decide, one agent at a time, whether an AI agent is worth it: measure its real cost and results against a number set in advance, then decide to keep, fix or stop it (three weeks for an agent already running, day 90 for a new one). Reviews are delivered by NowGentic.",
   foundingDate: "2025",
   founder: [
     { "@type": "Person", name: "Chris Faulkner", sameAs: "https://www.linkedin.com/in/cifaulkner" },
@@ -78,12 +78,12 @@ export const softwareApplicationSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": "https://agentblueprint.ai/#review",
-  name: `${offer.name}: AI agent review`,
+  name: "AI agent review",
   serviceType: "AI agent cost and results review",
   provider: { "@id": "https://agentblueprint.ai/#org" },
   areaServed: "Worldwide",
   description:
-    "For one AI agent, planned or already running: measure today's number, write the agent's one page, set a target and date before launch, and come back at 90 days with a keep, fix or stop decision and a summary for finance. Works on any platform.",
+    "For one AI agent, planned or already running: measure the baseline, write the agent's one page, set a target and date, and give a keep, fix or stop decision with a summary for finance (three weeks for an agent already running, day 90 for a new one). Works on any platform, including AI billed as a license or a pool of credits.",
   offers: [
     {
       "@type": "Offer",
@@ -122,7 +122,7 @@ export const howToSchema = {
   "@id": "https://agentblueprint.ai/#howto",
   name: "How to decide whether an AI agent is worth it",
   description:
-    "The Agent Blueprint method for one agent: measure the starting point, write the one page, set the target before launch, and decide at 90 days.",
+    "The Agent Blueprint method for one agent: measure the starting point, write the one page, set the target in advance, and decide: in three weeks for an agent already running, at day 90 for a new one.",
   step: [
     {
       "@type": "HowToStep",
@@ -145,7 +145,7 @@ export const howToSchema = {
     {
       "@type": "HowToStep",
       position: 4,
-      name: "Decide at 90 days",
+      name: "Decide: keep, fix or stop",
       text: "Measure cost (new cash and staff time, kept apart) and results from your systems, then decide: keep, fix or stop.",
     },
   ],

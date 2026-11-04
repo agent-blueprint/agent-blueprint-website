@@ -30,6 +30,8 @@ export const config = {
     "/blueprints",
     "/blueprints/it-ticket-triage",
     "/servicenow",
+    "/privacy",
+    "/terms",
     "/index.md",
     "/personal.md",
     "/agents.md",
@@ -37,5 +39,7 @@ export const config = {
     "/blueprints.md",
     "/blueprints/it-ticket-triage.md",
     "/servicenow.md",
+    "/privacy.md",
+    "/terms.md",
   ],
 };

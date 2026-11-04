@@ -57,7 +57,7 @@ const paths = [
     eyebrow: "Starting out or in a pilot",
     title: "Set the number before you launch.",
     intro:
-      "Most pilots never get a yes or a no because nobody wrote down what success looked like. We fix that before the agent goes live.",
+      "Most pilots never get a yes or a no, because nobody wrote down what success looked like.",
     steps: [
       "Pick the agent worth trying first, on cost, risk and how easy the result is to measure.",
       "Measure the metric it's meant to move, and write down who owns it, what it may do and what it will cost.",
@@ -69,7 +69,7 @@ const paths = [
     eyebrow: "Already running agents",
     title: "Know what it's worth before you renew.",
     intro:
-      "AI is being folded into renewals and billed by use. Start with the agent that costs you most, even if its cost is buried in a bundle. Decision in three weeks, from your own records.",
+      "AI is being folded into renewals. Start with the agent that costs you most, even if its cost is buried in a bundle.",
     steps: [
       "Put a monthly number on it: its share of the AI bill, hosting, and the staff time spent checking its work.",
       "Measure what it did from your own systems, not from the agent's account of itself.",
@@ -82,23 +82,17 @@ const offerIncludes = [
   "A measured baseline of the metric the agent is meant to move",
   "A one-page record of the agent: what it may do, who owns it, what it costs",
   "A target and a date, written down before launch and not moved afterwards",
-  "A keep, fix or stop decision with the reasons: in three weeks for a running agent, at day 90 for a new one",
+  "A keep, fix or stop decision, with the reasons",
   "A one-page summary for finance, with cash and staff time kept apart",
 ];
 
 const offerNeeds = [
-  "One owner on your side",
+  "One owner on your side. Choosing which agent to review is part of the free call",
   `${offer.teamHours} of your team's time: a kickoff, short check-ins, and two 1-hour sessions to confirm the timings we take from your logs`,
-  "Read access to the agent's usage records and the system it works in, such as ticket history",
+  "The agent's usage records and the history of the system it works in. Read-only access, or we send the queries and your team runs them, so your security review doesn't hold things up",
 ];
 
-const offerTerms = [
-  ["Timeline", `Agent already running: decision in three weeks. New or changed agent: baseline and target in ${offer.firstAnswer}, decision at day 90.`],
-  ["Scope", "We measure and decide. Fixing the agent isn't part of the fee: if you want help, it's quoted separately and you're free to use anyone. After a Fix, one recheck within 90 days is included."],
-  ["Who does the work", "You contract with NowGentic, the founders' services company, which delivers every review. NowGentic also builds agents, so it never reviews one it built. No commissions from software vendors."],
-  ["Payment and guarantee", "Half at kickoff, half with the decision. If your finance lead won't sign off that the numbers were measured the way we agreed, we refund all of it."],
-  ["Your data", "Read-only access. We sign your NDA, keep only the numbers on the summary, and delete working data 30 days after the decision."],
-];
+const offerIncludesTimeline = `Agent already running: decision three weeks after the data arrives. New agent: baseline and target in ${offer.firstAnswer}, decision at day 90. After a Fix, one recheck is included. Building or fixing the agent is never part of the fee.`;
 
 
 const founders = [
@@ -106,8 +100,8 @@ const founders = [
     initials: "CF",
     name: "Chris Faulkner",
     role: "Co-founder, San Diego",
-    creds: ["Ex-ServiceNow, 10 years", "Certified Master Architect", "Published agent cost benchmark"],
-    bio: "Twenty years in enterprise technology, including ten at ServiceNow through its growth years. Measured the cost of 100 agent runs for our public benchmark.",
+    creds: ["Ex-ServiceNow, 10 years", "Certified Master Architect", "Measured 100 coding-agent runs"],
+    bio: "Twenty years in enterprise technology, including ten at ServiceNow through its growth years. Ran our public benchmark of what coding-agent jobs cost.",
     url: "https://www.linkedin.com/in/cifaulkner",
   },
   {
@@ -180,7 +174,7 @@ export default function HomePage() {
           }}
         />
         <div className="relative mx-auto grid max-w-6xl gap-12 px-6 pt-28 pb-14 md:pt-36 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-7">
+          <div className="min-w-0 lg:col-span-7">
             <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
               For IT directors, platform owners and finance leads
             </p>
@@ -197,7 +191,7 @@ export default function HomePage() {
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
               <Link href="/#contact" className={primaryButton}>
-                Book a free 30-minute call
+                Request a free 30-minute call
                 {arrow}
               </Link>
               <Link href="/#offer" className={textLink}>
@@ -205,7 +199,14 @@ export default function HomePage() {
                 {arrow}
               </Link>
             </div>
-            <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 font-body text-sm font-semibold text-foreground">
+            <p className="mt-3 font-body text-sm text-muted-foreground">
+              We reply within one business day. Run by{" "}
+              <Link href="/#team" className="text-primary underline underline-offset-4">
+                an ex-ServiceNow Certified Master Architect and an ex-Deloitte partner
+              </Link>
+              .
+            </p>
+            <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 font-body text-sm font-semibold text-foreground">
               {heroFacts.map((fact) => (
                 <li key={fact} className="flex items-center gap-2">
                   <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent" />
@@ -222,7 +223,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="lg:col-span-5">
+          <div className="min-w-0 lg:col-span-5">
             <Link
               href="/sample-review"
               className="group block rounded-lg px-6 py-7 shadow-lg transition-shadow hover:shadow-xl"
@@ -236,16 +237,17 @@ export default function HomePage() {
                   Fix
                 </span>
               </div>
-              <p className="mt-3 font-display text-2xl font-bold leading-snug">
-                Ticket Sorter, day 90: fix one gap, keep it running.
+              <p className="mt-3 font-display text-3xl font-bold leading-tight">Verdict: Fix.</p>
+              <p className="mt-1 font-body text-base" style={{ color: "var(--hero-fg)" }}>
+                Ticket Sorter at day 90: one target missed, one beaten. Close one gap, keep it running.
               </p>
               <dl className="mt-5 space-y-3 font-body text-sm">
                 {heroCard.map((row) => (
                   <div key={row.label} className="flex items-baseline justify-between gap-4 border-b border-white/10 pb-3">
-                    <dt style={{ color: "var(--hero-muted)" }}>{row.label}</dt>
+                    <dt className="text-sm" style={{ color: "var(--hero-fg)", opacity: 0.85 }}>{row.label}</dt>
                     <dd className="text-right">
                       <span className="text-base font-semibold">{row.value}</span>
-                      <span className={`block text-xs ${row.met ? "text-emerald-300" : "text-amber-300"}`}>
+                      <span className={`block text-sm ${row.met ? "text-emerald-300" : "text-amber-300"}`}>
                         {" "}
                         ({row.target}, {row.met ? "met" : "missed"})
                       </span>
@@ -285,10 +287,6 @@ export default function HomePage() {
                   </li>
                 ))}
               </ol>
-              <Link href="/#offer" className={`${textLink} mt-6 text-sm`}>
-                See the price and terms
-                {arrow}
-              </Link>
             </section>
           ))}
         </div>
@@ -302,41 +300,50 @@ export default function HomePage() {
         </h2>
 
         <div className="mt-8 overflow-hidden rounded-xl border border-border bg-card shadow-sm">
-          <div className="border-b border-border px-6 py-6 md:px-8">
-            <p className="font-display text-5xl font-bold text-foreground">{offer.price}</p>
-            <p className="mt-1 font-body text-foreground">
-              Fixed, per agent, planned or already running. No hourly billing, no software to buy.
-            </p>
-            <p className="mt-3 font-body text-sm text-muted-foreground">
-              <span className="font-semibold text-accent">First {offer.designPartnerSeats} companies: {offer.designPartnerPrice}.</span>{" "}
-              Half price for design partners who let us use their numbers, names removed, and do a short case study.
-            </p>
+          <div className="grid gap-6 border-b border-border px-6 py-6 md:grid-cols-2 md:px-8">
+            <div className="min-w-0">
+              <p className="font-display text-5xl font-bold text-foreground">{offer.price}</p>
+              <p className="mt-1 font-body text-foreground">
+                Fixed, per agent, planned or already running. No hourly billing, no software to buy.
+              </p>
+              <p className="mt-3 font-body text-sm text-muted-foreground">
+                <span className="font-semibold text-foreground">We&apos;re new, so the first {offer.designPartnerSeats} companies pay {offer.designPartnerPrice}</span>{" "}
+                in return for letting us use their numbers, names removed, and a short case study.
+              </p>
+            </div>
+            <div className="min-w-0 rounded-lg border border-emerald-700/30 bg-emerald-50 px-5 py-4">
+              <p className="font-display text-xl font-bold text-foreground">Refund guarantee</p>
+              <p className="mt-1 font-body text-sm leading-relaxed text-foreground">
+                Half at kickoff, half with the decision. If your finance lead won&apos;t
+                sign off that the numbers were measured the way we agreed, we refund
+                all of it.
+              </p>
+            </div>
           </div>
 
           <div className="grid gap-8 px-6 py-8 md:grid-cols-2 md:px-8">
-            <div>
+            <div className="min-w-0">
               <h3 className="font-display text-xl font-bold text-foreground">What you get</h3>
               <Bullets items={offerIncludes} />
+              <p className="mt-4 font-body text-sm leading-relaxed text-foreground">
+                <span className="font-semibold">Timeline: </span>
+                {offerIncludesTimeline}
+              </p>
             </div>
-            <div>
+            <div className="min-w-0">
               <h3 className="font-display text-xl font-bold text-foreground">What we need from you</h3>
               <Bullets items={offerNeeds} />
+              <p className="mt-4 font-body text-sm leading-relaxed text-muted-foreground">
+                Independence, data handling and what finance signs off are answered in the{" "}
+                <Link href="/#questions" className="text-primary underline underline-offset-4">questions below</Link>.
+              </p>
             </div>
           </div>
-
-          <dl className="grid gap-6 border-t border-border bg-secondary/40 px-6 py-6 md:grid-cols-2 md:px-8">
-            {offerTerms.map(([label, text]) => (
-              <div key={label}>
-                <dt className="font-body text-sm font-semibold text-foreground">{label}</dt>
-                <dd className="mt-1 font-body text-sm leading-relaxed text-muted-foreground">{text}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
 
         <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
           <Link href="/#contact" className={primaryButton}>
-            Book a free 30-minute call
+            Request a free 30-minute call
             {arrow}
           </Link>
           <Link href="/sample-review" className={textLink}>
@@ -391,7 +398,7 @@ export default function HomePage() {
         </h2>
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {freeResources.map((r) => (
-            <Link key={r.href} href={r.href} className="group flex flex-col rounded-lg border border-border bg-card p-6 transition-colors hover:border-primary">
+            <Link key={r.href} href={r.href} className="group flex min-w-0 flex-col rounded-lg border border-border bg-card p-6 transition-colors hover:border-primary">
               <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">{r.eyebrow}</p>
               <h3 className="mt-2 font-display text-xl font-bold text-foreground">{r.title}</h3>
               <p className="mt-2 flex-1 font-body leading-relaxed text-muted-foreground">{r.text}</p>

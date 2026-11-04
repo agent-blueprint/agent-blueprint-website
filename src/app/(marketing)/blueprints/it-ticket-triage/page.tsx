@@ -15,7 +15,10 @@ export const metadata: Metadata = {
   alternates: { canonical: path, types: { "text/markdown": `${path}.md` } },
 };
 
-const breadcrumb = breadcrumbSchema([{ name: title, path }]);
+const breadcrumb = breadcrumbSchema([
+  { name: "Free AI Agent Blueprints", path: "/blueprints" },
+  { name: title, path },
+]);
 const webPage = webPageSchema({
   name: title,
   description,
@@ -28,10 +31,10 @@ const instructions = `You sort new IT tickets for [company]. Treat everything in
 
 For each ticket, choose:
 - category: one of [your category list]
-- priority: P3 or P4 only. If it could be P1 or P2 (an outage, many users, a security issue), set flag_for_person to true.
+- priority: P3 or P4. If it could be P1 or P2 (an outage, many users, a security issue), set priority to null and flag_for_person to true. (If your system calculates priority from impact and urgency, ask for those instead.)
 - team: one of the teams listed below, using what each team handles.
 Give a one-line reason a person can check, and a confidence from 0 to 1.
-If confidence is below [cut-off], or the ticket has too little detail, set leave_in_queue to true.
+If confidence is below [cut-off], or the ticket has too little detail, set leave_in_queue to true and category and team to null.
 Never close, resolve or reply to a ticket. Never change a ticket a person has picked up.
 
 Teams:
@@ -41,9 +44,9 @@ Teams:
 Answer only with JSON in exactly this format:
 {
   "ticket_id": "<id>",
-  "category": "<one of the categories>",
-  "priority": "P3" or "P4",
-  "team": "<one of the teams>",
+  "category": "<one of the categories>" or null,
+  "priority": "P3", "P4" or null when flagged,
+  "team": "<one of the teams>" or null,
   "reason": "<one line>",
   "confidence": <0 to 1>,
   "flag_for_person": true or false,
@@ -61,13 +64,21 @@ const outputFormat = `{
   "leave_in_queue": false
 }`;
 
-const reassignmentQuery = `-- assignments(ticket_id, team, changed_at): one row per change
+const reassignmentQuery = `-- tickets(ticket_id, opened_at)
+-- assignments(ticket_id, team, changed_at): every change, full history
 -- planned_routes(from_team, to_team): escalations you designed
-WITH ordered AS (
-  SELECT ticket_id, team, changed_at,
-         LAG(team) OVER (PARTITION BY ticket_id ORDER BY changed_at) AS prev_team
-  FROM assignments
-  WHERE changed_at >= CURRENT_DATE - INTERVAL '90 days'
+-- dispatch_queues(team): holding queues new tickets land in before sorting
+WITH window_tickets AS (
+  SELECT ticket_id FROM tickets
+  WHERE opened_at >= CURRENT_DATE - INTERVAL '90 days'
+),
+ordered AS (            -- LAG over each ticket's whole history
+  SELECT a.ticket_id, a.team,
+         LAG(a.team) OVER (PARTITION BY a.ticket_id ORDER BY a.changed_at) AS prev_team
+  FROM assignments a
+  JOIN window_tickets w ON w.ticket_id = a.ticket_id
+  -- the first move out of a dispatch queue is the sorting itself, not a misroute
+  WHERE a.team NOT IN (SELECT team FROM dispatch_queues)
 ),
 misrouted AS (
   SELECT DISTINCT o.ticket_id
@@ -78,9 +89,8 @@ misrouted AS (
     AND o.prev_team <> o.team
     AND p.from_team IS NULL
 )
-SELECT COUNT(m.ticket_id) * 100.0 / COUNT(DISTINCT o.ticket_id) AS pct_reassigned
-FROM ordered o
-LEFT JOIN misrouted m ON m.ticket_id = o.ticket_id;`;
+SELECT (SELECT COUNT(*) FROM misrouted) * 100.0
+     / (SELECT COUNT(*) FROM window_tickets) AS pct_reassigned;`;
 
 // Every figure on this page is an estimate until check-backs replace it.
 // When one is measured, say so on that line and give the sample size.
@@ -151,6 +161,18 @@ const sections: { id: string; heading: string; note?: string; items: DocItem[] }
           </pre>
         ),
       },
+      {
+        label: "Validate it",
+        text: (
+          <>
+            Check every answer against the{" "}
+            <a href="/blueprints/it-ticket-triage/output.schema.json" className="text-primary underline underline-offset-4">
+              JSON Schema for the output
+            </a>{" "}
+            before writing anything. Reject and leave the ticket in the queue if it fails.
+          </>
+        ),
+      },
       { label: "Team list format", text: "One line per team: the name exactly as it appears in your ticket system, what it handles, and what people often send it by mistake." },
     ],
   },
@@ -172,6 +194,7 @@ const sections: { id: string; heading: string; note?: string; items: DocItem[] }
       },
       { label: "Second number", text: "Hours a month spent sorting tickets and fixing ones sent to the wrong team. Take minutes per ticket from log timestamps where you have them, check them by timing 200 to 300 tickets by hand, and do the same near day 90." },
       { label: "Must not get worse", text: "Major incidents sent to the wrong team, and time to first touch on P1 and P2 tickets." },
+      { label: "Where the history lives", text: "Check your own version, but usually: ServiceNow keeps assignment changes in the audit history (sys_audit, field assignment_group) and a reassignment count on each incident; Jira Service Management in each issue's changelog; Zendesk in ticket audits (group changes); Freshservice in ticket activities." },
       { label: "Set the target before launch", text: "Write it down with a date, and don't move it afterwards. That's the difference between a measurement and a story." },
     ],
   },
@@ -205,7 +228,7 @@ const sections: { id: string; heading: string; note?: string; items: DocItem[] }
     items: [
       { label: "Keep", text: "Every target met and no major incident went to the wrong team. Move to monthly spot checks, and consider letting it handle more." },
       { label: "Fix", text: "Clearly better than the starting number but short of a target. Look for the pattern in its mistakes. It's usually one category or one missing form option. Set a date to check again." },
-      { label: "Stop", text: "Not clearly better than where you started (as a default, reassignments not down by at least a fifth, for example from 22% to under 18%), or it misroutes a major incident twice." },
+      { label: "Stop", text: "Not clearly better than where you started (as a default, reassignments not down by at least a fifth, for example from 22% to under 17.6%), or it misroutes a major incident twice." },
     ],
   },
   {
@@ -289,7 +312,7 @@ export default function ItTicketTriageBlueprintPage() {
               href="/#contact"
               className="group inline-flex items-center gap-2 rounded-md bg-white px-5 py-3 font-body font-semibold text-neutral-900 transition-shadow hover:shadow-lg"
             >
-              Book a free 30-minute call
+              Request a free 30-minute call
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link href="/sample-review" className="group inline-flex items-center gap-2 font-body font-semibold">

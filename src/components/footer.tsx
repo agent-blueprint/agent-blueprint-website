@@ -6,7 +6,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
           <p className="font-body text-sm text-muted-foreground">
-            &copy; 2026 Agent Blueprint. All rights reserved.
+            &copy; 2026 Agent Blueprint, Inc. All rights reserved.
             <span className="mt-1 block text-xs">
               ServiceNow is a trademark of ServiceNow, Inc. We aren&apos;t affiliated with or endorsed by ServiceNow.
             </span>
