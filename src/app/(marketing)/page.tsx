@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   title: { absolute: pageTitle },
   description: siteConfig.description,
   alternates: { canonical: "/", types: { "text/markdown": "/index.md" } },
-  openGraph: { title: pageTitle, description: siteConfig.description },
-  twitter: { title: pageTitle, description: siteConfig.description },
+  // Share title, description and image come from the site defaults in
+  // src/lib/metadata.ts and src/app/opengraph-image.tsx.
 };
 
 const homeBreadcrumb = breadcrumbSchema([]);

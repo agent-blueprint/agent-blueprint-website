@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   title: "Draw My Agent",
   description,
   alternates: { canonical: "/personal", types: { "text/markdown": "/personal.md" } },
+  // Frozen: online for the plugin listings, kept out of search results.
+  robots: { index: false, follow: true },
 };
 
 const breadcrumb = breadcrumbSchema([{ name: "Draw My Agent", path: "/personal" }]);

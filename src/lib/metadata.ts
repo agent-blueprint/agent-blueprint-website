@@ -28,20 +28,13 @@ export const siteMetadata: Metadata = {
     title: defaultTitle,
     description: siteConfig.description,
     siteName: siteConfig.name,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1024,
-        height: 1024,
-        alt: "Agent Blueprint",
-      },
-    ],
+    // The share image comes from src/app/opengraph-image.tsx.
   },
   twitter: {
     card: "summary_large_image",
     title: defaultTitle,
     description: siteConfig.description,
-    images: [siteConfig.ogImage],
+    // The card image comes from src/app/twitter-image.tsx.
   },
   robots: {
     index: true,
@@ -80,7 +73,9 @@ export const softwareApplicationSchema = {
   "@id": "https://agentblueprint.ai/#review",
   name: "AI agent review",
   serviceType: "AI agent cost and results review",
-  provider: { "@id": "https://agentblueprint.ai/#org" },
+  // Agent Blueprint licenses the method; NowGentic sells and delivers reviews.
+  provider: { "@type": "Organization", name: "NowGentic", url: "https://nowgentic.com" },
+  brand: { "@id": "https://agentblueprint.ai/#org" },
   areaServed: "Worldwide",
   description:
     "For one AI agent, planned or already running: measure the baseline, write the agent's one page, set a target and date, and give a keep, fix or stop decision with a summary for finance (three weeks for an agent already running, day 90 for a new one). Works on any platform, including AI billed as a license or a pool of credits.",
