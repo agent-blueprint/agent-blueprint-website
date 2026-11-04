@@ -53,6 +53,7 @@ export function ContactSection({
       email: "",
       company: "",
       message: "",
+      website: "",
     },
   });
 
@@ -177,6 +178,17 @@ export function ContactSection({
                     </FormItem>
                   )}
                 />
+                {/* Spam trap: hidden from people and screen readers, left empty by them. */}
+                <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+                  <label htmlFor="contact-website">Website</label>
+                  <input
+                    id="contact-website"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    {...form.register("website")}
+                  />
+                </div>
                 <Button
                   type="submit"
                   disabled={form.formState.isSubmitting}

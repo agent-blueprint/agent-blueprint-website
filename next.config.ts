@@ -9,7 +9,16 @@ const nextConfig: NextConfig = {
     // Instruction and data files that people paste into chat apps go out as plain
     // text: ChatGPT's web reader refuses text/markdown (tested 2026-11-03).
     const plainText = [{ key: "Content-Type", value: "text/plain; charset=utf-8" }];
+    // Baseline protection on every response. Pages may be framed only by this
+    // site itself (the sample frames); nothing here needs camera, mic or location.
+    const security = [
+      { key: "X-Content-Type-Options", value: "nosniff" },
+      { key: "X-Frame-Options", value: "SAMEORIGIN" },
+      { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+      { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=(), usb=()" },
+    ];
     return [
+      { source: "/:path*", headers: security },
       // Unlisted review material (such as directory-review videos) stays out of search.
       {
         source: "/review/:path*",
