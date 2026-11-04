@@ -1,13 +1,6 @@
 import type { Metadata } from "next";
 import { cormorantGaramond, outfit, jetbrainsMono, spaceGrotesk } from "@/lib/fonts";
-import {
-  siteMetadata,
-  organizationSchema,
-  softwareApplicationSchema,
-  mcpServerSchema,
-  faqPageSchema,
-  howToSchema,
-} from "@/lib/metadata";
+import { siteMetadata, organizationSchema } from "@/lib/metadata";
 import { Toaster } from "@/components/ui/sonner";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -28,30 +21,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(softwareApplicationSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(mcpServerSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(faqPageSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(howToSchema),
           }}
         />
       </head>

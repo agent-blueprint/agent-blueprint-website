@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { offer } from "@/lib/offer";
+import { offer, homeFaqs } from "@/lib/offer";
 
 export const siteConfig = {
   name: "Agent Blueprint",
@@ -84,12 +84,22 @@ export const softwareApplicationSchema = {
   areaServed: "Worldwide",
   description:
     "For one AI agent, planned or already running: measure today's number, write the agent's one page, set a target and date before launch, and come back at 90 days with a keep, fix or stop decision and a summary for finance. Works on any platform.",
-  offers: {
-    "@type": "Offer",
-    price: offer.price.replace(/[$,]/g, ""),
-    priceCurrency: "USD",
-    url: `${siteConfig.url}/#offer`,
-  },
+  offers: [
+    {
+      "@type": "Offer",
+      name: "Per agent",
+      price: offer.price.replace(/[$,]/g, ""),
+      priceCurrency: "USD",
+      url: `${siteConfig.url}/#offer`,
+    },
+    {
+      "@type": "Offer",
+      name: `Design partner (first ${offer.designPartnerSeats} companies)`,
+      price: offer.designPartnerPrice.replace(/[$,]/g, ""),
+      priceCurrency: "USD",
+      url: `${siteConfig.url}/#offer`,
+    },
+  ],
 };
 
 export const mcpServerSchema = {
@@ -145,40 +155,11 @@ export const faqPageSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "@id": "https://agentblueprint.ai/#faq",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "What is Agent Blueprint?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Agent Blueprint helps companies decide whether each AI agent is worth it. Before an agent launches we measure where things stand and set the number it has to hit. At 90 days we measure its real cost and results and give one of three decisions: keep, fix or stop.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What does it cost?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: `${offer.price} fixed per agent, covering everything through the 90-day check-back. The first ${offer.designPartnerSeats} companies pay ${offer.designPartnerPrice} as design partners. The first call is free.`,
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Does it work on my platform?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. The review reads usage and results from your own systems, whatever the agent runs on. An app that keeps the answer current is being built for ServiceNow first.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Is there a free version?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes: a one-page agent template, a free IT ticket triage agent blueprint and a sample finished review, all without sign-up.",
-      },
-    },
-  ],
+  mainEntity: homeFaqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
 };
 
 export function breadcrumbSchema(

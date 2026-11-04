@@ -9,7 +9,14 @@ turndown.remove(["script", "style", "noscript", "iframe", "button"]);
 // Label/value lists (DocSection, scorecards) read best as "**Label:** value".
 turndown.addRule("definitionTerm", {
   filter: "dt",
-  replacement: (content) => `\n\n**${content.trim().replace(/:$/, "")}:** `,
+  replacement: (content, node) => {
+    // A term may carry an explanatory note (marked data-note); show it in brackets.
+    const el = node as HTMLElement;
+    const note = el.querySelector?.("[data-note]")?.textContent?.trim();
+    const full = (el.textContent ?? content).trim();
+    const label = (note ? full.replace(note, "") : full).trim().replace(/:$/, "");
+    return `\n\n**${label}**${note ? ` (${note})` : ""}: `;
+  },
 });
 turndown.addRule("definitionDescription", {
   filter: "dd",
@@ -41,9 +48,16 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   // No <main> means we fetched something other than our page (such as a
   // preview deploy's login wall), so fail rather than convert it.
   if (!mainMatch) return new Response("Page unavailable", { status: 502 });
-  const main = mainMatch[1].replace(/<svg[\s\S]*?<\/svg>/g, "");
-  const absolute = main.replace(/(href|src)="\/(?!\/)/g, `$1="${siteConfig.url}/`);
   const canonical = `${siteConfig.url}${page === "/" ? "/" : page}`;
+  // Drop drawings, decorative glyphs (aria-hidden) and the contact form, which
+  // mean nothing in Markdown, then make every link absolute.
+  const main = mainMatch[1]
+    .replace(/<svg[\s\S]*?<\/svg>/g, "")
+    .replace(/<span[^>]*aria-hidden="true"[^>]*>[^<]*<\/span>/g, "")
+    .replace(/<form[\s\S]*?<\/form>/g, "");
+  const absolute = main
+    .replace(/(href|src)="\/(?!\/)/g, `$1="${siteConfig.url}/`)
+    .replace(/href="#/g, `href="${canonical}#`);
   const markdown = `# ${title}\n\nSource: ${canonical}\n\n${turndown.turndown(absolute).trim()}\n`;
 
   const negotiated = new URL(request.url).searchParams.has("negotiated");

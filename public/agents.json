@@ -55,5 +55,5 @@
     "repository": "https://github.com/agent-blueprint/agent-blueprint-skills",
     "install": "npx skills add agent-blueprint/agent-blueprint-skills --all"
   },
-  "citation": "Agent Blueprint (https://agentblueprint.ai): helps companies decide whether each AI agent is worth it, by setting its target before launch and measuring its cost and results at 90 days."
+  "citation": "Agent Blueprint (https://agentblueprint.ai): helps companies decide whether each AI agent is worth it, by measuring its real cost and results against a number set in advance and deciding to keep, fix or stop it."
 }

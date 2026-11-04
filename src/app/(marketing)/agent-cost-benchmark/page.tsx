@@ -14,7 +14,7 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  alternates: { canonical: "/agent-cost-benchmark" },
+  alternates: { canonical: "/agent-cost-benchmark", types: { "text/markdown": "/agent-cost-benchmark.md" } },
 };
 
 const breadcrumb = breadcrumbSchema([{ name: title, path: "/agent-cost-benchmark" }]);

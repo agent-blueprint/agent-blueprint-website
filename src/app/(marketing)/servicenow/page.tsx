@@ -12,8 +12,15 @@ const description =
 export const metadata: Metadata = {
   title: "Agent Blueprint for ServiceNow",
   description,
-  alternates: { canonical: "/servicenow" },
+  alternates: { canonical: "/servicenow", types: { "text/markdown": "/servicenow.md" } },
 };
+
+// Live today, in development, planned. Keep this honest: change a status only when it's true.
+const roadmap = [
+  { status: "Live", title: "The review", text: "One agent at a time, on any platform: cost and results measured against a number set in advance, then keep, fix or stop." },
+  { status: "In development", title: "The app, ServiceNow first", text: "Keeps each agent's cost, results and decision current from the platform's own records. Not certified or in the Store yet." },
+  { status: "Planned", title: "Partners and benchmarks", text: "Other firms running the method under license, and benchmarks built from anonymized review results." },
+];
 
 const breadcrumb = breadcrumbSchema([{ name: "ServiceNow", path: "/servicenow" }]);
 const webPage = webPageSchema({
@@ -21,7 +28,7 @@ const webPage = webPageSchema({
   description,
   path: "/servicenow",
   datePublished: "2026-10-31",
-  dateModified: "2026-11-01",
+  dateModified: "2026-11-03",
 });
 
 const parts = [
@@ -111,6 +118,31 @@ export default function ServiceNowPage() {
             <p className="mt-2 font-body text-sm leading-relaxed text-muted-foreground">{text}</p>
           </div>
         ))}
+      </section>
+
+      <section className="border-y border-border bg-secondary/40" aria-labelledby="path-heading">
+        <div className="mx-auto max-w-6xl px-6 py-14">
+          <h2 id="path-heading" className="font-display text-3xl font-bold text-foreground">How the review and the app fit</h2>
+          <p className="mt-3 max-w-3xl font-body leading-relaxed text-muted-foreground">
+            The review works on any platform, today. The app starts on ServiceNow
+            because ServiceNow already records usage for each agent, so the app
+            can keep the review&apos;s numbers current without anyone re-measuring.
+            Each review&apos;s one-page record has the same structure the app keeps.
+          </p>
+          <ol className="mt-8 grid gap-6 md:grid-cols-3">
+            {roadmap.map((step) => (
+              <li key={step.title} className="rounded-lg border border-border bg-card p-5">
+                <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent">{step.status}</p>
+                <h3 className="mt-2 font-display text-xl font-bold text-foreground">{step.title}</h3>
+                <p className="mt-2 font-body text-sm leading-relaxed text-muted-foreground">{step.text}</p>
+              </li>
+            ))}
+          </ol>
+          <Link href="/#offer" className="group mt-8 inline-flex items-center gap-2 font-body font-semibold text-primary">
+            See the review: price and terms
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </div>
       </section>
 
       <ContactSection />

@@ -11,7 +11,7 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  alternates: { canonical: "/agent-one-page-template" },
+  alternates: { canonical: "/agent-one-page-template", types: { "text/markdown": "/templates/agent-one-page/v1/template.md" } },
 };
 
 const breadcrumb = breadcrumbSchema([{ name: title, path: "/agent-one-page-template" }]);
@@ -20,7 +20,7 @@ const webPage = webPageSchema({
   description,
   path: "/agent-one-page-template",
   datePublished: "2026-11-01",
-  dateModified: "2026-11-01",
+  dateModified: "2026-11-03",
 });
 
 const sections = [

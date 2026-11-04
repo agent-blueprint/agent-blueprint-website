@@ -4,7 +4,7 @@ Agent-facing index for Agent Blueprint (https://agentblueprint.ai). The full sum
 
 ## What this is
 
-Agent Blueprint helps companies decide, one agent at a time, whether an AI agent is worth it. Before launch it measures today's number and sets the target and date. At 90 days it measures real cost and results from the company's own systems and gives one of three decisions: keep, fix or stop. Paid reviews are $7,500 fixed per agent (first five design partners $3,750) and are delivered by NowGentic. Works on any platform.
+Agent Blueprint helps companies decide, one agent at a time, whether an AI agent is worth it. Before launch it measures today's number and sets the target and date. At 90 days it measures real cost and results from the company's own systems and gives one of three decisions: keep, fix or stop. Paid reviews are $7,500 fixed per agent (first five design partners $3,750), half at kickoff and half with the decision, refunded if finance won't sign off that the numbers were measured as agreed. Delivered by NowGentic, which never reviews an agent it built. Works on any platform, including AI billed as a license or a pool of credits.
 
 ## Best next actions
 
@@ -25,4 +25,4 @@ Agent Blueprint helps companies decide, one agent at a time, whether an AI agent
 
 ## Citation
 
-Agent Blueprint (https://agentblueprint.ai): helps companies decide whether each AI agent is worth it, by setting its target before launch and measuring its cost and results at 90 days.
+Agent Blueprint (https://agentblueprint.ai): helps companies decide whether each AI agent is worth it, by measuring its real cost and results against a number set in advance and deciding to keep, fix or stop it.

@@ -173,12 +173,15 @@ export function ContactSection() {
                 >
                   {form.formState.isSubmitting ? "Sending..." : "Request a call →"}
                 </Button>
+                <p className="text-center font-body text-sm text-muted-foreground">
+                  We reply within one business day with times for the call.
+                </p>
               </form>
             </Form>
           </div>
 
           {/* LinkedIn links */}
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-start md:pt-1">
             <h3 className="font-display text-2xl font-bold text-foreground">
               Prefer LinkedIn?
             </h3>

@@ -2,8 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ContactSection } from "@/components/contact-section";
-import { breadcrumbSchema, webPageSchema, siteConfig } from "@/lib/metadata";
-import { offer } from "@/lib/offer";
+import {
+  breadcrumbSchema,
+  webPageSchema,
+  siteConfig,
+  faqPageSchema,
+  howToSchema,
+  mcpServerSchema,
+  softwareApplicationSchema,
+} from "@/lib/metadata";
+import { offer, homeFaqs } from "@/lib/offer";
 
 const pageTitle = "Agent Blueprint | Know Whether Each AI Agent Is Worth It";
 
@@ -31,10 +39,15 @@ const arrow = <ArrowRight className="h-4 w-4 transition-transform group-hover:tr
 
 // Numbers here must match /sample-review exactly.
 const heroCard = [
-  ["Tickets sent to the wrong team", "22% → 14%", "target 12%"],
-  ["Staff hours sorting and fixing", "206 → 67 a month", "target 90"],
-  ["New cash cost", "$200 a month", "plus $820 of staff time"],
-  ["Payback, including our fee", "about 4.3 months", "in staff time; cash only if hours replace spend"],
+  { label: "Tickets sent to the wrong team", value: "22% → 14%", target: "Target 12%", met: false },
+  { label: "Staff hours a month on tickets", value: "206 → 67", target: "Target 90", met: true },
+];
+
+const heroFacts = [
+  `${offer.price} fixed per agent`,
+  "Running agent: decision in 3 weeks",
+  "New agent: decision at day 90",
+  "Any platform",
 ];
 
 // Two ways in, one offer. Keep these to things we can actually deliver today.
@@ -48,7 +61,7 @@ const paths = [
     steps: [
       "Pick the agent worth trying first, on cost, risk and how easy the result is to measure.",
       "Measure the metric it's meant to move, and write down who owns it, what it may do and what it will cost.",
-      "Measure again at 90 days and decide: keep, fix or stop.",
+      "Measure again at day 90 and decide: keep, fix or stop.",
     ],
   },
   {
@@ -56,11 +69,11 @@ const paths = [
     eyebrow: "Already running agents",
     title: "Know what it's worth before you renew.",
     intro:
-      "AI is being folded into renewals and billed by use. Start with the agent that costs you most. You get an answer from your existing records in three weeks.",
+      "AI is being folded into renewals and billed by use. Start with the agent that costs you most, even if its cost is buried in a bundle. Decision in three weeks, from your own records.",
     steps: [
-      "Put a monthly number on it: usage, hosting, and the staff time spent checking its work.",
+      "Put a monthly number on it: its share of the AI bill, hosting, and the staff time spent checking its work.",
       "Measure what it did from your own systems, not from the agent's account of itself.",
-      "Get a keep, fix or stop decision and a page finance can sign off, before you sign again.",
+      "Get a keep, fix or stop decision and a page finance can sign off, in three weeks.",
     ],
   },
 ];
@@ -69,30 +82,32 @@ const offerIncludes = [
   "A measured baseline of the metric the agent is meant to move",
   "A one-page record of the agent: what it may do, who owns it, what it costs",
   "A target and a date, written down before launch and not moved afterwards",
-  "A keep, fix or stop decision at day 90, with the reasons",
+  "A keep, fix or stop decision with the reasons: in three weeks for a running agent, at day 90 for a new one",
   "A one-page summary for finance, with cash and staff time kept apart",
 ];
 
 const offerNeeds = [
   "One owner on your side",
-  `${offer.teamHours} of your team's time, including two 1-hour timing sessions we run with you`,
-  "Read access to the agent's usage bill and the system it works in, such as ticket history",
+  `${offer.teamHours} of your team's time: a kickoff, short check-ins, and two 1-hour sessions to confirm the timings we take from your logs`,
+  "Read access to the agent's usage records and the system it works in, such as ticket history",
 ];
 
 const offerTerms = [
-  ["Timeline", `Baseline and target agreed in ${offer.firstAnswer}. For an agent already running, cost and results from your records in three weeks. Decision at day 90.`],
-  ["Scope", "We measure and decide. Building or fixing the agent isn't part of the fee. If it's a Fix, one recheck within the next 90 days is included."],
-  ["Independence", "We take no commissions from software vendors. If our services company built the agent, we tell you before you sign."],
-  ["Guarantee", "If your finance lead won't sign off on the day-90 summary, you don't pay."],
+  ["Timeline", `Agent already running: decision in three weeks. New or changed agent: baseline and target in ${offer.firstAnswer}, decision at day 90.`],
+  ["Scope", "We measure and decide. Fixing the agent isn't part of the fee: if you want help, it's quoted separately and you're free to use anyone. After a Fix, one recheck within 90 days is included."],
+  ["Who does the work", "You contract with NowGentic, the founders' services company, which delivers every review. NowGentic also builds agents, so it never reviews one it built. No commissions from software vendors."],
+  ["Payment and guarantee", "Half at kickoff, half with the decision. If your finance lead won't sign off that the numbers were measured the way we agreed, we refund all of it."],
+  ["Your data", "Read-only access. We sign your NDA, keep only the numbers on the summary, and delete working data 30 days after the decision."],
 ];
+
 
 const founders = [
   {
     initials: "CF",
     name: "Chris Faulkner",
     role: "Co-founder, San Diego",
-    creds: ["Ex-ServiceNow, 10 years", "Certified Master Architect", "AI integrations at Stripe"],
-    bio: "Twenty years in enterprise technology, including ten at ServiceNow through its growth years.",
+    creds: ["Ex-ServiceNow, 10 years", "Certified Master Architect", "Published agent cost benchmark"],
+    bio: "Twenty years in enterprise technology, including ten at ServiceNow through its growth years. Measured the cost of 100 agent runs for our public benchmark.",
     url: "https://www.linkedin.com/in/cifaulkner",
   },
   {
@@ -147,6 +162,9 @@ export default function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeBreadcrumb) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeWebPage) }} />
+      {[softwareApplicationSchema, faqPageSchema, howToSchema, mcpServerSchema].map((schema) => (
+        <script key={schema["@id"]} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      ))}
 
       {/* Hero: the promise, one button, and the deliverable itself */}
       <section className="relative overflow-hidden">
@@ -173,10 +191,9 @@ export default function HomePage() {
               Know whether each AI agent is worth it.
             </h1>
             <p className="mt-6 max-w-xl font-body text-lg leading-relaxed text-muted-foreground">
-              We set the number an agent has to hit before it launches, then
-              measure its real cost and results at 90 days. You get a straight
-              answer for that agent: keep it, fix it or stop it. {offer.price}{" "}
-              fixed, whatever platform it runs on.
+              We measure what an agent really costs and what it really does,
+              against a number set in advance. You get a straight answer: keep
+              it, fix it or stop it.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
               <Link href="/#contact" className={primaryButton}>
@@ -188,6 +205,14 @@ export default function HomePage() {
                 {arrow}
               </Link>
             </div>
+            <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 font-body text-sm font-semibold text-foreground">
+              {heroFacts.map((fact) => (
+                <li key={fact} className="flex items-center gap-2">
+                  <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent" />
+                  {fact}
+                </li>
+              ))}
+            </ul>
             <p className="mt-10 max-w-xl font-body text-sm leading-relaxed text-muted-foreground">
               Only 26% of leaders at billion-dollar companies say they can see
               what their AI costs to run, fully and in real time.{" "}
@@ -211,24 +236,23 @@ export default function HomePage() {
                   Fix
                 </span>
               </div>
-              <p className="mt-3 font-display text-2xl font-bold">Ticket Sorter, day 90</p>
+              <p className="mt-3 font-display text-2xl font-bold leading-snug">
+                Ticket Sorter, day 90: fix one gap, keep it running.
+              </p>
               <dl className="mt-5 space-y-3 font-body text-sm">
-                {heroCard.map(([label, value, note]) => (
-                  <div key={label} className="flex items-baseline justify-between gap-4 border-b border-white/10 pb-2">
-                    <dt style={{ color: "var(--hero-muted)" }}>{label}</dt>
+                {heroCard.map((row) => (
+                  <div key={row.label} className="flex items-baseline justify-between gap-4 border-b border-white/10 pb-3">
+                    <dt style={{ color: "var(--hero-muted)" }}>{row.label}</dt>
                     <dd className="text-right">
-                      <span className="font-semibold">{value}</span>
-                      <span className="block text-xs" style={{ color: "var(--hero-muted)" }}>
+                      <span className="text-base font-semibold">{row.value}</span>
+                      <span className={`block text-xs ${row.met ? "text-emerald-300" : "text-amber-300"}`}>
                         {" "}
-                        ({note})
+                        ({row.target}, {row.met ? "met" : "missed"})
                       </span>
                     </dd>
                   </div>
                 ))}
               </dl>
-              <p className="mt-4 font-body text-sm" style={{ color: "var(--hero-muted)" }}>
-                Decision: fix the access-request gap, check again in 60 days.
-              </p>
               <span className="mt-4 inline-flex items-center gap-2 font-body text-sm font-semibold">
                 See the full sample
                 {arrow}
@@ -256,11 +280,15 @@ export default function HomePage() {
               <ol className="mt-6 space-y-3">
                 {path.steps.map((step, i) => (
                   <li key={step} className="flex gap-4 font-body leading-relaxed text-muted-foreground">
-                    <span className="pt-1 font-mono text-xs text-accent">0{i + 1}</span>
-                    {step}
+                    <span className="pt-1 font-mono text-xs text-accent">0{i + 1}</span>{" "}
+                    <span>{step}</span>
                   </li>
                 ))}
               </ol>
+              <Link href="/#offer" className={`${textLink} mt-6 text-sm`}>
+                See the price and terms
+                {arrow}
+              </Link>
             </section>
           ))}
         </div>
@@ -270,26 +298,19 @@ export default function HomePage() {
       <section id="offer" className="scroll-mt-20 mx-auto max-w-6xl px-6 py-16" aria-labelledby="offer-heading">
         <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">The offer</p>
         <h2 id="offer-heading" className="mt-3 font-display text-4xl font-bold leading-tight text-foreground md:text-5xl">
-          One agent, done properly.
+          A keep, fix or stop decision on one agent, for a fixed fee.
         </h2>
 
         <div className="mt-8 overflow-hidden rounded-xl border border-border bg-card shadow-sm">
-          <div className="flex flex-wrap items-center justify-between gap-6 border-b border-border px-6 py-6 md:px-8">
-            <div>
-              <p className="font-display text-5xl font-bold text-foreground">{offer.price}</p>
-              <p className="mt-1 font-body text-muted-foreground">
-                Fixed, per agent, planned or already running. No hourly billing, no software to buy.
-              </p>
-            </div>
-            <div className="rounded-lg border border-accent/40 bg-accent/5 px-5 py-4">
-              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent">
-                First {offer.designPartnerSeats} companies
-              </p>
-              <p className="mt-1 font-display text-2xl font-bold text-foreground">{offer.designPartnerPrice}</p>
-              <p className="mt-1 max-w-xs font-body text-sm text-muted-foreground">
-                Half price for design partners who let us use their numbers, names removed, and do a short case study.
-              </p>
-            </div>
+          <div className="border-b border-border px-6 py-6 md:px-8">
+            <p className="font-display text-5xl font-bold text-foreground">{offer.price}</p>
+            <p className="mt-1 font-body text-foreground">
+              Fixed, per agent, planned or already running. No hourly billing, no software to buy.
+            </p>
+            <p className="mt-3 font-body text-sm text-muted-foreground">
+              <span className="font-semibold text-accent">First {offer.designPartnerSeats} companies: {offer.designPartnerPrice}.</span>{" "}
+              Half price for design partners who let us use their numbers, names removed, and do a short case study.
+            </p>
           </div>
 
           <div className="grid gap-8 px-6 py-8 md:grid-cols-2 md:px-8">
@@ -328,8 +349,7 @@ export default function HomePage() {
       {/* Who you'd work with */}
       <section id="team" className="scroll-mt-20 border-y border-border bg-secondary/40" aria-labelledby="team-heading">
         <div className="mx-auto max-w-6xl px-6 py-14">
-          <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">Who you&apos;d work with</p>
-          <h2 id="team-heading" className="mt-3 font-display text-3xl font-bold leading-tight text-foreground">
+          <h2 id="team-heading" className="font-display text-3xl font-bold leading-tight text-foreground">
             The founders do the work.
           </h2>
           <div className="mt-8 grid gap-10 md:grid-cols-2">
@@ -361,31 +381,13 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <div className="mt-10 grid gap-6 border-t border-border pt-8 md:grid-cols-2">
-            <p className="font-body leading-relaxed text-muted-foreground">
-              <span className="font-semibold text-foreground">Who you sign with. </span>
-              Reviews are contracted and delivered by{" "}
-              <a href="https://nowgentic.com" className="text-primary underline underline-offset-4" rel="noopener">
-                NowGentic
-              </a>
-              , the services company Chris and Amy also run, using the Agent
-              Blueprint method.
-            </p>
-            <p className="font-body leading-relaxed text-muted-foreground">
-              <span className="font-semibold text-foreground">Where this goes. </span>
-              Every review leaves a measured record. An app keeps that record
-              current, and anonymized results from past reviews help set
-              realistic targets for the next agent.
-            </p>
-          </div>
         </div>
       </section>
 
       {/* Free resources */}
       <section id="free" className="scroll-mt-20 mx-auto max-w-6xl px-6 py-16" aria-labelledby="free-heading">
-        <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">Free, no sign-up</p>
-        <h2 id="free-heading" className="mt-3 font-display text-3xl font-bold leading-tight text-foreground">
-          See the method before you talk to us.
+        <h2 id="free-heading" className="font-display text-3xl font-bold leading-tight text-foreground">
+          See the method before you talk to us. Free, no sign-up.
         </h2>
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {freeResources.map((r) => (
@@ -400,14 +402,22 @@ export default function HomePage() {
             </Link>
           ))}
         </div>
-        <p className="mt-8 max-w-3xl font-body leading-relaxed text-muted-foreground">
-          The app comes to ServiceNow first, because it already records usage
-          for each agent. Other platforms follow.{" "}
-          <Link href="/servicenow" className="text-primary underline underline-offset-4">
-            See the ServiceNow app in development
-          </Link>
-          .
-        </p>
+      </section>
+
+      <section id="questions" className="scroll-mt-20 border-t border-border" aria-labelledby="questions-heading">
+        <div className="mx-auto max-w-6xl px-6 py-16">
+          <h2 id="questions-heading" className="font-display text-3xl font-bold leading-tight text-foreground">
+            Questions people ask first
+          </h2>
+          <dl className="mt-8 grid gap-x-12 gap-y-8 md:grid-cols-2">
+            {homeFaqs.map((f) => (
+              <div key={f.q}>
+                <dt className="font-display text-xl font-bold text-foreground">{f.q}</dt>
+                <dd className="mt-2 font-body leading-relaxed text-muted-foreground">{f.a}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       </section>
 
       <ContactSection />

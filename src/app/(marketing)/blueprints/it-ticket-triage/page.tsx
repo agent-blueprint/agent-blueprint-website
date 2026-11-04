@@ -38,7 +38,17 @@ Teams:
 - [Team name]: [what it handles]. Not: [what people often send it by mistake]
 - [Team name]: [...]
 
-Answer only with JSON in this format.`;
+Answer only with JSON in exactly this format:
+{
+  "ticket_id": "<id>",
+  "category": "<one of the categories>",
+  "priority": "P3" or "P4",
+  "team": "<one of the teams>",
+  "reason": "<one line>",
+  "confidence": <0 to 1>,
+  "flag_for_person": true or false,
+  "leave_in_queue": true or false
+}`;
 
 const outputFormat = `{
   "ticket_id": "INC0012345",
@@ -50,6 +60,27 @@ const outputFormat = `{
   "flag_for_person": false,
   "leave_in_queue": false
 }`;
+
+const reassignmentQuery = `-- assignments(ticket_id, team, changed_at): one row per change
+-- planned_routes(from_team, to_team): escalations you designed
+WITH ordered AS (
+  SELECT ticket_id, team, changed_at,
+         LAG(team) OVER (PARTITION BY ticket_id ORDER BY changed_at) AS prev_team
+  FROM assignments
+  WHERE changed_at >= CURRENT_DATE - INTERVAL '90 days'
+),
+misrouted AS (
+  SELECT DISTINCT o.ticket_id
+  FROM ordered o
+  LEFT JOIN planned_routes p
+    ON p.from_team = o.prev_team AND p.to_team = o.team
+  WHERE o.prev_team IS NOT NULL
+    AND o.prev_team <> o.team
+    AND p.from_team IS NULL
+)
+SELECT COUNT(m.ticket_id) * 100.0 / COUNT(DISTINCT o.ticket_id) AS pct_reassigned
+FROM ordered o
+LEFT JOIN misrouted m ON m.ticket_id = o.ticket_id;`;
 
 // Every figure on this page is an estimate until check-backs replace it.
 // When one is measured, say so on that line and give the sample size.
@@ -107,7 +138,7 @@ const sections: { id: string; heading: string; note?: string; items: DocItem[] }
       {
         label: "Instructions",
         text: (
-          <pre className="mt-2 overflow-x-auto whitespace-pre-wrap rounded-md border border-border bg-card p-4 font-mono text-xs leading-relaxed text-foreground">
+          <pre className="mt-2 max-w-full overflow-x-auto whitespace-pre-wrap rounded-md border border-border bg-card p-4 font-mono text-xs leading-relaxed text-foreground">
             <code>{instructions}</code>
           </pre>
         ),
@@ -115,7 +146,7 @@ const sections: { id: string; heading: string; note?: string; items: DocItem[] }
       {
         label: "Output",
         text: (
-          <pre className="mt-2 overflow-x-auto rounded-md border border-border bg-card p-4 font-mono text-xs leading-relaxed text-foreground">
+          <pre className="mt-2 max-w-full overflow-x-auto rounded-md border border-border bg-card p-4 font-mono text-xs leading-relaxed text-foreground">
             <code>{outputFormat}</code>
           </pre>
         ),
@@ -127,9 +158,19 @@ const sections: { id: string; heading: string; note?: string; items: DocItem[] }
     id: "number",
     heading: "The number to set before launch",
     items: [
-      { label: "The one number", text: "Share of tickets reassigned to another team at least once. Every reassignment is a ticket that went to the wrong place first." },
-      { label: "How to measure today", text: "Export the last 90 days of tickets. Count the ones whose team changed after the first assignment, and divide by the total." },
-      { label: "Second number", text: "Hours a month spent sorting tickets and fixing ones sent to the wrong team. Time a sample of 200 to 300 tickets over two weeks before launch, and again near day 90, and give minutes per ticket for each." },
+      { label: "The one number", text: "Share of tickets reassigned to another team at least once. Every reassignment is a ticket that went to the wrong place first. Don't count planned escalations, such as first-line to second-line support for the same service." },
+      {
+        label: "How to measure today",
+        text: (
+          <>
+            Export the last 90 days of assignment history: one row per change, with ticket_id, team and changed_at. Most ticket systems keep this in an audit or history table. For each ticket, the first row is where it went first; any later row with a different team is a reassignment. Mark a reassignment as planned when it follows a route you designed, such as Service Desk to a second-line team for the same service, and leave those out. In SQL-like terms:
+            <pre className="mt-2 max-w-full overflow-x-auto rounded-md border border-border bg-card p-4 font-mono text-xs leading-relaxed text-foreground">
+              <code>{reassignmentQuery}</code>
+            </pre>
+          </>
+        ),
+      },
+      { label: "Second number", text: "Hours a month spent sorting tickets and fixing ones sent to the wrong team. Take minutes per ticket from log timestamps where you have them, check them by timing 200 to 300 tickets by hand, and do the same near day 90." },
       { label: "Must not get worse", text: "Major incidents sent to the wrong team, and time to first touch on P1 and P2 tickets." },
       { label: "Set the target before launch", text: "Write it down with a date, and don't move it afterwards. That's the difference between a measurement and a story." },
     ],
@@ -139,7 +180,8 @@ const sections: { id: string; heading: string; note?: string; items: DocItem[] }
     heading: "What it will cost",
     note: "Estimated. Replace each input with your own and measure usage in the first week.",
     items: [
-      { label: "New cash", text: "Tickets x usage per ticket, plus hosting. Sorting a short ticket is a small model call, so expect cents rather than dollars per ticket. Read the real figure off your vendor bill after week one." },
+      { label: "AI usage", text: "Tickets x usage per ticket. On your own model account, sorting a short ticket costs cents. On a platform that bills AI from a pool of credits, it's the agent's share of that pool, which can be far more. Read the real figure off the bill or usage log after week one." },
+      { label: "Hosting", text: "Usually small: the service that connects the model to your ticket system." },
       { label: "Staff time", text: "Checking its work (1 in 5 tickets in the first month, then 1 in 10) and upkeep when teams or categories change. Usually bigger than the cash, and the part people forget." },
       { label: "Mistakes", text: "A misrouted ticket costs time, not cash. Count it in the fixing hours rather than as a separate line." },
       { label: "Keep cash and time apart", text: "Freed hours become cash only if they replace contractor time or a planned hire. Show both, and say which is which." },
@@ -163,7 +205,7 @@ const sections: { id: string; heading: string; note?: string; items: DocItem[] }
     items: [
       { label: "Keep", text: "Every target met and no major incident went to the wrong team. Move to monthly spot checks, and consider letting it handle more." },
       { label: "Fix", text: "Clearly better than the starting number but short of a target. Look for the pattern in its mistakes. It's usually one category or one missing form option. Set a date to check again." },
-      { label: "Stop", text: "Not clearly better than where you started, or it misroutes a major incident twice." },
+      { label: "Stop", text: "Not clearly better than where you started (as a default, reassignments not down by at least a fifth, for example from 22% to under 18%), or it misroutes a major incident twice." },
     ],
   },
   {
