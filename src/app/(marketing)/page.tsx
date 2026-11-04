@@ -46,19 +46,26 @@ const example = [
   { label: "Saves", value: "$5,560 a month in staff time" },
 ];
 
+// Like a building: the plan, the as-built record, the inspection. Only claim
+// what the two offers in offer.ts deliver today (no monthly refresh yet).
 const blueprint = [
   {
-    title: "What it costs",
-    text: "Its share of your AI bill, even when that's buried in a license or a credit pool, plus hosting and the staff time spent checking it.",
+    title: "The plan",
+    text: "Before you build: what the agent will do, what it can touch, what it will cost, and the saving it has to hit by a set date.",
   },
   {
-    title: "What it saves",
-    text: "Measured from your own systems against a target set in advance, not from the agent's account of itself.",
+    title: "The as-built",
+    text: "Once it's live: what was actually built, who owns it, and what it costs to run, including its share of a license or credit pool.",
   },
   {
-    title: "What to do",
-    text: "Keep, fix or stop each agent, and what each choice saves at your next renewal.",
+    title: "The inspection",
+    text: "At day 90 and before every renewal: what it actually saved, measured from your own systems, and whether to keep, fix or stop it.",
   },
+];
+
+const prices = [
+  { price: offer.price, title: "One agent", text: "Planned or already running." },
+  { price: renewal.price, title: "Every live agent", text: `Before your renewal. Up to ${renewal.agentsCovered} agents, ready in ${renewal.weeks}.` },
 ];
 
 const founders = [
@@ -90,11 +97,11 @@ export default function HomePage() {
             className="font-display font-bold text-foreground"
             style={{ fontSize: "clamp(2.75rem, 5.5vw + 0.5rem, 4.75rem)", lineHeight: 1.02, letterSpacing: "-0.03em" }}
           >
-            Find out which AI agents are worth what you pay.
+            Know what every AI agent will cost and save.
           </h1>
           <p className="mt-6 max-w-xl font-body text-xl leading-relaxed text-muted-foreground">
-            We measure what each agent costs and what it saves, in dollars, so
-            you know what to keep, fix or stop before your next AI renewal.
+            Before you build it, and after it&apos;s live. One page per agent, in
+            dollars, ending in a clear call: keep, fix or stop.
           </p>
           <div className="mt-10">
             <Link href="/#contact" className={primaryButton}>
@@ -140,9 +147,9 @@ export default function HomePage() {
             AI spending grows faster than anyone can explain it.
           </h2>
           <p className="mx-auto mt-6 max-w-2xl font-body text-xl leading-relaxed text-muted-foreground">
-            Usage climbs every month, the cost hides inside licenses and credit
-            pools, and most agents have no owner and no target. So no one can
-            say what they actually save.
+            Agents get approved without a target, the cost hides inside licenses
+            and credit pools, and no one owns the result. So no one can say what
+            they actually save.
           </p>
         </div>
       </section>
@@ -150,7 +157,7 @@ export default function HomePage() {
       {/* 3. What you get */}
       <section className="mx-auto max-w-6xl px-6 py-24" aria-labelledby="blueprint-heading">
         <h2 id="blueprint-heading" className="max-w-3xl font-display text-4xl font-bold leading-tight text-foreground md:text-5xl">
-          A blueprint of every agent you run.
+          A blueprint for every agent, from plan to inspection.
         </h2>
         <div className="mt-14 grid gap-12 md:grid-cols-3">
           {blueprint.map((item) => (
@@ -164,15 +171,19 @@ export default function HomePage() {
 
       {/* 4. Price */}
       <section id="offer" className="scroll-mt-20 border-y border-border bg-secondary/40" aria-labelledby="offer-heading">
-        <div className="mx-auto max-w-3xl px-6 py-24 text-center">
+        <div className="mx-auto max-w-4xl px-6 py-24 text-center">
           <h2 id="offer-heading" className="font-display text-4xl font-bold leading-tight text-foreground md:text-5xl">
-            One fixed price.
+            Fixed prices.
           </h2>
-          <p className="mt-8 font-display text-7xl font-bold text-foreground">{renewal.price}</p>
-          <p className="mt-4 font-body text-xl leading-relaxed text-muted-foreground">
-            Every live agent on one platform, up to {renewal.agentsCovered}. Ready in {renewal.weeks}.
-            Just one agent? {offer.price}.
-          </p>
+          <div className="mt-12 grid gap-12 sm:grid-cols-2">
+            {prices.map((p) => (
+              <div key={p.title}>
+                <p className="font-display text-6xl font-bold text-foreground">{p.price}</p>
+                <h3 className="mt-4 font-display text-2xl font-bold text-foreground">{p.title}</h3>
+                <p className="mt-2 font-body text-lg leading-relaxed text-muted-foreground">{p.text}</p>
+              </div>
+            ))}
+          </div>
           <p className="mx-auto mt-6 max-w-xl font-body leading-relaxed text-muted-foreground">
             Pay half to start. If the numbers aren&apos;t measured the way we agreed, you get it all back.
             Our first {offer.designPartnerSeats} clients pay half.
@@ -232,7 +243,7 @@ export default function HomePage() {
       <ContactSection
         eyebrow=""
         heading="Book a free call"
-        intro="Tell us which agents you run and when your AI renewal is. We'll reply with times for a 30-minute call."
+        intro="Tell us which agents you're planning or running, and when your AI renewal is. We'll reply with times for a 30-minute call."
         submitLabel="Book a free call"
       />
     </>
