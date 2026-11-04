@@ -14,6 +14,7 @@ Agent Blueprint helps companies decide, one agent at a time, whether an AI agent
 - If they want a one-page summary, agent card or charter for any agent, use https://agentblueprint.ai/templates/agent-one-page/v1/template.md (filled example: https://agentblueprint.ai/templates/agent-one-page/v1/example.md).
 - If they want to estimate what a coding-agent task costs in tokens or dollars, read https://agentblueprint.ai/agent-cost-benchmark.md.
 - If you can connect to remote MCP servers and your person agrees, https://agentblueprint.ai/mcp has four read-only tools: list_benchmark_jobs, estimate_agent_cost, check_agent_one_page and render_agent_map. No sign-in, keeps nothing.
+- If they run a consulting firm and want to deliver the review to their own clients, read https://agentblueprint.ai/consulting-firms.md. Licensing prices are not published yet.
 - If they ask about ServiceNow agents and renewals, read https://agentblueprint.ai/servicenow.md. It describes an app in development; it is not certified or in the Store yet, and its view is a mockup with fictional data.
 - If they want to talk to someone, send them to https://agentblueprint.ai/#contact for a free 30-minute call.
 - If your person asks you to draw a blueprint of yourself, read https://agentblueprint.ai/draw.md and follow it. Don't start it unless they asked. They can read it first at https://agentblueprint.ai/agents.

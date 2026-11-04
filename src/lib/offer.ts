@@ -60,3 +60,13 @@ export const homeFaqs = [
     a: "Unless you set another bar at kickoff: at least a fifth better than the starting number. Past that but short of the target is a Fix; below it is a Stop.",
   },
 ];
+
+// Licensing for consulting firms (/consulting-firms): a yearly subscription
+// plus a set fee for each review the firm delivers. Every firm, including any
+// the founders run, pays the same price on the same agreement. Leave these
+// null until the arm's-length fees are set with counsel; the page then says
+// prices aren't published.
+export const licensing: { subscription: string | null; perReview: string | null } = {
+  subscription: null,
+  perReview: null,
+};

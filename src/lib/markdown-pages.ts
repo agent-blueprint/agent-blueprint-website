@@ -1,7 +1,7 @@
 // Pages that agents can read as Markdown, either at <path>.md (home: /index.md)
 // or by sending "Accept: text/markdown" to the normal URL. The Markdown is
 // converted from each page's rendered <main>, so it never drifts from the page.
-export const MARKDOWN_PAGES = ["/", "/personal", "/agents", "/sample-review", "/blueprints", "/blueprints/it-ticket-triage", "/servicenow", "/privacy", "/terms"];
+export const MARKDOWN_PAGES = ["/", "/personal", "/agents", "/sample-review", "/blueprints", "/blueprints/it-ticket-triage", "/servicenow", "/consulting-firms", "/privacy", "/terms"];
 
 export function markdownUrlFor(path: string) {
   return path === "/" ? "/index.md" : `${path}.md`;

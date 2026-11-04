@@ -41,6 +41,7 @@ Agent Blueprint helps companies decide, one agent at a time, whether an AI agent
 - Live: the review, on any platform.
 - In development: an app that keeps each agent's cost, results and decision current from the platform's own records, starting on ServiceNow because it already records usage per agent. Not certified or in the ServiceNow Store yet; the view shown is a mockup with fictional data: https://agentblueprint.ai/servicenow. Markdown: https://agentblueprint.ai/servicenow.md
 - Planned: other firms running the method under license, and benchmarks built from anonymized review results.
+- For consulting firms: what a licensed firm gets (the method, templates, sample deliverables, the name, and the app when it's ready), how licensing works (a yearly subscription plus a set fee per review; prices not published yet; every firm on the same agreement and price), and the rules licensed firms follow (fix-work rule, independence, measuring and handling data the same way): https://agentblueprint.ai/consulting-firms. Markdown: https://agentblueprint.ai/consulting-firms.md
 
 ## Other free tools and experiments
 

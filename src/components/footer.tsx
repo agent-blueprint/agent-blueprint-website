@@ -14,6 +14,12 @@ export function Footer() {
 
           <div className="flex items-center gap-6">
             <Link
+              href="/consulting-firms"
+              className="font-body text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              For consulting firms
+            </Link>
+            <Link
               href="/privacy"
               className="font-body text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >

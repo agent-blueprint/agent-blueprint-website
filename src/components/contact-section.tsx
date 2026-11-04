@@ -31,7 +31,21 @@ const linkedinLinks = [
   },
 ];
 
-export function ContactSection() {
+type ContactSectionProps = {
+  eyebrow?: string;
+  heading?: string;
+  intro?: string;
+  messagePlaceholder?: string;
+  submitLabel?: string;
+};
+
+export function ContactSection({
+  eyebrow = "Free, 30 minutes",
+  heading = "Request a call",
+  intro = "Tell us where you are: still exploring, piloting, or already running agents. We'll reply with times for a 30-minute call and tell you plainly whether we can help.",
+  messagePlaceholder = "Which agent, and is it planned or running? Any renewal date?",
+  submitLabel = "Request a call",
+}: ContactSectionProps = {}) {
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -67,15 +81,13 @@ export function ContactSection() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-10 md:mb-16 text-center">
           <span className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-accent">
-            Free, 30 minutes
+            {eyebrow}
           </span>
           <h2 className="mt-4 font-display text-3xl font-bold text-foreground md:text-5xl">
-            Request a call
+            {heading}
           </h2>
           <p className="mx-auto mt-4 max-w-2xl font-body text-base text-muted-foreground">
-            Tell us where you are: still exploring, piloting, or already running
-            agents. We&apos;ll reply with times for a 30-minute call and tell you
-            plainly whether we can help.
+            {intro}
           </p>
         </div>
 
@@ -156,7 +168,7 @@ export function ContactSection() {
                       </FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Which agent, and is it planned or running? Any renewal date?"
+                          placeholder={messagePlaceholder}
                           className="font-body min-h-[120px] rounded-md border border-border bg-card px-3 shadow-none focus-visible:border-primary focus-visible:ring-0"
                           {...field}
                         />
@@ -170,7 +182,7 @@ export function ContactSection() {
                   disabled={form.formState.isSubmitting}
                   className="h-12 w-full rounded-md bg-primary text-base text-primary-foreground hover:bg-primary/90 font-body font-semibold"
                 >
-                  {form.formState.isSubmitting ? "Sending..." : "Request a call →"}
+                  {form.formState.isSubmitting ? "Sending..." : `${submitLabel} →`}
                 </Button>
                 <p className="text-center font-body text-sm text-muted-foreground">
                   We reply within one business day with times for the call.
