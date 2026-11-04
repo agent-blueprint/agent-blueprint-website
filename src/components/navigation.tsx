@@ -17,7 +17,7 @@ import { siteConfig } from "@/lib/metadata";
 const navLinks = [
   { label: "Price", href: "/#offer" },
   { label: "Sample", href: "/sample-review" },
-  { label: "Free resources", href: "/#free" },
+  { label: "ServiceNow", href: "/servicenow" },
   { label: "Who we are", href: "/#team" },
 ];
 

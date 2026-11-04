@@ -45,7 +45,7 @@ export const homeFaqs = [
   },
   {
     q: "Will you try to sell us the fix?",
-    a: "Only if you ask. The decision is signed off by your finance lead before anyone talks about fixing it. NowGentic quotes a fix only when you ask in writing, at a fixed price, and you're free to use anyone. If NowGentic does the fix and the recheck shows the agent still misses its target, NowGentic redoes it for free.",
+    a: "Only if you ask. The decision is signed off by whoever owns your IT budget before anyone talks about fixing it. NowGentic quotes a fix only when you ask in writing, at a fixed price, and you're free to use anyone. If NowGentic does the fix and the recheck shows the agent still misses its target, NowGentic redoes it for free.",
   },
   {
     q: "What happens after the decision?",
@@ -56,7 +56,7 @@ export const homeFaqs = [
     a: "Read-only access, or we send queries and you run them. We sign your NDA, keep only the numbers on the summary, and delete working data 30 days after the decision.",
   },
   {
-    q: "What does my finance lead sign off on?",
+    q: "What does our budget owner sign off on?",
     a: "That each number was measured the way we agreed at kickoff, from the sources it names. The decision itself stays yours.",
   },
   {

@@ -76,7 +76,7 @@ const rules = [
   {
     title: "Fix work waits for the decision",
     points: [
-      "The client's finance lead signs off the decision before anyone talks about fixing the agent.",
+      "Whoever owns the client's IT budget signs off the decision before anyone talks about fixing the agent.",
       "Quote a fix only when the client asks in writing, at a fixed price, and tell them they're free to use anyone.",
       "If your firm does the fix and the recheck shows the agent still misses its target, you redo it for free.",
     ],

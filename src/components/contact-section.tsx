@@ -81,10 +81,12 @@ export function ContactSection({
     <section id="contact" className="scroll-mt-20 border-t border-border py-16 md:py-20">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-10 md:mb-16 text-center">
-          <span className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-accent">
-            {eyebrow}
-          </span>
-          <h2 className="mt-4 font-display text-3xl font-bold text-foreground md:text-5xl">
+          {eyebrow && (
+            <span className="mb-4 block font-mono text-xs font-medium uppercase tracking-[0.14em] text-accent">
+              {eyebrow}
+            </span>
+          )}
+          <h2 className="font-display text-3xl font-bold text-foreground md:text-5xl">
             {heading}
           </h2>
           <p className="mx-auto mt-4 max-w-2xl font-body text-base text-muted-foreground">
