@@ -373,8 +373,8 @@ export default function HomePage() {
           </div>
           <p className="font-body text-sm leading-relaxed text-muted-foreground md:col-span-3">
             We&apos;re new, so the first {offer.designPartnerSeats} companies pay half in return for letting us use their numbers,
-            names removed, and a short case study. Building or fixing agents is never part of the fee. Independence and data
-            handling are in the{" "}
+            names removed, and a short case study. Fixing an agent isn&apos;t part of the fee: NowGentic quotes a fix only if you ask
+            in writing after the decision is signed off. Independence and data handling are in the{" "}
             <Link href="/#questions" className="text-primary underline underline-offset-4">questions below</Link>.
           </p>
         </div>

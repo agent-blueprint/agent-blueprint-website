@@ -41,7 +41,11 @@ export const homeFaqs = [
   },
   {
     q: "Who does the work, and how do you stay independent?",
-    a: "The founders, through NowGentic, their services company, which you contract with. NowGentic also builds agents, so it never reviews one it built, and the decision is signed off before any fix is discussed. You're free to use anyone for the fix.",
+    a: "The founders, through NowGentic, their services company, which you contract with. NowGentic also builds agents, so it never reviews one it built, and it takes no commissions from software vendors.",
+  },
+  {
+    q: "Will you try to sell us the fix?",
+    a: "Only if you ask. The decision is signed off by your finance lead before anyone talks about fixing it. NowGentic quotes a fix only when you ask in writing, at a fixed price, and you're free to use anyone. If NowGentic does the fix and the recheck shows the agent still misses its target, NowGentic redoes it for free.",
   },
   {
     q: "What happens to our data?",
