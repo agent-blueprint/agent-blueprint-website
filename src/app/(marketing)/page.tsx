@@ -45,14 +45,14 @@ const paths = [
         text: "We measure what really happened and you get a plain answer: scale it, fix it or stop it.",
       },
     ],
-    cta: "Plan your first agent",
+    cta: "Start with one agent",
   },
   {
     id: "review",
     eyebrow: "Already running agents",
     title: "Know what you're paying for before you renew.",
     intro:
-      "Every agent you pay for, on every platform you run, in one review. You come out with a clear answer for each one and a page finance can sign off on.",
+      "Start with the agent that costs you most, on whatever platform it runs. You come out with a clear answer and a page finance can sign off on, and we can do the rest before you renew.",
     steps: [
       {
         title: "What each agent costs",
@@ -67,8 +67,17 @@ const paths = [
         text: "One page per agent with the call and the reasons, ready before you sign again.",
       },
     ],
-    cta: "Book a review",
+    cta: "Review one agent",
   },
+];
+
+// What the one paid offer hands back.
+const offerItems = [
+  "Where you stand today, measured, not guessed",
+  "The agent's one page: what it may do, who owns it, what it costs",
+  "The number it has to hit, and the date",
+  "A 90-day check-back with keep, fix or stop",
+  "One summary finance can read",
 ];
 
 export default function HomePage() {
@@ -178,7 +187,7 @@ export default function HomePage() {
                 ))}
               </ol>
               <Link
-                href="/#contact"
+                href="/#offer"
                 className="group mt-8 inline-flex items-center gap-2 font-body font-semibold text-primary"
               >
                 {path.cta}
@@ -190,6 +199,75 @@ export default function HomePage() {
         <p className="mx-auto max-w-6xl px-6 py-6 font-body text-sm text-muted-foreground">
           Not sure which one you are? The first call is free, and we&apos;ll tell you.
         </p>
+      </section>
+
+      <section id="offer" className="scroll-mt-20 mx-auto max-w-6xl px-6 pt-16" aria-labelledby="offer-heading">
+        <div className="grid gap-10 md:grid-cols-5">
+          <div className="md:col-span-3">
+            <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">The offer</p>
+            <h2 id="offer-heading" className="mt-3 font-display text-4xl font-bold leading-tight text-foreground">
+              One agent, done properly.
+            </h2>
+            <p className="mt-4 font-body leading-relaxed text-muted-foreground">
+              Pick the agent that matters most, planned or already running. We
+              measure where you are today, set the number it has to hit, and come
+              back at 90 days with a straight answer. Fixed price, agreed before
+              we start.
+            </p>
+            <ul className="mt-6 space-y-2 font-body text-muted-foreground">
+              {offerItems.map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span aria-hidden className="text-accent">/</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <Link
+                href="/#contact"
+                className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 font-body font-semibold text-primary-foreground transition-shadow hover:shadow-lg"
+              >
+                Book the free first call
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link href="/sample-review" className="group inline-flex items-center gap-2 font-body font-semibold text-primary">
+                See a finished example
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+          </div>
+          <div className="md:col-span-2">
+            <div className="rounded-lg border border-border bg-card p-6">
+              <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                First five companies
+              </p>
+              <p className="mt-3 font-display text-2xl font-bold leading-snug text-foreground">
+                Design partner pricing.
+              </p>
+              <p className="mt-3 font-body text-sm leading-relaxed text-muted-foreground">
+                A lower price in exchange for two things: we can use your numbers
+                with your name removed, and you&apos;ll do a short case study
+                with us.
+              </p>
+            </div>
+            <div className="mt-4 rounded-lg border border-border bg-card p-6">
+              <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                Free blueprint
+              </p>
+              <p className="mt-3 font-body text-sm leading-relaxed text-muted-foreground">
+                What an IT ticket triage agent needs, what not to let it touch,
+                and the number to set before launch.
+              </p>
+              <Link
+                href="/blueprints/it-ticket-triage"
+                className="group mt-3 inline-flex items-center gap-2 font-body text-sm font-semibold text-primary"
+              >
+                Read the blueprint
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-16" aria-labelledby="app-heading">

@@ -47,6 +47,16 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/method",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/method.md",
+        destination: "/index.md",
+        permanent: true,
+      },
+      {
         source: "/install",
         destination: "/developers",
         permanent: true,

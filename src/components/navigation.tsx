@@ -15,10 +15,11 @@ import {
 import { siteConfig } from "@/lib/metadata";
 
 const navLinks = [
-  { label: "Starting Out", href: "/#start" },
-  { label: "Running Agents", href: "/#review" },
-  { label: "ServiceNow App", href: "/servicenow" },
+  { label: "The Offer", href: "/#offer" },
+  { label: "Sample", href: "/sample-review" },
+  { label: "Free Blueprint", href: "/blueprints/it-ticket-triage" },
   { label: "Free Template", href: "/agent-one-page-template" },
+  { label: "ServiceNow App", href: "/servicenow" },
 ];
 
 function scrollToSection(id: string) {
@@ -68,7 +69,7 @@ export function Navigation() {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link) =>
             link.href.startsWith("#") ? (
               <button
@@ -107,7 +108,7 @@ export function Navigation() {
 
         {/* Mobile nav */}
         <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
-          <SheetTrigger asChild className="md:hidden">
+          <SheetTrigger asChild className="lg:hidden">
             <Button variant="ghost" size="icon">
               <Menu className="h-5 w-5" />
               <span className="sr-only">Open menu</span>
