@@ -173,13 +173,12 @@ export default function HomePage() {
       <section id="offer" className="scroll-mt-20 border-y border-border bg-secondary/40" aria-labelledby="offer-heading">
         <div className="mx-auto max-w-4xl px-6 py-24 text-center">
           {/* Why spend it now (Amy, Nov 4). Numbers from /sample-review:
-              $2,900 a month x 12 = $34,800 a year; $7,500 is about 2.6 months. */}
+              $2,900 a month x 12 = $34,800, about $35,000 a year. */}
           <h2 id="offer-heading" className="mx-auto max-w-3xl font-display text-4xl font-bold leading-tight text-foreground md:text-5xl">
-            Checking an agent costs less than three months of running it.
+            Don&apos;t renew blind.
           </h2>
           <p className="mx-auto mt-6 max-w-2xl font-body text-xl leading-relaxed text-muted-foreground">
-            The agent in our example costs $2,900 a month. Checking it costs $7,500, once. Skip the check, and your
-            next renewal commits you to another $34,800 year without knowing what it saves.
+            The agent in our example costs about $35,000 a year. Finding out if it&apos;s worth that costs $7,500.
           </p>
           <div className="mt-14 grid gap-12 sm:grid-cols-2">
             {prices.map((p) => (
