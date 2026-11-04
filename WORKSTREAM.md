@@ -4,7 +4,16 @@
 > **Keep it updated** as work progresses — it's how the next session picks up where the last left off.
 
 ## Active Branch
-- **`feat/three-blueprints`** (Oct 31, 2026, Chris-directed, not pushed): home page now offers three blueprints. `/personal` (Draw my agent, hosted at `/draw.md` and `/draw/v0.2/`), `/enterprise` (ServiceNow renewal concept, fictional data, not built), `/agents` (exact agent instructions and fingerprints). The old home moved to `/method`. Versioned files under `public/draw/` must never change: publish a new version.
+- **`main`**: `feat/home-renewal` fast-forwarded to `main` and deployed to production on 2026-11-03 at Chris's request. Full context: `~/Documents/agent-blueprint-site-handoff-2026-11-03.md`.
+- What shipped: the renewal-review homepage (keep, fix or stop), `/sample-review`, `/blueprints` and `/blueprints/it-ticket-triage`, the updated `/servicenow`, and the new `/consulting-firms` licensing page (footer link only). `/method`, `/developers`, `/security` and `/use-cases` now redirect.
+- Prices and terms live only in `src/lib/offer.ts`. Licensing fees there are `null` until set on arm's-length terms; the page says prices aren't published.
+
+### Still open after the Nov 3 launch
+- [ ] Chris and Amy to confirm the draft terms now live: one-agent $7,500, design-partner half price, extra reviews $5,000, payment split, refund guarantee, data terms, one-business-day reply, customer hours, Amy's bio line.
+- [ ] Amy to agree to the fix-work rule.
+- [ ] `/consulting-firms` commitments to confirm: "starting with a small number of firms", anonymized results shared with Agent Blueprint under a client-contract clause, sample quality checks with loss of the name, written disclosure of platform partnerships. Blank scorecard and finance-summary templates need to exist before the first licensee.
+- [ ] Founder photos, a booking link, one real measured result.
+- [ ] The one-page template page still links to "Draw my agent".
 
 ## Earlier
 - **`main`** — phase-1 copy repositioning SHIPPED to production 2026-07-09
