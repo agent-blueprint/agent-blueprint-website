@@ -301,15 +301,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* The hard truth: why the review exists, before the two ways in */}
+      {/* Why agents fail: why the review exists, before the two ways in */}
       <section className="mx-auto max-w-6xl px-6 pb-14" aria-labelledby="hard-truth-heading">
         <div className="border-l-4 border-accent bg-card px-6 py-7 md:px-10">
           <h2 id="hard-truth-heading" className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
-            The hard truth
+            Why agents fail
           </h2>
           <p className="mt-3 max-w-4xl font-display text-2xl font-bold leading-snug text-foreground md:text-3xl">
-            AI can change how a business runs. But it doesn&apos;t give the same
-            answer twice, and when an agent fails, the cause is often people,
+            AI can change how a business runs. But it won&apos;t always give the
+            same answer, and when an agent fails, the cause is often people,
             not technology: no one owns it, no one set a target, and no one
             checks what it does.
           </p>
