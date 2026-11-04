@@ -15,7 +15,8 @@ import {
 import { siteConfig } from "@/lib/metadata";
 
 const navLinks = [
-  { label: "The Review", href: "/#review" },
+  { label: "Starting Out", href: "/#start" },
+  { label: "Running Agents", href: "/#review" },
   { label: "ServiceNow App", href: "/servicenow" },
   { label: "Free Template", href: "/agent-one-page-template" },
 ];

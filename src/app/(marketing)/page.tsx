@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { ContactSection } from "@/components/contact-section";
 import { breadcrumbSchema, webPageSchema, siteConfig } from "@/lib/metadata";
 
-const pageTitle = "Agent Blueprint | Know What Each AI Agent Costs and Whether to Keep It";
+const pageTitle = "Agent Blueprint | Know Whether Each AI Agent Is Worth It";
 
 export const metadata: Metadata = {
   title: { absolute: pageTitle },
@@ -23,22 +23,51 @@ const homeWebPage = webPageSchema({
   dateModified: "2026-11-03",
 });
 
-// What a review hands back. Keep this to things we can actually deliver today.
-const reviewSteps = [
+// Two ways in, one method. Keep these to things we can actually deliver today.
+const paths = [
   {
-    n: "01",
-    title: "What each agent costs",
-    text: "We read the usage and billing data for every agent you run, including the people who check its work, and put a monthly number on each one.",
+    id: "start",
+    eyebrow: "Starting out or in a pilot",
+    title: "Set the number before you launch.",
+    intro:
+      "Most pilots never get a yes or a no because nobody wrote down what success looked like. We fix that before the first agent goes live.",
+    steps: [
+      {
+        title: "Pick the first agents",
+        text: "The one or two worth trying first, chosen on cost, risk and how easy the result is to measure.",
+      },
+      {
+        title: "One page each",
+        text: "What it's for, what it may do, who owns it, what it will cost, and today's number it has to beat by a set date.",
+      },
+      {
+        title: "The 90-day call",
+        text: "We measure what really happened and you get a plain answer: scale it, fix it or stop it.",
+      },
+    ],
+    cta: "Plan your first agent",
   },
   {
-    n: "02",
-    title: "What it actually did",
-    text: "Work your other systems confirm happened, not the agent's own account of it. Where there's no starting number, we say so and set one.",
-  },
-  {
-    n: "03",
-    title: "Keep, fix or rethink",
-    text: "One page per agent with the call and the reasons, plus a single page for finance. Ready before you sign the renewal.",
+    id: "review",
+    eyebrow: "Already running agents",
+    title: "Know what you're paying for before you renew.",
+    intro:
+      "Every agent you pay for, on every platform you run, in one review. You come out with a clear answer for each one and a page finance can sign off on.",
+    steps: [
+      {
+        title: "What each agent costs",
+        text: "Usage and billing for every agent, plus the people who check its work, turned into a monthly number.",
+      },
+      {
+        title: "What it actually did",
+        text: "Work your other systems confirm happened, not the agent's own account of it.",
+      },
+      {
+        title: "Keep, fix or stop",
+        text: "One page per agent with the call and the reasons, ready before you sign again.",
+      },
+    ],
+    cta: "Book a review",
   },
 ];
 
@@ -68,7 +97,7 @@ export default function HomePage() {
         />
         <div className="relative mx-auto max-w-6xl px-6 pt-28 pb-12 md:pt-40 md:pb-16">
           <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
-            For whoever owns the AI budget
+            For whoever answers for the AI spend
           </p>
           <h1
             className="mt-5 max-w-4xl font-display font-bold text-foreground"
@@ -78,26 +107,27 @@ export default function HomePage() {
               letterSpacing: "-0.03em",
             }}
           >
-            Know what each AI agent costs, and whether it&apos;s worth keeping.
+            Know whether each AI agent is worth it.
           </h1>
           <p className="mt-6 max-w-2xl font-body text-lg leading-relaxed text-muted-foreground">
-            AI is being folded into renewals and billed per use, and most teams
-            can&apos;t say what a single agent costs or what it has done for
-            them. We help you answer that, agent by agent, before you sign again.
+            Before you launch one, we set the number it has to hit. Once it&apos;s
+            running, we show what it costs and what it really did. Either way you
+            get a straight answer for each agent: keep it, fix it or stop it.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
-              href="/#contact"
+              href="/#start"
               className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 font-body font-semibold text-primary-foreground transition-shadow hover:shadow-lg"
             >
-              Book a review
+              We&apos;re starting out
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
-              href="/agent-one-page-template"
-              className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-3 font-body font-semibold text-foreground transition-colors hover:border-primary"
+              href="/#review"
+              className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 font-body font-semibold text-primary-foreground transition-shadow hover:shadow-lg"
             >
-              Get the free template
+              We already run agents
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
           <p className="mt-10 max-w-2xl font-body text-sm leading-relaxed text-muted-foreground">
@@ -115,36 +145,51 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="review" className="scroll-mt-20 border-y border-border bg-secondary/40" aria-labelledby="review-heading">
-        <div className="mx-auto max-w-6xl px-6 py-16">
-          <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
-            The review
-          </p>
-          <h2 id="review-heading" className="mt-3 max-w-3xl font-display text-4xl font-bold leading-tight text-foreground">
-            Before your renewal, we go through every agent with you.
-          </h2>
-          <p className="mt-4 max-w-2xl font-body leading-relaxed text-muted-foreground">
-            Every agent you pay for, on every platform you run, in one review.
-            You come out with a clear answer for each one and a page finance can
-            sign off on.
-          </p>
-          <div className="mt-10 grid gap-8 md:grid-cols-3">
-            {reviewSteps.map((step) => (
-              <div key={step.n} className="border-t border-border pt-5">
-                <p className="font-mono text-xs text-muted-foreground">{step.n}</p>
-                <h3 className="mt-2 font-display text-2xl font-bold text-foreground">{step.title}</h3>
-                <p className="mt-2 font-body text-sm leading-relaxed text-muted-foreground">{step.text}</p>
-              </div>
-            ))}
-          </div>
-          <Link
-            href="/#contact"
-            className="group mt-10 inline-flex items-center gap-2 font-body font-semibold text-primary"
-          >
-            Book a review
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
+      <section className="border-y border-border bg-secondary/40" aria-label="Two ways to start">
+        <div className="mx-auto grid max-w-6xl gap-px bg-border md:grid-cols-2">
+          {paths.map((path) => (
+            <section
+              key={path.id}
+              id={path.id}
+              className="scroll-mt-20 bg-background px-6 py-14 md:px-10"
+              aria-labelledby={`${path.id}-heading`}
+            >
+              <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">
+                {path.eyebrow}
+              </p>
+              <h2
+                id={`${path.id}-heading`}
+                className="mt-3 font-display text-3xl font-bold leading-tight text-foreground md:text-4xl"
+              >
+                {path.title}
+              </h2>
+              <p className="mt-4 font-body leading-relaxed text-muted-foreground">{path.intro}</p>
+              <ol className="mt-8 space-y-6">
+                {path.steps.map((step, i) => (
+                  <li key={step.title} className="flex gap-4 border-t border-border pt-5">
+                    <span className="font-mono text-xs text-muted-foreground">0{i + 1}</span>
+                    <div>
+                      <h3 className="font-display text-xl font-bold text-foreground">{step.title}</h3>
+                      <p className="mt-1 font-body text-sm leading-relaxed text-muted-foreground">
+                        {step.text}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              <Link
+                href="/#contact"
+                className="group mt-8 inline-flex items-center gap-2 font-body font-semibold text-primary"
+              >
+                {path.cta}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </section>
+          ))}
         </div>
+        <p className="mx-auto max-w-6xl px-6 py-6 font-body text-sm text-muted-foreground">
+          Not sure which one you are? The first call is free, and we&apos;ll tell you.
+        </p>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-16" aria-labelledby="app-heading">
@@ -154,11 +199,11 @@ export default function HomePage() {
               The app
             </p>
             <h2 id="app-heading" className="mt-3 font-display text-4xl font-bold leading-tight text-foreground">
-              Keep the answer current between renewals.
+              Keep the answer current after day one.
             </h2>
             <p className="mt-4 font-body leading-relaxed text-muted-foreground">
-              The app keeps each agent&apos;s cost, results and keep, fix or
-              rethink call up to date. It reads the platform&apos;s own records
+              The app tracks every agent against the number it was set to hit,
+              and keeps its cost, results and keep, fix or stop call up to date. It reads the platform&apos;s own records
               of what every agent did, so the numbers never come from the agent
               describing itself.
             </p>
@@ -182,7 +227,7 @@ export default function HomePage() {
         >
           <div className="md:col-span-3">
             <p className="font-mono text-xs uppercase tracking-[0.14em]" style={{ color: "var(--hero-muted)" }}>
-              The method, free
+              Do it yourself, free
             </p>
             <h2 id="method-heading" className="mt-3 font-display text-3xl font-bold leading-tight md:text-4xl">
               One page per agent, written before it goes live.

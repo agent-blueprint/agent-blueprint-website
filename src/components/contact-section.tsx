@@ -74,8 +74,8 @@ export function ContactSection() {
             Get In Touch
           </h2>
           <p className="mx-auto mt-4 max-w-2xl font-body text-base text-muted-foreground">
-            Tell us which AI agents you run, on which platforms, and when your
-            next renewal is. We&apos;ll get back to you about a review.
+            Tell us where you are: still exploring, piloting, or already running
+            agents. If you have a renewal coming up, tell us when.
           </p>
         </div>
 

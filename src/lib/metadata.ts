@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const siteConfig = {
   name: "Agent Blueprint",
   description:
-    "Know what each AI agent costs and whether it's worth keeping. A review before your renewal, an app that keeps the answer current, and a free one-page method.",
+    "Know whether each AI agent is worth it. Set the number before you launch, review what it costs and did once it runs, and keep the answer current with the app.",
   url: "https://agentblueprint.ai",
   appUrl: "https://app.agentblueprint.ai",
   ogImage: "https://agentblueprint.ai/images/logo.png",
