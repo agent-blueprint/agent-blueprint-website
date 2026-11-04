@@ -7,7 +7,7 @@ import { breadcrumbSchema, webPageSchema } from "@/lib/metadata";
 import { storeListingUrl } from "@/lib/store-app";
 
 const description =
-  "An app we're building for the ServiceNow Store: one renewal view of every AI agent, showing what to keep, fix or rethink and where to put what that frees up.";
+  "An app we're building for the ServiceNow Store: one renewal view of every AI agent, showing what to keep, fix or stop and where to put what that frees up.";
 
 export const metadata: Metadata = {
   title: "Agent Blueprint for ServiceNow",
@@ -25,7 +25,7 @@ const webPage = webPageSchema({
 });
 
 const parts = [
-  ["The renewal view", "Assists against your yearly pool, then every agent and skill sorted into keep, fix or rethink."],
+  ["The renewal view", "Assists against your yearly pool, then every agent and skill sorted into keep, fix or stop."],
   ["A page for finance", "Totals, recommended changes, and how sure the numbers are, on one page."],
   ["A sheet per agent", "A plain drawing of what each agent reads and changes, where every fact says where it came from."],
 ];
@@ -57,7 +57,7 @@ export default function ServiceNowPage() {
         </h1>
         <p className="mt-5 max-w-2xl font-body text-lg leading-relaxed text-muted-foreground">
           An app for platform owners with AI agents running and a renewal
-          coming. See what to keep, what to fix, what to rethink, and where to
+          coming. See what to keep, what to fix, what to stop, and where to
           invest what that frees up.
         </p>
         {storeListingUrl ? (

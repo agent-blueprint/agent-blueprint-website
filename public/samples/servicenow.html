@@ -624,7 +624,7 @@ h2 { margin: 0; font: 700 22px/1.15 var(--display); }
     x.losing = x.ret < 1;
   });
 
-  // Keep, fix or retire comes from fixed rules, so the same numbers always give the same advice
+  // Keep, fix or stop comes from fixed rules, so the same numbers always give the same advice
   AGENTS.forEach(function (a) {
     var smallest = a.saved / (a.runs * 25 * ASSIST);
     var next = a.size === "Large" ? 50 : 25;
@@ -691,7 +691,7 @@ h2 { margin: 0; font: 700 22px/1.15 var(--display); }
     title: TICKETS.name, text: "These took " + num(TICKETS.perYear * TICKETS.minutes / 60) + " hours last year, at " + TICKETS.minutes + " minutes each, and no agent touches them. A " + TICKETS.size + " agent would use about " + num(ticketsMonth * TICKETS.perRun) + " assists a month and pay off if it saves " + breakEven.toFixed(0) + " minutes per ticket." });
   PLAN.investAssists = INVEST.reduce(function (t, x) { return t + x.extra; }, 0);
 
-  var LABEL = { retire: "Rethink", fix: "Fix", keep: "Keep" };
+  var LABEL = { retire: "Stop", fix: "Fix", keep: "Keep" };
   var CHIP = { retire: "bad", fix: "warn", keep: "ok" };
 
   function money(n) { return "$" + Math.round(n).toLocaleString("en-US"); }
@@ -949,7 +949,7 @@ h2 { margin: 0; font: 700 22px/1.15 var(--display); }
     var tb = h("tbody", null, t);
     PLAN.changes.slice().sort(function (x, y) { return y.freed - x.freed; }).forEach(function (x) {
       var r = h("tr", null, tb);
-      h("td", null, r, (x.decision === "retire" ? "Rethink " : "Fix ") + x.name);
+      h("td", null, r, (x.decision === "retire" ? "Stop " : "Fix ") + x.name);
       h("td", null, r, num(x.freed));
       h("td", null, r, money(x.freed * ASSIST));
       h("td", null, r, x.lost ? "-" + money(x.lost) : "No change");

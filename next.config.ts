@@ -47,6 +47,21 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/developers",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/use-cases/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/security",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
         source: "/method",
         destination: "/",
         permanent: true,
@@ -58,17 +73,17 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/install",
-        destination: "/developers",
+        destination: "/",
         permanent: true,
       },
       {
         source: "/docs/cli",
-        destination: "/developers",
+        destination: "/",
         permanent: true,
       },
       {
         source: "/cli",
-        destination: "/developers",
+        destination: "/",
         permanent: true,
       },
     ];

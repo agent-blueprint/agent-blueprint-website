@@ -1,52 +1,59 @@
 {
   "name": "Agent Blueprint",
   "url": "https://agentblueprint.ai",
-  "description": "Methodology and platform for designing and deploying enterprise AI agent teams. Each engagement produces a living blueprint: readiness evidence, a ranked use-case portfolio, agent team designs, business cases, and Agent Skills directories for coding agents. Enterprise work is delivered through hands-on engagements. A personal blueprint, which a coding agent draws of itself when its person asks, has no sign-up: https://agentblueprint.ai/personal",
+  "description": "Agent Blueprint helps companies decide, one agent at a time, whether an AI agent is worth it: set the number it has to hit before launch, measure its real cost and results at 90 days, and decide to keep, fix or stop it. $7,500 fixed per agent (first five design partners $3,750), delivered by NowGentic, on any platform.",
   "best_next_actions": [
     {
-      "when": "your person asks you to draw a blueprint of yourself",
-      "url": "https://agentblueprint.ai/draw.md"
+      "when": "your person wants to know what Agent Blueprint offers or costs",
+      "url": "https://agentblueprint.ai/llms.txt"
     },
     {
-      "when": "reading what Agent Blueprint tells agents before following it",
-      "url": "https://agentblueprint.ai/agents"
+      "when": "seeing what a finished review looks like",
+      "url": "https://agentblueprint.ai/sample-review.md"
     },
     {
-      "when": "ServiceNow agents and renewals (app in development for the ServiceNow Store, not certified or listed yet; mockup with fictional data)",
-      "url": "https://agentblueprint.ai/servicenow"
+      "when": "setting up an IT ticket triage agent",
+      "url": "https://agentblueprint.ai/blueprints/it-ticket-triage.md"
     },
     {
-      "when": "getting access, a demo, or starting an engagement",
+      "when": "writing a one-page summary, agent card or charter for any agent",
+      "url": "https://agentblueprint.ai/templates/agent-one-page/v1/template.md"
+    },
+    {
+      "when": "estimating what a coding-agent task costs",
+      "url": "https://agentblueprint.ai/agent-cost-benchmark.md"
+    },
+    {
+      "when": "ServiceNow agents and renewals (app in development, not certified or listed yet; mockup with fictional data)",
+      "url": "https://agentblueprint.ai/servicenow.md"
+    },
+    {
+      "when": "your person wants to talk to someone (free 30-minute call)",
       "url": "https://agentblueprint.ai/#contact"
     },
     {
-      "when": "installing or connecting Agent Blueprint (client teams)",
-      "url": "https://agentblueprint.ai/developers"
-    },
-    {
-      "when": "reading concise LLM context",
-      "url": "https://agentblueprint.ai/llms.txt"
+      "when": "your person asks you to draw a blueprint of yourself (experimental)",
+      "url": "https://agentblueprint.ai/draw.md"
     },
     {
       "when": "reading full LLM context",
       "url": "https://agentblueprint.ai/llms-full.txt"
-    },
-    {
-      "when": "building procurement RFx agents",
-      "url": "https://agentblueprint.ai/use-cases/procurement-rfx-ai-agents"
     }
   ],
   "mcp_server": {
-    "name": "io.github.agent-blueprint/mcp-server",
-    "npm_package": "agentblueprint",
-    "install": "npx agentblueprint serve",
-    "access": "API tokens are issued to client teams as part of an engagement",
-    "registry_url": "https://registry.modelcontextprotocol.io/v0/servers?search=agent-blueprint",
-    "npm_url": "https://www.npmjs.com/package/agentblueprint"
+    "url": "https://agentblueprint.ai/mcp",
+    "transport": "streamable-http",
+    "access": "no sign-in, read-only, keeps nothing",
+    "tools": [
+      "list_benchmark_jobs",
+      "estimate_agent_cost",
+      "check_agent_one_page",
+      "render_agent_map"
+    ]
   },
   "skills": {
     "repository": "https://github.com/agent-blueprint/agent-blueprint-skills",
     "install": "npx skills add agent-blueprint/agent-blueprint-skills --all"
   },
-  "citation": "Agent Blueprint (https://agentblueprint.ai) - methodology and platform for enterprise AI agent teams, from readiness assessment to deployed, measured agents."
+  "citation": "Agent Blueprint (https://agentblueprint.ai): helps companies decide whether each AI agent is worth it, by setting its target before launch and measuring its cost and results at 90 days."
 }

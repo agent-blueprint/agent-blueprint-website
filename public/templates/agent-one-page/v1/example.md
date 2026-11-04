@@ -58,7 +58,7 @@ Version 1, 2026-11-01. Stage: Proposed.
 - Target and date: 70 hours by 90 days after going live, including 10 hours of review.
 - This means: staff time freed up. No one's job or budget changes on this page.
 - Must not get worse: refunds paid in error stay under 1% of what the agent issues. The team's own error rate is Open, and the pilot's first month measures it. Decides: Dana Reyes.
-- Stop or rethink if: errors go over 1%, or the agent handles under 30% of requests after 90 days.
+- Stop if: errors go over 1%, or the agent handles under 30% of requests after 90 days.
 - Instead of this: keep handling refunds by hand, or auto-approve only the simplest cases with a fixed rule. The rule wasn't priced for this page.
 - ROI math: 720 requests handled x 5 minutes saved / 60 x $35 an hour = $2,100 monthly value; $2,100 - $986 = $1,114 monthly net; $6,000 / $1,114 = about 5.4 months payback at full target. At half the target, value is $1,050, cost is $667 (half the review and mistakes) and net is $383, so payback is about 15.7 months. A 90-day pilot won't pay back on its own.
 - Cash or time: cash goes down by about $396 a month (usage, hosting and mistakes). The cash never pays back by itself. The $1,750 of freed-up support time (50 hours) is capacity for other work and becomes cash only if spending drops, and it's what covers the $240 of upkeep.

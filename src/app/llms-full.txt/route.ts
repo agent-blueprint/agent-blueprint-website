@@ -6,7 +6,7 @@ import path from "node:path";
 const method = `
 ## The method in detail
 
-Every agent gets one page with seven sections, written before it goes live and finished at the check-back:
+Every agent gets one page: a short summary plus seven sections, written before it goes live and finished at the check-back:
 
 1. Purpose: the job it does, and what's out of scope.
 2. Authority: what it can do alone, what needs a person, what it must never do, and what enforces each rule (a permission, a service limit or an approval setting, or "not enforced" if it is only an instruction).

@@ -122,7 +122,7 @@ const handler = createMcpHandler(
       {
         title: "Check a one-page agent summary",
         description:
-          "Checks the structure of a one-page agent summary written from Agent Blueprint's template (https://agentblueprint.ai/agent-one-page-template): all eight sections present and in order, a stage line, every rule ending in \"Enforced by:\" or \"Not enforced:\", every Open item naming who decides, no template placeholders left, and length within one page. It checks shape only, not whether the answers are right. The text is checked and returned findings only; it is not stored.",
+          "Checks the structure of a one-page agent summary written from Agent Blueprint's template (https://agentblueprint.ai/agent-one-page-template): the summary and all seven numbered sections present and in order, a stage line, every rule ending in \"Enforced by:\" or \"Not enforced:\", every Open item naming who decides, no template placeholders left, and length within one page. It checks shape only, not whether the answers are right. The text is checked and returned findings only; it is not stored.",
         inputSchema: z.object({
           markdown: z.string().min(1).max(60_000).describe("The full one-page summary as Markdown."),
         }),

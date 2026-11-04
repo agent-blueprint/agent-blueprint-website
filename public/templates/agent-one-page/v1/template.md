@@ -57,7 +57,7 @@ How to fill this in: when you don't know an answer, write `[Open]` with who deci
 - Target and date: [value by date]
 - This means: [cash saved, staff time freed up or better service]
 - Must not get worse: [the failure that matters more than the gain]
-- Stop or rethink if: [the result that ends it, set in advance]
+- Stop if: [the result that ends it, set in advance]
 - Instead of this: [what you'd do without the agent, such as nothing or simpler automation]
 - Other value: [revenue, quality or risk reduced, if time saved doesn't capture it]
 - ROI math: [runs handled x minutes saved per run / 60 x hourly cost = monthly value; monthly value - monthly cost = monthly net; cost to build / monthly net = payback in months; repeat at half the target]
@@ -71,6 +71,6 @@ Leave this empty until the check-back.
 - Check-back date: [usually 90 days after going live]
 - Measured: [the number from section 6, and the failure rate]
 - Still matches this page: [yes, or what changed in its tools, permissions or settings]
-- Decision: [keep, change or retire], by [name], on [date]
+- Decision: [keep, fix or stop], by [name], on [date]
 
 Approved by: [name, role, date]

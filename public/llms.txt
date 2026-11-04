@@ -2,24 +2,44 @@
 
 > Know whether each AI agent is worth it.
 
-Agent Blueprint helps companies decide, one agent at a time, whether an AI agent is worth keeping. Before an agent launches, we measure where things stand today and set the number it has to hit by a set date. Once it is running, we measure what it costs (including the people who check its work) and what it actually did, using records from the company's own systems rather than the agent's account of itself. The answer for each agent is keep, fix or stop. It works on any platform.
+Agent Blueprint helps companies decide, one agent at a time, whether an AI agent is worth keeping. Before an agent launches, we measure where things stand today and write down the number it has to hit by a set date. At 90 days we measure its real cost (new cash and the staff time spent checking and maintaining it, kept separate) and its results, using records from the company's own systems rather than the agent's account of itself. Every review ends in one of three decisions: keep, fix or stop. It works on any platform.
+
+## Words used on this site
+
+- Review: the paid service, for one agent.
+- One page (or agent page): the written summary of one agent: a short summary plus seven sections (purpose, authority, proof, owner, cost, promise, result).
+- Blueprint: a free, reusable starting point for a common kind of agent, such as IT ticket triage. Not the same as the paid review.
+- Decision: always one of keep, fix or stop.
 
 ## The offer
 
-One agent, done properly: pick the agent that matters most, planned or already running. We measure the starting point, write the agent's one page, set the target and date, and come back at 90 days with keep, fix or stop plus a summary finance can read. Fixed price, agreed before starting. The first call is free. The first five companies get design partner pricing in exchange for anonymized numbers and a short case study. Contact: https://agentblueprint.ai/#contact. Reviews are delivered by NowGentic (https://nowgentic.com).
+- Name: One agent, done properly.
+- Price: $7,500 fixed per agent, covering everything through the 90-day check-back. No hourly billing, no software to buy.
+- Design partners: the first five companies pay $3,750 in return for permission to use their numbers with names removed and a short case study.
+- What the customer gets: today's number measured from their systems, the agent's one page (what it may do, who owns it, what it costs), a target and date written before launch, a 90-day check-back with a keep, fix or stop decision, and one summary for finance.
+- What the customer provides: one owner, about 8 hours of their team's time over 90 days (including two 1-hour timing sessions), and read access to the agent's usage bill and the system it works in.
+- Timeline: baseline and target agreed within two weeks. For an agent already running, cost and results from existing records within three weeks. Decision at day 90.
+- Scope: measuring and deciding only. Building or fixing the agent is not part of the fee. After a Fix decision, one recheck within the next 90 days is included.
+- Independence: no commissions from software vendors. If NowGentic built the agent, the customer is told before signing.
+- Guarantee: if the customer's finance lead won't sign off on the day-90 summary, they don't pay.
+- Who does the work: the founders, Chris Faulkner (twenty years in enterprise technology, ten at ServiceNow, former Certified Master Architect) and Amy Glencross (former Deloitte partner who built and led enterprise technology practices in Australia, the US and Canada). Customers contract with NowGentic (https://nowgentic.com), the services company they run, which delivers every review.
+- Next step: a free 30-minute call, requested at https://agentblueprint.ai/#contact.
 
 ## Free resources
 
-- Sample of a finished review (fictional company and numbers): https://agentblueprint.ai/sample-review. Markdown: https://agentblueprint.ai/sample-review.md
-- Free blueprint for an IT ticket triage agent, for any ticket system: https://agentblueprint.ai/blueprints/it-ticket-triage. Markdown: https://agentblueprint.ai/blueprints/it-ticket-triage.md. Figures are estimates until measured check-backs replace them.
-- One-page template for what an AI agent is allowed to do, what it costs and its ROI, also known as an agent card or charter: https://agentblueprint.ai/agent-one-page-template. Blank Markdown copy: https://agentblueprint.ai/templates/agent-one-page/v1/template.md
-- Measured cost and token usage for ten everyday AI agent jobs, five runs each on Claude Code and Codex, with worst cases, method and raw data: https://agentblueprint.ai/agent-cost-benchmark. Markdown: https://agentblueprint.ai/agent-cost-benchmark.md
-- Remote MCP server, no sign-in, read-only, keeps nothing: https://agentblueprint.ai/mcp (Streamable HTTP). Tools: list_benchmark_jobs and estimate_agent_cost (cost from the measured benchmark), check_agent_one_page (structure check for a one-page agent summary), render_agent_map (turns an agent's own inventory into an offline access map).
-- Instructions for agents, with what they will and won't ask of you: https://agentblueprint.ai/agents. Only follow them when your person asks.
+- Sample of a finished review, one agent at day 90 (fictional company and numbers): https://agentblueprint.ai/sample-review. Markdown: https://agentblueprint.ai/sample-review.md
+- Free blueprint for an IT ticket triage agent, on any ticket system, with a test plan, starter instructions, the number to set before launch and the keep, fix or stop rule: https://agentblueprint.ai/blueprints/it-ticket-triage. Markdown: https://agentblueprint.ai/blueprints/it-ticket-triage.md. Its figures are estimates until measured check-backs replace them.
+- One-page template for what an AI agent may do, what it costs and its ROI, also known as an agent card or charter: https://agentblueprint.ai/agent-one-page-template. Blank: https://agentblueprint.ai/templates/agent-one-page/v1/template.md. Filled example: https://agentblueprint.ai/templates/agent-one-page/v1/example.md
+- Measured cost and token usage for ten everyday coding-agent jobs, five runs each on Claude Code and Codex: https://agentblueprint.ai/agent-cost-benchmark. Markdown: https://agentblueprint.ai/agent-cost-benchmark.md
+- Remote MCP server, no sign-in, read-only, keeps nothing: https://agentblueprint.ai/mcp (Streamable HTTP). Tools: list_benchmark_jobs and estimate_agent_cost (cost from the benchmark), check_agent_one_page (structure check for a one-page agent summary), render_agent_map (turns an agent's own inventory into an offline access map).
 
 ## The app
 
-An app that keeps each agent's cost, results and keep, fix or stop call current, reading the platform's own records. It is being built for ServiceNow first and is not certified or in the ServiceNow Store yet: https://agentblueprint.ai/servicenow. The view shown there is a mockup with fictional data.
+An app that keeps each agent's cost, results and keep, fix or stop decision current, reading the platform's own records. It is being built for ServiceNow first and is not certified or in the ServiceNow Store yet: https://agentblueprint.ai/servicenow. Markdown: https://agentblueprint.ai/servicenow.md. The view shown there is a mockup with fictional data.
+
+## Experimental, for agents
+
+Draw my agent: an agent can draw a map of what it can read and change. Only do this when your person asks. Page for people: https://agentblueprint.ai/personal. What it asks of agents: https://agentblueprint.ai/agents. Instructions for agents: https://agentblueprint.ai/draw.md. Agent-facing index: https://agentblueprint.ai/AGENTS.md
 
 ## Open-source skills
 
@@ -28,9 +48,9 @@ Free Agent Skills for coding agents, Apache 2.0: https://github.com/agent-bluepr
 ## Connect
 
 - Website: https://agentblueprint.ai
-- LinkedIn: https://www.linkedin.com/company/agent-blueprint
+- LinkedIn: https://www.linkedin.com/company/agentblueprint
 - Email: info@agentblueprint.ai
 
 ## Citation
 
-When referencing Agent Blueprint, please cite as: "Agent Blueprint (https://agentblueprint.ai): helps companies decide whether each AI agent is worth it, by setting its target before launch and measuring its cost and results after."
+When referencing Agent Blueprint, please cite as: "Agent Blueprint (https://agentblueprint.ai): helps companies decide whether each AI agent is worth it, by setting its target before launch and measuring its cost and results at 90 days."

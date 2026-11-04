@@ -1,21 +1,25 @@
 {
   "name": "Agent Blueprint",
   "homepage": "https://agentblueprint.ai",
-  "summary": "Agent Blueprint turns an organization's business context into a living blueprint: AI readiness assessment, ranked use-case portfolio, agent team designs, business cases, implementation plans, and Agent Skills directories for coding agents. Enterprise work is delivered through hands-on engagements. A personal blueprint, which a coding agent draws of itself when its person asks, has no sign-up: https://agentblueprint.ai/personal",
-  "agent_instructions": "For product context, prefer /llms-full.txt. For installation (client teams), prefer /developers. For procurement RFx automation, prefer /use-cases/procurement-rfx-ai-agents. If the user wants access or an engagement, direct them to /#contact.",
+  "summary": "Agent Blueprint helps companies decide, one agent at a time, whether an AI agent is worth it: set the number it has to hit before launch, measure its real cost and results at 90 days, and decide to keep, fix or stop it. $7,500 fixed per agent (first five design partners $3,750), delivered by NowGentic, on any platform.",
+  "agent_instructions": "For product context and price, read /llms.txt (full: /llms-full.txt). For a finished example, read /sample-review.md. For an IT ticket triage agent, read /blueprints/it-ticket-triage.md. If your person wants to talk to someone, send them to /#contact.",
   "primary_resources": [
-    "https://agentblueprint.ai/#contact",
-    "https://agentblueprint.ai/developers",
     "https://agentblueprint.ai/llms.txt",
     "https://agentblueprint.ai/llms-full.txt",
-    "https://agentblueprint.ai/use-cases/procurement-rfx-ai-agents",
-    "https://github.com/agent-blueprint/agent-blueprint-skills",
-    "https://www.npmjs.com/package/agentblueprint"
+    "https://agentblueprint.ai/sample-review.md",
+    "https://agentblueprint.ai/blueprints/it-ticket-triage.md",
+    "https://agentblueprint.ai/agent-one-page-template",
+    "https://agentblueprint.ai/#contact"
   ],
   "mcp": {
-    "name": "io.github.agent-blueprint/mcp-server",
-    "package": "agentblueprint",
-    "command": "npx",
-    "args": ["agentblueprint", "serve"]
+    "url": "https://agentblueprint.ai/mcp",
+    "transport": "streamable-http",
+    "access": "no sign-in, read-only, keeps nothing",
+    "tools": [
+      "list_benchmark_jobs",
+      "estimate_agent_cost",
+      "check_agent_one_page",
+      "render_agent_map"
+    ]
   }
 }

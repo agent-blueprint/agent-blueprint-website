@@ -64,18 +64,19 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-16 md:py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="contact" className="scroll-mt-20 border-t border-border py-16 md:py-20">
+      <div className="mx-auto max-w-6xl px-6">
         <div className="mb-10 md:mb-16 text-center">
-          <span className="font-mono text-xs font-medium uppercase tracking-widest text-blueprint-annotation">
-            Contact Us
+          <span className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-accent">
+            Free, 30 minutes
           </span>
-          <h2 className="mt-4 font-display text-3xl text-foreground md:text-5xl">
-            Get In Touch
+          <h2 className="mt-4 font-display text-3xl font-bold text-foreground md:text-5xl">
+            Book a call
           </h2>
           <p className="mx-auto mt-4 max-w-2xl font-body text-base text-muted-foreground">
             Tell us where you are: still exploring, piloting, or already running
-            agents. If you have a renewal coming up, tell us when.
+            agents. We&apos;ll reply with times for a 30-minute call and tell you
+            plainly whether we can help.
           </p>
         </div>
 
@@ -98,7 +99,7 @@ export function ContactSection() {
                       <FormControl>
                         <Input
                           placeholder="Your name"
-                          className="font-body rounded-none border-0 border-b border-border bg-transparent px-0 shadow-none focus-visible:border-primary focus-visible:ring-0"
+                          className="font-body rounded-md border border-border bg-card px-3 shadow-none focus-visible:border-primary focus-visible:ring-0"
                           {...field}
                         />
                       </FormControl>
@@ -118,7 +119,7 @@ export function ContactSection() {
                         <Input
                           type="email"
                           placeholder="you@company.com"
-                          className="font-body rounded-none border-0 border-b border-border bg-transparent px-0 shadow-none focus-visible:border-primary focus-visible:ring-0"
+                          className="font-body rounded-md border border-border bg-card px-3 shadow-none focus-visible:border-primary focus-visible:ring-0"
                           {...field}
                         />
                       </FormControl>
@@ -137,7 +138,7 @@ export function ContactSection() {
                       <FormControl>
                         <Input
                           placeholder="Your company"
-                          className="font-body rounded-none border-0 border-b border-border bg-transparent px-0 shadow-none focus-visible:border-primary focus-visible:ring-0"
+                          className="font-body rounded-md border border-border bg-card px-3 shadow-none focus-visible:border-primary focus-visible:ring-0"
                           {...field}
                         />
                       </FormControl>
@@ -156,8 +157,8 @@ export function ContactSection() {
                       </FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Tell us about your project..."
-                          className="font-body min-h-[120px] rounded-none border-0 border-b border-border bg-transparent px-0 shadow-none focus-visible:border-primary focus-visible:ring-0"
+                          placeholder="Which agent, and is it planned or running? Any renewal date?"
+                          className="font-body min-h-[120px] rounded-md border border-border bg-card px-3 shadow-none focus-visible:border-primary focus-visible:ring-0"
                           {...field}
                         />
                       </FormControl>
@@ -168,9 +169,9 @@ export function ContactSection() {
                 <Button
                   type="submit"
                   disabled={form.formState.isSubmitting}
-                  className="w-full rounded-none bg-primary text-primary-foreground hover:bg-primary/90 font-body font-semibold"
+                  className="h-12 w-full rounded-md bg-primary text-base text-primary-foreground hover:bg-primary/90 font-body font-semibold"
                 >
-                  {form.formState.isSubmitting ? "Sending..." : "Send Message"}
+                  {form.formState.isSubmitting ? "Sending..." : "Request a call →"}
                 </Button>
               </form>
             </Form>
@@ -178,11 +179,11 @@ export function ContactSection() {
 
           {/* LinkedIn links */}
           <div className="flex flex-col justify-center">
-            <h3 className="font-display text-2xl text-foreground">
-              Connect With Us
+            <h3 className="font-display text-2xl font-bold text-foreground">
+              Prefer LinkedIn?
             </h3>
             <p className="mt-3 font-body text-sm text-muted-foreground">
-              Connect with the team on LinkedIn.
+              Message either founder directly.
             </p>
             <div className="mt-8 flex flex-col gap-4">
               {linkedinLinks.map((link) => (
@@ -191,7 +192,7 @@ export function ContactSection() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-3 p-4 border border-border transition-all duration-300 hover:border-primary/30 hover:bg-primary/5"
+                  className="group flex items-center gap-3 rounded-md p-4 border border-border transition-all duration-300 hover:border-primary/30 hover:bg-primary/5"
                 >
                   <Linkedin className="h-5 w-5 text-primary" />
                   <span className="font-body text-sm font-medium text-foreground group-hover:text-primary transition-colors">

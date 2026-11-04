@@ -23,30 +23,43 @@ const webPage = webPageSchema({
   dateModified: "2026-11-03",
 });
 
-// All numbers are fictional but must add up. Check the math if you change any:
-// cost 120 + 80 + 400 + 420 = 1,020; hours freed 200 - 85 = 115; 115 x 40 = 4,600;
-// net 4,600 - 1,020 = 3,580; payback 12,000 / 3,580 = 3.4 months.
+// All numbers are fictional but must add up. Check the math if you change any.
+// Minutes per ticket: sorting 2, fixing a misroute 5 (timed samples of 300).
+// Before: 4,000 x 2 = 133 h sorting + 880 misroutes (22%) x 5 = 73 h fixing = 206 h.
+// Day 90: 600 left for people x 2 = 20 h + 560 misroutes (14%) x 5 = 47 h = 67 h.
+// Freed 139 h x $40 = $5,560. Running costs: new cash $200 (usage 120 + hosting 80);
+// staff time $820 (review 10 h x $40 = 400, upkeep 6 h x $70 = 420). Review hours
+// are NOT inside the 67, so nothing is counted twice.
+// Net = 5,560 - 820 - 200 = $4,540 a month.
+// Payback: build only 12,000 / 4,540 = 2.6 months; build plus our $7,500 fee
+// 19,500 / 4,540 = 4.3 months. Cash payback: none unless freed hours replace spend.
+const scorecard = [
+  { measure: "Tickets sent to the wrong team first", before: 22, target: 12, actual: 14, unit: "%", lowerIsBetter: true, met: false },
+  { measure: "Staff hours a month sorting and fixing tickets", before: 206, target: 90, actual: 67, unit: "", lowerIsBetter: true, met: true },
+  { measure: "Major incidents sent to the wrong team", before: 0, target: 0, actual: 0, unit: "", lowerIsBetter: true, met: true },
+];
+
 const finance: DocItem[] = [
-  { label: "Decision", text: "Keep, with one fix. Check again in 60 days." },
+  { label: "Decision", text: "Fix. Keep it running, close one gap, and check again in 60 days." },
   {
-    label: "What it costs",
-    text: "$1,020 a month, measured. That's $120 usage, $80 hosting, $400 for people checking its work and $420 upkeep. It cost $12,000 to build.",
+    label: "New cash",
+    text: "$200 a month ($120 model usage, $80 hosting), plus a one-off $12,000 build and our $7,500 review.",
   },
   {
-    label: "What it did",
-    text: "The service desk spends 115 fewer hours a month sorting tickets (200 before, 85 now). At $40 an hour that's about $4,600 of staff time.",
+    label: "Staff time",
+    text: "139 fewer hours a month sorting and fixing tickets, worth $5,560 at $40 an hour. Checking its work and upkeep take back $820 (16 hours). Net: about 123 hours a month.",
   },
   {
-    label: "Cash or time",
-    text: "Spending is up $1,020 a month. It only comes down if the freed hours replace contractor time or a planned hire. That call belongs to Morgan Lee.",
+    label: "Net value",
+    text: "$5,560 - $820 - $200 = $4,540 a month.",
   },
   {
     label: "Payback",
-    text: "About 3.4 months on the build cost, counting staff time ($4,600 - $1,020 = $3,580 a month).",
+    text: "About 4.3 months on everything spent ($12,000 build + $7,500 review), counting staff time. In cash alone it never pays back unless the freed hours replace contractor time or a planned hire. That call belongs to Morgan Lee.",
   },
   {
     label: "Confidence",
-    text: "Medium. Reassignments come from the ticket history. Sorting time was measured by timing 300 tickets before launch and 300 in week 12.",
+    text: "Medium. Reassignments come from the full ticket history. Hours come from timing 300 tickets before launch and 300 in week 12: 2 minutes to sort one, 5 to fix a misroute.",
   },
 ];
 
@@ -63,7 +76,7 @@ const sections: { heading: string; note?: string; items: DocItem[] }[] = [
     items: [
       { label: "Can do on its own", text: "Set category, team, and priority P3 or P4 on new tickets. Enforced by: its ticket system role, which can edit only those three fields." },
       { label: "Needs a person", text: "Anything that looks like P1 or P2. It flags the ticket and the on-call lead decides. Enforced by: the ticket system, which blocks P1 and P2 for its role." },
-      { label: "Must never", text: "Close a ticket or lower a priority a person set. Enforced by: its role, which has no close permission and can't edit tickets a person has touched." },
+      { label: "Must never", text: "Close a ticket or change one a person has touched. Enforced by: its role, which has no close permission and is locked out once a person is assigned." },
       { label: "Runs as", text: "The service account ticket-sorter, with no admin rights." },
       { label: "Limit on its usage bill", text: "$300 a month. Enforced by: the spending cap on the model vendor account." },
     ],
@@ -88,9 +101,10 @@ const sections: { heading: string; note?: string; items: DocItem[] }[] = [
     note: "Measured, average of months 2 and 3.",
     items: [
       { label: "Volume", text: "4,000 tickets a month." },
-      { label: "Monthly cost", text: "$1,020: $120 usage ($0.03 a ticket, from the vendor bill), $80 hosting and connections, $400 review (10 hours x $40), $420 upkeep (6 hours x $70 for category changes and fixes)." },
-      { label: "Mistakes", text: "No direct cash cost. Misrouted tickets cost time, and that time is counted in the hours below." },
-      { label: "Cost to build", text: "$12,000." },
+      { label: "New cash", text: "$200 a month: $120 model usage ($0.03 a ticket, from the vendor bill) and $80 hosting and connections." },
+      { label: "Internal time", text: "$820 a month: $400 checking its work (10 hours x $40) and $420 upkeep (6 hours x $70 for category changes and fixes)." },
+      { label: "Mistakes", text: "No direct cash cost. Fixing misrouted tickets takes time, and that time is inside the sorting and fixing hours." },
+      { label: "Cost to build", text: "$12,000, one-off." },
     ],
   },
   {
@@ -98,23 +112,21 @@ const sections: { heading: string; note?: string; items: DocItem[] }[] = [
     note: "Written before launch. Not edited since.",
     items: [
       { label: "The one number", text: "Tickets reassigned to another team at least once. Today: 22%. Target: 12% by day 90." },
-      { label: "Second number", text: "Service desk hours spent sorting tickets. Today: 200 a month. Target: 80." },
+      { label: "Second number", text: "Service desk hours a month spent sorting and fixing tickets, not counting checking the agent's work. Today: 206 (133 sorting at 2 minutes a ticket, 73 fixing 880 misroutes at 5 minutes). Target: 90." },
       { label: "Must not get worse", text: "Major incidents sent to the wrong team (zero today), and time to first touch on P1 and P2 tickets." },
-      { label: "Stop if", text: "Reassignments aren't below 18% by day 90, or it misroutes a P1 twice." },
+      { label: "The rule at day 90", text: "Keep if both targets are met. Fix if it's clearly better than today but short of a target. Stop if reassignments aren't below 18%, or it misroutes a P1 twice." },
     ],
   },
+];
+
+const result: DocItem[] = [
+  { label: "Where it goes wrong", text: "6 in 10 of its misroutes are access requests sent to the network team. The request form has no option for access, so the ticket text is all it has to go on." },
+  { label: "Hours", text: "67 a month: 20 sorting the 600 tickets it left for people (too little text) and 47 fixing its 560 misroutes. Checking its work is extra and counted under cost." },
+  { label: "Must not get worse", text: "No major incidents misrouted. Time to first touch on P1 and P2 unchanged." },
+  { label: "Setup still matches this page", text: "Yes. Checked against its ticket system role on day 90." },
   {
-    heading: "7. Result",
-    note: "Measured at day 90.",
-    items: [
-      { label: "Reassigned at least once", text: "14%. Down from 22%, but 2 points short of the 12% target." },
-      { label: "Hours spent sorting", text: "85 a month, against a target of 80. That's 30 hours sorting the tickets it couldn't, 10 hours checking its work and about 45 hours fixing ones it got wrong." },
-      { label: "Handled by the agent", text: "3,400 of 4,000 tickets (85%). The rest had too little text to sort." },
-      { label: "Must not get worse", text: "No major incidents misrouted. Time to first touch on P1 and P2 unchanged." },
-      { label: "Where it goes wrong", text: "6 in 10 of its misroutes are access requests sent to the network team. The request form has no option for access, so the ticket text is all it has." },
-      { label: "Setup still matches this page", text: "Yes. Checked against its ticket system role on day 90." },
-      { label: "Decision", text: "Keep. Add an access option to the request form and the category list, then check again in 60 days. If reassignments are at 12% or lower by then, move to monthly spot checks. Decided by Morgan Lee, IT director, on day 92." },
-    ],
+    label: "Decision",
+    text: "Fix, following the rule above: reassignments are well below today's 22% but short of the 12% target. Add an access option to the request form and the category list, and check again in 60 days. At 12% or lower it becomes a Keep and moves to monthly spot checks. Decided by Morgan Lee, IT director, on day 92.",
   },
 ];
 
@@ -137,18 +149,26 @@ export default function SampleReviewPage() {
         <p className="mt-5 max-w-2xl font-body text-lg leading-relaxed text-muted-foreground">
           This is what you get back from us. Calder Freight, a made-up company,
           launched an agent that sorts incoming IT tickets. Before launch we
-          measured where they stood and set the numbers it had to hit. At 90
-          days we measured again. The page below is the result: one summary
-          for finance, then the agent&apos;s full page.
+          measured where they stood and wrote down the numbers it had to hit.
+          At 90 days we measured again. Below: the summary for finance, the
+          scorecard, then the agent&apos;s full page.
         </p>
       </section>
 
       <section className="mx-auto max-w-4xl px-6 pb-6">
         <div className="rounded-lg px-6 py-8 md:px-10" style={{ backgroundColor: "var(--hero-bg)", color: "var(--hero-fg)" }}>
-          <p className="font-mono text-xs uppercase tracking-[0.14em]" style={{ color: "var(--hero-muted)" }}>
-            For finance
+          <div className="flex flex-wrap items-center gap-3">
+            <p className="font-mono text-xs uppercase tracking-[0.14em]" style={{ color: "var(--hero-muted)" }}>
+              For finance
+            </p>
+            <span className="rounded-full bg-amber-300 px-3 py-0.5 font-mono text-xs font-semibold uppercase tracking-wider text-neutral-900">
+              Fix
+            </span>
+          </div>
+          <h2 className="mt-2 font-display text-3xl font-bold">Ticket Sorter: fix one gap, keep it running.</h2>
+          <p className="mt-2 font-body text-sm" style={{ color: "var(--hero-muted)" }}>
+            Calder Freight, IT service desk, 4,000 tickets a month. Reviewed at day 90.
           </p>
-          <h2 className="mt-2 font-display text-3xl font-bold">Ticket Sorter: keep, with one fix.</h2>
           <ul className="mt-5 space-y-3">
             {finance.map((item) => (
               <li key={item.label} className="font-body leading-relaxed" style={{ color: "var(--hero-muted)" }}>
@@ -162,13 +182,71 @@ export default function SampleReviewPage() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-4xl px-6 pt-8 pb-2" aria-labelledby="scorecard-heading">
+        <h2 id="scorecard-heading" className="font-display text-2xl font-bold text-foreground md:text-3xl">
+          Scorecard at day 90
+        </h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          {scorecard.map((row) => {
+            const max = Math.max(row.before, row.target, row.actual, 1);
+            const bars = [
+              { label: "Before", value: row.before, tone: "bg-neutral-300" },
+              { label: "Target", value: row.target, tone: "bg-neutral-500" },
+              { label: "Day 90", value: row.actual, tone: row.met ? "bg-emerald-600" : "bg-amber-500" },
+            ];
+            return (
+              <div key={row.measure} className="rounded-lg border border-border bg-card p-5">
+                <div className="flex items-start justify-between gap-3">
+                  <p className="font-body text-sm font-semibold leading-snug text-foreground">{row.measure}</p>
+                  <span
+                    className={`shrink-0 rounded-full px-2.5 py-0.5 font-mono text-[11px] font-semibold uppercase tracking-wider ${
+                      row.met ? "bg-emerald-100 text-emerald-800" : "bg-amber-100 text-amber-900"
+                    }`}
+                  >
+                    {row.met ? "Met" : "Missed"}
+                  </span>
+                </div>
+                <dl className="mt-4 space-y-2">
+                  {bars.map((b) => (
+                    <div key={b.label} className="grid grid-cols-[52px_1fr_44px] items-center gap-2 font-body text-xs">
+                      <dt className="text-muted-foreground">{b.label}</dt>
+                      <div className="h-2 rounded-full bg-secondary" aria-hidden>
+                        <div className={`h-2 rounded-full ${b.tone}`} style={{ width: `${Math.max((b.value / max) * 100, b.value === 0 ? 0 : 4)}%` }} />
+                      </div>
+                      <dd className="text-right font-semibold text-foreground">
+                        {b.value}
+                        {row.unit}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            );
+          })}
+        </div>
+        <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+          <Link
+            href="/#contact"
+            className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 font-body font-semibold text-primary-foreground transition-shadow hover:shadow-lg"
+          >
+            Get this for one of your agents
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+          <Link href="/#offer" className="group inline-flex items-center gap-2 font-body font-semibold text-primary">
+            Price and what&apos;s included
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </div>
+      </section>
+
       <div className="mx-auto max-w-4xl px-6 pb-10">
-        <p className="pt-8 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
+        <p className="pt-10 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
           The agent&apos;s page / stage: measured
         </p>
         {sections.map((s) => (
           <DocSection key={s.heading} heading={s.heading} note={s.note} items={s.items} />
         ))}
+        <DocSection heading="7. Result" note="Measured at day 90. The numbers are in the scorecard above." items={result} />
       </div>
 
       <section className="mx-auto max-w-4xl px-6 pb-24">
@@ -176,7 +254,7 @@ export default function SampleReviewPage() {
           <h2 className="font-display text-3xl font-bold text-foreground">Want this for one of your agents?</h2>
           <p className="mt-3 max-w-2xl font-body leading-relaxed text-muted-foreground">
             It works the same whether the agent is still an idea or already
-            running. The first call is free. You can also start from our{" "}
+            running. Start with a free 30-minute call, or with our{" "}
             <Link href="/blueprints/it-ticket-triage" className="text-primary underline underline-offset-4">
               free IT ticket triage blueprint
             </Link>{" "}
@@ -186,13 +264,19 @@ export default function SampleReviewPage() {
             </Link>
             .
           </p>
-          <Link
-            href="/#contact"
-            className="group mt-6 inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 font-body font-semibold text-primary-foreground transition-shadow hover:shadow-lg"
-          >
-            Book the free first call
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
+          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <Link
+              href="/#contact"
+              className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 font-body font-semibold text-primary-foreground transition-shadow hover:shadow-lg"
+            >
+              Book a free 30-minute call
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+            <Link href="/#offer" className="group inline-flex items-center gap-2 font-body font-semibold text-primary">
+              See the price and terms
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
         </div>
       </section>
     </>

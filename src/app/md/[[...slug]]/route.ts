@@ -6,6 +6,19 @@ import { MARKDOWN_PAGES } from "@/lib/markdown-pages";
 // through src/proxy.ts, never linked directly.
 const turndown = new TurndownService({ headingStyle: "atx", codeBlockStyle: "fenced", bulletListMarker: "-" });
 turndown.remove(["script", "style", "noscript", "iframe", "button"]);
+// Label/value lists (DocSection, scorecards) read best as "**Label:** value".
+turndown.addRule("definitionTerm", {
+  filter: "dt",
+  replacement: (content) => `\n\n**${content.trim().replace(/:$/, "")}:** `,
+});
+turndown.addRule("definitionDescription", {
+  filter: "dd",
+  // A code block must start on its own line to stay a fenced block.
+  replacement: (content) => {
+    const text = content.trim();
+    return text.startsWith("```") ? `\n\n${text}\n\n` : `${text}\n\n`;
+  },
+});
 // Cards that wrap a whole block in one link read better as the block followed
 // by its link than as a single giant [link](url).
 turndown.addRule("blockLink", {

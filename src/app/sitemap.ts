@@ -11,9 +11,6 @@ const pages = [
   { path: "/agent-cost-benchmark", modified: "2026-11-02", priority: 0.9 },
   { path: "/privacy", modified: "2026-11-03", priority: 0.3 },
   { path: "/terms", modified: "2026-11-03", priority: 0.3 },
-  { path: "/security", modified: "2025-02-20", priority: 0.8 },
-  { path: "/developers", modified: "2026-07-09", priority: 0.8 },
-  { path: "/use-cases/procurement-rfx-ai-agents", modified: "2026-07-09", priority: 0.7 },
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {

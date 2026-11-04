@@ -15,11 +15,10 @@ import {
 import { siteConfig } from "@/lib/metadata";
 
 const navLinks = [
-  { label: "The Offer", href: "/#offer" },
+  { label: "Price", href: "/#offer" },
   { label: "Sample", href: "/sample-review" },
-  { label: "Free Blueprint", href: "/blueprints/it-ticket-triage" },
-  { label: "Free Template", href: "/agent-one-page-template" },
-  { label: "ServiceNow App", href: "/servicenow" },
+  { label: "Free resources", href: "/#free" },
+  { label: "Who we are", href: "/#team" },
 ];
 
 function scrollToSection(id: string) {
@@ -94,15 +93,15 @@ export function Navigation() {
           <Link
             href="/#contact"
             className="inline-flex items-center px-5 py-2 rounded-lg font-body font-semibold text-sm text-white transition-all duration-200 hover:shadow-sm"
-            style={{ backgroundColor: "var(--accent)" }}
+            style={{ backgroundColor: "var(--primary)" }}
             onMouseEnter={(e) =>
-              (e.currentTarget.style.backgroundColor = "oklch(72% 0.18 32)")
+              (e.currentTarget.style.backgroundColor = "var(--primary)")
             }
             onMouseLeave={(e) =>
-              (e.currentTarget.style.backgroundColor = "var(--accent)")
+              (e.currentTarget.style.backgroundColor = "var(--primary)")
             }
           >
-            Talk to Us
+            Book a call
           </Link>
         </div>
 
@@ -149,9 +148,9 @@ export function Navigation() {
                 href="/#contact"
                 onClick={() => setSheetOpen(false)}
                 className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-body font-semibold text-sm text-white transition-colors w-full"
-                style={{ backgroundColor: "var(--accent)" }}
+                style={{ backgroundColor: "var(--primary)" }}
               >
-                Talk to Us
+                Book a call
               </Link>
             </nav>
           </SheetContent>

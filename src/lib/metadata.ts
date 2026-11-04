@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
+import { offer } from "@/lib/offer";
 
 export const siteConfig = {
   name: "Agent Blueprint",
   description:
-    "Know whether each AI agent is worth it. Set the number before you launch, review what it costs and did once it runs, and keep the answer current with the app.",
+    "Know whether each AI agent is worth it. We set the number an agent has to hit before launch, measure its real cost and results at 90 days, and give a keep, fix or stop decision. Fixed price, any platform.",
   url: "https://agentblueprint.ai",
-  appUrl: "https://app.agentblueprint.ai",
   ogImage: "https://agentblueprint.ai/images/logo.png",
 };
 
+const defaultTitle = "Agent Blueprint | Know Whether Each AI Agent Is Worth It";
+
 export const siteMetadata: Metadata = {
   title: {
-    default: "Agent Blueprint | Know What Your AI Agents Can Actually Do",
+    default: defaultTitle,
     template: "%s | Agent Blueprint",
   },
   description: siteConfig.description,
@@ -23,7 +25,7 @@ export const siteMetadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    title: "Agent Blueprint | Know What Your AI Agents Can Actually Do",
+    title: defaultTitle,
     description: siteConfig.description,
     siteName: siteConfig.name,
     images: [
@@ -37,7 +39,7 @@ export const siteMetadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Agent Blueprint | Know What Your AI Agents Can Actually Do",
+    title: defaultTitle,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },
@@ -54,6 +56,7 @@ export const siteMetadata: Metadata = {
   },
 };
 
+// Structured data. Keep every description in step with public/llms.txt.
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -62,95 +65,78 @@ export const organizationSchema = {
   url: siteConfig.url,
   logo: siteConfig.ogImage,
   description:
-    "Agent Blueprint is a methodology and platform for designing and deploying enterprise AI agent teams. Each engagement produces a living blueprint: readiness evidence, a ranked use-case portfolio, agent team designs, business cases, and Agent Skills files that coding agents build from. Delivered through hands-on engagements, not self-serve signup.",
+    "Agent Blueprint helps companies decide, one agent at a time, whether an AI agent is worth it: set the number it has to hit before launch, measure its real cost and results at 90 days, and decide to keep, fix or stop it. Reviews are delivered by NowGentic.",
   foundingDate: "2025",
-  sameAs: [
-    "https://www.linkedin.com/company/agentblueprint",
-    "https://github.com/agent-blueprint",
-    "https://www.npmjs.com/package/agentblueprint",
-    "https://registry.modelcontextprotocol.io/v0/servers?search=agent-blueprint",
+  founder: [
+    { "@type": "Person", name: "Chris Faulkner", sameAs: "https://www.linkedin.com/in/cifaulkner" },
+    { "@type": "Person", name: "Amy Glencross", sameAs: "https://www.linkedin.com/in/amyglencross" },
   ],
+  sameAs: ["https://www.linkedin.com/company/agentblueprint", "https://github.com/agent-blueprint"],
 };
 
 export const softwareApplicationSchema = {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "@id": "https://agentblueprint.ai/#app",
-  name: "Agent Blueprint",
-  applicationCategory: "BusinessApplication",
-  operatingSystem: "Web",
-  url: siteConfig.appUrl,
+  "@type": "Service",
+  "@id": "https://agentblueprint.ai/#review",
+  name: `${offer.name}: AI agent review`,
+  serviceType: "AI agent cost and results review",
+  provider: { "@id": "https://agentblueprint.ai/#org" },
+  areaServed: "Worldwide",
   description:
-    "The Agent Blueprint platform holds an organization's blueprint registry: business profile, AI readiness assessment, ranked use-case portfolio, agent team blueprints, business cases, and implementation plans, with performance tracking after deployment. Access is provided to client teams as part of an engagement.",
-  author: { "@id": "https://agentblueprint.ai/#org" },
+    "For one AI agent, planned or already running: measure today's number, write the agent's one page, set a target and date before launch, and come back at 90 days with a keep, fix or stop decision and a summary for finance. Works on any platform.",
+  offers: {
+    "@type": "Offer",
+    price: offer.price.replace(/[$,]/g, ""),
+    priceCurrency: "USD",
+    url: `${siteConfig.url}/#offer`,
+  },
 };
 
 export const mcpServerSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "@id": "https://agentblueprint.ai/#mcp-server",
-  name: "Agent Blueprint MCP Server",
+  name: "Agent Blueprint remote MCP server",
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Cross-platform",
-  url: "https://www.npmjs.com/package/agentblueprint",
+  url: `${siteConfig.url}/mcp`,
   description:
-    "MCP server for reading and downloading artifacts from an organization's Agent Blueprint registry: blueprints, business cases, implementation plans, and Agent Skills exports. Install via npx agentblueprint. Works with Claude Code, Codex, Cursor, and any MCP-compatible coding agent. API tokens are issued to client teams.",
+    "Read-only remote MCP server (Streamable HTTP), no sign-in, keeps nothing. Tools: list_benchmark_jobs, estimate_agent_cost, check_agent_one_page and render_agent_map.",
   author: { "@id": "https://agentblueprint.ai/#org" },
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-  sameAs: [
-    "https://www.npmjs.com/package/agentblueprint",
-    "https://github.com/agent-blueprint/mcp-server",
-    "https://registry.modelcontextprotocol.io/v0/servers?search=agent-blueprint",
-  ],
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
 };
 
 export const howToSchema = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   "@id": "https://agentblueprint.ai/#howto",
-  name: "How Agent Blueprint takes an organization from AI strategy to deployed agents",
+  name: "How to decide whether an AI agent is worth it",
   description:
-    "The Agent Blueprint method: assess the organization, rank the use cases worth doing, design agent teams with business cases, then deploy through coding agents and track results against the plan.",
+    "The Agent Blueprint method for one agent: measure the starting point, write the one page, set the target before launch, and decide at 90 days.",
   step: [
     {
       "@type": "HowToStep",
       position: 1,
-      name: "Build the business profile",
-      text: "Capture the organization's operating reality: industry, systems, processes, constraints, and goals. Every later recommendation is grounded in this context.",
+      name: "Measure today's number",
+      text: "Pick the one number the agent is meant to move and measure it from your own systems before launch, such as the share of tickets sent to the wrong team.",
     },
     {
       "@type": "HowToStep",
       position: 2,
-      name: "Assess AI readiness",
-      text: "Score readiness across data, process, technology, people, and governance dimensions. The assessment produces evidence that later stages cite.",
+      name: "Write the agent's one page",
+      text: "Purpose, authority (and what enforces each rule), proof, owner, cost and promise, on one page. Free template at agentblueprint.ai/agent-one-page-template.",
     },
     {
       "@type": "HowToStep",
       position: 3,
-      name: "Rank the use-case portfolio",
-      text: "Surface candidate agent use cases and force-rank them by impact and feasibility. The output is a portfolio with explicit priorities, not a list where everything is urgent.",
+      name: "Set the target and date",
+      text: "Write down the target, the date, what must not get worse and when to stop, before launch, and don't move them afterwards.",
     },
     {
       "@type": "HowToStep",
       position: 4,
-      name: "Design the agent blueprint",
-      text: "Each approved use case gets an agent team design: roles, orchestration pattern, tools, integration points, guardrails, and human approval gates.",
-    },
-    {
-      "@type": "HowToStep",
-      position: 5,
-      name: "Build the business case",
-      text: "Deterministic financials computed from the organization's own numbers: implementation costs, projected savings, and payback period. No fudge factors.",
-    },
-    {
-      "@type": "HowToStep",
-      position: 6,
-      name: "Deploy and measure",
-      text: "Blueprints export as Agent Skills directories that coding agents build from, with a phased rollout and test gates. Deployed agents report performance back against the business case, and the blueprint stays current.",
+      name: "Decide at 90 days",
+      text: "Measure cost (new cash and staff time, kept apart) and results from your systems, then decide: keep, fix or stop.",
     },
   ],
 };
@@ -165,55 +151,31 @@ export const faqPageSchema = {
       name: "What is Agent Blueprint?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Agent Blueprint gives AI agents one plain page: what an agent can read, what it can change, and who has to say yes. Anyone can have a coding agent draw its own blueprint. For companies, it is also a methodology and platform for designing and deploying AI agent teams, producing a living blueprint for the organization: an AI readiness assessment, a ranked use-case portfolio, agent team designs, deterministic business cases, and implementation plans. Blueprints are machine-readable, so coding agents like Claude Code, Codex, and Cursor build from them directly.",
+        text: "Agent Blueprint helps companies decide whether each AI agent is worth it. Before an agent launches we measure where things stand and set the number it has to hit. At 90 days we measure its real cost and results and give one of three decisions: keep, fix or stop.",
       },
     },
     {
       "@type": "Question",
-      name: "How does Agent Blueprint work?",
+      name: "What does it cost?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The method runs in stages: capture the organization's business profile, assess AI readiness, rank candidate use cases by impact and feasibility, design agent teams with orchestration patterns and guardrails, build a deterministic business case, and plan a phased rollout with test gates. Humans review every stage. After deployment, agent performance is tracked against the business case and the blueprint is updated, not archived.",
+        text: `${offer.price} fixed per agent, covering everything through the 90-day check-back. The first ${offer.designPartnerSeats} companies pay ${offer.designPartnerPrice} as design partners. The first call is free.`,
       },
     },
     {
       "@type": "Question",
-      name: "Is Agent Blueprint self-serve?",
+      name: "Does it work on my platform?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The personal blueprint is: paste one line into your coding agent, with no sign-up, at agentblueprint.ai/personal. Enterprise work is delivered through hands-on engagements. Client teams get platform access, API tokens, the CLI, and the MCP server as part of an engagement. To see how it would work on your organization, use the contact form at agentblueprint.ai/#contact.",
+        text: "Yes. The review reads usage and results from your own systems, whatever the agent runs on. An app that keeps the answer current is being built for ServiceNow first.",
       },
     },
     {
       "@type": "Question",
-      name: "Who is Agent Blueprint for?",
+      name: "Is there a free version?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Anyone who runs a coding agent and wants a plain picture of what it can do, and organizations that want AI agents in production with evidence behind every decision. For organizations, we work directly with your team during an engagement, and your coding agents consume the blueprint through Agent Skills exports and the MCP server.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How do I install the Agent Blueprint MCP server?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Install via npm: npx agentblueprint. The server connects a coding agent to your organization's blueprint registry, with tools for listing and downloading blueprints, business cases, and implementation plans. It uses stdio transport and works with any MCP-compatible agent. An API token issued with your engagement is required.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What open-source skills does Agent Blueprint publish?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Free, Apache 2.0 licensed Agent Skills at github.com/agent-blueprint/agent-blueprint-skills: foundation skills (agent-fundamentals, servicenow-ai-agents, agent-deployment, research-agent) and blueprint patterns for common agent teams (IT service desk triage, procurement RFx processing, customer onboarding). Install via npx skills add agent-blueprint/agent-blueprint-skills.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What makes a blueprint different from a consulting deliverable?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "A typical strategy deliverable is a document that starts aging the day it lands. An Agent Blueprint is a living artifact in a registry: recommendations link to readiness evidence, the blueprint exports as files coding agents build from, and performance data flows back in after deployment. When the business changes, the blueprint changes with it.",
+        text: "Yes: a one-page agent template, a free IT ticket triage agent blueprint and a sample finished review, all without sign-up.",
       },
     },
   ],

@@ -7,21 +7,12 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
           <p className="font-body text-sm text-muted-foreground">
             &copy; 2026 Agent Blueprint. All rights reserved.
+            <span className="mt-1 block text-xs">
+              ServiceNow is a trademark of ServiceNow, Inc. We aren&apos;t affiliated with or endorsed by ServiceNow.
+            </span>
           </p>
 
           <div className="flex items-center gap-6">
-            <Link
-              href="/developers"
-              className="font-body text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Developers
-            </Link>
-            <Link
-              href="/security"
-              className="font-body text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Security
-            </Link>
             <Link
               href="/privacy"
               className="font-body text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"

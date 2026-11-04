@@ -28,10 +28,12 @@ export const config = {
     "/agents",
     "/sample-review",
     "/blueprints/it-ticket-triage",
+    "/servicenow",
     "/index.md",
     "/personal.md",
     "/agents.md",
     "/sample-review.md",
     "/blueprints/it-ticket-triage.md",
+    "/servicenow.md",
   ],
 };
