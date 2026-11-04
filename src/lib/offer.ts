@@ -11,7 +11,8 @@ export const offer = {
 };
 
 // The renewal review: every live agent on one platform, before the renewal.
-// DRAFT PRICE: placeholder until Chris and Amy confirm it.
+// $24,000 confirmed by Chris on 2026-11-03. Design partner and extra-review
+// prices below are still drafts.
 // Logic: two deep reviews ($7,500 each) plus a lighter pass over the rest,
 // priced near one year of a single pool-tier step for a mid-size add-on.
 export const renewal = {
