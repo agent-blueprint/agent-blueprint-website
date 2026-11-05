@@ -40,11 +40,11 @@ type ContactSectionProps = {
 };
 
 export function ContactSection({
-  eyebrow = "Free, 30 minutes",
-  heading = "Request a call",
-  intro = "Tell us where you are: still exploring, piloting, or already running agents. We'll reply with times for a 30-minute call and tell you plainly whether we can help.",
-  messagePlaceholder = "Which agent, and is it planned or running? Any renewal date?",
-  submitLabel = "Request a call",
+  eyebrow = "",
+  heading = "Request access",
+  intro = "Tell us a little about your business and the agents you're thinking about. We'll set you up and walk you through it.",
+  messagePlaceholder = "What your business does, and which agents you're thinking about",
+  submitLabel = "Request access",
 }: ContactSectionProps = {}) {
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
@@ -199,7 +199,7 @@ export function ContactSection({
                   {form.formState.isSubmitting ? "Sending..." : `${submitLabel} →`}
                 </Button>
                 <p className="text-center font-body text-sm text-muted-foreground">
-                  We reply within one business day with times for the call.
+                  We reply within one business day.
                 </p>
               </form>
             </Form>

@@ -131,12 +131,9 @@ export default function AgentCostBenchmarkPage() {
           </li>
         </ul>
         <p className="mt-6 font-body text-sm leading-relaxed text-muted-foreground">
-          By Chris Faulkner, Agent Blueprint. Runs on {RUN_DATE} with Claude Code 2.1.307 (claude-opus-5-5) and Codex
-          CLI 0.154.0 (gpt-6-astra). Agent Blueprint is the method{" "}
-          <a href="https://nowgentic.com" className="text-primary underline underline-offset-4">
-            NowGentic
-          </a>{" "}
-          uses in its paid agent delivery work.
+          By Chris Faulkner, Agent Blueprint&reg;. Runs on {RUN_DATE} with Claude Code 2.1.307 (claude-opus-5-5) and Codex
+          CLI 0.154.0 (gpt-6-astra). Agent Blueprint is software for planning AI
+          agents, and we have a stake in what they cost.
         </p>
       </section>
 

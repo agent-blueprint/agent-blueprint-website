@@ -12,13 +12,11 @@ import {
   SheetTitle,
   SheetDescription,
 } from "@/components/ui/sheet";
-import { siteConfig } from "@/lib/metadata";
 
 const navLinks = [
-  { label: "Price", href: "/#offer" },
-  { label: "Sample", href: "/sample-review" },
-  { label: "ServiceNow", href: "/servicenow" },
-  { label: "Who we are", href: "/#team" },
+  { label: "How it works", href: "/#how" },
+  { label: "For consulting firms", href: "/consulting-firms" },
+  { label: "Sign in", href: "https://app.agentblueprint.ai/signin" },
 ];
 
 function scrollToSection(id: string) {
@@ -63,7 +61,7 @@ export function Navigation() {
             priority
           />
           <span className="font-body font-semibold text-xl text-foreground">
-            Agent Blueprint
+            Agent Blueprint<sup className="ml-0.5 text-[0.55em] font-normal">&reg;</sup>
           </span>
         </Link>
 
@@ -101,7 +99,7 @@ export function Navigation() {
               (e.currentTarget.style.backgroundColor = "var(--primary)")
             }
           >
-            Request a call
+            Request access
           </Link>
         </div>
 
@@ -150,7 +148,7 @@ export function Navigation() {
                 className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-body font-semibold text-sm text-white transition-colors w-full"
                 style={{ backgroundColor: "var(--primary)" }}
               >
-                Request a call
+                Request access
               </Link>
             </nav>
           </SheetContent>

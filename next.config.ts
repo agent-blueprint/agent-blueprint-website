@@ -55,6 +55,12 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // The app's closed partner-signup page links here.
+      {
+        source: "/partners",
+        destination: "/consulting-firms",
+        permanent: false,
+      },
       {
         source: "/developers",
         destination: "/",

@@ -4,30 +4,21 @@ import { siteConfig } from "@/lib/metadata";
 const items = [
   {
     path: "/",
-    title: "Agent Blueprint: Know Whether Each AI Agent Is Worth It",
+    title: "Agent Blueprint: Know What Each AI Agent Will Cost and Save",
     summary:
-      "Measure an agent's real cost and results against a number set in advance, and decide to keep, fix or stop it: three weeks for an agent already running, day 90 for a new one. Renewal review of every live agent on a platform $24,000; one agent $7,500; any platform.",
+      "Agent Blueprint software turns a profile of your business into a ranked list of the AI agents worth building, each with a design and a business case.",
     published: "2025-09-15",
-    modified: "2026-11-03",
-    tags: ["ai-agents", "ai-roi", "ai-cost", "agent-governance"],
-  },
-  {
-    path: "/sample-review",
-    title: "Sample: One AI Agent, Reviewed at 90 Days",
-    summary:
-      "A finished review for a fictional company's IT ticket agent: finance summary, scorecard and the agent's full one page, with every number shown.",
-    published: "2026-11-03",
-    modified: "2026-11-03",
-    tags: ["ai-agents", "ai-roi", "sample"],
+    modified: "2026-11-04",
+    tags: ["ai-agents", "ai-roi", "ai-cost", "agent-design"],
   },
   {
     path: "/blueprints/it-ticket-triage",
-    title: "IT Ticket Triage AI Agent: Free Blueprint",
+    title: "Example Agent Record: IT Ticket Triage",
     summary:
       "What a ticket triage agent needs, what not to let it touch, how to test it, starter instructions, the number to set before launch and the keep, fix or stop rule.",
     published: "2026-11-03",
     modified: "2026-11-03",
-    tags: ["it-service-desk", "ticket-triage", "ai-agents", "blueprint"],
+    tags: ["it-service-desk", "ticket-triage", "ai-agents", "agent-record"],
   },
   {
     path: "/agent-one-page-template",

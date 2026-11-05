@@ -6,7 +6,7 @@ import { CopyLine } from "@/components/copy-line";
 import { breadcrumbSchema, webPageSchema } from "@/lib/metadata";
 
 const description =
-  "A blueprint your agent can use: it draws itself and takes back the rules you set. Read the exact instructions first, with no hidden text.";
+  "Your agent draws a map of what it can read and change, and takes back the rules you set. Read the exact instructions first, with no hidden text.";
 
 export const metadata: Metadata = {
   title: "For Agents",
@@ -50,12 +50,12 @@ const neverAsk = [
 ];
 
 const agentLinks = [
-  ["/draw.md", "Instructions for drawing a blueprint of yourself"],
+  ["/draw.md", "Instructions for drawing an agent map of yourself"],
   ["/draw/v0.2/template.html", "The page you fill in"],
   ["/draw/view", "Opens a drawing from a link or pasted data, for agents that can't save files"],
   ["/agent-one-page-template.md", "One-page summary template to fill in with your person"],
   ["/agent-cost-benchmark.md", "Measured token usage and cost for ten everyday agent jobs"],
-  ["/llms.txt", "Short summary of Agent Blueprint"],
+  ["/llms.txt", "Short summary of Agent Blueprint®"],
   ["/llms-full.txt", "Full reference"],
   ["/AGENTS.md", "Where to send your person next"],
 ];
@@ -87,7 +87,7 @@ export default function AgentsPage() {
               letterSpacing: "-0.03em",
             }}
           >
-            A blueprint your agent can use.
+            A map your agent draws of itself.
           </h1>
           <p className="mt-5 max-w-2xl font-body text-lg leading-relaxed" style={{ color: "var(--hero-muted)" }}>
             Your agent reads one file, draws what it can do, and takes back the

@@ -1,7 +1,7 @@
 {
   "name": "Agent Blueprint",
   "url": "https://agentblueprint.ai",
-  "description": "Methodology and platform for designing and deploying enterprise AI agent teams. Living blueprints with readiness evidence, ranked use cases, agent team designs, business cases, and Agent Skills exports. Enterprise work is delivered through hands-on engagements. A personal blueprint, which a coding agent draws of itself when its person asks, has no sign-up: https://agentblueprint.ai/personal",
+  "description": "Agent Blueprint® is software at https://app.agentblueprint.ai. A company builds a business profile and gets a ranked list of use cases and, for each one it picks, an agent design with a business case. Designs export as Agent Skills files and through an MCP server for coding agents. Access is by request. Self-serve signup is closed. Reviews and fixed-price engagements are offered by NowGentic (https://nowgentic.com), not by Agent Blueprint. An agent map, which a coding agent draws of itself when its person asks, has no sign-up: https://agentblueprint.ai/personal",
   "contact": "https://agentblueprint.ai/#contact",
   "llms_txt": "https://agentblueprint.ai/llms.txt",
   "llms_full_txt": "https://agentblueprint.ai/llms-full.txt",
@@ -16,7 +16,7 @@
   "mcp_server": {
     "name": "io.github.agent-blueprint/mcp-server",
     "package": "agentblueprint",
-    "access": "API tokens are issued to client teams as part of an engagement",
+    "access": "API tokens come with access to the software, which is by request",
     "registry": "https://registry.modelcontextprotocol.io/v0/servers?search=agent-blueprint"
   },
   "skills_repository": "https://github.com/agent-blueprint/agent-blueprint-skills"

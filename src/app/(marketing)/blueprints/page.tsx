@@ -3,9 +3,9 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { breadcrumbSchema, webPageSchema } from "@/lib/metadata";
 
-const title = "Free AI Agent Blueprints";
+const title = "Starter Records for Common AI Agents";
 const description =
-  "Free, platform-neutral blueprints for common AI agents: what each needs, what not to let it touch, how to test it, the number to set before launch and when to keep, fix or stop it.";
+  "Free, platform-neutral starter records for common AI agents: what each needs, what not to let it touch, how to test it, the number to set before launch and when to keep, fix or stop it.";
 
 export const metadata: Metadata = {
   title,
@@ -31,7 +31,7 @@ export default function BlueprintsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPage) }} />
       <section className="mx-auto max-w-4xl px-6 pt-28 pb-24 md:pt-36">
         <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent">Free, no sign-up</p>
-        <h1 className="mt-4 font-display text-5xl font-bold text-foreground">Agent blueprints</h1>
+        <h1 className="mt-4 font-display text-5xl font-bold text-foreground">Starter records for common agents</h1>
         <p className="mt-5 max-w-2xl font-body text-lg leading-relaxed text-muted-foreground">
           Starting points for common agents, on any platform. Each one says what
           the agent needs, what to keep it away from, how to test it and the
@@ -44,7 +44,7 @@ export default function BlueprintsPage() {
                 <h2 className="font-display text-2xl font-bold text-foreground">{b.title}</h2>
                 <p className="mt-2 font-body leading-relaxed text-muted-foreground">{b.text}</p>
                 <span className="mt-4 inline-flex items-center gap-2 font-body text-sm font-semibold text-primary">
-                  Read the blueprint
+                  Read the record
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>
               </Link>

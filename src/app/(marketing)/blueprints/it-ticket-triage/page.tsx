@@ -5,9 +5,9 @@ import { DocSection, type DocItem } from "@/components/doc-section";
 import { breadcrumbSchema, webPageSchema } from "@/lib/metadata";
 
 const path = "/blueprints/it-ticket-triage";
-const title = "IT Ticket Triage AI Agent: Free Blueprint";
+const title = "Example Agent Record: IT Ticket Triage";
 const description =
-  "Free blueprint for an AI agent that sorts IT tickets: what it needs, what not to let it touch, how to test it, starter instructions and output format, the number to measure before launch, its cost, and when to keep, fix or stop it. Works on any ticket system.";
+  "Free example agent record for an AI agent that sorts IT tickets: what it needs, what not to let it touch, how to test it, starter instructions and output format, the number to measure before launch, its cost, and when to keep, fix or stop it. Works on any ticket system.";
 
 export const metadata: Metadata = {
   title,
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 const breadcrumb = breadcrumbSchema([
-  { name: "Free AI Agent Blueprints", path: "/blueprints" },
+  { name: "Starter Records for Common AI Agents", path: "/blueprints" },
   { name: title, path },
 ]);
 const webPage = webPageSchema({
@@ -252,9 +252,8 @@ export default function ItTicketTriageBlueprintPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPage) }} />
 
       <section className="mx-auto max-w-6xl px-6 pt-28 pb-10 md:pt-36">
-        <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent">Free blueprint, no sign-up</p>
         <h1
-          className="mt-4 font-display font-bold text-foreground"
+          className="font-display font-bold text-foreground"
           style={{ fontSize: "clamp(2.5rem, 5vw + 0.5rem, 4.25rem)", lineHeight: 1.05, letterSpacing: "-0.03em" }}
         >
           IT ticket triage agent
@@ -262,7 +261,7 @@ export default function ItTicketTriageBlueprintPage() {
         <p className="mt-5 max-w-2xl font-body text-lg leading-relaxed text-muted-foreground">
           An agent that reads each new IT ticket and sends it to the right team.
           It&apos;s one of the most common first agents and one of the easiest to
-          measure. This is our working blueprint for it, on any ticket system:
+          measure. This is our example agent record for it, on any ticket system:
           what it needs, what to keep it away from, how to test it, starter
           instructions, the number to set before launch and when to keep, fix or
           stop it.
@@ -301,22 +300,22 @@ export default function ItTicketTriageBlueprintPage() {
 
       <section className="mx-auto max-w-6xl px-6 pb-24">
         <div className="rounded-lg px-6 py-10 md:px-10" style={{ backgroundColor: "var(--hero-bg)", color: "var(--hero-fg)" }}>
-          <h2 className="font-display text-3xl font-bold">Want someone to own the number and the 90-day call?</h2>
+          <h2 className="font-display text-3xl font-bold">Planning more than one agent?</h2>
           <p className="mt-3 max-w-2xl font-body leading-relaxed" style={{ color: "var(--hero-muted)" }}>
-            That&apos;s our paid review: we measure where you are today, set the
-            target with you, and come back at 90 days with a keep, fix or stop
-            decision finance can sign off.
+            Agent Blueprint&reg; software ranks the agents worth building for
+            your business and gives each one a design and a business case from
+            your own numbers.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
             <Link
               href="/#contact"
               className="group inline-flex items-center gap-2 rounded-md bg-white px-5 py-3 font-body font-semibold text-neutral-900 transition-shadow hover:shadow-lg"
             >
-              Request a free 30-minute call
+              Request access
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
-            <Link href="/sample-review" className="group inline-flex items-center gap-2 font-body font-semibold">
-              See a finished review
+            <Link href="/#how" className="group inline-flex items-center gap-2 font-body font-semibold">
+              See how it works
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>

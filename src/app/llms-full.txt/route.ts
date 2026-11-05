@@ -1,12 +1,12 @@
 import { readFileSync } from "node:fs";
 import path from "node:path";
 
-// The full reference is llms.txt plus the method in detail, so the two files
-// can never describe different offers.
+// The full reference is llms.txt plus the agent record in detail, so the two
+// files can never describe different things.
 const method = `
-## The method in detail
+## The agent record in detail
 
-Every agent gets one page: a short summary plus seven sections, written before it goes live and finished at the check-back:
+An agent record is one page: a short summary plus seven sections, written before the agent goes live and finished at the check-back:
 
 1. Purpose: the job it does, and what's out of scope.
 2. Authority: what it can do alone, what needs a person, what it must never do, and what enforces each rule (a permission, a service limit or an approval setting, or "not enforced" if it is only an instruction).

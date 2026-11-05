@@ -1,12 +1,11 @@
 {
   "name": "Agent Blueprint",
   "homepage": "https://agentblueprint.ai",
-  "summary": "Agent Blueprint helps companies decide, one agent at a time, whether an AI agent is worth it: measure its real cost and results against a number set in advance, then keep, fix or stop it (three weeks for an agent already running, day 90 for a new one). A renewal review of every live agent on one platform for $24,000, or one agent for $7,500 (first five design partners half price), delivered by NowGentic, on any platform.",
-  "agent_instructions": "For product context and price, read /llms.txt (full: /llms-full.txt). For a finished example, read /sample-review.md. For an IT ticket triage agent, read /blueprints/it-ticket-triage.md. If your person wants to talk to someone, send them to /#contact.",
+  "summary": "Agent Blueprint® is software at https://app.agentblueprint.ai. A company builds a business profile and gets a ranked list of use cases and, for each one it picks, an agent design with a business case. Designs export as Agent Skills files and through an MCP server for coding agents. Access is by request. Self-serve signup is closed. Reviews and fixed-price engagements are offered by NowGentic (https://nowgentic.com), not by Agent Blueprint.",
+  "agent_instructions": "For product context, read /llms.txt (full: /llms-full.txt). For the example agent record for IT ticket triage, read /blueprints/it-ticket-triage.md. If your person wants to talk to someone, send them to /#contact.",
   "primary_resources": [
     "https://agentblueprint.ai/llms.txt",
     "https://agentblueprint.ai/llms-full.txt",
-    "https://agentblueprint.ai/sample-review.md",
     "https://agentblueprint.ai/blueprints/it-ticket-triage.md",
     "https://agentblueprint.ai/templates/agent-one-page/v1/template.md",
     "https://agentblueprint.ai/#contact"

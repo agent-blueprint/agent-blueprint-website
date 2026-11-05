@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<title>Larkspur Agent Blueprints</title>
+<title>Larkspur Agent Records</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -804,8 +804,8 @@ h2 { margin: 0; font: 700 22px/1.15 var(--display); }
   var WORDS = ["No", "One", "Two", "Three", "Four", "Five", "Six", "Seven"];
   function renderFleet() {
     app.innerHTML = "";
-    document.title = "Larkspur Agent Blueprints";
-    header("Agent Blueprint" + DOT + "Larkspur Health", "Get more from your AI before renewal", "Your ServiceNow AI renews " + RENEWS + ". Here's what's paying off, what to change, and where to put the assists you free up.", false);
+    document.title = "Larkspur Agent Records";
+    header("Agent Blueprint\u00ae" + DOT + "Larkspur Health", "Get more from your AI before renewal", "Your ServiceNow AI renews " + RENEWS + ". Here's what's paying off, what to change, and where to put the assists you free up.", false);
 
     var v = h("section", "verdict", app);
     var vt = h("p", "verdict-t", v);
@@ -835,7 +835,7 @@ h2 { margin: 0; font: 700 22px/1.15 var(--display); }
       }
     });
 
-    h("p", "foot", app, "Mockup only. Larkspur Health, the people and every number here are made up to show the format. Click any agent to open its full blueprint.");
+    h("p", "foot", app, "Mockup only. Larkspur Health, the people and every number here are made up to show the format. Click any agent to open its full agent record.");
   }
 
   function poolBars() {
@@ -885,7 +885,7 @@ h2 { margin: 0; font: 700 22px/1.15 var(--display); }
     var c = h(x.isSkill ? "div" : "button", "card" + (x.isSkill ? " static" : ""));
     if (!x.isSkill) {
       c.type = "button";
-      c.setAttribute("aria-label", "Open the blueprint for " + x.name);
+      c.setAttribute("aria-label", "Open the agent record for " + x.name);
       c.addEventListener("click", function () { go(x.id); });
     }
     var head = h("div", "card-head", c);
@@ -928,7 +928,7 @@ h2 { margin: 0; font: 700 22px/1.15 var(--display); }
   function renderFinance() {
     app.innerHTML = "";
     document.title = "Larkspur AI Summary";
-    header("Agent Blueprint" + DOT + "Larkspur Health", "AI spend and return", "One page for finance. Figures are for the last 30 days unless noted.", true);
+    header("Agent Blueprint\u00ae" + DOT + "Larkspur Health", "AI spend and return", "One page for finance. Figures are for the last 30 days unless noted.", true);
 
     var totals = h("section", "totals", app);
     [[money(PLAN.saved), "staff time saved"], [money(PLAN.cost), "AI use, valued at $" + ASSIST.toFixed(2) + " per assist"], [cents(PLAN.ret), "back for every $1"], [num(PLAN.assists), "assists used"]].forEach(function (t) {
@@ -1034,15 +1034,15 @@ h2 { margin: 0; font: 700 22px/1.15 var(--display); }
   // ---------- One agent's sheet ----------
   function renderAgent(a) {
     app.innerHTML = "";
-    document.title = a.name + " Blueprint";
-    header("Agent Blueprint" + DOT + "Larkspur Health", a.name, a.job, true);
+    document.title = a.name + " Agent Record";
+    header("Agent Blueprint\u00ae" + DOT + "Larkspur Health", a.name, a.job, true);
 
     var ban = h("section", "ban", app);
     h("span", "chip " + CHIP[a.decision], ban, LABEL[a.decision]);
     h("span", "ban-t", ban, a.reason);
 
     var scroll = h("div", "sheet-scroll", app);
-    var svg = el("svg", { "class": "sheet", viewBox: "0 0 1200 750", role: "img", "aria-label": "Blueprint drawing of the " + a.name }, scroll);
+    var svg = el("svg", { "class": "sheet", viewBox: "0 0 1200 750", role: "img", "aria-label": "Agent map of the " + a.name }, scroll);
     var D = {};
     function hit(key, label, info) {
       D[key] = info;

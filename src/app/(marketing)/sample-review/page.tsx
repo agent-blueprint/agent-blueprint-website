@@ -6,11 +6,14 @@ import { breadcrumbSchema, webPageSchema } from "@/lib/metadata";
 
 const title = "Sample: One AI Agent, Reviewed at 90 Days";
 const description =
-  "A finished example of what an Agent Blueprint review hands back: one IT ticket agent's page at its 90-day check-back, with measured cost, results and a keep, fix or stop decision. Fictional company and numbers.";
+  "A finished example of what a NowGentic review hands back: one IT ticket agent's record at its 90-day check-back, with measured cost, results and a keep, fix or stop decision. Fictional company and numbers.";
 
+// A NowGentic deliverable, kept online for NowGentic to link to. Not indexed or
+// linked from Agent Blueprint pages (trademark handover, Nov 4 2026).
 export const metadata: Metadata = {
   title,
   description,
+  robots: { index: false, follow: true },
   alternates: { canonical: "/sample-review", types: { "text/markdown": "/sample-review.md" } },
 };
 
@@ -20,7 +23,7 @@ const webPage = webPageSchema({
   description,
   path: "/sample-review",
   datePublished: "2026-11-03",
-  dateModified: "2026-11-03",
+  dateModified: "2026-11-04",
 });
 
 // All numbers are fictional but must add up. Check the math if you change any.
@@ -159,11 +162,11 @@ export default function SampleReviewPage() {
           One agent, 90 days later.
         </h1>
         <p className="mt-5 max-w-2xl font-body text-lg leading-relaxed text-muted-foreground">
-          This is what you get back from us. Calder Freight, a made-up company,
-          launched an agent that sorts incoming IT tickets. Before launch we
-          measured where they stood and wrote down the numbers it had to hit.
-          At 90 days we measured again. Below: the summary for finance, the
-          scorecard, then the agent&apos;s full page.
+          An example of what a NowGentic review hands back. Calder Freight, a
+          made-up company, launched an agent that sorts incoming IT tickets.
+          Before launch, NowGentic measured where they stood and wrote down the
+          numbers it had to hit. At 90 days they measured again. Below: the
+          summary for finance, the scorecard, then the agent&apos;s full record.
         </p>
       </section>
 
@@ -274,17 +277,14 @@ export default function SampleReviewPage() {
           ))}
         </ul>
         <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
-          <Link
-            href="/#contact"
+          <a
+            href="https://nowgentic.com"
+            rel="noopener"
             className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 font-body font-semibold text-primary-foreground transition-shadow hover:shadow-lg"
           >
-            Get this for one of your agents
+            Ask NowGentic about a review
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
-          <Link href="/#offer" className="group inline-flex items-center gap-2 font-body font-semibold text-primary">
-            Price and what&apos;s included
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
+          </a>
         </div>
       </section>
 
@@ -304,7 +304,7 @@ export default function SampleReviewPage() {
 
       <div className="mx-auto max-w-4xl px-6 pb-10">
         <p className="pt-10 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
-          The agent&apos;s page / stage: measured
+          The agent record / stage: measured
         </p>
         {sections.map((s) => (
           <DocSection key={s.heading} heading={s.heading} note={s.note} items={s.items} />
@@ -316,10 +316,9 @@ export default function SampleReviewPage() {
         <div className="border-t border-border pt-10">
           <h2 className="font-display text-3xl font-bold text-foreground">Want this for one of your agents?</h2>
           <p className="mt-3 max-w-2xl font-body leading-relaxed text-muted-foreground">
-            It works the same whether the agent is still an idea or already
-            running. Start with a free 30-minute call, or with our{" "}
+            NowGentic runs these reviews. Or start on your own with our{" "}
             <Link href="/blueprints/it-ticket-triage" className="text-primary underline underline-offset-4">
-              free IT ticket triage blueprint
+              free example agent record for IT ticket triage
             </Link>{" "}
             or the{" "}
             <Link href="/agent-one-page-template" className="text-primary underline underline-offset-4">
@@ -328,17 +327,14 @@ export default function SampleReviewPage() {
             .
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
-            <Link
-              href="/#contact"
+            <a
+              href="https://nowgentic.com"
+              rel="noopener"
               className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 font-body font-semibold text-primary-foreground transition-shadow hover:shadow-lg"
             >
-              Request a free 30-minute call
+              See NowGentic
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <Link href="/#offer" className="group inline-flex items-center gap-2 font-body font-semibold text-primary">
-              See the price and terms
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            </a>
           </div>
         </div>
       </section>

@@ -1,18 +1,14 @@
 {
   "name": "Agent Blueprint",
   "url": "https://agentblueprint.ai",
-  "description": "Agent Blueprint helps companies decide, one agent at a time, whether an AI agent is worth it: measure its real cost and results against a number set in advance, then keep, fix or stop it (three weeks for an agent already running, day 90 for a new one). A renewal review of every live agent on one platform for $24,000, or one agent for $7,500 (first five design partners half price), delivered by NowGentic, on any platform.",
+  "description": "Agent Blueprint® is software at https://app.agentblueprint.ai. A company builds a business profile and gets a ranked list of use cases and, for each one it picks, an agent design with a business case. Designs export as Agent Skills files and through an MCP server for coding agents. Access is by request. Self-serve signup is closed. Reviews and fixed-price engagements are offered by NowGentic (https://nowgentic.com), not by Agent Blueprint.",
   "best_next_actions": [
     {
-      "when": "your person wants to know what Agent Blueprint offers or costs",
+      "when": "your person wants to know what Agent Blueprint does",
       "url": "https://agentblueprint.ai/llms.txt"
     },
     {
-      "when": "seeing what a finished review looks like",
-      "url": "https://agentblueprint.ai/sample-review.md"
-    },
-    {
-      "when": "setting up an IT ticket triage agent",
+      "when": "setting up an IT ticket triage agent (example agent record)",
       "url": "https://agentblueprint.ai/blueprints/it-ticket-triage.md"
     },
     {
@@ -28,11 +24,11 @@
       "url": "https://agentblueprint.ai/servicenow.md"
     },
     {
-      "when": "your person wants to talk to someone (free 30-minute call)",
+      "when": "your person wants access or to talk to someone",
       "url": "https://agentblueprint.ai/#contact"
     },
     {
-      "when": "your person asks you to draw a blueprint of yourself (experimental)",
+      "when": "your person asks you to draw an agent map of yourself (experimental)",
       "url": "https://agentblueprint.ai/draw.md"
     },
     {
@@ -55,5 +51,5 @@
     "repository": "https://github.com/agent-blueprint/agent-blueprint-skills",
     "install": "npx skills add agent-blueprint/agent-blueprint-skills --all"
   },
-  "citation": "Agent Blueprint (https://agentblueprint.ai): helps companies decide whether each AI agent is worth it, by measuring its real cost and results against a number set in advance and deciding to keep, fix or stop it."
+  "citation": "Agent Blueprint (https://agentblueprint.ai): software that turns a business profile into ranked use cases and an agent design with a business case for each one, exported as Agent Skills files and through an MCP server for coding agents."
 }

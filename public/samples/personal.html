@@ -238,7 +238,7 @@ input[type=file] { max-width: 100%; font: 14px var(--body); color: var(--muted);
 
   var app = document.getElementById("app");
   var head = h("header", "top", app), hl = h("div", null, head);
-  h("div", "eyebrow", hl, "Agent Blueprint" + DOT + "Draw my agent");
+  h("div", "eyebrow", hl, "Agent Blueprint\u00ae" + DOT + "Draw my agent");
   h("h1", null, hl, data.agent && data.agent.name || "My agent");
   h("p", "headline", hl, "It can change things through " + conns.filter(function (c) { return c.changes.length; }).length + " of its " + plural(conns.length, "connection") + ". " + (!nFree ? "It's set to ask before changing anything." : nFree === nChanges ? "It couldn't confirm that any of its " + plural(nChanges, "action") + " that change things has to ask you first." : nFree + " of its " + plural(nChanges, "action") + " that change things have no confirmed requirement to ask you first."));
   var side = h("div", "side", head);
@@ -254,7 +254,7 @@ input[type=file] { max-width: 100%; font: 14px var(--body); color: var(--muted);
     var t = h("section", "try", app);
     h("div", "try-k", t, "Try it on your agent");
     var row = h("div", "try-row", t);
-    var line = "Read agentblueprint.ai/draw.md and draw me a blueprint of yourself.";
+    var line = "Read agentblueprint.ai/draw.md and draw me an agent map of yourself.";
     h("div", "try-line", row, line);
     var cp = h("button", "copy", row, "Copy");
     cp.type = "button";
@@ -279,7 +279,7 @@ input[type=file] { max-width: 100%; font: 14px var(--body); color: var(--muted);
   }
 
   var scroll = h("div", "scroll", app);
-  var svg = el("svg", { "class": "sheet", viewBox: "0 0 1200 710", role: "img", "aria-label": "Blueprint drawing of what this agent can read and change" }, scroll);
+  var svg = el("svg", { "class": "sheet", viewBox: "0 0 1200 710", role: "img", "aria-label": "Agent map of what this agent can read and change" }, scroll);
   el("rect", { "class": "frame-o", x: 16, y: 16, width: 1168, height: 678 }, svg);
   el("rect", { "class": "frame-i", x: 28, y: 28, width: 1144, height: 654 }, svg);
 

@@ -49,11 +49,8 @@ export default function PersonalPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPage) }}
       />
       <section className="mx-auto max-w-4xl px-6 pt-28 pb-12 md:pt-36">
-        <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
-          Personal blueprint
-        </p>
         <h1
-          className="mt-4 font-display font-bold text-foreground"
+          className="font-display font-bold text-foreground"
           style={{
             fontSize: "clamp(2.5rem, 5vw + 0.5rem, 4.5rem)",
             lineHeight: 1.05,
@@ -68,7 +65,7 @@ export default function PersonalPage() {
           can&apos;t tell you.
         </p>
         <div className="mt-8">
-          <CopyLine text="Read agentblueprint.ai/draw.md and draw me a blueprint of yourself." />
+          <CopyLine text="Read agentblueprint.ai/draw.md and draw me an agent map of yourself." />
         </div>
         <p className="mt-3 font-body text-sm text-muted-foreground">
           No sign-up. Want to read it first?{" "}

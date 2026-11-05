@@ -122,12 +122,8 @@ export default function AgentOnePageTemplatePage() {
           </li>
         </ul>
         <p className="mt-6 font-body text-sm leading-relaxed text-muted-foreground">
-          By Chris Faulkner, Agent Blueprint. Version 1, published November 1,
-          2026. Agent Blueprint is the method{" "}
-          <a href="https://nowgentic.com" className="text-primary underline underline-offset-4">
-            NowGentic
-          </a>{" "}
-          uses in its paid agent delivery work, so we have a stake in this format. It&apos;s new and hasn&apos;t been widely used yet.
+          By Chris Faulkner, Agent Blueprint&reg;. Version 1, published November 1,
+          2026. Agent Blueprint software produces records in this format, so we have a stake in it. It&apos;s new and hasn&apos;t been widely used yet.
         </p>
       </section>
 

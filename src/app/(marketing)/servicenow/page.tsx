@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/servicenow", types: { "text/markdown": "/servicenow.md" } },
 };
 
-// Live today, in development, planned. Keep this honest: change a status only when it's true.
+// Live today vs in development. Keep this honest: change a status only when it's true.
+// Software only: reviews and their prices are NowGentic's, not this page's.
 const roadmap = [
-  { status: "Live", title: "The review", text: "One agent at a time, on any platform: cost and results measured against a number set in advance, then keep, fix or stop." },
-  { status: "In development", title: "The app, ServiceNow first", text: "Keeps each agent's cost, results and decision current from the platform's own records. Not certified or in the Store yet." },
-  { status: "Planned", title: "Partners and benchmarks", text: "Other firms running the method under license, and benchmarks built from anonymized review results." },
+  { status: "Live", title: "Agent Blueprint software", text: "On the web, for any platform: a profile, ranked use cases, and an agent design with a business case for each use case you pick." },
+  { status: "In development", title: "The ServiceNow app", text: "Keeps each agent's cost and results current from the platform's own records. Not certified or in the Store yet." },
 ];
 
 const breadcrumb = breadcrumbSchema([{ name: "ServiceNow", path: "/servicenow" }]);
@@ -50,7 +50,7 @@ export default function ServiceNowPage() {
       />
       <section className="mx-auto max-w-4xl px-6 pt-28 pb-10 md:pt-36">
         <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
-          Agent Blueprint for ServiceNow
+          Agent Blueprint&reg; for ServiceNow
         </p>
         <h1
           className="mt-4 font-display font-bold text-foreground"
@@ -119,14 +119,14 @@ export default function ServiceNowPage() {
 
       <section className="border-y border-border bg-secondary/40" aria-labelledby="path-heading">
         <div className="mx-auto max-w-6xl px-6 py-14">
-          <h2 id="path-heading" className="font-display text-3xl font-bold text-foreground">How the review and the app fit</h2>
+          <h2 id="path-heading" className="font-display text-3xl font-bold text-foreground">How the software and the app fit</h2>
           <p className="mt-3 max-w-3xl font-body leading-relaxed text-muted-foreground">
-            The review works on any platform, today. The app starts on ServiceNow
-            because ServiceNow already records usage for each agent, so the app
-            can keep the review&apos;s numbers current without anyone re-measuring.
-            Each review&apos;s one-page record has the same structure the app keeps.
+            The web software works on any platform today. The app starts on
+            ServiceNow because ServiceNow already records usage for each agent,
+            so the app can keep each agent&apos;s numbers current without anyone
+            re-measuring.
           </p>
-          <ol className="mt-8 grid gap-6 md:grid-cols-3">
+          <ol className="mt-8 grid gap-6 md:grid-cols-2">
             {roadmap.map((step) => (
               <li key={step.title} className="rounded-lg border border-border bg-card p-5">
                 <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent">{step.status}</p>
@@ -135,8 +135,8 @@ export default function ServiceNowPage() {
               </li>
             ))}
           </ol>
-          <Link href="/#offer" className="group mt-8 inline-flex items-center gap-2 font-body font-semibold text-primary">
-            See the review: price and terms
+          <Link href="/#how" className="group mt-8 inline-flex items-center gap-2 font-body font-semibold text-primary">
+            See how the software works
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
@@ -145,7 +145,7 @@ export default function ServiceNowPage() {
       <ContactSection />
 
       <p className="mx-auto max-w-6xl px-6 pb-8 font-body text-xs text-muted-foreground">
-        ServiceNow is a trademark of ServiceNow, Inc. Agent Blueprint isn&apos;t
+        ServiceNow is a trademark of ServiceNow, Inc. Agent Blueprint, Inc. isn&apos;t
         affiliated with or endorsed by ServiceNow.
       </p>
     </>
