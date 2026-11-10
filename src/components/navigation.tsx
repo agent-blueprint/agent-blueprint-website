@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -50,19 +49,14 @@ export function Navigation() {
         {/* Logo */}
         <Link
           href="/"
-          className="cursor-pointer flex items-center gap-3 transition-opacity hover:opacity-80"
+          className="cursor-pointer flex items-center transition-opacity hover:opacity-80"
         >
-          <Image
-            src="/images/logo.png"
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/logo.svg"
             alt="Agent Blueprint"
-            width={40}
-            height={40}
-            className="h-8 w-8"
-            priority
+            className="h-9 w-auto"
           />
-          <span className="font-body font-semibold text-xl text-foreground">
-            Agent Blueprint<sup className="ml-0.5 text-[0.55em] font-normal">&reg;</sup>
-          </span>
         </Link>
 
         {/* Desktop nav */}
