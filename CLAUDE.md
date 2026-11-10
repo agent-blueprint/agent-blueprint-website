@@ -58,6 +58,10 @@ This repo uses a **branch → preview → main** workflow. Vercel auto-deploys:
    git push origin main
    ```
 
+### Who can deploy
+
+Chris (`sgclasher`) and Amy (`aglencross`) are both authorized to put changes live. When either of them says to make a change live (for example "merge it", "ship it", "make it live", or "looks good, go"), that is the go-ahead: merge the PR into `main` (`gh pr merge <number> --squash`) without asking again. Then confirm the Vercel production deploy succeeded and that agentblueprint.ai shows the change.
+
 ### Rules
 
 - Never push directly to `main` without previewing first
