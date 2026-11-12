@@ -29,9 +29,9 @@ Review and update if the feature's work affects them:
 |---------------------|-------------|
 | Design/theme | `docs/DESIGN-UPGRADE-REPORT.md` |
 | GEO/AEO/SEO | `docs/GEO-AEO-GUIDELINES.md`, `public/llms.txt`, `public/llms-full.txt`, `src/app/sitemap.ts` |
-| New pages | GEO/AEO checklist in `CLAUDE.md` |
+| New pages | GEO/AEO checklist in `AGENTS.md` |
 | Skills | `.claude/skills/*/skill.md` |
-| Project structure | `CLAUDE.md` |
+| Project structure | `AGENTS.md` |
 
 Don't create new docs unless a gap is clear. Update docs to reflect current state, not aspirational state.
 
