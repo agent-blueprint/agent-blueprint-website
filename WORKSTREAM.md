@@ -56,7 +56,7 @@ Agent Blueprint is no longer positioned as self-serve SaaS. It is the IP layer b
 
 ## Key Files
 ```
-CLAUDE.md                                  — project instructions, team info, workflow rules
+AGENTS.md                                  — project instructions, team info, workflow rules (CLAUDE.md imports it)
 WORKSTREAM.md                              — this file
 src/lib/metadata.ts                        — meta, JSON-LD schemas, FAQ content (single source)
 src/components/hero-section.tsx            — hero copy

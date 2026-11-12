@@ -66,7 +66,7 @@ Read `WORKSTREAM.md` in full, then update it. Keep the same structure:
 - **Check off completed items** in "What Needs Doing Next"
 - **Add new items** discovered during the session
 
-### 3. Update CLAUDE.md (only if needed)
+### 3. Update AGENTS.md (only if needed)
 
 Only update if something structural changed: new convention, new dependency, new workflow rule. Don't duplicate WORKSTREAM.md content.
 
@@ -78,7 +78,7 @@ Review and update if the session's work affects them:
 |---------------------|-------------|
 | Design/theme | `docs/DESIGN-UPGRADE-REPORT.md` |
 | GEO/AEO/SEO | `docs/GEO-AEO-GUIDELINES.md`, `public/llms.txt`, `src/app/sitemap.ts` |
-| New pages | GEO/AEO checklist in `CLAUDE.md` |
+| New pages | GEO/AEO checklist in `AGENTS.md` |
 | Skills | `.claude/skills/*/skill.md` |
 
 Don't create new docs unless a gap is clear. Flag outdated info to the user.
